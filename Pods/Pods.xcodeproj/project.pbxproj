@@ -8,14 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		0238823A66B2787F9AF9FFA42F1682D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		0D394BCB7177FD66F0676481FCBCB355 /* Pods-PodCast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E26A915CCED53994966AA16F3617493 /* Pods-PodCast-dummy.m */; };
+		03C9FC902D0689734980C13BF5E2FA5C /* Pods-PodCast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E26A915CCED53994966AA16F3617493 /* Pods-PodCast-dummy.m */; };
+		086FB8E3880FEF70BDBD26F0A1084B08 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194873C6831700D23FEAD8280D5663E1 /* DataLoader.swift */; };
+		0FC5DC620500DA3DFC7185FAB8F8EA94 /* FRadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812F627E2806AABE1C614BB0F65D0FF /* FRadioPlayer.swift */; };
+		196F1DA53FF50F9277F3A5416E408A08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		2D8EA236950FCF4A10FE58E4FC63F119 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		2E9BD2E536072D1AFABA769A257E7512 /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB08B1E13034FFC653E3A6614CB04B /* DataCache.swift */; };
+		40FB5E926FFC7F80FA014576D6A4925B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A490B31037FFE19869D23C0CBBFF6B /* ImageCache.swift */; };
+		416B73452E1FC8C3FB3EB14884938469 /* Pods-PodCast-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 95C8BF6D7A60BE6F6EC1E8CD1E430AB0 /* Pods-PodCast-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F8B4E84D67D0468CA5F5D6D4FF62D8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		66766A1CFF20D7DC4A42A225D63B1E6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		9BDC17FF50335D58A8925E8FBAEAE826 /* Pods-PodCast-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 95C8BF6D7A60BE6F6EC1E8CD1E430AB0 /* Pods-PodCast-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54525F1DF04DB8FFF5ADE6D5B597A62D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		62AD006426E3689455802E70B2A02097 /* ImagePreheater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F62C2A1038F260D12535975D1C82D /* ImagePreheater.swift */; };
+		7C71BE2AA014D4087407BF7349E07CE0 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CC943AE2CB56B16E94F2B1D6FFC37E /* Internal.swift */; };
+		83500CF64088A3E518C2467B866C1961 /* Nuke-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F797C38A36F9192C5F5C05BC724E4D2F /* Nuke-dummy.m */; };
+		8BEC1425D6F850AF5B3CA1772B500684 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA76244A6BF64C110AFD17AA9FC50D0 /* ImageView.swift */; };
 		9C0AE732502842289B757C11F87BEC02 /* Pods-PodCastUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D243245D0DADA17C4801F2AB1C571BE4 /* Pods-PodCastUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F5EDD99DEA5080FAC77FF9364470E8C /* FRadioPlayer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99474B92B4E18BA3E1DAD3B20713869A /* FRadioPlayer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF4CFC27913F7BB2C5AFE5D11123E50 /* Pods-PodCastUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59DA599DF39E6722211AC15C483FD33F /* Pods-PodCastUITests-dummy.m */; };
+		B2767DAFBD6B5D274A4A9D460D47DEA8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD13F73F7A464548279191E7AB65196 /* Reachability.swift */; };
+		BA38A0652AAB1C01C8C93E64DA286E44 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191584F67D16141699AF3498D2F2A57C /* ImageRequest.swift */; };
+		BF4432544D9B8F444C78648DEB526148 /* ImageDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091A8DDA1E569F5F3963212A4E5B554 /* ImageDecoding.swift */; };
 		C8021D7BE3E58801FED4FF437D20DB06 /* Pods-PodCastTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1836E73929B302ADBBE7FF960F76B1 /* Pods-PodCastTests-dummy.m */; };
+		C9BDC33677CBA9876B485BCA682F6570 /* ImageTaskMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE659B3501013E0ED6EDC4A42062C3 /* ImageTaskMetrics.swift */; };
+		CDB153FBA89ECF1EB0F9206C11BA7BD2 /* ImagePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBEF4E4A9ABEDDFC695043E42058CB5 /* ImagePipeline.swift */; };
+		CE8E1D50269CB201C909237460193974 /* ImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B9D8D5737E23E66B9F76AD4E246309 /* ImageProcessing.swift */; };
+		CE9802AD726FC484989D063650511807 /* FRadioPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 889875794DD6B05746DA072054185A3D /* FRadioPlayer-dummy.m */; };
+		CF9F6462E416DC213FBAF91EEA9F654C /* FRadioAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B30A42E1978D0FBF88F13040899510 /* FRadioAPI.swift */; };
 		DBEA445C9B719638195F3B448907D33D /* Pods-PodCastTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F9EF1E51FB3CEBB10F73A83456341A64 /* Pods-PodCastTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EED05E93AC577384B45840D52B9C927A /* Nuke-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 96AE183A1B70EA6FA3FA0659CF8D5331 /* Nuke-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,57 +43,107 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5BBB35FA352E8AE6F6A05748FB78A81A;
+			remoteGlobalIDString = B99C887FF24AA7D4BA54F2736790AA8E;
 			remoteInfo = "Pods-PodCast";
 		};
 		6D9C0221B53F15609A852B00B8DB0656 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5BBB35FA352E8AE6F6A05748FB78A81A;
+			remoteGlobalIDString = B99C887FF24AA7D4BA54F2736790AA8E;
 			remoteInfo = "Pods-PodCast";
+		};
+		9A69B107FC72D606118CC6C8E01263FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F96C279E21A125B57A490813E976418;
+			remoteInfo = FRadioPlayer;
+		};
+		A838F434573A7C6CC29BB83691325C65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97439597CD530FAC14ED60D5E17C55FC;
+			remoteInfo = Nuke;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		022F62C2A1038F260D12535975D1C82D /* ImagePreheater.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePreheater.swift; path = Sources/ImagePreheater.swift; sourceTree = "<group>"; };
 		0F18E92012DDAADE5291B3C59451F141 /* Pods-PodCastTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PodCastTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		10CF99319C5A10004B8119D1A7346E7B /* FRadioPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FRadioPlayer-prefix.pch"; sourceTree = "<group>"; };
+		191584F67D16141699AF3498D2F2A57C /* ImageRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageRequest.swift; path = Sources/ImageRequest.swift; sourceTree = "<group>"; };
+		194873C6831700D23FEAD8280D5663E1 /* DataLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataLoader.swift; path = Sources/DataLoader.swift; sourceTree = "<group>"; };
+		19DC401F32612D7C28858DBA4380E233 /* FRadioPlayer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FRadioPlayer.modulemap; sourceTree = "<group>"; };
 		1F13C555C48EA3B414DA6BB0DE8392AE /* Pods-PodCastUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PodCastUITests-resources.sh"; sourceTree = "<group>"; };
 		204CD0BCB02D65D48C4E097BD0AF73CA /* Pods-PodCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PodCast.debug.xcconfig"; sourceTree = "<group>"; };
 		25985C6518D4DC0601C5016B2B1D6128 /* Pods-PodCast-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PodCast-acknowledgements.plist"; sourceTree = "<group>"; };
 		265E6CC02ACDE45EF57616BB93EDE7C5 /* Pods-PodCastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PodCastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2951FB456014B92D6DAA103801A74D42 /* Pods-PodCast-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PodCast-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2D19079B6C1684BAFD97748232BBD408 /* Pods-PodCastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PodCastTests.release.xcconfig"; sourceTree = "<group>"; };
+		3C94F22527E6F243B3836503D6C4C122 /* Pods_PodCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PodCast.framework; path = "Pods-PodCast.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DBEF4E4A9ABEDDFC695043E42058CB5 /* ImagePipeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePipeline.swift; path = Sources/ImagePipeline.swift; sourceTree = "<group>"; };
+		4AA1F0214F88AE1E62691D8F8135693B /* Nuke.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nuke.xcconfig; sourceTree = "<group>"; };
+		4DEE659B3501013E0ED6EDC4A42062C3 /* ImageTaskMetrics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTaskMetrics.swift; path = Sources/ImageTaskMetrics.swift; sourceTree = "<group>"; };
 		59DA599DF39E6722211AC15C483FD33F /* Pods-PodCastUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PodCastUITests-dummy.m"; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5BE4E39212D74AA7AC4C1B0876C3B591 /* Pods-PodCast-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PodCast-frameworks.sh"; sourceTree = "<group>"; };
-		5E01D0DB70A3AEECBBB6752006E1B574 /* Pods_PodCastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PodCastTests.framework; path = "Pods-PodCastTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E472B5D4EB462AED2D15B5436BAF383 /* FRadioPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FRadioPlayer.framework; path = FRadioPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6812F627E2806AABE1C614BB0F65D0FF /* FRadioPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FRadioPlayer.swift; path = Source/FRadioPlayer.swift; sourceTree = "<group>"; };
 		7BA65C2B3855FE9D6850A987EBC0FCBC /* Pods-PodCastUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PodCastUITests.modulemap"; sourceTree = "<group>"; };
 		7DB39BDAB2A39E269FD1E3191A1BAF04 /* Pods-PodCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PodCast.release.xcconfig"; sourceTree = "<group>"; };
 		7E26A915CCED53994966AA16F3617493 /* Pods-PodCast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PodCast-dummy.m"; sourceTree = "<group>"; };
+		8091A8DDA1E569F5F3963212A4E5B554 /* ImageDecoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDecoding.swift; path = Sources/ImageDecoding.swift; sourceTree = "<group>"; };
 		813FDF8344830B1F1FE61AA889BEA14A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82ED65DF34D1EAFC773900FA48D68B34 /* Pods-PodCastUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PodCastUITests-frameworks.sh"; sourceTree = "<group>"; };
+		856C3006AF1E1D7747088B907B813D81 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		889875794DD6B05746DA072054185A3D /* FRadioPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FRadioPlayer-dummy.m"; sourceTree = "<group>"; };
 		88B934AF3F26EC31535D89AE98BB6B47 /* Pods-PodCastTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PodCastTests-resources.sh"; sourceTree = "<group>"; };
+		88F8E9731F770756434E7D61FD02A830 /* Nuke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Nuke.framework; path = Nuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A75E89CD855DEA9775BFB7821081034 /* FRadioPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FRadioPlayer.xcconfig; sourceTree = "<group>"; };
+		90B9D8D5737E23E66B9F76AD4E246309 /* ImageProcessing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessing.swift; path = Sources/ImageProcessing.swift; sourceTree = "<group>"; };
 		939E43D0CFB913826C67F3E1BB7AE978 /* Pods-PodCastTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PodCastTests-frameworks.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95C8BF6D7A60BE6F6EC1E8CD1E430AB0 /* Pods-PodCast-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PodCast-umbrella.h"; sourceTree = "<group>"; };
+		96AE183A1B70EA6FA3FA0659CF8D5331 /* Nuke-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nuke-umbrella.h"; sourceTree = "<group>"; };
+		974A96D91C92ED74701DB4B15D18F039 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99405E62E13A7784133F957AFFA57913 /* Pods-PodCastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PodCastTests.debug.xcconfig"; sourceTree = "<group>"; };
+		99474B92B4E18BA3E1DAD3B20713869A /* FRadioPlayer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FRadioPlayer-umbrella.h"; sourceTree = "<group>"; };
 		9A04A36F366DE124343DCFC47F11DE67 /* Pods-PodCastUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PodCastUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A2CC943AE2CB56B16E94F2B1D6FFC37E /* Internal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Internal.swift; path = Sources/Internal.swift; sourceTree = "<group>"; };
+		A55C0E52B1619F43A20ED8403B5AAC31 /* Pods_PodCastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PodCastUITests.framework; path = "Pods-PodCastUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56CD575B4291A5C127DAD38AF30DEAC /* Pods-PodCast.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PodCast.modulemap"; sourceTree = "<group>"; };
 		B5F5F4829B9CC121990158A77A4ACF12 /* Pods-PodCastTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PodCastTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		B64D1CE2E9DFE9051DAC5D5B8DBDBC80 /* Pods-PodCastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PodCastUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B6B62FE80E70F42C18FAFC8DDC268FC5 /* Pods-PodCast-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PodCast-resources.sh"; sourceTree = "<group>"; };
+		BB523D7C834016BEF5EAD1853F4D334D /* Nuke.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Nuke.modulemap; sourceTree = "<group>"; };
 		BE6B7EF54C452FF06D4D34FD8C29116D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C214386A30B59E9F08A6A724F03533C3 /* Pods_PodCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PodCast.framework; path = "Pods-PodCast.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFA76244A6BF64C110AFD17AA9FC50D0 /* ImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageView.swift; path = Sources/ImageView.swift; sourceTree = "<group>"; };
 		C6D7D376C3A5D2DF6C13B1C6D2CCD3C4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C88FAEF7300E228D53CC05287EB5B7FA /* Nuke-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nuke-prefix.pch"; sourceTree = "<group>"; };
+		C9A490B31037FFE19869D23C0CBBFF6B /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
 		D243245D0DADA17C4801F2AB1C571BE4 /* Pods-PodCastUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PodCastUITests-umbrella.h"; sourceTree = "<group>"; };
+		E5B30A42E1978D0FBF88F13040899510 /* FRadioAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FRadioAPI.swift; path = Source/FRadioAPI.swift; sourceTree = "<group>"; };
 		EA8F7B1C20FDF0B0B4F5A693F5ABAC63 /* Pods-PodCastUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PodCastUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EC80E94227BD4851E82CBFA74C438378 /* Pods_PodCastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PodCastUITests.framework; path = "Pods-PodCastUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD13F73F7A464548279191E7AB65196 /* Reachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Source/Reachability.swift; sourceTree = "<group>"; };
+		F1EB08B1E13034FFC653E3A6614CB04B /* DataCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataCache.swift; path = Sources/DataCache.swift; sourceTree = "<group>"; };
+		F797C38A36F9192C5F5C05BC724E4D2F /* Nuke-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Nuke-dummy.m"; sourceTree = "<group>"; };
 		F9EF1E51FB3CEBB10F73A83456341A64 /* Pods-PodCastTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PodCastTests-umbrella.h"; sourceTree = "<group>"; };
+		FAABE3D2ED34D9DA9516A8EC54C78348 /* Pods_PodCastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PodCastTests.framework; path = "Pods-PodCastTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC1836E73929B302ADBBE7FF960F76B1 /* Pods-PodCastTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PodCastTests-dummy.m"; sourceTree = "<group>"; };
 		FE8C2779FAC3092C5A0A53EB9D414502 /* Pods-PodCastTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PodCastTests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		00A426837F30AFD0E47EF1D3A76F0D67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8EA236950FCF4A10FE58E4FC63F119 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13F841180509E23250A16F33FEE3CBA5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,11 +160,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76CAF58811CF5388E7332EEC8B7FE6B4 /* Frameworks */ = {
+		238657CCD028AD6C126F1D2CEFC9E28F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66766A1CFF20D7DC4A42A225D63B1E6B /* Foundation.framework in Frameworks */,
+				54525F1DF04DB8FFF5ADE6D5B597A62D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AAE981243D1CBFBCAE7144F106A7FFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				196F1DA53FF50F9277F3A5416E408A08 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +195,15 @@
 			);
 			name = "Pods-PodCastUITests";
 			path = "Target Support Files/Pods-PodCastUITests";
+			sourceTree = "<group>";
+		};
+		41BDD6BA377B3660D1C09152259B8B01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A06076648B3CCC19030A28C80A05A061 /* FRadioPlayer */,
+				99E8EA5992D0FA1324F85F9A10B1AAB9 /* Nuke */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		5B595B7DA351F108AB3855B734CAA9AA /* Pods-PodCast */ = {
@@ -150,19 +237,70 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				8DB761392FAD4D97F03C4D148AADA577 /* Products */,
+				41BDD6BA377B3660D1C09152259B8B01 /* Pods */,
+				D809899480E66577B2DC0E3DFD5F1DF8 /* Products */,
 				E01D9E52E7FBE4D6FF5B22B23671F47B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8DB761392FAD4D97F03C4D148AADA577 /* Products */ = {
+		99E8EA5992D0FA1324F85F9A10B1AAB9 /* Nuke */ = {
 			isa = PBXGroup;
 			children = (
-				C214386A30B59E9F08A6A724F03533C3 /* Pods_PodCast.framework */,
-				5E01D0DB70A3AEECBBB6752006E1B574 /* Pods_PodCastTests.framework */,
-				EC80E94227BD4851E82CBFA74C438378 /* Pods_PodCastUITests.framework */,
+				F1EB08B1E13034FFC653E3A6614CB04B /* DataCache.swift */,
+				194873C6831700D23FEAD8280D5663E1 /* DataLoader.swift */,
+				C9A490B31037FFE19869D23C0CBBFF6B /* ImageCache.swift */,
+				8091A8DDA1E569F5F3963212A4E5B554 /* ImageDecoding.swift */,
+				3DBEF4E4A9ABEDDFC695043E42058CB5 /* ImagePipeline.swift */,
+				022F62C2A1038F260D12535975D1C82D /* ImagePreheater.swift */,
+				90B9D8D5737E23E66B9F76AD4E246309 /* ImageProcessing.swift */,
+				191584F67D16141699AF3498D2F2A57C /* ImageRequest.swift */,
+				4DEE659B3501013E0ED6EDC4A42062C3 /* ImageTaskMetrics.swift */,
+				BFA76244A6BF64C110AFD17AA9FC50D0 /* ImageView.swift */,
+				A2CC943AE2CB56B16E94F2B1D6FFC37E /* Internal.swift */,
+				B720B37824F5E54EFD1C64B1EF21851F /* Support Files */,
 			);
-			name = Products;
+			name = Nuke;
+			path = Nuke;
+			sourceTree = "<group>";
+		};
+		A06076648B3CCC19030A28C80A05A061 /* FRadioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E5B30A42E1978D0FBF88F13040899510 /* FRadioAPI.swift */,
+				6812F627E2806AABE1C614BB0F65D0FF /* FRadioPlayer.swift */,
+				EDD13F73F7A464548279191E7AB65196 /* Reachability.swift */,
+				B7EF5C73E807C25D1637DAE34204D385 /* Support Files */,
+			);
+			name = FRadioPlayer;
+			path = FRadioPlayer;
+			sourceTree = "<group>";
+		};
+		B720B37824F5E54EFD1C64B1EF21851F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				974A96D91C92ED74701DB4B15D18F039 /* Info.plist */,
+				BB523D7C834016BEF5EAD1853F4D334D /* Nuke.modulemap */,
+				4AA1F0214F88AE1E62691D8F8135693B /* Nuke.xcconfig */,
+				F797C38A36F9192C5F5C05BC724E4D2F /* Nuke-dummy.m */,
+				C88FAEF7300E228D53CC05287EB5B7FA /* Nuke-prefix.pch */,
+				96AE183A1B70EA6FA3FA0659CF8D5331 /* Nuke-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Nuke";
+			sourceTree = "<group>";
+		};
+		B7EF5C73E807C25D1637DAE34204D385 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				19DC401F32612D7C28858DBA4380E233 /* FRadioPlayer.modulemap */,
+				8A75E89CD855DEA9775BFB7821081034 /* FRadioPlayer.xcconfig */,
+				889875794DD6B05746DA072054185A3D /* FRadioPlayer-dummy.m */,
+				10CF99319C5A10004B8119D1A7346E7B /* FRadioPlayer-prefix.pch */,
+				99474B92B4E18BA3E1DAD3B20713869A /* FRadioPlayer-umbrella.h */,
+				856C3006AF1E1D7747088B907B813D81 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FRadioPlayer";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -171,6 +309,18 @@
 				5E0D919E635D23B70123790B8308F8EF /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D809899480E66577B2DC0E3DFD5F1DF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E472B5D4EB462AED2D15B5436BAF383 /* FRadioPlayer.framework */,
+				88F8E9731F770756434E7D61FD02A830 /* Nuke.framework */,
+				3C94F22527E6F243B3836503D6C4C122 /* Pods_PodCast.framework */,
+				FAABE3D2ED34D9DA9516A8EC54C78348 /* Pods_PodCastTests.framework */,
+				A55C0E52B1619F43A20ED8403B5AAC31 /* Pods_PodCastUITests.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		E01D9E52E7FBE4D6FF5B22B23671F47B /* Targets Support Files */ = {
@@ -212,11 +362,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C9BB38D0E8838F3E11D16C53C979F814 /* Headers */ = {
+		BB2705EC48249DC36E1ECC9092F4FA37 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BDC17FF50335D58A8925E8FBAEAE826 /* Pods-PodCast-umbrella.h in Headers */,
+				9F5EDD99DEA5080FAC77FF9364470E8C /* FRadioPlayer-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3B2059CF9C433BE65034B496F2F352 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EED05E93AC577384B45840D52B9C927A /* Nuke-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +383,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBEA445C9B719638195F3B448907D33D /* Pods-PodCastTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1AAA90525A7DD8244530135DF4466CF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416B73452E1FC8C3FB3EB14884938469 /* Pods-PodCast-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,25 +413,63 @@
 			);
 			name = "Pods-PodCastTests";
 			productName = "Pods-PodCastTests";
-			productReference = 5E01D0DB70A3AEECBBB6752006E1B574 /* Pods_PodCastTests.framework */;
+			productReference = FAABE3D2ED34D9DA9516A8EC54C78348 /* Pods_PodCastTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5BBB35FA352E8AE6F6A05748FB78A81A /* Pods-PodCast */ = {
+		2F96C279E21A125B57A490813E976418 /* FRadioPlayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C925CE617A1D50865F8F4C1C80FFF04 /* Build configuration list for PBXNativeTarget "Pods-PodCast" */;
+			buildConfigurationList = 58B0DF0C7B6F0768979CB225E1F84E0D /* Build configuration list for PBXNativeTarget "FRadioPlayer" */;
 			buildPhases = (
-				C9BB38D0E8838F3E11D16C53C979F814 /* Headers */,
-				204F758461E5FA02379299660805A28C /* Sources */,
-				76CAF58811CF5388E7332EEC8B7FE6B4 /* Frameworks */,
-				7A13C8DE0370D2008E87B85090903FD6 /* Resources */,
+				BB2705EC48249DC36E1ECC9092F4FA37 /* Headers */,
+				93EE5457185B92AD95D910EC778B33C0 /* Sources */,
+				3AAE981243D1CBFBCAE7144F106A7FFD /* Frameworks */,
+				8E70F0A304D706ADB9E93183A38A72FE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = FRadioPlayer;
+			productName = FRadioPlayer;
+			productReference = 5E472B5D4EB462AED2D15B5436BAF383 /* FRadioPlayer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		97439597CD530FAC14ED60D5E17C55FC /* Nuke */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1624AB59C9783631BDEEAB1EE5F74F49 /* Build configuration list for PBXNativeTarget "Nuke" */;
+			buildPhases = (
+				CE3B2059CF9C433BE65034B496F2F352 /* Headers */,
+				86D7A50859B283F77CFE18D44819B7C0 /* Sources */,
+				238657CCD028AD6C126F1D2CEFC9E28F /* Frameworks */,
+				5F5FC5B30839A4E173997E0A7FC5E911 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nuke;
+			productName = Nuke;
+			productReference = 88F8E9731F770756434E7D61FD02A830 /* Nuke.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B99C887FF24AA7D4BA54F2736790AA8E /* Pods-PodCast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B05A80F78B39561765C7CA7DDEEA6B4A /* Build configuration list for PBXNativeTarget "Pods-PodCast" */;
+			buildPhases = (
+				F1AAA90525A7DD8244530135DF4466CF /* Headers */,
+				FA6C7EBAFCD39A2CA529CD9BB2F89916 /* Sources */,
+				00A426837F30AFD0E47EF1D3A76F0D67 /* Frameworks */,
+				C22E705E8FC9AEB790ED5F8ACD9FD7E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8CD0B3648C9C43A9A70A0A86FFBAE0F /* PBXTargetDependency */,
+				975E08474BADAB58C8265616886D8328 /* PBXTargetDependency */,
+			);
 			name = "Pods-PodCast";
 			productName = "Pods-PodCast";
-			productReference = C214386A30B59E9F08A6A724F03533C3 /* Pods_PodCast.framework */;
+			productReference = 3C94F22527E6F243B3836503D6C4C122 /* Pods_PodCast.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CE058A248DB64F99F878C50B1486C696 /* Pods-PodCastUITests */ = {
@@ -284,7 +488,7 @@
 			);
 			name = "Pods-PodCastUITests";
 			productName = "Pods-PodCastUITests";
-			productReference = EC80E94227BD4851E82CBFA74C438378 /* Pods_PodCastUITests.framework */;
+			productReference = A55C0E52B1619F43A20ED8403B5AAC31 /* Pods_PodCastUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -304,11 +508,13 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 8DB761392FAD4D97F03C4D148AADA577 /* Products */;
+			productRefGroup = D809899480E66577B2DC0E3DFD5F1DF8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5BBB35FA352E8AE6F6A05748FB78A81A /* Pods-PodCast */,
+				2F96C279E21A125B57A490813E976418 /* FRadioPlayer */,
+				97439597CD530FAC14ED60D5E17C55FC /* Nuke */,
+				B99C887FF24AA7D4BA54F2736790AA8E /* Pods-PodCast */,
 				1EAF1B5FE688633C9B21415B20C5CACC /* Pods-PodCastTests */,
 				CE058A248DB64F99F878C50B1486C696 /* Pods-PodCastUITests */,
 			);
@@ -323,7 +529,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A13C8DE0370D2008E87B85090903FD6 /* Resources */ = {
+		5F5FC5B30839A4E173997E0A7FC5E911 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,22 +543,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		204F758461E5FA02379299660805A28C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		8E70F0A304D706ADB9E93183A38A72FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D394BCB7177FD66F0676481FCBCB355 /* Pods-PodCast-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C22E705E8FC9AEB790ED5F8ACD9FD7E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		4941FF31980C306B0014C307DD226F8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C8021D7BE3E58801FED4FF437D20DB06 /* Pods-PodCastTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D7A50859B283F77CFE18D44819B7C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E9BD2E536072D1AFABA769A257E7512 /* DataCache.swift in Sources */,
+				086FB8E3880FEF70BDBD26F0A1084B08 /* DataLoader.swift in Sources */,
+				40FB5E926FFC7F80FA014576D6A4925B /* ImageCache.swift in Sources */,
+				BF4432544D9B8F444C78648DEB526148 /* ImageDecoding.swift in Sources */,
+				CDB153FBA89ECF1EB0F9206C11BA7BD2 /* ImagePipeline.swift in Sources */,
+				62AD006426E3689455802E70B2A02097 /* ImagePreheater.swift in Sources */,
+				CE8E1D50269CB201C909237460193974 /* ImageProcessing.swift in Sources */,
+				BA38A0652AAB1C01C8C93E64DA286E44 /* ImageRequest.swift in Sources */,
+				C9BDC33677CBA9876B485BCA682F6570 /* ImageTaskMetrics.swift in Sources */,
+				8BEC1425D6F850AF5B3CA1772B500684 /* ImageView.swift in Sources */,
+				7C71BE2AA014D4087407BF7349E07CE0 /* Internal.swift in Sources */,
+				83500CF64088A3E518C2467B866C1961 /* Nuke-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93EE5457185B92AD95D910EC778B33C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF9F6462E416DC213FBAF91EEA9F654C /* FRadioAPI.swift in Sources */,
+				CE9802AD726FC484989D063650511807 /* FRadioPlayer-dummy.m in Sources */,
+				0FC5DC620500DA3DFC7185FAB8F8EA94 /* FRadioPlayer.swift in Sources */,
+				B2767DAFBD6B5D274A4A9D460D47DEA8 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,29 +606,84 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA6C7EBAFCD39A2CA529CD9BB2F89916 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C9FC902D0689734980C13BF5E2FA5C /* Pods-PodCast-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		975E08474BADAB58C8265616886D8328 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Nuke;
+			target = 97439597CD530FAC14ED60D5E17C55FC /* Nuke */;
+			targetProxy = A838F434573A7C6CC29BB83691325C65 /* PBXContainerItemProxy */;
+		};
 		BF28634FEE9B6CE3F46E28279AC3BDE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-PodCast";
-			target = 5BBB35FA352E8AE6F6A05748FB78A81A /* Pods-PodCast */;
+			target = B99C887FF24AA7D4BA54F2736790AA8E /* Pods-PodCast */;
 			targetProxy = 52F16F3525AD42133B639CB60FEA017F /* PBXContainerItemProxy */;
+		};
+		C8CD0B3648C9C43A9A70A0A86FFBAE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FRadioPlayer;
+			target = 2F96C279E21A125B57A490813E976418 /* FRadioPlayer */;
+			targetProxy = 9A69B107FC72D606118CC6C8E01263FA /* PBXContainerItemProxy */;
 		};
 		FDB6E02840B22A68F9FFA574455A5C02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-PodCast";
-			target = 5BBB35FA352E8AE6F6A05748FB78A81A /* Pods-PodCast */;
+			target = B99C887FF24AA7D4BA54F2736790AA8E /* Pods-PodCast */;
 			targetProxy = 6D9C0221B53F15609A852B00B8DB0656 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05E75C003C04A97D092656E4AF6273F2 /* Debug */ = {
+		2FAB990C9D2B1D163896D4F99CECB8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 204CD0BCB02D65D48C4E097BD0AF73CA /* Pods-PodCast.debug.xcconfig */;
+			baseConfigurationReference = 4AA1F0214F88AE1E62691D8F8135693B /* Nuke.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Nuke/Nuke-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Nuke/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Nuke/Nuke.modulemap";
+				PRODUCT_MODULE_NAME = Nuke;
+				PRODUCT_NAME = Nuke;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		327AA2969ED6CAF0BF4CC9D296A6905D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A75E89CD855DEA9775BFB7821081034 /* FRadioPlayer.xcconfig */;
+			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -397,23 +694,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PodCast/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/FRadioPlayer/FRadioPlayer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FRadioPlayer/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PodCast/Pods-PodCast.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/FRadioPlayer/FRadioPlayer.modulemap";
+				PRODUCT_MODULE_NAME = FRadioPlayer;
+				PRODUCT_NAME = FRadioPlayer;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -459,6 +756,46 @@
 			};
 			name = Release;
 		};
+		62A1B07753F38D5873FE330651FB75A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 204CD0BCB02D65D48C4E097BD0AF73CA /* Pods-PodCast.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PodCast/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PodCast/Pods-PodCast.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		6512F3B7D4FEC476B36FBAB2C50858FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 265E6CC02ACDE45EF57616BB93EDE7C5 /* Pods-PodCastUITests.debug.xcconfig */;
@@ -497,7 +834,7 @@
 			};
 			name = Debug;
 		};
-		75EC37040775E23DAD4D724CE0BD0155 /* Release */ = {
+		76E563B734B4394795471B2228472337 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7DB39BDAB2A39E269FD1E3191A1BAF04 /* Pods-PodCast.release.xcconfig */;
 			buildSettings = {
@@ -529,6 +866,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -697,6 +1036,83 @@
 			};
 			name = Debug;
 		};
+		B9BB11AEEDC5C99C81AEFFA9E6199DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AA1F0214F88AE1E62691D8F8135693B /* Nuke.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Nuke/Nuke-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Nuke/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Nuke/Nuke.modulemap";
+				PRODUCT_MODULE_NAME = Nuke;
+				PRODUCT_NAME = Nuke;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F10144F3AB7A671333FFF6F0C5C1AD4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A75E89CD855DEA9775BFB7821081034 /* FRadioPlayer.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FRadioPlayer/FRadioPlayer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FRadioPlayer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FRadioPlayer/FRadioPlayer.modulemap";
+				PRODUCT_MODULE_NAME = FRadioPlayer;
+				PRODUCT_NAME = FRadioPlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F2CC7710A4555F80DCE6E61888AE0CCB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B64D1CE2E9DFE9051DAC5D5B8DBDBC80 /* Pods-PodCastUITests.release.xcconfig */;
@@ -739,11 +1155,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1C925CE617A1D50865F8F4C1C80FFF04 /* Build configuration list for PBXNativeTarget "Pods-PodCast" */ = {
+		1624AB59C9783631BDEEAB1EE5F74F49 /* Build configuration list for PBXNativeTarget "Nuke" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05E75C003C04A97D092656E4AF6273F2 /* Debug */,
-				75EC37040775E23DAD4D724CE0BD0155 /* Release */,
+				2FAB990C9D2B1D163896D4F99CECB8FD /* Debug */,
+				B9BB11AEEDC5C99C81AEFFA9E6199DF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -762,6 +1178,24 @@
 			buildConfigurations = (
 				6512F3B7D4FEC476B36FBAB2C50858FE /* Debug */,
 				F2CC7710A4555F80DCE6E61888AE0CCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B0DF0C7B6F0768979CB225E1F84E0D /* Build configuration list for PBXNativeTarget "FRadioPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				327AA2969ED6CAF0BF4CC9D296A6905D /* Debug */,
+				F10144F3AB7A671333FFF6F0C5C1AD4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B05A80F78B39561765C7CA7DDEEA6B4A /* Build configuration list for PBXNativeTarget "Pods-PodCast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62A1B07753F38D5873FE330651FB75A7 /* Debug */,
+				76E563B734B4394795471B2228472337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

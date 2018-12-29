@@ -3,6 +3,8 @@
 
 target 'PodCast' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  pod 'FRadioPlayer'
+  pod 'Nuke'
   use_frameworks!
 
   # Pods for PodCast

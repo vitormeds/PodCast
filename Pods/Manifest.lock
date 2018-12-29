@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: fe11fb2bbaa09060c9c051544ee07c41643078c3
+PODS:
+  - FRadioPlayer (0.1.11)
+  - Nuke (7.5)
+
+DEPENDENCIES:
+  - FRadioPlayer
+  - Nuke
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FRadioPlayer
+    - Nuke
+
+SPEC CHECKSUMS:
+  FRadioPlayer: 27b1b7dd33d12ff01b67dc57c89999baf0bbb3e6
+  Nuke: 799c0430f87b11c4dacfa80b13e1c4f0a1464b90
+
+PODFILE CHECKSUM: adbd757c4d1502f207bd81d519ec525855fe9791
 
 COCOAPODS: 1.5.3

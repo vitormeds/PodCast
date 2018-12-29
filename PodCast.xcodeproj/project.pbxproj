@@ -16,6 +16,8 @@
 		F42561BA21D3C31500AA22A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42561B821D3C31500AA22A1 /* LaunchScreen.storyboard */; };
 		F42561C521D3C31500AA22A1 /* PodCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561C421D3C31500AA22A1 /* PodCastTests.swift */; };
 		F42561D021D3C31500AA22A1 /* PodCastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561CF21D3C31500AA22A1 /* PodCastUITests.swift */; };
+		F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */; };
+		F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */; };
 		F5AFDB762332693308E7D5B9 /* Pods_PodCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		F42561CB21D3C31500AA22A1 /* PodCastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodCastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42561CF21D3C31500AA22A1 /* PodCastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastUITests.swift; sourceTree = "<group>"; };
 		F42561D121D3C31500AA22A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
+		F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 		F42561AB21D3C31400AA22A1 /* PodCast */ = {
 			isa = PBXGroup;
 			children = (
+				F4F6DA9421D6FF4300A2CCA2 /* Util */,
+				F4F6DA9321D6E80700A2CCA2 /* View */,
 				F42561AC21D3C31400AA22A1 /* AppDelegate.swift */,
 				F42561AE21D3C31400AA22A1 /* ViewController.swift */,
 				F42561B621D3C31500AA22A1 /* Assets.xcassets */,
@@ -165,6 +171,22 @@
 			path = PodCastUITests;
 			sourceTree = "<group>";
 		};
+		F4F6DA9321D6E80700A2CCA2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4F6DA9421D6FF4300A2CCA2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +198,7 @@
 				F42561A521D3C31400AA22A1 /* Sources */,
 				F42561A621D3C31400AA22A1 /* Frameworks */,
 				F42561A721D3C31400AA22A1 /* Resources */,
+				C6EABEA847A0BFD1D1C1F65F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +361,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C6EABEA847A0BFD1D1C1F65F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PodCast/Pods-PodCast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRadioPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodCast/Pods-PodCast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E5390B6F1FCCA3B0EC42E0D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,7 +415,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F42561AF21D3C31400AA22A1 /* ViewController.swift in Sources */,
+				F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */,
 				F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */,
+				F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */,
 				F42561AD21D3C31400AA22A1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
