@@ -141,10 +141,10 @@
 		F42561AB21D3C31400AA22A1 /* PodCast */ = {
 			isa = PBXGroup;
 			children = (
+				F42561AC21D3C31400AA22A1 /* AppDelegate.swift */,
 				F4F6DA9421D6FF4300A2CCA2 /* Util */,
 				F4F6DA9321D6E80700A2CCA2 /* View */,
-				F42561AC21D3C31400AA22A1 /* AppDelegate.swift */,
-				F42561AE21D3C31400AA22A1 /* ViewController.swift */,
+				F4AB34F121D729C900DAD399 /* Controller */,
 				F42561B621D3C31500AA22A1 /* Assets.xcassets */,
 				F42561B821D3C31500AA22A1 /* LaunchScreen.storyboard */,
 				F42561BB21D3C31500AA22A1 /* Info.plist */,
@@ -169,6 +169,14 @@
 				F42561D121D3C31500AA22A1 /* Info.plist */,
 			);
 			path = PodCastUITests;
+			sourceTree = "<group>";
+		};
+		F4AB34F121D729C900DAD399 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F42561AE21D3C31400AA22A1 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F4F6DA9321D6E80700A2CCA2 /* View */ = {

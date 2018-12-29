@@ -29,6 +29,8 @@ class ViewController: UIViewController  {
         audioPlayerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         audioPlayerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         Nuke.loadImage(with: URL(string: "https://d3sv2eduhewoas.cloudfront.net/channel/image/7027eee6298a4d1387a243d1a901578c.jpg")!, into: audioPlayerView.artImageView)
+        audioPlayerView.durationLabel.text = "00:03:08"
+        audioPlayerView.timeLabel.text = "00:00:00"
     }
     
     func setupActions() {
@@ -55,8 +57,7 @@ class ViewController: UIViewController  {
         audioPlayerView.progressBarSlider.addTarget(self, action: #selector(slidingAction(_:)), for: .allEditingEvents)
         
         updater = CADisplayLink(target: self, selector: #selector(updateAudioProgressView))
-        updater.frameInterval = 1
-        
+        updater.preferredFramesPerSecond = Int(0.1)
     }
     
     func setupAudio() {
@@ -73,7 +74,7 @@ class ViewController: UIViewController  {
     @objc func playbackSliderValueChanged(_ playbackSlider:UISlider)
     {
         let seconds : Double = (Double(audioPlayerView.progressBarSlider.value * 100))
-        var result = ((player?.currentItem?.duration.seconds)! * seconds) / 100
+        let result = ((player?.currentItem?.duration.seconds)! * seconds) / 100
         let targetTime:CMTime = CMTimeMake(value: Int64(result), timescale: 1)
         
         player!.seek(to: targetTime)
@@ -87,29 +88,33 @@ class ViewController: UIViewController  {
     
     @objc func advanceSec()
     {
-        let seconds : Double = (Double(audioPlayerView.progressBarSlider.value * 100))
-        var result = ((player?.currentItem?.duration.seconds)! * seconds) / 100
-        let targetTime:CMTime = CMTimeMake(value: Int64(result + 10), timescale: 1)
-        
-        player!.seek(to: targetTime)
-        
-        if player!.rate == 0
-        {
-            player?.play()
+        if isPlaying {
+            let seconds : Double = (Double(audioPlayerView.progressBarSlider.value * 100))
+            let result = ((player?.currentItem?.duration.seconds)! * seconds) / 100
+            let targetTime:CMTime = CMTimeMake(value: Int64(result + 10), timescale: 1)
+            
+            player!.seek(to: targetTime)
+            
+            if player!.rate == 0
+            {
+                player?.play()
+            }
         }
     }
     
     @objc func backSec()
     {
-        let seconds : Double = (Double(audioPlayerView.progressBarSlider.value * 100))
-        var result = ((player?.currentItem?.duration.seconds)! * seconds) / 100
-        let targetTime:CMTime = CMTimeMake(value: Int64(result - 10), timescale: 1)
-        
-        player!.seek(to: targetTime)
-        
-        if player!.rate == 0
-        {
-            player?.play()
+        if isPlaying {
+            let seconds : Double = (Double(audioPlayerView.progressBarSlider.value * 100))
+            let result = ((player?.currentItem?.duration.seconds)! * seconds) / 100
+            let targetTime:CMTime = CMTimeMake(value: Int64(result - 10), timescale: 1)
+            
+            player!.seek(to: targetTime)
+            
+            if player!.rate == 0
+            {
+                player?.play()
+            }
         }
     }
     
@@ -122,7 +127,7 @@ class ViewController: UIViewController  {
             audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
             updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
             isPlaying = true
-        } else {
+        } else if isPlaying {
             player!.pause()
             audioPlayerView.playButton.setImage(UIImage(named: "play")?.withRenderingMode(.alwaysTemplate), for: .normal)
             updater.remove(from: RunLoop.current, forMode: RunLoop.Mode.default)
@@ -133,10 +138,28 @@ class ViewController: UIViewController  {
     @objc func updateAudioProgressView()
     {
         if !isSliding {
-            var normalizedTime = Float((player?.currentTime().seconds)! * 100.0 / (player?.currentItem?.duration.seconds)!) / 100
+            let normalizedTime = Float((player?.currentTime().seconds)! * 100.0 / (player?.currentItem?.duration.seconds)!) / 100
             audioPlayerView.progressBarSlider.value = normalizedTime
-            print(normalizedTime)
         }
+        let seconds = player?.currentTime().seconds
+        let time = secondsToHoursMinutesSeconds(seconds: Int(seconds!))
+        var hourAux = time.0.description
+        var minutesAux = time.1.description
+        var secondsAux = time.2.description
+        if time.0 < 9 {
+            hourAux = "0" + time.0.description
+        }
+        if time.1 < 9 {
+            minutesAux = "0" + time.1.description
+        }
+        if time.2 < 9 {
+            secondsAux = "0" + time.2.description
+        }
+        audioPlayerView.timeLabel.text = hourAux + ":" + minutesAux + ":" + secondsAux
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
 }

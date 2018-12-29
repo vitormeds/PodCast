@@ -45,6 +45,20 @@ class AudioPlayerView: UIView {
         return slider
     }()
     
+    let timeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let durationLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -92,6 +106,15 @@ class AudioPlayerView: UIView {
         progressBarSlider.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 16).isActive = true
         progressBarSlider.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         progressBarSlider.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        
+        addSubview(timeLabel)
+        timeLabel.topAnchor.constraint(equalTo: progressBarSlider.bottomAnchor, constant: 16).isActive = true
+        timeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        
+        addSubview(durationLabel)
+        durationLabel.topAnchor.constraint(equalTo: progressBarSlider.bottomAnchor, constant: 16).isActive = true
+        durationLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        
         
     }
     
