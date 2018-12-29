@@ -51,7 +51,6 @@ class ViewController: UIViewController  {
         
         updater = CADisplayLink(target: self, selector: #selector(updateAudioProgressView))
         updater.frameInterval = 1
-        updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
         
     }
     
@@ -108,9 +107,11 @@ class ViewController: UIViewController  {
         {
             player!.play()
             audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
         } else {
             player!.pause()
             audioPlayerView.playButton.setImage(UIImage(named: "play")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            updater.remove(from: RunLoop.current, forMode: RunLoop.Mode.default)
         }
     }
     
