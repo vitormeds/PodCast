@@ -16,8 +16,28 @@
 		F42561BA21D3C31500AA22A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42561B821D3C31500AA22A1 /* LaunchScreen.storyboard */; };
 		F42561C521D3C31500AA22A1 /* PodCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561C421D3C31500AA22A1 /* PodCastTests.swift */; };
 		F42561D021D3C31500AA22A1 /* PodCastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561CF21D3C31500AA22A1 /* PodCastUITests.swift */; };
+		F42BA6A421F601C40075E4B3 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A321F601C40075E4B3 /* CustomTabBarController.swift */; };
+		F42BA6A821F602220075E4B3 /* MyPodCasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A721F602220075E4B3 /* MyPodCasts.swift */; };
+		F42BA6AA21F602330075E4B3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A921F602330075E4B3 /* Config.swift */; };
+		F43779E921F611DF007DC73C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779E821F611DF007DC73C /* Colors.swift */; };
+		F43779F121F61D98007DC73C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779F021F61D98007DC73C /* Card.swift */; };
+		F43779F721F62CF6007DC73C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779F621F62CF6007DC73C /* Home.swift */; };
+		F43779FB21F63C75007DC73C /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779FA21F63C75007DC73C /* CategoryRow.swift */; };
+		F4EE9CC121F60D180093162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4EE9CC021F60D180093162C /* Localizable.strings */; };
 		F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */; };
 		F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */; };
+		F4FA04D921F758B600896B5C /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04D821F758B600896B5C /* CardViewCell.swift */; };
+		F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04DB21F78A1100896B5C /* PodCastListService.swift */; };
+		F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04DD21F78C7900896B5C /* Genre.swift */; };
+		F4FA04E021F79E2700896B5C /* GenreElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04DF21F79E2700896B5C /* GenreElement.swift */; };
+		F4FA04E221F79E3F00896B5C /* BestPodElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04E121F79E3F00896B5C /* BestPodElement.swift */; };
+		F4FA04E421F79E5A00896B5C /* BestPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04E321F79E5A00896B5C /* BestPod.swift */; };
+		F4FA04E621F7A06200896B5C /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04E521F7A06200896B5C /* Extra.swift */; };
+		F4FA04E821F7A06C00896B5C /* LookingFor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04E721F7A06C00896B5C /* LookingFor.swift */; };
+		F4FA04EA21F7A48B00896B5C /* StatusBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04E921F7A48B00896B5C /* StatusBarExtension.swift */; };
+		F4FA04EC21F7A6C900896B5C /* PreferencesSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04EB21F7A6C900896B5C /* PreferencesSelectController.swift */; };
+		F4FA04EF21F7A7B500896B5C /* PreferenceCardGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04EE21F7A7B500896B5C /* PreferenceCardGenre.swift */; };
+		F4FA04F121F7AD6000896B5C /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04F021F7AD6000896B5C /* CGFloat.swift */; };
 		F5AFDB762332693308E7D5B9 /* Pods_PodCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +81,28 @@
 		F42561CB21D3C31500AA22A1 /* PodCastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodCastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42561CF21D3C31500AA22A1 /* PodCastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastUITests.swift; sourceTree = "<group>"; };
 		F42561D121D3C31500AA22A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F42BA6A321F601C40075E4B3 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		F42BA6A721F602220075E4B3 /* MyPodCasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodCasts.swift; sourceTree = "<group>"; };
+		F42BA6A921F602330075E4B3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F43779E821F611DF007DC73C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F43779F021F61D98007DC73C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		F43779F621F62CF6007DC73C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F43779FA21F63C75007DC73C /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		F4EE9CC021F60D180093162C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		F4FA04D821F758B600896B5C /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
+		F4FA04DB21F78A1100896B5C /* PodCastListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastListService.swift; sourceTree = "<group>"; };
+		F4FA04DD21F78C7900896B5C /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		F4FA04DF21F79E2700896B5C /* GenreElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreElement.swift; sourceTree = "<group>"; };
+		F4FA04E121F79E3F00896B5C /* BestPodElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPodElement.swift; sourceTree = "<group>"; };
+		F4FA04E321F79E5A00896B5C /* BestPod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPod.swift; sourceTree = "<group>"; };
+		F4FA04E521F7A06200896B5C /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
+		F4FA04E721F7A06C00896B5C /* LookingFor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookingFor.swift; sourceTree = "<group>"; };
+		F4FA04E921F7A48B00896B5C /* StatusBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarExtension.swift; sourceTree = "<group>"; };
+		F4FA04EB21F7A6C900896B5C /* PreferencesSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesSelectController.swift; sourceTree = "<group>"; };
+		F4FA04EE21F7A7B500896B5C /* PreferenceCardGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCardGenre.swift; sourceTree = "<group>"; };
+		F4FA04F021F7AD6000896B5C /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				F42561AC21D3C31400AA22A1 /* AppDelegate.swift */,
+				F4FA04DA21F789F800896B5C /* Service */,
+				F43779EF21F61D8F007DC73C /* Model */,
+				F43779E721F611D3007DC73C /* Extensions */,
 				F4F6DA9421D6FF4300A2CCA2 /* Util */,
 				F4F6DA9321D6E80700A2CCA2 /* View */,
 				F4AB34F121D729C900DAD399 /* Controller */,
@@ -149,6 +192,7 @@
 				F42561B821D3C31500AA22A1 /* LaunchScreen.storyboard */,
 				F42561BB21D3C31500AA22A1 /* Info.plist */,
 				F42561B321D3C31400AA22A1 /* PodCast.xcdatamodeld */,
+				F4EE9CC021F60D180093162C /* Localizable.strings */,
 			);
 			path = PodCast;
 			sourceTree = "<group>";
@@ -171,18 +215,81 @@
 			path = PodCastUITests;
 			sourceTree = "<group>";
 		};
-		F4AB34F121D729C900DAD399 /* Controller */ = {
+		F43779E721F611D3007DC73C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F43779E821F611DF007DC73C /* Colors.swift */,
+				F4FA04F021F7AD6000896B5C /* CGFloat.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F43779EE21F6199D007DC73C /* Player */ = {
 			isa = PBXGroup;
 			children = (
 				F42561AE21D3C31400AA22A1 /* ViewController.swift */,
 			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		F43779EF21F61D8F007DC73C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F43779F021F61D98007DC73C /* Card.swift */,
+				F4FA04DD21F78C7900896B5C /* Genre.swift */,
+				F4FA04DF21F79E2700896B5C /* GenreElement.swift */,
+				F4FA04E121F79E3F00896B5C /* BestPodElement.swift */,
+				F4FA04E321F79E5A00896B5C /* BestPod.swift */,
+				F4FA04E521F7A06200896B5C /* Extra.swift */,
+				F4FA04E721F7A06C00896B5C /* LookingFor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F43779F221F62C63007DC73C /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				F42BA6A321F601C40075E4B3 /* CustomTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		F43779F321F62C76007DC73C /* TabBars */ = {
+			isa = PBXGroup;
+			children = (
+				F43779F621F62CF6007DC73C /* Home.swift */,
+				F42BA6A721F602220075E4B3 /* MyPodCasts.swift */,
+				F42BA6A921F602330075E4B3 /* Config.swift */,
+			);
+			path = TabBars;
+			sourceTree = "<group>";
+		};
+		F4AB34F121D729C900DAD399 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4FA04ED21F7A6D200896B5C /* Preferences */,
+				F43779EE21F6199D007DC73C /* Player */,
+				F4EE9CBD21F607700093162C /* TabBar */,
+			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F4EE9CBD21F607700093162C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F43779F321F62C76007DC73C /* TabBars */,
+				F43779F221F62C63007DC73C /* TabBarController */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		F4F6DA9321D6E80700A2CCA2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */,
+				F43779FA21F63C75007DC73C /* CategoryRow.swift */,
+				F4FA04D821F758B600896B5C /* CardViewCell.swift */,
+				F4FA04EE21F7A7B500896B5C /* PreferenceCardGenre.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,8 +298,25 @@
 			isa = PBXGroup;
 			children = (
 				F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */,
+				F4FA04E921F7A48B00896B5C /* StatusBarExtension.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		F4FA04DA21F789F800896B5C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F4FA04DB21F78A1100896B5C /* PodCastListService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F4FA04ED21F7A6D200896B5C /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				F4FA04EB21F7A6C900896B5C /* PreferencesSelectController.swift */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F42561BA21D3C31500AA22A1 /* LaunchScreen.storyboard in Resources */,
+				F4EE9CC121F60D180093162C /* Localizable.strings in Resources */,
 				F42561B721D3C31500AA22A1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,15 +503,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PodCast/Pods-PodCast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRadioPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -422,9 +551,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4FA04F121F7AD6000896B5C /* CGFloat.swift in Sources */,
+				F4FA04E821F7A06C00896B5C /* LookingFor.swift in Sources */,
 				F42561AF21D3C31400AA22A1 /* ViewController.swift in Sources */,
+				F43779FB21F63C75007DC73C /* CategoryRow.swift in Sources */,
+				F4FA04EA21F7A48B00896B5C /* StatusBarExtension.swift in Sources */,
+				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,
+				F43779E921F611DF007DC73C /* Colors.swift in Sources */,
 				F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */,
+				F43779F721F62CF6007DC73C /* Home.swift in Sources */,
+				F42BA6AA21F602330075E4B3 /* Config.swift in Sources */,
+				F4FA04D921F758B600896B5C /* CardViewCell.swift in Sources */,
+				F4FA04E021F79E2700896B5C /* GenreElement.swift in Sources */,
+				F42BA6A821F602220075E4B3 /* MyPodCasts.swift in Sources */,
+				F4FA04EC21F7A6C900896B5C /* PreferencesSelectController.swift in Sources */,
+				F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */,
+				F4FA04E221F79E3F00896B5C /* BestPodElement.swift in Sources */,
+				F42BA6A421F601C40075E4B3 /* CustomTabBarController.swift in Sources */,
+				F4FA04E621F7A06200896B5C /* Extra.swift in Sources */,
+				F43779F121F61D98007DC73C /* Card.swift in Sources */,
+				F4FA04EF21F7A7B500896B5C /* PreferenceCardGenre.swift in Sources */,
 				F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */,
+				F4FA04E421F79E5A00896B5C /* BestPod.swift in Sources */,
 				F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */,
 				F42561AD21D3C31400AA22A1 /* AppDelegate.swift in Sources */,
 			);

@@ -1,20 +1,28 @@
 PODS:
+  - Alamofire (4.7.3)
   - FRadioPlayer (0.1.11)
   - Nuke (7.5)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
+  - Alamofire
   - FRadioPlayer
   - Nuke
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - FRadioPlayer
     - Nuke
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   FRadioPlayer: 27b1b7dd33d12ff01b67dc57c89999baf0bbb3e6
   Nuke: 799c0430f87b11c4dacfa80b13e1c4f0a1464b90
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: adbd757c4d1502f207bd81d519ec525855fe9791
+PODFILE CHECKSUM: a5970c63fcf7b24cdbcc702eb7aed1172ede6b91
 
 COCOAPODS: 1.5.3
