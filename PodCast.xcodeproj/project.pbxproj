@@ -26,6 +26,7 @@
 		F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA621F9F9880068FAD2 /* Preferences.swift */; };
 		F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */; };
 		F47AAEAB21FA260D0068FAD2 /* loadAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */; };
+		F47AAEAD21FA356F0068FAD2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */; };
 		F4EE9CC121F60D180093162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4EE9CC021F60D180093162C /* Localizable.strings */; };
 		F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */; };
 		F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */; };
@@ -94,6 +95,7 @@
 		F47AAEA621F9F9880068FAD2 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDataController.swift; sourceTree = "<group>"; };
 		F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadAnimation.json; sourceTree = SOURCE_ROOT; };
+		F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F4EE9CC021F60D180093162C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				F43779FA21F63C75007DC73C /* CategoryRow.swift */,
 				F4FA04D821F758B600896B5C /* CardViewCell.swift */,
 				F4FA04EE21F7A7B500896B5C /* PreferenceCardGenre.swift */,
+				F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */,
 				F4FA04E221F79E3F00896B5C /* BestPodElement.swift in Sources */,
 				F42BA6A421F601C40075E4B3 /* CustomTabBarController.swift in Sources */,
+				F47AAEAD21FA356F0068FAD2 /* HeaderView.swift in Sources */,
 				F4FA04E621F7A06200896B5C /* Extra.swift in Sources */,
 				F43779F121F61D98007DC73C /* Card.swift in Sources */,
 				F4FA04EF21F7A7B500896B5C /* PreferenceCardGenre.swift in Sources */,

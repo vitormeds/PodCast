@@ -22,16 +22,18 @@ class CardViewCell: UIView {
     
     var nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.black
-        label.numberOfLines = 0
+        label.textColor = UIColor.white
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,14 +48,18 @@ class CardViewCell: UIView {
         iconImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        addSubview(nameLabel)
-        nameLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor).isActive = true
-        nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
         addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 8).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        
+        addSubview(nameLabel)
+        nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
+        nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         
     }
     

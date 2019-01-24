@@ -62,21 +62,17 @@ class Home: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CategoryRow
-        cell.card1.titleLabel.text = "Title"
-        cell.card1.nameLabel.text = "Name"
-        cell.card2.titleLabel.text = "Title"
-        cell.card2.nameLabel.text = "Name"
-        cell.card3.titleLabel.text = "Title"
-        cell.card3.nameLabel.text = "Name"
-        cell.card4.titleLabel.text = "Title"
-        cell.card4.nameLabel.text = "Name"
-        cell.card5.titleLabel.text = "Title"
-        cell.card5.nameLabel.text = "Name"
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headeView = HeaderView()
+        headeView.titleLabel.text = genres[section].name
+        return headeView
+    }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return genres[section].name
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
