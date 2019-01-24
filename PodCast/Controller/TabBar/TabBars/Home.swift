@@ -24,7 +24,7 @@ class Home: UITableViewController {
     }()
     
     override func viewDidLoad() {
-        tableView.register(CategoryRow.self, forCellReuseIdentifier: "cell")
+        tableView.register(CollectionCell.self, forCellReuseIdentifier: "cell")
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.separatorColor = UIColor.black
@@ -61,7 +61,7 @@ class Home: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CategoryRow
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CollectionCell
         return cell
     }
 
