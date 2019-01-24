@@ -1,3 +1,11 @@
+//
+//  ViewController.swift
+//  PodCast
+//
+//  Created by Vitor Mendes on 27/12/18.
+//  Copyright © 2018 Vitor Mendes. All rights reserved.
+//
+
 import UIKit
 import AVFoundation
 import Nuke

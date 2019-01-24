@@ -12,6 +12,7 @@ import Lottie
 class Home: UITableViewController {
     
     var genres = [Genre]()
+    var bestPods = [[BestPod]]()
     
     let lottieLoading: LOTAnimationView = {
         let headerAnimationView = LOTAnimationView(name: "loadAnimation")
@@ -50,6 +51,11 @@ class Home: UITableViewController {
         PodCastListService.getGenres { result in
             if result != nil {
                 self.genres = result!
+                PodCastListService.getBestPodsByGenre(genres: self.genres, completionHandler: { resultBestPods in
+                    if resultBestPods != nil {
+                        self.bestPods = resultBestPods!
+                    }
+                })
             }
             self.stopLoad()
             self.tableView.reloadData()

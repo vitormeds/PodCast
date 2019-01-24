@@ -9,5 +9,5 @@
 import Foundation
 
 struct GenreElement: Decodable {
-    let genres: [Genre]
+    let genres: [Genre]?
 }

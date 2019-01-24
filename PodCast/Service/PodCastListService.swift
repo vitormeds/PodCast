@@ -12,6 +12,9 @@ import SwiftyJSON
 
 class PodCastListService {
     
+    static var genresPods = 0
+    static var bestPods = [[BestPod]]()
+    
     static let header = ["X-RapidAPI-Key" : "0799d534b1msh31d98431151274ap1a0de9jsnf346b2fbf029"]
     
     static func getGenres(completionHandler: @escaping ([Genre]?) -> ()) {
@@ -38,9 +41,11 @@ class PodCastListService {
         }
     }
     
-    static func getBestPodsByGenre(id: String,completionHandler: @escaping ([BestPod]?) -> ()) {
+    static func getBestPodsByGenre(genres: [Genre],completionHandler: @escaping ([[BestPod]]?) -> ()) {
         
-        let url = "https://listennotes.p.rapidapi.com/api/v1/best_podcasts?genre_id=" + id
+        print(genresPods)
+        
+        let url = "https://listennotes.p.rapidapi.com/api/v1/best_podcasts?genre_id=" + "\(genres[genresPods].id)"
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             
@@ -54,10 +59,20 @@ class PodCastListService {
             
             do {
                 let pods = try JSONDecoder().decode(BestPodElement.self, from: data)
-                completionHandler(pods.channels)
+                bestPods.append(pods.channels ?? [])
+                genresPods += 1
+                if bestPods.count == genres.count {
+                    completionHandler(bestPods)
+                    return
+                }
+                getBestPodsByGenre(genres: genres, completionHandler: { result in
+                    completionHandler(bestPods)
+                    return
+                })
             } catch let decodeErr {
                 print("Failed to decode:", decodeErr)
                 completionHandler(nil)
+                return
             }
         }
     }
