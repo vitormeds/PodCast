@@ -196,6 +196,7 @@
 				F4F6DA9321D6E80700A2CCA2 /* View */,
 				F4AB34F121D729C900DAD399 /* Controller */,
 				F42561B621D3C31500AA22A1 /* Assets.xcassets */,
+				F42561BB21D3C31500AA22A1 /* Info.plist */,
 				F42561B821D3C31500AA22A1 /* LaunchScreen.storyboard */,
 				F42561B321D3C31400AA22A1 /* PodCast.xcdatamodeld */,
 			);
@@ -324,7 +325,6 @@
 			children = (
 				F42561AC21D3C31400AA22A1 /* AppDelegate.swift */,
 				F4EE9CC021F60D180093162C /* Localizable.strings */,
-				F42561BB21D3C31500AA22A1 /* Info.plist */,
 			);
 			path = Aplication;
 			sourceTree = "<group>";
