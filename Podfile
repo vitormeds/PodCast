@@ -7,6 +7,7 @@ target 'PodCast' do
   pod 'Nuke'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'lottie-ios'
   use_frameworks!
 
   # Pods for PodCast

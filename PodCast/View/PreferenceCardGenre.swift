@@ -10,9 +10,11 @@ import UIKit
 
 class PreferenceCardGenre: UICollectionViewCell {
     
-    let iconImageView: UIImageView = {
+    
+    let checkImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "Mario")
+        imageView.tintColor = UIColor.white
+        imageView.image = UIImage(named: "check")?.withRenderingMode(.alwaysTemplate)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -21,9 +23,9 @@ class PreferenceCardGenre: UICollectionViewCell {
         let label = UILabel()
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -39,22 +41,18 @@ class PreferenceCardGenre: UICollectionViewCell {
         layer.zPosition = 2
         layer.cornerRadius = 10
         layer.masksToBounds = true
-        backgroundColor = UIColor.random
-        
-        addSubview(iconImageView)
-        iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 32).isActive = true
-        iconImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        iconImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         addSubview(titleLabel)
-        titleLabel.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 8).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         
-        titleLabel.widthAnchor.constraint(equalTo: titleLabel.widthAnchor).isActive = true
-        titleLabel.heightAnchor.constraint(equalTo: titleLabel.heightAnchor).isActive = true
+        addSubview(checkImageView)
+        checkImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+        checkImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        checkImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        checkImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
         
     }
     

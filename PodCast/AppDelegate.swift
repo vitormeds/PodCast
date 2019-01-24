@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 8
-        let cardCollection = PreferencesSelectController(collectionViewLayout: layout)
+        let cardCollection = UINavigationController(rootViewController: PreferencesSelectController(collectionViewLayout: layout))
         window?.rootViewController = cardCollection
         
         return true

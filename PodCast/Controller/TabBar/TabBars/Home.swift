@@ -7,10 +7,21 @@
 //
 
 import UIKit
+import Lottie
 
 class Home: UITableViewController {
     
     var genres = [Genre]()
+    
+    let lottieLoading: LOTAnimationView = {
+        let headerAnimationView = LOTAnimationView(name: "loadAnimation")
+        headerAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        headerAnimationView.loopAnimation = true
+        headerAnimationView.play() { _ in
+            headerAnimationView.removeFromSuperview()
+        }
+        return headerAnimationView
+    }()
     
     override func viewDidLoad() {
         tableView.register(CategoryRow.self, forCellReuseIdentifier: "cell")
@@ -22,11 +33,25 @@ class Home: UITableViewController {
         loadData()
     }
     
+    func startLoad() {
+        view.addSubview(lottieLoading)
+        lottieLoading.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        lottieLoading.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        lottieLoading.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        lottieLoading.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    }
+    
+    func stopLoad() {
+        lottieLoading.removeFromSuperview()
+    }
+    
     func loadData() {
+        startLoad()
         PodCastListService.getGenres { result in
             if result != nil {
                 self.genres = result!
             }
+            self.stopLoad()
             self.tableView.reloadData()
         }
     }
