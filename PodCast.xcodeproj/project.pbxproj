@@ -20,7 +20,6 @@
 		F42BA6A821F602220075E4B3 /* MyPodCasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A721F602220075E4B3 /* MyPodCasts.swift */; };
 		F42BA6AA21F602330075E4B3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A921F602330075E4B3 /* Config.swift */; };
 		F43779E921F611DF007DC73C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779E821F611DF007DC73C /* Colors.swift */; };
-		F43779F121F61D98007DC73C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779F021F61D98007DC73C /* Card.swift */; };
 		F43779F721F62CF6007DC73C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779F621F62CF6007DC73C /* Home.swift */; };
 		F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA621F9F9880068FAD2 /* Preferences.swift */; };
 		F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */; };
@@ -89,11 +88,10 @@
 		F42BA6A721F602220075E4B3 /* MyPodCasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodCasts.swift; sourceTree = "<group>"; };
 		F42BA6A921F602330075E4B3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F43779E821F611DF007DC73C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		F43779F021F61D98007DC73C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F43779F621F62CF6007DC73C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		F47AAEA621F9F9880068FAD2 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDataController.swift; sourceTree = "<group>"; };
-		F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadAnimation.json; sourceTree = SOURCE_ROOT; };
+		F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loadAnimation.json; path = PodCast/Animations/loadAnimation.json; sourceTree = SOURCE_ROOT; };
 		F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -189,8 +187,8 @@
 		F42561AB21D3C31400AA22A1 /* PodCast */ = {
 			isa = PBXGroup;
 			children = (
-				F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */,
-				F42561AC21D3C31400AA22A1 /* AppDelegate.swift */,
+				F47AAEBD21FA48EB0068FAD2 /* Animations */,
+				F47AAEBC21FA48C70068FAD2 /* Aplication */,
 				F4FA04DA21F789F800896B5C /* Service */,
 				F43779EF21F61D8F007DC73C /* Model */,
 				F43779E721F611D3007DC73C /* Extensions */,
@@ -199,9 +197,7 @@
 				F4AB34F121D729C900DAD399 /* Controller */,
 				F42561B621D3C31500AA22A1 /* Assets.xcassets */,
 				F42561B821D3C31500AA22A1 /* LaunchScreen.storyboard */,
-				F42561BB21D3C31500AA22A1 /* Info.plist */,
 				F42561B321D3C31400AA22A1 /* PodCast.xcdatamodeld */,
-				F4EE9CC021F60D180093162C /* Localizable.strings */,
 			);
 			path = PodCast;
 			sourceTree = "<group>";
@@ -244,14 +240,9 @@
 		F43779EF21F61D8F007DC73C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F43779F021F61D98007DC73C /* Card.swift */,
-				F4FA04DD21F78C7900896B5C /* Genre.swift */,
-				F4FA04DF21F79E2700896B5C /* GenreElement.swift */,
-				F4FA04E121F79E3F00896B5C /* BestPodElement.swift */,
-				F4FA04E321F79E5A00896B5C /* BestPod.swift */,
-				F4FA04E521F7A06200896B5C /* Extra.swift */,
-				F4FA04E721F7A06C00896B5C /* LookingFor.swift */,
-				F47AAEA621F9F9880068FAD2 /* Preferences.swift */,
+				F47AAEB521FA47980068FAD2 /* Genre */,
+				F47AAEB421FA478C0068FAD2 /* Preferences */,
+				F47AAEB621FA47C40068FAD2 /* BestPodCast */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +263,78 @@
 				F42BA6A921F602330075E4B3 /* Config.swift */,
 			);
 			path = TabBars;
+			sourceTree = "<group>";
+		};
+		F47AAEB421FA478C0068FAD2 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				F47AAEA621F9F9880068FAD2 /* Preferences.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		F47AAEB521FA47980068FAD2 /* Genre */ = {
+			isa = PBXGroup;
+			children = (
+				F4FA04DD21F78C7900896B5C /* Genre.swift */,
+				F4FA04DF21F79E2700896B5C /* GenreElement.swift */,
+			);
+			path = Genre;
+			sourceTree = "<group>";
+		};
+		F47AAEB621FA47C40068FAD2 /* BestPodCast */ = {
+			isa = PBXGroup;
+			children = (
+				F4FA04E321F79E5A00896B5C /* BestPod.swift */,
+				F4FA04E521F7A06200896B5C /* Extra.swift */,
+				F4FA04E121F79E3F00896B5C /* BestPodElement.swift */,
+				F4FA04E721F7A06C00896B5C /* LookingFor.swift */,
+			);
+			path = BestPodCast;
+			sourceTree = "<group>";
+		};
+		F47AAEB721FA485C0068FAD2 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		F47AAEBA21FA48980068FAD2 /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				F4FA04EE21F7A7B500896B5C /* PreferenceCardGenre.swift */,
+			);
+			path = Preference;
+			sourceTree = "<group>";
+		};
+		F47AAEBB21FA48A20068FAD2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */,
+				F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */,
+				F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F47AAEBC21FA48C70068FAD2 /* Aplication */ = {
+			isa = PBXGroup;
+			children = (
+				F42561AC21D3C31400AA22A1 /* AppDelegate.swift */,
+				F4EE9CC021F60D180093162C /* Localizable.strings */,
+				F42561BB21D3C31500AA22A1 /* Info.plist */,
+			);
+			path = Aplication;
+			sourceTree = "<group>";
+		};
+		F47AAEBD21FA48EB0068FAD2 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		F4AB34F121D729C900DAD399 /* Controller */ = {
@@ -296,11 +359,9 @@
 		F4F6DA9321D6E80700A2CCA2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */,
-				F4FA04EE21F7A7B500896B5C /* PreferenceCardGenre.swift */,
-				F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */,
-				F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */,
-				F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */,
+				F47AAEB721FA485C0068FAD2 /* Player */,
+				F47AAEBA21FA48980068FAD2 /* Preference */,
+				F47AAEBB21FA48A20068FAD2 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -587,7 +648,6 @@
 				F42BA6A421F601C40075E4B3 /* CustomTabBarController.swift in Sources */,
 				F47AAEAD21FA356F0068FAD2 /* HeaderView.swift in Sources */,
 				F4FA04E621F7A06200896B5C /* Extra.swift in Sources */,
-				F43779F121F61D98007DC73C /* Card.swift in Sources */,
 				F4FA04EF21F7A7B500896B5C /* PreferenceCardGenre.swift in Sources */,
 				F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */,
 				F4FA04E421F79E5A00896B5C /* BestPod.swift in Sources */,
