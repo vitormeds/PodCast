@@ -109,7 +109,7 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cardReuseIdentifier, for: indexPath) as! PreferenceCardGenre
-        cell.backgroundColor = colors[indexPath.item]
+        cell.backgroundColor = #colorLiteral(red: 0.2519568801, green: 0.2802801728, blue: 0.3001171947, alpha: 1)
         cell.titleLabel.text = genres[indexPath.item].name
         if selectedGenres.contains(indexPath.item) {
             cell.checkImageView.isHidden = false
