@@ -10,7 +10,10 @@ import UIKit
 import AVFoundation
 import Nuke
 
-class ViewController: UIViewController  {
+class PlayerViewController: CustomViewController  {
+    
+    var id = ""
+    var podCastData: Podcast!
     
     var player:AVPlayer?
     var playerItem:AVPlayerItem?
@@ -24,10 +27,31 @@ class ViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-        setupAudio()
-        setupActions()
-        setupSlider()
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        view.backgroundColor = UIColor.black
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Voltar", style: .done, target: self, action: #selector(performBack))
+        loadData()
+    }
+    
+    @objc func performBack() {
+        dismiss(animated: true)
+    }
+    
+    func loadData() {
+        startLoad()
+        PodCastListService.getBestPodById(id: id) { resultPodCast in
+            if resultPodCast != nil {
+                self.podCastData = resultPodCast
+                self.setupViews()
+                self.setupAudio()
+                self.setupActions()
+                self.setupSlider()
+            }
+            self.stopLoad()
+        }
     }
     
     func setupViews() {
@@ -36,8 +60,8 @@ class ViewController: UIViewController  {
         audioPlayerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         audioPlayerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         audioPlayerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        Nuke.loadImage(with: URL(string: "https://d3sv2eduhewoas.cloudfront.net/channel/image/7027eee6298a4d1387a243d1a901578c.jpg")!, into: audioPlayerView.artImageView)
-        audioPlayerView.durationLabel.text = "00:03:08"
+        Nuke.loadImage(with: URL(string: podCastData.image ?? "")!, into: audioPlayerView.artImageView)
+        audioPlayerView.durationLabel.text = formatTime(seconds: ((Double(podCastData.audio_length ?? 0))))
         audioPlayerView.timeLabel.text = "00:00:00"
     }
     
@@ -69,7 +93,7 @@ class ViewController: UIViewController  {
     }
     
     func setupAudio() {
-        let url = URL(string: "https://www.listennotes.com/e/p/a56476b08cc84fb5b90a236c3a920778/")
+        let url = URL(string: podCastData.audio ?? "")
         playerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
     }
@@ -150,7 +174,11 @@ class ViewController: UIViewController  {
             audioPlayerView.progressBarSlider.value = normalizedTime
         }
         let seconds = player?.currentTime().seconds
-        let time = secondsToHoursMinutesSeconds(seconds: Int(seconds!))
+        audioPlayerView.timeLabel.text = formatTime(seconds: seconds!)
+    }
+    
+    func formatTime(seconds: Double) -> String {
+        let time = secondsToHoursMinutesSeconds(seconds: Int(seconds))
         var hourAux = time.0.description
         var minutesAux = time.1.description
         var secondsAux = time.2.description
@@ -163,7 +191,7 @@ class ViewController: UIViewController  {
         if time.2 < 9 {
             secondsAux = "0" + time.2.description
         }
-        audioPlayerView.timeLabel.text = hourAux + ":" + minutesAux + ":" + secondsAux
+         return hourAux + ":" + minutesAux + ":" + secondsAux
     }
     
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {

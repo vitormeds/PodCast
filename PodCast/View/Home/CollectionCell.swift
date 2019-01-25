@@ -9,9 +9,15 @@
 import UIKit
 import Nuke
 
+protocol SelectBestPodDelegate {
+    func selectPod(id: String)
+}
+
 class CollectionCell : UITableViewCell {
     
     let contentCellIdentifier = "ContentCellIdentifier"
+    
+    var delegate: SelectBestPodDelegate!
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -24,9 +30,15 @@ class CollectionCell : UITableViewCell {
         return cv
     }()
     
+    
+    var  bestPods: [BestPod]!  {
+        didSet{
+            setupViews()
+        }
+    }
+    
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
     }
     
     func setupViews()
@@ -38,6 +50,7 @@ class CollectionCell : UITableViewCell {
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 180).isActive = true
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCellIdentifier)
+        collectionView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,19 +61,19 @@ class CollectionCell : UITableViewCell {
 extension CollectionCell: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 50
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return bestPods.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: "https://d3sv2eduhewoas.cloudfront.net/channel/image/f7f881dffcec49caaa63cf580c9afbbb.jpg")!))
+        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: bestPods[indexPath.item].image ?? "")!))
         Nuke.loadImage(with: request2, into: cell.iconImageView)
-        cell.titleLabel.text = "HBO's The Shop via LeBron James, Durant's Discredit, Jealous Kawhi and More"
-        cell.nameLabel.text = "Name"
+        cell.titleLabel.text = bestPods[indexPath.item].title
+        cell.nameLabel.text = bestPods[indexPath.item].publisher
         return cell
     }
     
@@ -68,4 +81,7 @@ extension CollectionCell: UICollectionViewDataSource {
 
 extension CollectionCell: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate.selectPod(id: bestPods[indexPath.item].id ?? "")
+    }
 }

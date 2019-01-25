@@ -43,9 +43,7 @@ class PodCastListService {
     
     static func getBestPodsByGenre(genres: [Genre],completionHandler: @escaping ([[BestPod]]?) -> ()) {
         
-        print(genresPods)
-        
-        let url = "https://listennotes.p.rapidapi.com/api/v1/best_podcasts?genre_id=" + "\(genres[genresPods].id)"
+        let url = "https://listennotes.p.rapidapi.com/api/v1/best_podcasts?genre_id=" + "\(genres[genresPods].id!)"
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             
@@ -61,14 +59,48 @@ class PodCastListService {
                 let pods = try JSONDecoder().decode(BestPodElement.self, from: data)
                 bestPods.append(pods.channels ?? [])
                 genresPods += 1
-                if bestPods.count == genres.count {
+                if bestPods.count == genres.count{
                     completionHandler(bestPods)
                     return
                 }
-                getBestPodsByGenre(genres: genres, completionHandler: { result in
-                    completionHandler(bestPods)
+                else {
+                    getBestPodsByGenre(genres: genres, completionHandler: { result in
+                        completionHandler(bestPods)
+                        return
+                    })
+                }
+            } catch let decodeErr {
+                print("Failed to decode:", decodeErr)
+                completionHandler(nil)
+                return
+            }
+        }
+    }
+    
+    static func getBestPodById(id: String,completionHandler: @escaping (Podcast?) -> ()) {
+        
+        let url = "https://listennotes.p.rapidapi.com/api/v1/episodes/" + id
+        
+        Alamofire.request(url, method: .get, headers: header).responseJSON { response in
+            
+            if let err = response.error {
+                print("Failed to read", err)
+                completionHandler(nil)
+                return
+            }
+            
+            guard let data = response.data else { return }
+            
+            do {
+                if !data.isEmpty {
+                    let pod = try JSONDecoder().decode(Podcast.self, from: data)
+                    if pod.audio == nil {
+                        completionHandler(nil)
+                        return
+                    }
+                    completionHandler(pod)
                     return
-                })
+                }
             } catch let decodeErr {
                 print("Failed to decode:", decodeErr)
                 completionHandler(nil)

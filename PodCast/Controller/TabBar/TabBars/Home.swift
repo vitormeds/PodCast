@@ -9,20 +9,11 @@
 import UIKit
 import Lottie
 
-class Home: UITableViewController {
+class Home: CustomTableViewController {
     
     var genres = [Genre]()
     var bestPods = [[BestPod]]()
-    
-    let lottieLoading: LOTAnimationView = {
-        let headerAnimationView = LOTAnimationView(name: "loadAnimation")
-        headerAnimationView.translatesAutoresizingMaskIntoConstraints = false
-        headerAnimationView.loopAnimation = true
-        headerAnimationView.play() { _ in
-            headerAnimationView.removeFromSuperview()
-        }
-        return headerAnimationView
-    }()
+    var list = 10
     
     override func viewDidLoad() {
         tableView.register(CollectionCell.self, forCellReuseIdentifier: "cell")
@@ -34,31 +25,23 @@ class Home: UITableViewController {
         loadData()
     }
     
-    func startLoad() {
-        view.addSubview(lottieLoading)
-        lottieLoading.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        lottieLoading.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        lottieLoading.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        lottieLoading.widthAnchor.constraint(equalToConstant: 100).isActive = true
-    }
-    
-    func stopLoad() {
-        lottieLoading.removeFromSuperview()
-    }
-    
     func loadData() {
         startLoad()
         PodCastListService.getGenres { result in
             if result != nil {
                 self.genres = result!
-                PodCastListService.getBestPodsByGenre(genres: self.genres, completionHandler: { resultBestPods in
+                var genresAux = [Genre]()
+                for i in 0...2 {
+                    genresAux.append(self.genres[i])
+                }
+                PodCastListService.getBestPodsByGenre(genres: genresAux, completionHandler: { resultBestPods in
                     if resultBestPods != nil {
                         self.bestPods = resultBestPods!
                     }
+                    self.stopLoad()
+                    self.tableView.reloadData()
                 })
             }
-            self.stopLoad()
-            self.tableView.reloadData()
         }
     }
     
@@ -68,6 +51,8 @@ class Home: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CollectionCell
+        cell.bestPods = bestPods[indexPath.section]
+        cell.delegate = self
         return cell
     }
 
@@ -82,11 +67,21 @@ class Home: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return genres.count
+        return bestPods.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
+}
+
+extension Home: SelectBestPodDelegate {
+    
+    func selectPod(id: String) {
+        let playerViewController = PlayerViewController()
+        playerViewController.id = id
+        let player = UINavigationController(rootViewController: playerViewController)
+        present(player, animated: true)
+    }
 }
