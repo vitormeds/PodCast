@@ -15,6 +15,7 @@ class PlayerController {
     
     static var player:AVPlayer?
     static var audioPlayerView = AudioPlayerView()
+    static var audioPlayerBar = AudioPlayerBarView()
     static var podCastData: Podcast!
     static var playerItem:AVPlayerItem?
     static var updater : CADisplayLink! = nil
@@ -23,21 +24,28 @@ class PlayerController {
     static var isPlaying = false
     
     static func inicialize(podCastData: Podcast) {
-        self.podCastData = podCastData
-        Nuke.loadImage(with: URL(string: podCastData.image ?? "")!, into: audioPlayerView.artImageView)
-        audioPlayerView.durationLabel.text = formatTime(seconds: ((Double(podCastData.audio_length ?? 0))))
-        audioPlayerView.timeLabel.text = "00:00:00"
-        self.setupAudio()
-        self.setupActions()
-        self.setupSlider()
-        player!.play()
-        audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
-        isPlaying = true
+        if self.podCastData == nil || self.podCastData.id != podCastData.id {
+            self.podCastData = podCastData
+            Nuke.loadImage(with: URL(string: podCastData.image ?? "")!, into: audioPlayerView.artImageView)
+            Nuke.loadImage(with: URL(string: podCastData.image ?? "")!, into: audioPlayerBar.artImageView)
+            audioPlayerView.durationLabel.text = formatTime(seconds: ((Double(podCastData.audio_length ?? 0))))
+            audioPlayerView.timeLabel.text = "00:00:00"
+            audioPlayerBar.timeLabel.text = "00:00:00/" +  formatTime(seconds: ((Double(podCastData.audio_length ?? 0))))
+            audioPlayerBar.titleLabel.text = podCastData.title
+            self.setupAudio()
+            self.setupActions()
+            self.setupSlider()
+            player!.play()
+            audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerBar.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
+            isPlaying = true
+        }
     }
     
     static func setupActions() {
         audioPlayerView.playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
+        audioPlayerBar.playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
         audioPlayerView.advanceSecButton.addTarget(self, action: #selector(advanceSec), for: .touchDown)
         audioPlayerView.backSecButton.addTarget(self, action: #selector(backSec), for: .touchDown)
     }
@@ -112,12 +120,14 @@ class PlayerController {
         {
             player!.play()
             audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerBar.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
             updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
             isPlaying = true
         } else if isPlaying {
             player!.pause()
             audioPlayerView.playButton.setImage(UIImage(named: "play")?.withRenderingMode(.alwaysTemplate), for: .normal)
-            updater.remove(from: RunLoop.current, forMode: RunLoop.Mode.default)
+            audioPlayerBar.playButton.setImage(UIImage(named: "play")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
             isPlaying = false
         }
         return .success
@@ -198,11 +208,13 @@ class PlayerController {
         {
             player!.play()
             audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerBar.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
             updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
             isPlaying = true
         } else if isPlaying {
             player!.pause()
             audioPlayerView.playButton.setImage(UIImage(named: "play")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerBar.playButton.setImage(UIImage(named: "play")?.withRenderingMode(.alwaysTemplate), for: .normal)
             updater.remove(from: RunLoop.current, forMode: RunLoop.Mode.default)
             isPlaying = false
         }
@@ -216,6 +228,7 @@ class PlayerController {
         }
         let seconds = player?.currentTime().seconds
         audioPlayerView.timeLabel.text = formatTime(seconds: seconds!)
+        audioPlayerBar.timeLabel.text = formatTime(seconds: seconds!) + "/" + formatTime(seconds: ((Double(podCastData.audio_length ?? 0))))
     }
     
     static func formatTime(seconds: Double) -> String {
