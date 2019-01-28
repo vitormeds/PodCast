@@ -82,6 +82,6 @@ extension CollectionCell: UICollectionViewDataSource {
 extension CollectionCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate.selectPod(id: bestPods[indexPath.item].id ?? "", bestPod: bestPods[indexPath.section])
+        delegate.selectPod(id: bestPods[indexPath.item].id ?? "", bestPod: bestPods[indexPath.item])
     }
 }
