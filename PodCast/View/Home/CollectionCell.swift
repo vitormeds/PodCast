@@ -10,7 +10,7 @@ import UIKit
 import Nuke
 
 protocol SelectBestPodDelegate {
-    func selectPod(id: String)
+    func selectPod(id: String?, bestPod: BestPod?)
 }
 
 class CollectionCell : UITableViewCell {
@@ -82,6 +82,6 @@ extension CollectionCell: UICollectionViewDataSource {
 extension CollectionCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate.selectPod(id: bestPods[indexPath.item].id ?? "")
+        delegate.selectPod(id: bestPods[indexPath.item].id ?? "", bestPod: bestPods[indexPath.section])
     }
 }

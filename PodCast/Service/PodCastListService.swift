@@ -108,4 +108,33 @@ class PodCastListService {
             }
         }
     }
+    
+    static func getPodCastListById(id: String,completionHandler: @escaping (PodCastList?) -> ()) {
+        
+        let url = "https://listennotes.p.rapidapi.com/api/v1/podcasts/" + id
+        
+        Alamofire.request(url, method: .get, headers: header).responseJSON { response in
+            
+            if let err = response.error {
+                print("Failed to read", err)
+                completionHandler(nil)
+                return
+            }
+            
+            guard let data = response.data else { return }
+            
+            do {
+                if !data.isEmpty {
+                    let pod = try JSONDecoder().decode(PodCastList.self, from: data)
+                    completionHandler(pod)
+                    return
+                }
+            } catch let decodeErr {
+                print("Failed to decode:", decodeErr)
+                completionHandler(nil)
+                return
+            }
+        }
+    }
+    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         layout.minimumLineSpacing = 8
         let cardCollection = UINavigationController(rootViewController: PreferencesSelectController(collectionViewLayout: layout))
         window?.rootViewController = cardCollection
+
+        //Audio Configs
+        do
+        {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            try AVAudioSession.sharedInstance().setActive(true)
+        }
+        catch
+        {
+            print(error)
+        }
+        application.beginReceivingRemoteControlEvents()
         
         return true
     }

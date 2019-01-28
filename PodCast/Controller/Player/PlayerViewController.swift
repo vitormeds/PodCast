@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 import Nuke
 
 class PlayerViewController: CustomViewController  {
@@ -96,6 +97,76 @@ class PlayerViewController: CustomViewController  {
         let url = URL(string: podCastData.audio ?? "")
         playerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
+        
+        //Now Playing
+        let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
+        var nowPlayingInfo = nowPlayingInfoCenter.nowPlayingInfo ?? [String: Any]()
+        
+        let title = podCastData.title
+        let album = podCastData.podcast?.publisher
+        let artworkData = Data()
+        let image = audioPlayerView.artImageView.image
+        let artwork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: {  (_) -> UIImage in
+            return image!
+        })
+        
+        nowPlayingInfo[MPMediaItemPropertyTitle] = title
+        nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = album
+        nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
+        
+        nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
+        
+        let rcc = MPRemoteCommandCenter.shared()
+        
+        let stopCommand = rcc.pauseCommand
+        stopCommand.isEnabled = true
+        stopCommand.addTarget(handler: pauseAction)
+        
+        let resumeCommand = rcc.playCommand
+        resumeCommand.isEnabled = true
+        resumeCommand.addTarget(handler: pauseAction)
+        
+        let skipBackwardCommand = rcc.skipBackwardCommand
+        skipBackwardCommand.isEnabled = true
+        skipBackwardCommand.addTarget(handler: skipBackward)
+        skipBackwardCommand.preferredIntervals = [10]
+        
+        let skipForwardCommand = rcc.skipForwardCommand
+        skipForwardCommand.isEnabled = true
+        skipForwardCommand.addTarget(handler: skipForward)
+        skipForwardCommand.preferredIntervals = [10]
+    }
+    
+    func pauseAction(_ event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
+        if player?.rate == 0
+        {
+            player!.play()
+            audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
+            isPlaying = true
+        } else if isPlaying {
+            player!.pause()
+            audioPlayerView.playButton.setImage(UIImage(named: "play")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            updater.remove(from: RunLoop.current, forMode: RunLoop.Mode.default)
+            isPlaying = false
+        }
+        return .success
+    }
+    
+    func skipBackward(_ event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
+        guard let command = event.command as? MPSkipIntervalCommand else {
+            return .noSuchContent
+        }
+        backSec()
+        return .success
+    }
+    
+    func skipForward(_ event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
+        guard let command = event.command as? MPSkipIntervalCommand else {
+            return .noSuchContent
+        }
+        advanceSec()
+        return .success
     }
     
     @objc func slidingAction(_ playbackSlider:UISlider)

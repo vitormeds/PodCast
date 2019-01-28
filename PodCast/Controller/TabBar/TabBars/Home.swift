@@ -78,9 +78,9 @@ class Home: CustomTableViewController {
 
 extension Home: SelectBestPodDelegate {
     
-    func selectPod(id: String) {
-        let playerViewController = PlayerViewController()
-        playerViewController.id = id
+    func selectPod(id: String?, bestPod: BestPod?) {
+        let playerViewController = PodCastListViewController()
+        playerViewController.bestPod = bestPod
         let player = UINavigationController(rootViewController: playerViewController)
         present(player, animated: true)
     }

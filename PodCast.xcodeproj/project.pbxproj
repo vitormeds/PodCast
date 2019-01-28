@@ -19,6 +19,8 @@
 		F42BA6A421F601C40075E4B3 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A321F601C40075E4B3 /* CustomTabBarController.swift */; };
 		F42BA6A821F602220075E4B3 /* MyPodCasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A721F602220075E4B3 /* MyPodCasts.swift */; };
 		F42BA6AA21F602330075E4B3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A921F602330075E4B3 /* Config.swift */; };
+		F4347CBA21FF18F4002B2088 /* PodCastListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4347CB921FF18F4002B2088 /* PodCastListController.swift */; };
+		F4347CBD21FF1E35002B2088 /* PodCastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4347CBC21FF1E35002B2088 /* PodCastList.swift */; };
 		F43779E921F611DF007DC73C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779E821F611DF007DC73C /* Colors.swift */; };
 		F43779F721F62CF6007DC73C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779F621F62CF6007DC73C /* Home.swift */; };
 		F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA621F9F9880068FAD2 /* Preferences.swift */; };
@@ -91,6 +93,8 @@
 		F42BA6A321F601C40075E4B3 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		F42BA6A721F602220075E4B3 /* MyPodCasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodCasts.swift; sourceTree = "<group>"; };
 		F42BA6A921F602330075E4B3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F4347CB921FF18F4002B2088 /* PodCastListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastListController.swift; sourceTree = "<group>"; };
+		F4347CBC21FF1E35002B2088 /* PodCastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastList.swift; sourceTree = "<group>"; };
 		F43779E821F611DF007DC73C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F43779F621F62CF6007DC73C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		F47AAEA621F9F9880068FAD2 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -230,6 +234,22 @@
 			path = PodCastUITests;
 			sourceTree = "<group>";
 		};
+		F4347CB821FF18BF002B2088 /* PodCastList */ = {
+			isa = PBXGroup;
+			children = (
+				F4347CB921FF18F4002B2088 /* PodCastListController.swift */,
+			);
+			path = PodCastList;
+			sourceTree = "<group>";
+		};
+		F4347CBB21FF1E20002B2088 /* PodCastList */ = {
+			isa = PBXGroup;
+			children = (
+				F4347CBC21FF1E35002B2088 /* PodCastList.swift */,
+			);
+			path = PodCastList;
+			sourceTree = "<group>";
+		};
 		F43779E721F611D3007DC73C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +270,7 @@
 		F43779EF21F61D8F007DC73C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4347CBB21FF1E20002B2088 /* PodCastList */,
 				F4C2C9E921FB7BC700467A06 /* PodCast */,
 				F47AAEB521FA47980068FAD2 /* Genre */,
 				F47AAEB421FA478C0068FAD2 /* Preferences */,
@@ -378,6 +399,7 @@
 		F4EE9CBD21F607700093162C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				F4347CB821FF18BF002B2088 /* PodCastList */,
 				F43779F321F62C76007DC73C /* TabBars */,
 				F43779F221F62C63007DC73C /* TabBarController */,
 			);
@@ -492,6 +514,11 @@
 				TargetAttributes = {
 					F42561A821D3C31400AA22A1 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F42561BF21D3C31500AA22A1 = {
 						CreatedOnToolsVersion = 10.1;
@@ -655,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4347CBA21FF18F4002B2088 /* PodCastListController.swift in Sources */,
 				F4FA04F121F7AD6000896B5C /* CGFloat.swift in Sources */,
 				F4FA04E821F7A06C00896B5C /* LookingFor.swift in Sources */,
 				F42561AF21D3C31400AA22A1 /* PlayerViewController.swift in Sources */,
@@ -676,6 +704,7 @@
 				F4FA04EC21F7A6C900896B5C /* PreferencesSelectController.swift in Sources */,
 				F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */,
 				F4C2C9EB21FB7BD400467A06 /* PodCast.swift in Sources */,
+				F4347CBD21FF1E35002B2088 /* PodCastList.swift in Sources */,
 				F4FA04E221F79E3F00896B5C /* BestPodElement.swift in Sources */,
 				F42BA6A421F601C40075E4B3 /* CustomTabBarController.swift in Sources */,
 				F47AAEAD21FA356F0068FAD2 /* HeaderView.swift in Sources */,
