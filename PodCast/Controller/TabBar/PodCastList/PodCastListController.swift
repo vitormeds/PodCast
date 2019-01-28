@@ -34,6 +34,7 @@ class PodCastListViewController: CustomViewController {
     var pods = [Podcast]()
     
     override func viewDidLoad() {
+        view.backgroundColor = UIColor.black
         UINavigationBar.appearance().barTintColor = UIColor.black
         UINavigationBar.appearance().tintColor = UIColor.white
         navigationController?.navigationBar.isTranslucent = false

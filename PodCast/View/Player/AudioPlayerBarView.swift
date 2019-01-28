@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MarqueeLabel
 
 class AudioPlayerBarView: UIView {
     
@@ -23,10 +24,19 @@ class AudioPlayerBarView: UIView {
         return button
     }()
     
-    let titleLabel: UILabel = {
-        let label = UILabel()
+    let closeButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = UIColor.white
+        button.setImage(UIImage(named: "close")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let titleLabel: MarqueeLabel = {
+        let label = MarqueeLabel()
+        label.marqueeType = MarqueeType.MLContinuous
         label.textColor = UIColor.white
-        label.textAlignment = NSTextAlignment.left
+        label.textAlignment = NSTextAlignment.center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,7 +44,7 @@ class AudioPlayerBarView: UIView {
     let timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.textAlignment = NSTextAlignment.left
+        label.textAlignment = NSTextAlignment.center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,8 +65,14 @@ class AudioPlayerBarView: UIView {
         
         heightAnchor.constraint(equalToConstant: 60).isActive = true
         
+        addSubview(closeButton)
+        closeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 4).isActive = true
+        closeButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        closeButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        closeButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
         addSubview(artImageView)
-        artImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        artImageView.leftAnchor.constraint(equalTo: closeButton.rightAnchor, constant: 4).isActive = true
         artImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         artImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         artImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -70,14 +86,14 @@ class AudioPlayerBarView: UIView {
         addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: artImageView.rightAnchor, constant: 16).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: playButton.leftAnchor, constant: -16).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: artImageView.rightAnchor, constant: 8).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: playButton.leftAnchor, constant: -8).isActive = true
         
         addSubview(timeLabel)
         timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
         timeLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        timeLabel.leftAnchor.constraint(equalTo: artImageView.rightAnchor, constant: 16).isActive = true
-        timeLabel.rightAnchor.constraint(equalTo: playButton.leftAnchor, constant: -16).isActive = true
+        timeLabel.leftAnchor.constraint(equalTo: artImageView.rightAnchor, constant: 8).isActive = true
+        timeLabel.rightAnchor.constraint(equalTo: playButton.leftAnchor, constant: -8).isActive = true
         
     }
     

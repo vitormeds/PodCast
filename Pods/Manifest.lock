@@ -2,6 +2,9 @@ PODS:
   - Alamofire (4.7.3)
   - FRadioPlayer (0.1.11)
   - lottie-ios (2.5.2)
+  - MarqueeLabel (3.2.0):
+    - MarqueeLabel/ObjC (= 3.2.0)
+  - MarqueeLabel/ObjC (3.2.0)
   - Nuke (7.5)
   - SwiftyJSON (4.2.0)
 
@@ -9,6 +12,7 @@ DEPENDENCIES:
   - Alamofire
   - FRadioPlayer
   - lottie-ios
+  - MarqueeLabel
   - Nuke
   - SwiftyJSON
 
@@ -17,6 +21,7 @@ SPEC REPOS:
     - Alamofire
     - FRadioPlayer
     - lottie-ios
+    - MarqueeLabel
     - Nuke
     - SwiftyJSON
 
@@ -24,9 +29,10 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   FRadioPlayer: 27b1b7dd33d12ff01b67dc57c89999baf0bbb3e6
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   Nuke: 799c0430f87b11c4dacfa80b13e1c4f0a1464b90
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 8d85529e48a28625b494e03342f390324bd99ccb
+PODFILE CHECKSUM: 2a72e7d0d6cc5a186bfd5feb10e634b711f0e115
 
 COCOAPODS: 1.5.3

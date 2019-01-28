@@ -36,8 +36,8 @@ class PlayerController {
             self.setupActions()
             self.setupSlider()
             player!.play()
-            audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
-            audioPlayerBar.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerView.playButton.setImage(UIImage(named: "pause")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerBar.playButton.setImage(UIImage(named: "pause")?.withRenderingMode(.alwaysTemplate), for: .normal)
             updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
             isPlaying = true
         }
@@ -119,8 +119,8 @@ class PlayerController {
         if player?.rate == 0
         {
             player!.play()
-            audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
-            audioPlayerBar.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerView.playButton.setImage(UIImage(named: "pause")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerBar.playButton.setImage(UIImage(named: "pause")?.withRenderingMode(.alwaysTemplate), for: .normal)
             updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
             isPlaying = true
         } else if isPlaying {
@@ -207,8 +207,8 @@ class PlayerController {
         if player?.rate == 0
         {
             player!.play()
-            audioPlayerView.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
-            audioPlayerBar.playButton.setImage(UIImage(named: "stop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerView.playButton.setImage(UIImage(named: "pause")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            audioPlayerBar.playButton.setImage(UIImage(named: "pause")?.withRenderingMode(.alwaysTemplate), for: .normal)
             updater.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
             isPlaying = true
         } else if isPlaying {

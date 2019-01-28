@@ -8,6 +8,7 @@ target 'PodCast' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'lottie-ios'
+  pod 'MarqueeLabel'
   use_frameworks!
 
   # Pods for PodCast

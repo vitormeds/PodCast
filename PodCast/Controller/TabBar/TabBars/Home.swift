@@ -15,21 +15,6 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     var bestPods = [[BestPod]]()
     var list = 10
     
-    var audioPlayerBar = AudioPlayerBarView()
-    
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(CollectionCell.self, forCellReuseIdentifier: "cell")
-        tableView.showsVerticalScrollIndicator = false
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.separatorColor = UIColor.black
-        tableView.backgroundColor = UIColor.black
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        return tableView
-    }()
-    
     override func viewWillAppear(_ animated: Bool) {
         if PlayerController.player != nil && PlayerController.player?.rate != 0 {
             setupPlayerBar()
@@ -37,34 +22,12 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     override func viewDidLoad() {
+        view.backgroundColor = UIColor.black
+        tableView.delegate = self
+        tableView.dataSource = self
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.white
         setupTableView()
         loadData()
-    }
-    
-    func setupTableView() {
-        audioPlayerBar.removeFromSuperview()
-        view.addSubview(tableView)
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
-    func setupPlayerBar() {
-        
-        tableView.removeFromSuperview()
-        audioPlayerBar = PlayerController.audioPlayerBar
-        view.addSubview(audioPlayerBar)
-        audioPlayerBar.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        audioPlayerBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        audioPlayerBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
-        view.addSubview(tableView)
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
     }
     
     func loadData() {
