@@ -21,6 +21,7 @@
 		F42BA6AA21F602330075E4B3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A921F602330075E4B3 /* Config.swift */; };
 		F4347CBA21FF18F4002B2088 /* PodCastListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4347CB921FF18F4002B2088 /* PodCastListController.swift */; };
 		F4347CBD21FF1E35002B2088 /* PodCastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4347CBC21FF1E35002B2088 /* PodCastList.swift */; };
+		F4347CBF21FF459A002B2088 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4347CBE21FF459A002B2088 /* PlayerController.swift */; };
 		F43779E921F611DF007DC73C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779E821F611DF007DC73C /* Colors.swift */; };
 		F43779F721F62CF6007DC73C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779F621F62CF6007DC73C /* Home.swift */; };
 		F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA621F9F9880068FAD2 /* Preferences.swift */; };
@@ -95,6 +96,7 @@
 		F42BA6A921F602330075E4B3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F4347CB921FF18F4002B2088 /* PodCastListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastListController.swift; sourceTree = "<group>"; };
 		F4347CBC21FF1E35002B2088 /* PodCastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastList.swift; sourceTree = "<group>"; };
+		F4347CBE21FF459A002B2088 /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		F43779E821F611DF007DC73C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F43779F621F62CF6007DC73C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		F47AAEA621F9F9880068FAD2 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				F42561AE21D3C31400AA22A1 /* PlayerViewController.swift */,
+				F4347CBE21FF459A002B2088 /* PlayerController.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				F4C2C9ED21FB7DF200467A06 /* PodCastComponent.swift in Sources */,
 				F42BA6A821F602220075E4B3 /* MyPodCasts.swift in Sources */,
 				F4FA04EC21F7A6C900896B5C /* PreferencesSelectController.swift in Sources */,
+				F4347CBF21FF459A002B2088 /* PlayerController.swift in Sources */,
 				F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */,
 				F4C2C9EB21FB7BD400467A06 /* PodCast.swift in Sources */,
 				F4347CBD21FF1E35002B2088 /* PodCastList.swift in Sources */,
