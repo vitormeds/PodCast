@@ -32,21 +32,20 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     func loadData() {
         startLoad()
-        PodCastListService.getGenres { result in
-            if result != nil {
-                self.genres = result!
-                var genresAux = [Genre]()
-                for i in 0...2 {
-                    genresAux.append(self.genres[i])
-                }
-                PodCastListService.getBestPodsByGenre(genres: genresAux, completionHandler: { resultBestPods in
-                    if resultBestPods != nil {
-                        self.bestPods = resultBestPods!
-                    }
-                    self.stopLoad()
-                    self.tableView.reloadData()
-                })
+        let preferences = PreferencesDataController.getPreferences()
+        var result = [Genre]()
+        if preferences != nil && preferences?.id != nil && !(preferences?.id?.isEmpty)! {
+            for i in 0...preferences!.id!.count - 1 {
+                result.append(Genre(parent_id: preferences?.parent_id![i],name: preferences?.name![i],id: preferences?.id![i]))
             }
+            self.genres = result
+            PodCastListService.getBestPodsByGenre(genres: self.genres, completionHandler: { resultBestPods in
+                if resultBestPods != nil {
+                    self.bestPods = resultBestPods!
+                }
+                self.stopLoad()
+                self.tableView.reloadData()
+            })
         }
     }
     

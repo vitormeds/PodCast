@@ -19,12 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 8
-        let cardCollection = UINavigationController(rootViewController: PreferencesSelectController(collectionViewLayout: layout))
-        window?.rootViewController = cardCollection
+        let standard = UserDefaults.standard
+        if !standard.bool(forKey: "preferencesInicialize") {
+            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 8
+            let cardCollection = UINavigationController(rootViewController: PreferencesSelectController(collectionViewLayout: layout))
+            window?.rootViewController = cardCollection
+        }
+        else {
+            window?.rootViewController = CustomTabBarController()
+        }
 
         //Audio Configs
         do

@@ -139,12 +139,14 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
     
     @objc func performNext() {
         var selectedGenresOptions = [Genre]()
-        if !selectedGenres.isEmpty {
+        if selectedGenres.count >= 5 {
             for i in 0...selectedGenres.count - 1 {
                 selectedGenresOptions.append(genres[selectedGenres[i]])
             }
             PreferencesDataController.savePreferences(genres: selectedGenresOptions)
+            let standard = UserDefaults.standard
+            standard.set(true, forKey: "preferencesInicialize")
+            present(CustomTabBarController(), animated: true)
         }
-        present(CustomTabBarController(), animated: true)
     }
 }
