@@ -15,6 +15,25 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     var bestPods = [[BestPod]]()
     var list = 10
     
+    let searchBarView = UIView()
+    lazy var searchBar: SearchBar = {
+        let searchBar = SearchBar()
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Buscar"
+        searchBar.cancelTitle = "Cancelar"
+        searchBar.showsCancelButton = true
+        searchBar.barTintColor = UIColor.black
+        searchBar.tintColor = UIColor.black
+        searchBar.backgroundColor = UIColor.black
+        searchBar.delegate = self
+        searchBar.layer.borderColor = UIColor.black.cgColor
+        searchBar.layer.borderWidth = 1
+        searchBar.cancelButtonColor = UIColor.white
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        return searchBar
+    }()
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         if PlayerController.player != nil && PlayerController.player?.rate != 0 {
             setupPlayerBar()
@@ -26,8 +45,19 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.white
+        setupSearch()
         setupTableView()
         loadData()
+    }
+    
+    func setupSearch() {
+        searchBarView.addSubview(searchBar)
+        searchBar.topAnchor.constraint(equalTo: searchBarView.topAnchor).isActive = true
+        searchBar.leftAnchor.constraint(equalTo: searchBarView.leftAnchor).isActive = true
+        searchBar.rightAnchor.constraint(equalTo: searchBarView.rightAnchor).isActive = true
+        //searchBar.bottomAnchor.constraint(equalTo: searchBarView.bottomAnchor).isActive = true
+        searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        tableView.tableHeaderView = searchBarView
     }
     
     func loadData() {
@@ -50,34 +80,39 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return section == 0 ? 0:1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            return UITableViewCell()
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CollectionCell
-        cell.bestPods = bestPods[indexPath.section]
+        cell.bestPods = bestPods[indexPath.section - 1]
         cell.delegate = self
         return cell
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            return searchBarView
+        }
         let headeView = HeaderView()
-        headeView.titleLabel.text = genres[section].name
+        headeView.titleLabel.text = genres[section - 1].name
         return headeView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return section == 0 ? 25:60
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return bestPods.count
+        return bestPods.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
 }
 
 extension Home: SelectBestPodDelegate {
@@ -87,5 +122,20 @@ extension Home: SelectBestPodDelegate {
         playerViewController.bestPod = bestPod
         let player = UINavigationController(rootViewController: playerViewController)
         present(player, animated: true)
+    }
+}
+
+extension Home: UISearchBarDelegate,UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }

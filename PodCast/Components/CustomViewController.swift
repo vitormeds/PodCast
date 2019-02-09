@@ -46,12 +46,17 @@ open class CustomViewController: UIViewController {
         lottieLoading.removeFromSuperview()
     }
     
-    func setupTableView() {
+    func setupTableView(topAnchor: NSLayoutYAxisAnchor? = nil) {
         audioPlayerBar.removeFromSuperview()
         view.addSubview(tableView)
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        if topAnchor != nil {
+            tableView.topAnchor.constraint(equalTo: topAnchor!).isActive = true
+        }
+        else {
+            tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        }
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     

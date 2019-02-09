@@ -95,7 +95,7 @@ extension PodCastListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let playerViewController = PlayerViewController()
-        playerViewController.id = pods[indexPath.section].id ?? ""
+        playerViewController.id = pods[indexPath.item].id ?? ""
         let player = UINavigationController(rootViewController: playerViewController)
         present(player, animated: true)
     }
