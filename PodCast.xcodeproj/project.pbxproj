@@ -36,6 +36,7 @@
 		F4C2C9EF21FB86A200467A06 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9EE21FB86A200467A06 /* CustomViewController.swift */; };
 		F4C2C9F221FB8C6100467A06 /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9F121FB8C6100467A06 /* CustomTableViewController.swift */; };
 		F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E07C96220E4C0E00530ABE /* SearchBar.swift */; };
+		F4E07C99220E5E2500530ABE /* PreferenceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */; };
 		F4EE9CC121F60D180093162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4EE9CC021F60D180093162C /* Localizable.strings */; };
 		F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */; };
 		F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */; };
@@ -113,6 +114,7 @@
 		F4C2C9EE21FB86A200467A06 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		F4C2C9F121FB8C6100467A06 /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		F4E07C96220E4C0E00530ABE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceHeaderView.swift; sourceTree = "<group>"; };
 		F4EE9CC021F60D180093162C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FA04EE21F7A7B500896B5C /* PreferenceCardGenre.swift */,
+				F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */,
 			);
 			path = Preference;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */,
 				F4C2C9F221FB8C6100467A06 /* CustomTableViewController.swift in Sources */,
 				F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */,
+				F4E07C99220E5E2500530ABE /* PreferenceHeaderView.swift in Sources */,
 				F4C2C9EF21FB86A200467A06 /* CustomViewController.swift in Sources */,
 				F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */,
 				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,

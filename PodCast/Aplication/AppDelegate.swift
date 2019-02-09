@@ -21,10 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let standard = UserDefaults.standard
         if !standard.bool(forKey: "preferencesInicialize") {
-            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-            layout.minimumInteritemSpacing = 0
-            layout.minimumLineSpacing = 8
-            let cardCollection = UINavigationController(rootViewController: PreferencesSelectController(collectionViewLayout: layout))
+            let cardCollection = UINavigationController(rootViewController: PreferencesSelectController())
             window?.rootViewController = cardCollection
         }
         else {

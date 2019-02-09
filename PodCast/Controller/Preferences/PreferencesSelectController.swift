@@ -12,7 +12,7 @@ import Lottie
 fileprivate let cardReuseIdentifier = "CardCell"
 fileprivate let headerId = "CollectionReusableView"
 
-class PreferencesSelectController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class PreferencesSelectController: UIViewController, UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
     
     var genres = [Genre]()
     var selectedGenres = [Int]()
@@ -28,6 +28,18 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
         return headerAnimationView
     }()
     
+    lazy var collectionView : UICollectionView = {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 8
+        layout.itemSize = CGSize(width: 150, height: 170)
+        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.delegate = self
+        cv.dataSource = self
+        return cv
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.black
@@ -39,11 +51,21 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
         definesPresentationContext = true
         extendedLayoutIncludesOpaqueBars = true
         
-        collectionView?.alwaysBounceVertical = true
-        collectionView?.backgroundColor = UIColor.black
-        view.backgroundColor = UIColor.blue
-        collectionView?.register(PreferenceCardGenre.self, forCellWithReuseIdentifier: cardReuseIdentifier)
+        collectionView.alwaysBounceVertical = true
+        collectionView.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.black
+        collectionView.register(PreferenceCardGenre.self, forCellWithReuseIdentifier: cardReuseIdentifier)
+        collectionView.register(PreferenceHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCell")
+
         loadData()
+    }
+    
+    func setupViews() {
+        view.addSubview(collectionView)
+        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     func startLoad() {
@@ -67,12 +89,18 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
                     self.colors.append(UIColor.random)
                 }
                 self.stopLoad()
+                self.setupViews()
                 self.collectionView.reloadData()
             }
         }
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCell", for: indexPath) as! PreferenceHeaderView
+        return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return genres.count
     }
     
@@ -89,7 +117,9 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: 10)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        return CGSize(width: screenWidth, height: 60)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -97,17 +127,17 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
     }
     
     
-    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.alpha = 0.5
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.alpha = 1
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cardReuseIdentifier, for: indexPath) as! PreferenceCardGenre
         cell.backgroundColor = #colorLiteral(red: 0.2519568801, green: 0.2802801728, blue: 0.3001171947, alpha: 1)
         cell.titleLabel.text = genres[indexPath.item].name
@@ -120,7 +150,7 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if !selectedGenres.contains(indexPath.item) {
             selectedGenres.append(indexPath.item)
         }
@@ -139,14 +169,14 @@ class PreferencesSelectController: UICollectionViewController, UICollectionViewD
     
     @objc func performNext() {
         var selectedGenresOptions = [Genre]()
-        if selectedGenres.count >= 5 {
+        if selectedGenres.count != 0 {
             for i in 0...selectedGenres.count - 1 {
                 selectedGenresOptions.append(genres[selectedGenres[i]])
             }
-            PreferencesDataController.savePreferences(genres: selectedGenresOptions)
-            let standard = UserDefaults.standard
-            standard.set(true, forKey: "preferencesInicialize")
-            present(CustomTabBarController(), animated: true)
         }
+        PreferencesDataController.savePreferences(genres: selectedGenresOptions)
+        let standard = UserDefaults.standard
+        standard.set(true, forKey: "preferencesInicialize")
+        present(CustomTabBarController(), animated: true)
     }
 }

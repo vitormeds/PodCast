@@ -45,8 +45,6 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.white
-        setupSearch()
-        setupTableView()
         loadData()
     }
     
@@ -74,6 +72,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
                     self.bestPods = resultBestPods!
                 }
                 self.stopLoad()
+                self.setupSearch()
+                self.setupTableView()
                 self.tableView.reloadData()
             })
         }
