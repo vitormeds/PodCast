@@ -20,8 +20,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         let searchBar = SearchBar()
         searchBar.sizeToFit()
         searchBar.placeholder = "Buscar"
-        searchBar.cancelTitle = "Cancelar"
-        searchBar.showsCancelButton = true
+        searchBar.cancelTitle = "Fechar"
+        searchBar.showsCancelButton = false
         searchBar.barTintColor = UIColor.black
         searchBar.tintColor = UIColor.black
         searchBar.backgroundColor = UIColor.black
@@ -131,11 +131,24 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         
     }
     
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.text = ""
+        searchBar.showsCancelButton = true
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
         searchBar.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
         searchBar.endEditing(true)
     }
 }
