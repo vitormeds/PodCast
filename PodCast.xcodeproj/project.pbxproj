@@ -38,6 +38,9 @@
 		F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E07C96220E4C0E00530ABE /* SearchBar.swift */; };
 		F4E07C99220E5E2500530ABE /* PreferenceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */; };
 		F4E2E43322134D36007C984E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E43222134D36007C984E /* R.generated.swift */; };
+		F4E2E435221352AA007C984E /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E434221352AA007C984E /* SearchService.swift */; };
+		F4E2E4382213547E007C984E /* PodCastSearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E4372213547E007C984E /* PodCastSearchList.swift */; };
+		F4E2E43A221354E5007C984E /* PodCastSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E439221354E5007C984E /* PodCastSearch.swift */; };
 		F4EE9CC121F60D180093162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4EE9CC021F60D180093162C /* Localizable.strings */; };
 		F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */; };
 		F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */; };
@@ -117,6 +120,9 @@
 		F4E07C96220E4C0E00530ABE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceHeaderView.swift; sourceTree = "<group>"; };
 		F4E2E43222134D36007C984E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		F4E2E434221352AA007C984E /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		F4E2E4372213547E007C984E /* PodCastSearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastSearchList.swift; sourceTree = "<group>"; };
+		F4E2E439221354E5007C984E /* PodCastSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastSearch.swift; sourceTree = "<group>"; };
 		F4EE9CC021F60D180093162C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 		F43779EF21F61D8F007DC73C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4E2E43622135452007C984E /* Search */,
 				F4347CBB21FF1E20002B2088 /* PodCastList */,
 				F4C2C9E921FB7BC700467A06 /* PodCast */,
 				F47AAEB521FA47980068FAD2 /* Genre */,
@@ -410,6 +417,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		F4E2E43622135452007C984E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F4E2E4372213547E007C984E /* PodCastSearchList.swift */,
+				F4E2E439221354E5007C984E /* PodCastSearch.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		F4EE9CBD21F607700093162C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FA04DB21F78A1100896B5C /* PodCastListService.swift */,
+				F4E2E434221352AA007C984E /* SearchService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -729,12 +746,14 @@
 				F4FA04EA21F7A48B00896B5C /* StatusBarExtension.swift in Sources */,
 				F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */,
 				F4C2C9F221FB8C6100467A06 /* CustomTableViewController.swift in Sources */,
+				F4E2E4382213547E007C984E /* PodCastSearchList.swift in Sources */,
 				F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */,
 				F4E07C99220E5E2500530ABE /* PreferenceHeaderView.swift in Sources */,
 				F4C2C9EF21FB86A200467A06 /* CustomViewController.swift in Sources */,
 				F4E2E43322134D36007C984E /* R.generated.swift in Sources */,
 				F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */,
 				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,
+				F4E2E435221352AA007C984E /* SearchService.swift in Sources */,
 				F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */,
 				F43779E921F611DF007DC73C /* Colors.swift in Sources */,
 				F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */,
@@ -746,6 +765,7 @@
 				F4C2C9ED21FB7DF200467A06 /* PodCastComponent.swift in Sources */,
 				F42BA6A821F602220075E4B3 /* MyPodCasts.swift in Sources */,
 				F4FA04EC21F7A6C900896B5C /* PreferencesSelectController.swift in Sources */,
+				F4E2E43A221354E5007C984E /* PodCastSearch.swift in Sources */,
 				F4347CBF21FF459A002B2088 /* PlayerController.swift in Sources */,
 				F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */,
 				F4C2C9EB21FB7BD400467A06 /* PodCast.swift in Sources */,
