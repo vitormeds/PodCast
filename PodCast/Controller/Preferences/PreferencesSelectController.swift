@@ -46,8 +46,8 @@ class PreferencesSelectController: UIViewController, UICollectionViewDelegateFlo
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        title = "Assuntos"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "INICIAR", style: .done, target: self, action: #selector(performNext))
+        title = R.string.localizable.assuntos()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.iniciar(), style: .done, target: self, action: #selector(performNext))
         definesPresentationContext = true
         extendedLayoutIncludesOpaqueBars = true
         

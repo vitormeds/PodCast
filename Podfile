@@ -9,6 +9,7 @@ target 'PodCast' do
   pod 'SwiftyJSON'
   pod 'lottie-ios'
   pod 'MarqueeLabel'
+  pod 'R.swift'
   use_frameworks!
 
   # Pods for PodCast

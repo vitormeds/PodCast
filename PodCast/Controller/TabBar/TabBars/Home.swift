@@ -19,8 +19,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     lazy var searchBar: SearchBar = {
         let searchBar = SearchBar()
         searchBar.sizeToFit()
-        searchBar.placeholder = "Buscar"
-        searchBar.cancelTitle = "Fechar"
+        searchBar.placeholder = R.string.localizable.buscar()
+        searchBar.cancelTitle = R.string.localizable.fechar()
         searchBar.showsCancelButton = false
         searchBar.barTintColor = UIColor.black
         searchBar.tintColor = UIColor.black

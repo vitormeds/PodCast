@@ -15,7 +15,7 @@ class PreferenceHeaderView: UICollectionReusableView {
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 22)
         label.numberOfLines = 0
-        label.text = "Escolha alguns temas de seu interesse"
+        label.text = R.string.localizable.escolhaAlgumTema()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

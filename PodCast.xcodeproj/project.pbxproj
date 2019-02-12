@@ -37,6 +37,7 @@
 		F4C2C9F221FB8C6100467A06 /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9F121FB8C6100467A06 /* CustomTableViewController.swift */; };
 		F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E07C96220E4C0E00530ABE /* SearchBar.swift */; };
 		F4E07C99220E5E2500530ABE /* PreferenceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */; };
+		F4E2E43322134D36007C984E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E43222134D36007C984E /* R.generated.swift */; };
 		F4EE9CC121F60D180093162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4EE9CC021F60D180093162C /* Localizable.strings */; };
 		F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */; };
 		F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */; };
@@ -115,6 +116,7 @@
 		F4C2C9F121FB8C6100467A06 /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		F4E07C96220E4C0E00530ABE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceHeaderView.swift; sourceTree = "<group>"; };
+		F4E2E43222134D36007C984E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		F4EE9CC021F60D180093162C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				F42561AC21D3C31400AA22A1 /* AppDelegate.swift */,
+				F4E2E43222134D36007C984E /* R.generated.swift */,
 				F4EE9CC021F60D180093162C /* Localizable.strings */,
 			);
 			path = Aplication;
@@ -462,6 +465,7 @@
 			buildConfigurationList = F42561D421D3C31500AA22A1 /* Build configuration list for PBXNativeTarget "PodCast" */;
 			buildPhases = (
 				62CED55B6854740E3513DC65 /* [CP] Check Pods Manifest.lock */,
+				F4E2E42F22134BAA007C984E /* RSwift */,
 				F42561A521D3C31400AA22A1 /* Sources */,
 				F42561A621D3C31400AA22A1 /* Frameworks */,
 				F42561A721D3C31400AA22A1 /* Resources */,
@@ -648,6 +652,7 @@
 				"${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
@@ -659,6 +664,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRadioPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
@@ -689,6 +695,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F4E2E42F22134BAA007C984E /* RSwift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = RSwift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -706,6 +732,7 @@
 				F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */,
 				F4E07C99220E5E2500530ABE /* PreferenceHeaderView.swift in Sources */,
 				F4C2C9EF21FB86A200467A06 /* CustomViewController.swift in Sources */,
+				F4E2E43322134D36007C984E /* R.generated.swift in Sources */,
 				F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */,
 				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,
 				F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */,

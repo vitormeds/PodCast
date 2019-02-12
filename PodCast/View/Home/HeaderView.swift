@@ -24,7 +24,7 @@ class HeaderView: UIView {
         label.textColor = UIColor.white
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "Mais"
+        label.text = R.string.localizable.mais()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

@@ -6,6 +6,9 @@ PODS:
     - MarqueeLabel/ObjC (= 3.2.0)
   - MarqueeLabel/ObjC (3.2.0)
   - Nuke (7.5)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - lottie-ios
   - MarqueeLabel
   - Nuke
+  - R.swift
   - SwiftyJSON
 
 SPEC REPOS:
@@ -23,6 +27,8 @@ SPEC REPOS:
     - lottie-ios
     - MarqueeLabel
     - Nuke
+    - R.swift
+    - R.swift.Library
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -31,8 +37,10 @@ SPEC CHECKSUMS:
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   Nuke: 799c0430f87b11c4dacfa80b13e1c4f0a1464b90
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 2a72e7d0d6cc5a186bfd5feb10e634b711f0e115
+PODFILE CHECKSUM: e57120928436bc288934be2522533be073029ec4
 
 COCOAPODS: 1.5.3

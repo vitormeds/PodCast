@@ -17,17 +17,17 @@ class CustomTabBarController: UITabBarController {
 
         let homeViewController = Home()
         let homeViewNavigationController = homeViewController
-        homeViewNavigationController.title = "Inicio"
+        homeViewNavigationController.title = R.string.localizable.inicio()
         homeViewNavigationController.tabBarItem.image = UIImage(named: "home")
         
         let myPodCastsViewController = MyPodCasts()
         let myPodCastsViewNavigationController = myPodCastsViewController
-        myPodCastsViewNavigationController.title = "Meus Podcasts"
+        myPodCastsViewNavigationController.title = R.string.localizable.meusPodCast()
         myPodCastsViewNavigationController.tabBarItem.image = UIImage(named: "headphone")
         
         let configViewController = Config()
         let configViewNavigationController = configViewController
-        configViewNavigationController.title = "Perfil"
+        configViewNavigationController.title = R.string.localizable.perfil()
         configViewNavigationController.tabBarItem.image = UIImage(named: "profile")
         
         viewControllers = [homeViewNavigationController,myPodCastsViewNavigationController,configViewNavigationController]
