@@ -14,10 +14,12 @@ class SearchService {
     
     static let header = ["X-RapidAPI-Key" : "0799d534b1msh31d98431151274ap1a0de9jsnf346b2fbf029"]
     
-    static func searchEpisodePodCast(search: String,completionHandler: @escaping (EpisodeSearchList?) -> ()) {
+    static func searchEpisodePodCast(search: String, next: String? = "",completionHandler: @escaping (EpisodeSearchList?) -> ()) {
         let searchText = search.replacingOccurrences(of: " ", with: "-")
-        let url = "https://listennotes.p.rapidapi.com/api/v1/search?type=episode&q=" + searchText
-        
+        var url = "https://listennotes.p.rapidapi.com/api/v1/search?type=episode&q=" + searchText
+        if next != nil && next != ""{
+            url = url + "&offset=" + next!
+        }
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             
             if let err = response.error {
@@ -39,9 +41,12 @@ class SearchService {
         }
     }
     
-    static func searchPodCast(search: String,completionHandler: @escaping (PodCastSearchList?) -> ()) {
+    static func searchPodCast(search: String, next: String? = "",completionHandler: @escaping (PodCastSearchList?) -> ()) {
         let searchText = search.replacingOccurrences(of: " ", with: "-")
-        let url = "https://listennotes.p.rapidapi.com/api/v1/search?type=podcas&q=" + searchText
+        var url = "https://listennotes.p.rapidapi.com/api/v1/search?type=podcas&q=" + searchText
+        if next != nil && next != "" {
+            url = url + "&offset=" + next!
+        }
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             

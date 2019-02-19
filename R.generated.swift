@@ -153,12 +153,14 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 12 localization keys.
     struct localizable {
       /// Value: Assuntos
       static let assuntos = Rswift.StringResource(key: "assuntos", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Buscar
       static let buscar = Rswift.StringResource(key: "buscar", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Episodio
+      static let episodio = Rswift.StringResource(key: "episodio", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Escolha alguns temas de seu interesse
       static let escolhaAlgumTema = Rswift.StringResource(key: "escolhaAlgumTema", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Fechar
@@ -173,6 +175,8 @@ struct R: Rswift.Validatable {
       static let meusPodCast = Rswift.StringResource(key: "meusPodCast", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Perfil
       static let perfil = Rswift.StringResource(key: "perfil", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: PodCast
+      static let podcast = Rswift.StringResource(key: "podcast", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Voltar
       static let voltar = Rswift.StringResource(key: "voltar", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
@@ -184,6 +188,11 @@ struct R: Rswift.Validatable {
       /// Value: Buscar
       static func buscar(_: Void = ()) -> String {
         return NSLocalizedString("buscar", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Episodio
+      static func episodio(_: Void = ()) -> String {
+        return NSLocalizedString("episodio", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Escolha alguns temas de seu interesse
@@ -219,6 +228,11 @@ struct R: Rswift.Validatable {
       /// Value: Perfil
       static func perfil(_: Void = ()) -> String {
         return NSLocalizedString("perfil", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: PodCast
+      static func podcast(_: Void = ()) -> String {
+        return NSLocalizedString("podcast", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Voltar

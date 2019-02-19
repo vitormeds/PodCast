@@ -37,6 +37,7 @@
 		F4C2C9F221FB8C6100467A06 /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9F121FB8C6100467A06 /* CustomTableViewController.swift */; };
 		F4CA23B1221C74CC00714418 /* PodCastSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA23B0221C74CC00714418 /* PodCastSearch.swift */; };
 		F4CA23B3221C75B600714418 /* PodCastSearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA23B2221C75B600714418 /* PodCastSearchList.swift */; };
+		F4CA23B5221C8A4A00714418 /* LoadingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA23B4221C8A4A00714418 /* LoadingCollectionCell.swift */; };
 		F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E07C96220E4C0E00530ABE /* SearchBar.swift */; };
 		F4E07C99220E5E2500530ABE /* PreferenceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */; };
 		F4E2E43322134D36007C984E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E43222134D36007C984E /* R.generated.swift */; };
@@ -121,6 +122,7 @@
 		F4C2C9F121FB8C6100467A06 /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		F4CA23B0221C74CC00714418 /* PodCastSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastSearch.swift; sourceTree = "<group>"; };
 		F4CA23B2221C75B600714418 /* PodCastSearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastSearchList.swift; sourceTree = "<group>"; };
+		F4CA23B4221C8A4A00714418 /* LoadingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCollectionCell.swift; sourceTree = "<group>"; };
 		F4E07C96220E4C0E00530ABE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F4E07C98220E5E2500530ABE /* PreferenceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceHeaderView.swift; sourceTree = "<group>"; };
 		F4E2E43222134D36007C984E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -371,6 +373,7 @@
 				F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */,
 				F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */,
 				F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */,
+				F4CA23B4221C8A4A00714418 /* LoadingCollectionCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				F4347CBA21FF18F4002B2088 /* PodCastListController.swift in Sources */,
 				F4FA04F121F7AD6000896B5C /* CGFloat.swift in Sources */,
 				F4FA04E821F7A06C00896B5C /* LookingFor.swift in Sources */,
+				F4CA23B5221C8A4A00714418 /* LoadingCollectionCell.swift in Sources */,
 				F42561AF21D3C31400AA22A1 /* PlayerViewController.swift in Sources */,
 				F4FA04EA21F7A48B00896B5C /* StatusBarExtension.swift in Sources */,
 				F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */,

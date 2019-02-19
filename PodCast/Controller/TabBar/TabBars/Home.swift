@@ -14,6 +14,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     let contentCellIdentifier = "ContentCellIdentifier"
     let contentCardCellIdentifier = "contentCardCellIdentifier"
+    let cartFooterCollectionReusableView = "CartFooterCollectionReusableView"
     
     public enum SearchCategory {
         case episodes
@@ -36,7 +37,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     }()
     
     lazy var segmentControl: UISegmentedControl = {
-        let segmentControl = UISegmentedControl(items: ["Episodio","PodCast"])
+        let segmentControl = UISegmentedControl(items: [R.string.localizable.episodio(),R.string.localizable.podcast()])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(changeSearchType), for: .valueChanged)
         segmentControl.backgroundColor = UIColor.black
@@ -47,6 +48,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     var searchEpisodes: EpisodeSearchList!
     var searchPodCasts: PodCastSearchList!
+    var searchEpisodesData = [EpisodeSearch]()
+    var searchPodCastsData = [PodCastSearch]()
     
     var  bestPod: BestPod!  {
         didSet{
@@ -204,6 +207,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.dataSource = self
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.white
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCardCellIdentifier)
+        collectionView.register(LoadingCollectionCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cartFooterCollectionReusableView)
         loadData()
     }
     
@@ -269,6 +273,15 @@ extension Home: SelectBestPodDelegate {
 
 extension Home: UISearchBarDelegate,UISearchResultsUpdating {
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (searchType == SearchCategory.episodes && (indexPath.row == searchEpisodesData.count - 1)) || (searchType == SearchCategory.podcasts && (indexPath.row == searchPodCastsData.count - 1))  {
+            if (searchType == SearchCategory.podcasts && (searchPodCasts.next_offset != searchPodCasts.total)) ||
+                (searchType == SearchCategory.episodes && (searchEpisodes.next_offset != searchEpisodes.total)) {
+                loadSearchData(isUpdate: true)
+            }
+        }
+    }
+    
     @objc func changeSearchType(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -290,33 +303,101 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         return true
     }
     
-    func loadSearchData() {
+    func loadSearchData(isUpdate: Bool? = false) {
         if !isSearch {
             isSearch = !isSearch
             if searchType == SearchCategory.episodes
             {
-                SearchService.searchEpisodePodCast(search: searchBar.text ?? "") { result in
-                    self.isSearch = false
-                    if result != nil && !(result?.results?.isEmpty)! {
-                        self.searchEpisodes = result
-                        if self.collectionView.isHidden {
-                            self.collectionView.isHidden = false
-                            self.stopLoad()
+                if !isUpdate! {
+                    SearchService.searchEpisodePodCast(search: searchBar.text ?? "") { result in
+                        self.isSearch = false
+                        if result != nil && !(result?.results?.isEmpty)! {
+                            self.searchEpisodes = result
+                            self.searchEpisodesData = (result?.results)!
+                            if self.collectionView.isHidden {
+                                self.collectionView.isHidden = false
+                                self.stopLoad()
+                            }
+                            self.collectionView.reloadData()
                         }
-                        self.collectionView.reloadData()
+                    }
+                }
+                else {
+                    if searchEpisodes == nil || (searchEpisodes.next_offset == searchEpisodes.total) == false {
+                        var next = ""
+                        if searchEpisodes != nil {
+                            next = (searchEpisodes.next_offset?.description)!
+                        }
+                        SearchService.searchEpisodePodCast(search: searchBar.text ?? "", next: next) { result in
+                            self.isSearch = false
+                            if result != nil && !(result?.results?.isEmpty)! {
+                                if self.searchEpisodes == nil || (self.searchEpisodesData.isEmpty) {
+                                    self.searchEpisodes = result
+                                    self.searchEpisodesData = (result?.results)!
+                                }
+                                else {
+                                    self.searchEpisodes = result
+                                    for element in (result?.results)! {
+                                        self.searchEpisodesData.append(element)
+                                    }
+                                }
+                                if self.collectionView.isHidden {
+                                    self.collectionView.isHidden = false
+                                    self.stopLoad()
+                                }
+                                self.collectionView.reloadData()
+                            }
+                        }
+                    }
+                    else {
+                        self.isSearch = false
                     }
                 }
             }
             else {
-                SearchService.searchPodCast(search: searchBar.text ?? "") { result in
-                    self.isSearch = false
-                    if result != nil && !(result?.results?.isEmpty)! {
-                        self.searchPodCasts = result
-                        if self.collectionView.isHidden {
-                            self.collectionView.isHidden = false
-                            self.stopLoad()
+                if !isUpdate! {
+                    SearchService.searchPodCast(search: searchBar.text ?? "") { result in
+                        self.isSearch = false
+                        if result != nil && !(result?.results?.isEmpty)! {
+                            self.searchPodCasts = result
+                            self.searchPodCastsData = (result?.results)!
+                            if self.collectionView.isHidden {
+                                self.collectionView.isHidden = false
+                                self.stopLoad()
+                            }
+                            self.collectionView.reloadData()
                         }
-                        self.collectionView.reloadData()
+                    }
+                }
+                else {
+                    if searchPodCasts == nil || (searchPodCasts.next_offset == searchPodCasts.total) == false {
+                        var next = ""
+                        if searchPodCasts != nil {
+                            next = (searchPodCasts.next_offset?.description)!
+                        }
+                        SearchService.searchPodCast(search: searchBar.text ?? "", next: next) { result in
+                            self.isSearch = false
+                            if result != nil && !(result?.results?.isEmpty)! {
+                                if self.searchPodCasts == nil || (self.searchPodCastsData.isEmpty) {
+                                    self.searchPodCasts = result
+                                    self.searchPodCastsData = (result?.results)!
+                                }
+                                else {
+                                    self.searchPodCasts = result
+                                    for element in (result?.results)! {
+                                        self.searchPodCastsData.append(element)
+                                    }
+                                }
+                                if self.collectionView.isHidden {
+                                    self.collectionView.isHidden = false
+                                    self.stopLoad()
+                                }
+                                self.collectionView.reloadData()
+                            }
+                        }
+                    }
+                    else {
+                        self.isSearch = false
                     }
                 }
             }
@@ -329,7 +410,7 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         if self.searchLayout == false {
             self.setupSearchMode()
         }
-        if (searchType == SearchCategory.episodes && (searchEpisodes == nil || searchEpisodes.results!.isEmpty)) || (searchType == SearchCategory.podcasts && (searchPodCasts == nil || searchPodCasts.results!.isEmpty)) {
+        if (searchType == SearchCategory.episodes && (searchEpisodes == nil || searchEpisodesData.isEmpty)) || (searchType == SearchCategory.podcasts && (searchPodCasts == nil || searchPodCastsData.isEmpty)) {
             collectionView.isHidden = true
             startLoad()
         }
@@ -350,6 +431,8 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         searchBar.showsCancelButton = false
         searchEpisodes = nil
         searchPodCasts = nil
+        searchPodCastsData.removeAll()
+        searchEpisodesData.removeAll()
         setupDefaultMode()
     }
 }
@@ -379,7 +462,7 @@ extension Home: UICollectionViewDataSource {
                 return 0
             }
             else {
-                return searchEpisodes.results!.count
+                return searchEpisodesData.count
             }
         }
         else {
@@ -387,7 +470,7 @@ extension Home: UICollectionViewDataSource {
                 return 0
             }
             else {
-                return searchPodCasts.results!.count
+                return searchPodCastsData.count
             }
         }
     }
@@ -396,16 +479,16 @@ extension Home: UICollectionViewDataSource {
         if searchType == SearchCategory.episodes
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchEpisodes.results![indexPath.item].thumbnail ?? searchEpisodes.results![indexPath.item].image ?? "")!))
+            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchEpisodesData[indexPath.item].thumbnail ?? searchEpisodesData[indexPath.item].image ?? "")!))
             Nuke.loadImage(with: request2, into: cell.iconImageView)
-            cell.titleLabel.text = searchEpisodes.results![indexPath.item].title_original
+            cell.titleLabel.text = searchEpisodesData[indexPath.item].title_original
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchPodCasts.results![indexPath.item].thumbnail ?? searchPodCasts.results![indexPath.item].image ?? "")!))
+            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchPodCastsData[indexPath.item].thumbnail ?? searchPodCastsData[indexPath.item].image ?? "")!))
             Nuke.loadImage(with: request2, into: cell.iconImageView)
-            cell.titleLabel.text = searchPodCasts.results![indexPath.item].title_original
+            cell.titleLabel.text = searchPodCastsData[indexPath.item].title_original
             return cell
         }
     }
@@ -417,13 +500,13 @@ extension Home: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if searchType == SearchCategory.episodes {
             let playerViewController = PlayerViewController()
-            playerViewController.id = searchEpisodes.results![indexPath.item].id ?? ""
+            playerViewController.id = searchEpisodesData[indexPath.item].id ?? ""
             let player = UINavigationController(rootViewController: playerViewController)
             present(player, animated: true)
         }
         else {
             let playerViewController = PodCastListViewController()
-            playerViewController.podCastSearch = searchPodCasts.results![indexPath.item]
+            playerViewController.podCastSearch = searchPodCastsData[indexPath.item]
             let player = UINavigationController(rootViewController: playerViewController)
             present(player, animated: true)
         }
