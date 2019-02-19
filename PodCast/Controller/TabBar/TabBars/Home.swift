@@ -13,6 +13,7 @@ import Nuke
 class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     let contentCellIdentifier = "ContentCellIdentifier"
+    let contentCardCellIdentifier = "contentCardCellIdentifier"
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -24,6 +25,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         cv.dataSource = self
         return cv
     }()
+    
+    var searchPods = [PodCastSearch]()
     
     var  bestPod: BestPod!  {
         didSet{
@@ -73,10 +76,10 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func setupSearch() {
-        searchBarView.addSubview(searchBar)
-        searchBar.topAnchor.constraint(equalTo: searchBarView.topAnchor).isActive = true
-        searchBar.leftAnchor.constraint(equalTo: searchBarView.leftAnchor).isActive = true
-        searchBar.rightAnchor.constraint(equalTo: searchBarView.rightAnchor).isActive = true
+        view.addSubview(searchBar)
+        searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         //searchBar.bottomAnchor.constraint(equalTo: searchBarView.bottomAnchor).isActive = true
         searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
         tableView.tableHeaderView = searchBarView
@@ -97,41 +100,35 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
                 }
                 self.stopLoad()
                 self.setupSearch()
-                self.setupTableView()
+                self.setupTableView(topAnchor: self.searchBar.bottomAnchor)
                 self.tableView.reloadData()
             })
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 0:1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            return UITableViewCell()
-        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CollectionCell
-        cell.bestPods = bestPods[indexPath.section - 1]
+        cell.bestPods = bestPods[indexPath.section]
         cell.delegate = self
         return cell
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            return searchBarView
-        }
         let headeView = HeaderView()
-        headeView.titleLabel.text = genres[section - 1].name
+        headeView.titleLabel.text = genres[section].name
         return headeView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 25:60
+        return 60
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return bestPods.count + 1
+        return bestPods.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -160,30 +157,43 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
             isSearch = !isSearch
             SearchService.searchPodCast(search: searchBar.text ?? "") { result in
                 self.isSearch = false
+                if result != nil && !(result?.isEmpty)! {
+                    self.searchPods = result!
+                    self.setupCollectionView()
+                    self.collectionView.reloadData()
+                }
             }
         }
         return true
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        searchBar.text = ""
         searchBar.showsCancelButton = true
+        if searchPods == nil || searchPods.isEmpty {
+            tableView.removeFromSuperview()
+            startLoad()
+        }
         return true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.showsCancelButton = false
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
         searchBar.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
         searchBar.endEditing(true)
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+        searchPods.removeAll()
+        self.collectionView.removeFromSuperview()
+        self.audioPlayerBar.removeFromSuperview()
+        self.setupTableView(topAnchor: self.searchBar.bottomAnchor)
+        if PlayerController.player != nil && PlayerController.player?.rate != 0 {
+            setupPlayerBar()
+        }
     }
 }
 
@@ -198,6 +208,7 @@ extension Home {
     
     func setupCollection()
     {
+        collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCardCellIdentifier)
         if PlayerController.player != nil && PlayerController.player?.rate != 0 {
             view.addSubview(audioPlayerBar)
             audioPlayerBar.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -208,14 +219,14 @@ extension Home {
             view.addSubview(collectionView)
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
             collectionView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
         }
         else {
             view.addSubview(collectionView)
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
     }
@@ -233,14 +244,14 @@ extension Home: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pods.count
+        return searchPods.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: pods[indexPath.item].thumbnail ?? pods[indexPath.item].image ?? "")!))
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
+        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchPods[indexPath.item].thumbnail ?? searchPods[indexPath.item].image ?? "")!))
         Nuke.loadImage(with: request2, into: cell.iconImageView)
-        cell.titleLabel.text = pods[indexPath.item].title
+        cell.titleLabel.text = searchPods[indexPath.item].title_original
         return cell
     }
     
@@ -250,7 +261,7 @@ extension Home: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let playerViewController = PlayerViewController()
-        playerViewController.id = pods[indexPath.item].id ?? ""
+        playerViewController.id = searchPods[indexPath.item].id ?? ""
         let player = UINavigationController(rootViewController: playerViewController)
         present(player, animated: true)
     }

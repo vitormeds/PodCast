@@ -63,6 +63,7 @@ open class CustomViewController: UIViewController {
     func setupPlayerBar() {
         
         tableView.removeFromSuperview()
+        audioPlayerBar.removeFromSuperview()
         audioPlayerBar = PlayerController.audioPlayerBar
         view.addSubview(audioPlayerBar)
         audioPlayerBar.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
