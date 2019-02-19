@@ -45,8 +45,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         return segmentControl
     }()
     
-    var searchEpisodes = [EpisodeSearch]()
-    var searchPodCasts = [PodCastSearch]()
+    var searchEpisodes: EpisodeSearchList!
+    var searchPodCasts: PodCastSearchList!
     
     var  bestPod: BestPod!  {
         didSet{
@@ -297,8 +297,8 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
             {
                 SearchService.searchEpisodePodCast(search: searchBar.text ?? "") { result in
                     self.isSearch = false
-                    if result != nil && !(result?.isEmpty)! {
-                        self.searchEpisodes = result!
+                    if result != nil && !(result?.results?.isEmpty)! {
+                        self.searchEpisodes = result
                         if self.collectionView.isHidden {
                             self.collectionView.isHidden = false
                             self.stopLoad()
@@ -310,8 +310,8 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
             else {
                 SearchService.searchPodCast(search: searchBar.text ?? "") { result in
                     self.isSearch = false
-                    if result != nil && !(result?.isEmpty)! {
-                        self.searchPodCasts = result!
+                    if result != nil && !(result?.results?.isEmpty)! {
+                        self.searchPodCasts = result
                         if self.collectionView.isHidden {
                             self.collectionView.isHidden = false
                             self.stopLoad()
@@ -329,7 +329,7 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         if self.searchLayout == false {
             self.setupSearchMode()
         }
-        if searchEpisodes == nil || searchEpisodes.isEmpty || searchPodCasts == nil || searchPodCasts.isEmpty {
+        if (searchType == SearchCategory.episodes && (searchEpisodes == nil || searchEpisodes.results!.isEmpty)) || (searchType == SearchCategory.podcasts && (searchPodCasts == nil || searchPodCasts.results!.isEmpty)) {
             collectionView.isHidden = true
             startLoad()
         }
@@ -348,8 +348,8 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         searchMode = false
         searchBar.text = ""
         searchBar.showsCancelButton = false
-        searchEpisodes.removeAll()
-        searchPodCasts.removeAll()
+        searchEpisodes = nil
+        searchPodCasts = nil
         setupDefaultMode()
     }
 }
@@ -375,10 +375,20 @@ extension Home: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searchType == SearchCategory.episodes
         {
-            return searchEpisodes.count
+            if searchEpisodes == nil {
+                return 0
+            }
+            else {
+                return searchEpisodes.results!.count
+            }
         }
         else {
-            return searchPodCasts.count
+            if searchPodCasts == nil {
+                return 0
+            }
+            else {
+                return searchPodCasts.results!.count
+            }
         }
     }
     
@@ -386,16 +396,16 @@ extension Home: UICollectionViewDataSource {
         if searchType == SearchCategory.episodes
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchEpisodes[indexPath.item].thumbnail ?? searchEpisodes[indexPath.item].image ?? "")!))
+            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchEpisodes.results![indexPath.item].thumbnail ?? searchEpisodes.results![indexPath.item].image ?? "")!))
             Nuke.loadImage(with: request2, into: cell.iconImageView)
-            cell.titleLabel.text = searchEpisodes[indexPath.item].title_original
+            cell.titleLabel.text = searchEpisodes.results![indexPath.item].title_original
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchPodCasts[indexPath.item].thumbnail ?? searchPodCasts[indexPath.item].image ?? "")!))
+            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchPodCasts.results![indexPath.item].thumbnail ?? searchPodCasts.results![indexPath.item].image ?? "")!))
             Nuke.loadImage(with: request2, into: cell.iconImageView)
-            cell.titleLabel.text = searchPodCasts[indexPath.item].title_original
+            cell.titleLabel.text = searchPodCasts.results![indexPath.item].title_original
             return cell
         }
     }
@@ -407,13 +417,13 @@ extension Home: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if searchType == SearchCategory.episodes {
             let playerViewController = PlayerViewController()
-            playerViewController.id = searchEpisodes[indexPath.item].id ?? ""
+            playerViewController.id = searchEpisodes.results![indexPath.item].id ?? ""
             let player = UINavigationController(rootViewController: playerViewController)
             present(player, animated: true)
         }
         else {
             let playerViewController = PodCastListViewController()
-            playerViewController.podCastSearch = searchPodCasts[indexPath.item]
+            playerViewController.podCastSearch = searchPodCasts.results![indexPath.item]
             let player = UINavigationController(rootViewController: playerViewController)
             present(player, animated: true)
         }

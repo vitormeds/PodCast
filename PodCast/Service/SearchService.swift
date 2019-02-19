@@ -14,7 +14,7 @@ class SearchService {
     
     static let header = ["X-RapidAPI-Key" : "0799d534b1msh31d98431151274ap1a0de9jsnf346b2fbf029"]
     
-    static func searchEpisodePodCast(search: String,completionHandler: @escaping ([EpisodeSearch]?) -> ()) {
+    static func searchEpisodePodCast(search: String,completionHandler: @escaping (EpisodeSearchList?) -> ()) {
         let searchText = search.replacingOccurrences(of: " ", with: "-")
         let url = "https://listennotes.p.rapidapi.com/api/v1/search?type=episode&q=" + searchText
         
@@ -30,7 +30,7 @@ class SearchService {
             
             do {
                 let pods = try JSONDecoder().decode(EpisodeSearchList.self, from: data)
-                completionHandler(pods.results)
+                completionHandler(pods)
             } catch let decodeErr {
                 print("Failed to decode:", decodeErr)
                 completionHandler(nil)
@@ -39,7 +39,7 @@ class SearchService {
         }
     }
     
-    static func searchPodCast(search: String,completionHandler: @escaping ([PodCastSearch]?) -> ()) {
+    static func searchPodCast(search: String,completionHandler: @escaping (PodCastSearchList?) -> ()) {
         let searchText = search.replacingOccurrences(of: " ", with: "-")
         let url = "https://listennotes.p.rapidapi.com/api/v1/search?type=podcas&q=" + searchText
         
@@ -55,7 +55,7 @@ class SearchService {
             
             do {
                 let pods = try JSONDecoder().decode(PodCastSearchList.self, from: data)
-                completionHandler(pods.results)
+                completionHandler(pods)
             } catch let decodeErr {
                 print("Failed to decode:", decodeErr)
                 completionHandler(nil)
