@@ -2,15 +2,15 @@
 //  PodCastSearchList.swift
 //  PodCast
 //
-//  Created by Vitor Mendes on 19/02/19.
+//  Created by Vitor Mendes on 12/02/19.
 //  Copyright © 2019 Vitor Mendes. All rights reserved.
 //
 
 import Foundation
 
-struct PodCastSearchList: Decodable {
+struct EpisodeSearchList: Decodable {
     let next_offset: Int?
-    let results: [PodCastSearch]?
+    let results: [EpisodeSearch]?
     let took: Double?
     let total: Int?
     let count: Int?

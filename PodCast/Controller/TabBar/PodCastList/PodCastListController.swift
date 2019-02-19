@@ -31,6 +31,13 @@ class PodCastListViewController: CustomViewController {
         }
     }
     
+    var podCastSearch: PodCastSearch!  {
+        didSet{
+            title = podCastSearch.title_original ?? ""
+            loadData()
+        }
+    }
+    
     var pods = [Podcast]()
     
     override func viewDidLoad() {
@@ -45,7 +52,14 @@ class PodCastListViewController: CustomViewController {
     func loadData()
     {
         startLoad()
-        PodCastListService.getPodCastListById(id: bestPod.id ?? "") { podCastsResult in
+        var idToSearch = ""
+        if bestPod != nil {
+            idToSearch = bestPod.id!
+        }
+        else {
+            idToSearch = podCastSearch.id!
+        }
+        PodCastListService.getPodCastListById(id: idToSearch) { podCastsResult in
             if podCastsResult != nil {
                 self.pods = podCastsResult?.episodes ?? []
                 self.stopLoad()

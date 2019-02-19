@@ -15,8 +15,14 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     let contentCellIdentifier = "ContentCellIdentifier"
     let contentCardCellIdentifier = "contentCardCellIdentifier"
     
+    public enum SearchCategory {
+        case episodes
+        case podcasts
+    }
+    
     var searchMode = false
     var searchLayout = false
+    var searchType: SearchCategory = SearchCategory.episodes
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -29,7 +35,18 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         return cv
     }()
     
-    var searchPods = [PodCastSearch]()
+    lazy var segmentControl: UISegmentedControl = {
+        let segmentControl = UISegmentedControl(items: ["Episodio","PodCast"])
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.addTarget(self, action: #selector(changeSearchType), for: .valueChanged)
+        segmentControl.backgroundColor = UIColor.black
+        segmentControl.tintColor = UIColor.white
+        segmentControl.translatesAutoresizingMaskIntoConstraints = false
+        return segmentControl
+    }()
+    
+    var searchEpisodes = [EpisodeSearch]()
+    var searchPodCasts = [PodCastSearch]()
     
     var  bestPod: BestPod!  {
         didSet{
@@ -78,6 +95,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.removeFromSuperview()
         audioPlayerBar.removeFromSuperview()
         collectionView.removeFromSuperview()
+        segmentControl.removeFromSuperview()
         if PlayerController.player != nil && PlayerController.player?.rate != 0
         {
             view.addSubview(searchBar)
@@ -122,6 +140,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.removeFromSuperview()
         audioPlayerBar.removeFromSuperview()
         collectionView.removeFromSuperview()
+        segmentControl.removeFromSuperview()
         if PlayerController.player != nil && PlayerController.player?.rate != 0
         {
             view.addSubview(searchBar)
@@ -130,17 +149,22 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
             
+            view.addSubview(segmentControl)
+            segmentControl.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+            segmentControl.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            segmentControl.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            
             audioPlayerBar = PlayerController.audioPlayerBar
             view.addSubview(audioPlayerBar)
             audioPlayerBar.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
             audioPlayerBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             audioPlayerBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            audioPlayerBar.closeButton.addTarget(self, action: #selector(closePlayerBar), for: .touchDown)
+            audioPlayerBar.closeButton.addTarget(self, action: #selector(closePlayer), for: .touchDown)
             
             view.addSubview(collectionView)
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+            collectionView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 16).isActive = true
             collectionView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
         }
         else  {
@@ -150,10 +174,15 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
             
+            view.addSubview(segmentControl)
+            segmentControl.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+            segmentControl.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            segmentControl.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            
             view.addSubview(collectionView)
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+            collectionView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 16).isActive = true
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
         searchLayout = true
@@ -240,26 +269,58 @@ extension Home: SelectBestPodDelegate {
 
 extension Home: UISearchBarDelegate,UISearchResultsUpdating {
     
+    @objc func changeSearchType(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            searchType = SearchCategory.episodes
+        case 1:
+            searchType = SearchCategory.podcasts
+        default:
+            searchType = SearchCategory.episodes
+        }
+        loadSearchData()
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        loadSearchData()
+        return true
+    }
+    
+    func loadSearchData() {
         if !isSearch {
             isSearch = !isSearch
-            SearchService.searchPodCast(search: searchBar.text ?? "") { result in
-                self.isSearch = false
-                if result != nil && !(result?.isEmpty)! {
-                    self.searchPods = result!
-                    if self.collectionView.isHidden {
-                        self.collectionView.isHidden = false
-                        self.stopLoad()
+            if searchType == SearchCategory.episodes
+            {
+                SearchService.searchEpisodePodCast(search: searchBar.text ?? "") { result in
+                    self.isSearch = false
+                    if result != nil && !(result?.isEmpty)! {
+                        self.searchEpisodes = result!
+                        if self.collectionView.isHidden {
+                            self.collectionView.isHidden = false
+                            self.stopLoad()
+                        }
+                        self.collectionView.reloadData()
                     }
-                    self.collectionView.reloadData()
+                }
+            }
+            else {
+                SearchService.searchPodCast(search: searchBar.text ?? "") { result in
+                    self.isSearch = false
+                    if result != nil && !(result?.isEmpty)! {
+                        self.searchPodCasts = result!
+                        if self.collectionView.isHidden {
+                            self.collectionView.isHidden = false
+                            self.stopLoad()
+                        }
+                        self.collectionView.reloadData()
+                    }
                 }
             }
         }
-        return true
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
@@ -268,7 +329,7 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         if self.searchLayout == false {
             self.setupSearchMode()
         }
-        if searchPods == nil || searchPods.isEmpty {
+        if searchEpisodes == nil || searchEpisodes.isEmpty || searchPodCasts == nil || searchPodCasts.isEmpty {
             collectionView.isHidden = true
             startLoad()
         }
@@ -287,7 +348,8 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         searchMode = false
         searchBar.text = ""
         searchBar.showsCancelButton = false
-        searchPods.removeAll()
+        searchEpisodes.removeAll()
+        searchPodCasts.removeAll()
         setupDefaultMode()
     }
 }
@@ -311,15 +373,31 @@ extension Home: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchPods.count
+        if searchType == SearchCategory.episodes
+        {
+            return searchEpisodes.count
+        }
+        else {
+            return searchPodCasts.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchPods[indexPath.item].thumbnail ?? searchPods[indexPath.item].image ?? "")!))
-        Nuke.loadImage(with: request2, into: cell.iconImageView)
-        cell.titleLabel.text = searchPods[indexPath.item].title_original
-        return cell
+        if searchType == SearchCategory.episodes
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
+            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchEpisodes[indexPath.item].thumbnail ?? searchEpisodes[indexPath.item].image ?? "")!))
+            Nuke.loadImage(with: request2, into: cell.iconImageView)
+            cell.titleLabel.text = searchEpisodes[indexPath.item].title_original
+            return cell
+        }
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
+            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchPodCasts[indexPath.item].thumbnail ?? searchPodCasts[indexPath.item].image ?? "")!))
+            Nuke.loadImage(with: request2, into: cell.iconImageView)
+            cell.titleLabel.text = searchPodCasts[indexPath.item].title_original
+            return cell
+        }
     }
     
 }
@@ -327,10 +405,18 @@ extension Home: UICollectionViewDataSource {
 extension Home: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let playerViewController = PlayerViewController()
-        playerViewController.id = searchPods[indexPath.item].id ?? ""
-        let player = UINavigationController(rootViewController: playerViewController)
-        present(player, animated: true)
+        if searchType == SearchCategory.episodes {
+            let playerViewController = PlayerViewController()
+            playerViewController.id = searchEpisodes[indexPath.item].id ?? ""
+            let player = UINavigationController(rootViewController: playerViewController)
+            present(player, animated: true)
+        }
+        else {
+            let playerViewController = PodCastListViewController()
+            playerViewController.podCastSearch = searchPodCasts[indexPath.item]
+            let player = UINavigationController(rootViewController: playerViewController)
+            present(player, animated: true)
+        }
     }
 }
 
