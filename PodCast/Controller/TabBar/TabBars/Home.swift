@@ -15,6 +15,9 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     let contentCellIdentifier = "ContentCellIdentifier"
     let contentCardCellIdentifier = "contentCardCellIdentifier"
     
+    var searchMode = false
+    var searchLayout = false
+    
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -62,8 +65,107 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        if PlayerController.player != nil && PlayerController.player?.rate != 0 {
-            setupPlayerBar()
+        if searchMode == false && PlayerController.player != nil && PlayerController.player?.rate != 0 {
+            setupDefaultMode()
+        }
+        else if searchMode == true && PlayerController.player != nil && PlayerController.player?.rate != 0{
+            setupSearchMode()
+        }
+    }
+    
+    func setupDefaultMode() {
+        searchBar.removeFromSuperview()
+        tableView.removeFromSuperview()
+        audioPlayerBar.removeFromSuperview()
+        collectionView.removeFromSuperview()
+        if PlayerController.player != nil && PlayerController.player?.rate != 0
+        {
+            view.addSubview(searchBar)
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            tableView.tableHeaderView = searchBarView
+            
+            audioPlayerBar = PlayerController.audioPlayerBar
+            view.addSubview(audioPlayerBar)
+            audioPlayerBar.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            audioPlayerBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            audioPlayerBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            audioPlayerBar.closeButton.addTarget(self, action: #selector(closePlayer), for: .touchDown)
+            
+            view.addSubview(tableView)
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+            tableView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
+        }
+        else  {
+            view.addSubview(searchBar)
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            tableView.tableHeaderView = searchBarView
+            
+            view.addSubview(tableView)
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        }
+        searchLayout = false
+    }
+    
+    func setupSearchMode() {
+        searchBar.removeFromSuperview()
+        tableView.removeFromSuperview()
+        audioPlayerBar.removeFromSuperview()
+        collectionView.removeFromSuperview()
+        if PlayerController.player != nil && PlayerController.player?.rate != 0
+        {
+            view.addSubview(searchBar)
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            
+            audioPlayerBar = PlayerController.audioPlayerBar
+            view.addSubview(audioPlayerBar)
+            audioPlayerBar.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            audioPlayerBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            audioPlayerBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            audioPlayerBar.closeButton.addTarget(self, action: #selector(closePlayerBar), for: .touchDown)
+            
+            view.addSubview(collectionView)
+            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+            collectionView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
+        }
+        else  {
+            view.addSubview(searchBar)
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            
+            view.addSubview(collectionView)
+            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        }
+        searchLayout = true
+    }
+    
+    @objc func closePlayer() {
+        PlayerController.player?.pause()
+        if searchMode {
+            setupSearchMode()
+        }
+        else {
+            setupDefaultMode()
         }
     }
     
@@ -72,17 +174,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.white
+        collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCardCellIdentifier)
         loadData()
-    }
-    
-    func setupSearch() {
-        view.addSubview(searchBar)
-        searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        //searchBar.bottomAnchor.constraint(equalTo: searchBarView.bottomAnchor).isActive = true
-        searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        tableView.tableHeaderView = searchBarView
     }
     
     func loadData() {
@@ -98,9 +191,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
                 if resultBestPods != nil {
                     self.bestPods = resultBestPods!
                 }
+                self.setupDefaultMode()
                 self.stopLoad()
-                self.setupSearch()
-                self.setupTableView(topAnchor: self.searchBar.bottomAnchor)
                 self.tableView.reloadData()
             })
         }
@@ -159,7 +251,10 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
                 self.isSearch = false
                 if result != nil && !(result?.isEmpty)! {
                     self.searchPods = result!
-                    self.setupCollectionView()
+                    if self.collectionView.isHidden {
+                        self.collectionView.isHidden = false
+                        self.stopLoad()
+                    }
                     self.collectionView.reloadData()
                 }
             }
@@ -169,8 +264,12 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.showsCancelButton = true
+        searchMode = true
+        if self.searchLayout == false {
+            self.setupSearchMode()
+        }
         if searchPods == nil || searchPods.isEmpty {
-            tableView.removeFromSuperview()
+            collectionView.isHidden = true
             startLoad()
         }
         return true
@@ -185,50 +284,18 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+        searchMode = false
         searchBar.text = ""
         searchBar.showsCancelButton = false
         searchPods.removeAll()
-        self.collectionView.removeFromSuperview()
-        self.audioPlayerBar.removeFromSuperview()
-        self.setupTableView(topAnchor: self.searchBar.bottomAnchor)
-        if PlayerController.player != nil && PlayerController.player?.rate != 0 {
-            setupPlayerBar()
-        }
+        setupDefaultMode()
     }
 }
 
 extension Home {
     
-    func setupCollectionView()
-    {
-        tableView.removeFromSuperview()
-        audioPlayerBar.removeFromSuperview()
-        setupCollection()
-    }
-    
-    func setupCollection()
-    {
-        collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCardCellIdentifier)
-        if PlayerController.player != nil && PlayerController.player?.rate != 0 {
-            view.addSubview(audioPlayerBar)
-            audioPlayerBar.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-            audioPlayerBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            audioPlayerBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            audioPlayerBar.closeButton.addTarget(self, action: #selector(closePlayerBar), for: .touchDown)
-            
-            view.addSubview(collectionView)
-            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
-            collectionView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
-        }
-        else {
-            view.addSubview(collectionView)
-            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        }
+    @objc func myRefeshMethod() {
+        
     }
     
     @objc func performBack() {

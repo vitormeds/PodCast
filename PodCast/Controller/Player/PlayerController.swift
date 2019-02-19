@@ -84,9 +84,20 @@ class PlayerController {
         let album = podCastData.podcast?.publisher
         let artworkData = Data()
         let image = audioPlayerView.artImageView.image
-        let artwork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: {  (_) -> UIImage in
-            return image!
-        })
+        var artwork: MPMediaItemArtwork!
+        if image == nil {
+            let artworkImage = MPMediaItemArtwork(boundsSize: UIImage(named: "Mario")!.size, requestHandler: {  (_) -> UIImage in
+                return image!
+            })
+            var artwork = artworkImage
+        }
+        else {
+            let artworkImage = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: {  (_) -> UIImage in
+                return image!
+            })
+            var artwork = artworkImage
+        }
+        
         
         nowPlayingInfo[MPMediaItemPropertyTitle] = title
         nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = album

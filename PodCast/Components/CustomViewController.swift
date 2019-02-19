@@ -48,6 +48,7 @@ open class CustomViewController: UIViewController {
     
     func setupTableView(topAnchor: NSLayoutYAxisAnchor? = nil) {
         audioPlayerBar.removeFromSuperview()
+        tableView.removeFromSuperview()
         view.addSubview(tableView)
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
