@@ -476,7 +476,10 @@ extension Home: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if searchType == SearchCategory.episodes
+        if (searchType == SearchCategory.podcasts && (searchPodCastsData.count <= indexPath.item)) || (searchType == SearchCategory.episodes && (searchEpisodesData.count <= indexPath.item)) {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "colelction", for: indexPath) as! UICollectionViewCell
+        }
+        else if searchType == SearchCategory.episodes
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
             let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchEpisodesData[indexPath.item].thumbnail ?? searchEpisodesData[indexPath.item].image ?? "")!))
