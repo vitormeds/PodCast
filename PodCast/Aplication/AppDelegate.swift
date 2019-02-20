@@ -40,6 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.beginReceivingRemoteControlEvents()
         
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().clipsToBounds = false
+        UINavigationBar.appearance().backgroundColor = UIColor.black
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         return true
     }
 
