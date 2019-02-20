@@ -109,9 +109,12 @@ class PodCastListService {
         }
     }
     
-    static func getPodCastListById(id: String,completionHandler: @escaping (PodCastList?) -> ()) {
+    static func getPodCastListById(id: String, next: String? = "",completionHandler: @escaping (PodCastList?) -> ()) {
         
-        let url = "https://listennotes.p.rapidapi.com/api/v1/podcasts/" + id
+        var url = "https://listennotes.p.rapidapi.com/api/v1/podcasts/" + id
+        if next != "" {
+            url = url + "?next_episode_pub_date=" + next!
+        }
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             

@@ -38,7 +38,10 @@ class PodCastListViewController: CustomViewController {
         }
     }
     
+    var isLoading = false
+    
     var pods = [Podcast]()
+    var podInfo: PodCastList!
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.black
@@ -51,7 +54,9 @@ class PodCastListViewController: CustomViewController {
     
     func loadData()
     {
-        startLoad()
+        if pods.isEmpty {
+            startLoad()
+        }
         var idToSearch = ""
         if bestPod != nil {
             idToSearch = bestPod.id!
@@ -59,11 +64,29 @@ class PodCastListViewController: CustomViewController {
         else {
             idToSearch = podCastSearch.id!
         }
-        PodCastListService.getPodCastListById(id: idToSearch) { podCastsResult in
-            if podCastsResult != nil {
-                self.pods = podCastsResult?.episodes ?? []
-                self.stopLoad()
-                self.setupViews()
+        if isLoading == false {
+            isLoading = true
+            var next = ""
+            if podInfo != nil && podInfo.next_episode_pub_date != nil {
+                next = (podInfo.next_episode_pub_date?.description)!
+            }
+            if podInfo == nil || podInfo.total_episodes! > pods.count {
+                PodCastListService.getPodCastListById(id: idToSearch,next: next) { podCastsResult in
+                    if podCastsResult != nil {
+                        if self.pods.isEmpty {
+                            self.pods = podCastsResult?.episodes ?? []
+                        }
+                        else {
+                            for element in podCastsResult?.episodes ?? [] {
+                                self.pods.append(element)
+                            }
+                        }
+                        self.podInfo = podCastsResult
+                        self.stopLoad()
+                        self.setupViews()
+                    }
+                    self.isLoading = false
+                }
             }
         }
     }
@@ -112,6 +135,12 @@ extension PodCastListViewController: UICollectionViewDelegate {
         playerViewController.id = pods[indexPath.item].id ?? ""
         let player = UINavigationController(rootViewController: playerViewController)
         present(player, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == pods.count - 1 {
+            loadData()
+        }
     }
 }
 
