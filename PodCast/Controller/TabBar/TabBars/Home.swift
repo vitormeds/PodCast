@@ -291,7 +291,15 @@ extension Home: UISearchBarDelegate,UISearchResultsUpdating {
         default:
             searchType = SearchCategory.episodes
         }
-        loadSearchData()
+        if (searchType == SearchCategory.episodes && searchEpisodesData.isEmpty) || (searchType == SearchCategory.podcasts && searchPodCastsData.isEmpty)
+        {
+            loadSearchData()
+            collectionView.reloadData()
+        }
+        else {
+            collectionView.reloadData()
+            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
+        }
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -477,7 +485,7 @@ extension Home: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (searchType == SearchCategory.podcasts && (searchPodCastsData.count <= indexPath.item)) || (searchType == SearchCategory.episodes && (searchEpisodesData.count <= indexPath.item)) {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "colelction", for: indexPath) as! UICollectionViewCell
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! UICollectionViewCell
         }
         else if searchType == SearchCategory.episodes
         {
