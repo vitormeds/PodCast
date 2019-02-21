@@ -22,9 +22,7 @@ class PreferencesSelectController: UIViewController, UICollectionViewDelegateFlo
         let headerAnimationView = LOTAnimationView(name: "loadAnimation")
         headerAnimationView.translatesAutoresizingMaskIntoConstraints = false
         headerAnimationView.loopAnimation = true
-        headerAnimationView.play() { _ in
-            headerAnimationView.removeFromSuperview()
-        }
+        headerAnimationView.play()
         return headerAnimationView
     }()
     
