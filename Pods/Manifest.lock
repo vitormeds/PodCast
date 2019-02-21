@@ -9,6 +9,7 @@ PODS:
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
+  - RAMAnimatedTabBarController (4.0.1)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - MarqueeLabel
   - Nuke
   - R.swift
+  - RAMAnimatedTabBarController
   - SwiftyJSON
 
 SPEC REPOS:
@@ -29,6 +31,7 @@ SPEC REPOS:
     - Nuke
     - R.swift
     - R.swift.Library
+    - RAMAnimatedTabBarController
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -39,8 +42,9 @@ SPEC CHECKSUMS:
   Nuke: 799c0430f87b11c4dacfa80b13e1c4f0a1464b90
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: e57120928436bc288934be2522533be073029ec4
+PODFILE CHECKSUM: f94b4c558cf7deacef654d09ef84251e79962fe4
 
 COCOAPODS: 1.5.3

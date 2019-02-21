@@ -10,6 +10,7 @@ target 'PodCast' do
   pod 'lottie-ios'
   pod 'MarqueeLabel'
   pod 'R.swift'
+  pod 'RAMAnimatedTabBarController'
   use_frameworks!
 
   # Pods for PodCast
