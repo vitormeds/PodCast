@@ -25,6 +25,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     var searchLayout = false
     var searchType: SearchCategory = SearchCategory.episodes
     
+    var headerView = HeaderView()
+    
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -99,10 +101,17 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         audioPlayerBar.removeFromSuperview()
         collectionView.removeFromSuperview()
         segmentControl.removeFromSuperview()
+        headerView.removeFromSuperview()
         if PlayerController.player != nil && PlayerController.player?.rate != 0
         {
+            view.addSubview(headerView)
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            headerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            headerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            headerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            
             view.addSubview(searchBar)
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            searchBar.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
             searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -122,8 +131,14 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             tableView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
         }
         else  {
+            view.addSubview(headerView)
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            headerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            headerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            headerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            
             view.addSubview(searchBar)
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            searchBar.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
             searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -144,13 +159,21 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         audioPlayerBar.removeFromSuperview()
         collectionView.removeFromSuperview()
         segmentControl.removeFromSuperview()
+        headerView.removeFromSuperview()
         if PlayerController.player != nil && PlayerController.player?.rate != 0
         {
+            view.addSubview(headerView)
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            headerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            headerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            headerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            
             view.addSubview(searchBar)
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            searchBar.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
             searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            tableView.tableHeaderView = searchBarView
             
             view.addSubview(segmentControl)
             segmentControl.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
@@ -171,11 +194,18 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             collectionView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
         }
         else  {
+            view.addSubview(headerView)
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            headerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            headerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            headerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            
             view.addSubview(searchBar)
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            searchBar.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
             searchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             searchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            tableView.tableHeaderView = searchBarView
             
             view.addSubview(segmentControl)
             segmentControl.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
@@ -243,7 +273,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headeView = HeaderView()
+        let headeView = HeaderCollectionView()
         headeView.titleLabel.text = genres[section].name
         return headeView
     }

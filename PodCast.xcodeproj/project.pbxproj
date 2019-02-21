@@ -25,14 +25,13 @@
 		F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4347CC021FF5940002B2088 /* AudioPlayerBarView.swift */; };
 		F43779E921F611DF007DC73C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779E821F611DF007DC73C /* Colors.swift */; };
 		F43779F721F62CF6007DC73C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779F621F62CF6007DC73C /* Home.swift */; };
+		F462E305221F3C5100B674A0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462E304221F3C5100B674A0 /* HeaderView.swift */; };
 		F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA621F9F9880068FAD2 /* Preferences.swift */; };
 		F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */; };
 		F47AAEAB21FA260D0068FAD2 /* loadAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */; };
-		F47AAEAD21FA356F0068FAD2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */; };
+		F47AAEAD21FA356F0068FAD2 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */; };
 		F47AAEAF21FA3DB60068FAD2 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */; };
 		F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */; };
-		F4B1CF9F221F05480084790B /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1CF9E221F05480084790B /* CustomAnimation.swift */; };
-		F4B1CFA1221F10B30084790B /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1CFA0221F10B30084790B /* LFTPulseAnimation.swift */; };
 		F4C2C9EB21FB7BD400467A06 /* PodCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9EA21FB7BD400467A06 /* PodCast.swift */; };
 		F4C2C9ED21FB7DF200467A06 /* PodCastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9EC21FB7DF200467A06 /* PodCastComponent.swift */; };
 		F4C2C9EF21FB86A200467A06 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9EE21FB86A200467A06 /* CustomViewController.swift */; };
@@ -112,14 +111,13 @@
 		F4347CC021FF5940002B2088 /* AudioPlayerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerBarView.swift; sourceTree = "<group>"; };
 		F43779E821F611DF007DC73C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F43779F621F62CF6007DC73C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F462E304221F3C5100B674A0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F47AAEA621F9F9880068FAD2 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDataController.swift; sourceTree = "<group>"; };
 		F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loadAnimation.json; path = PodCast/Animations/loadAnimation.json; sourceTree = SOURCE_ROOT; };
-		F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionView.swift; sourceTree = "<group>"; };
 		F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
-		F4B1CF9E221F05480084790B /* CustomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimation.swift; sourceTree = "<group>"; };
-		F4B1CFA0221F10B30084790B /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFTPulseAnimation.swift; sourceTree = "<group>"; };
 		F4C2C9EA21FB7BD400467A06 /* PodCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCast.swift; sourceTree = "<group>"; };
 		F4C2C9EC21FB7DF200467A06 /* PodCastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastComponent.swift; sourceTree = "<group>"; };
 		F4C2C9EE21FB86A200467A06 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
@@ -311,8 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				F42BA6A321F601C40075E4B3 /* CustomTabBarController.swift */,
-				F4B1CF9E221F05480084790B /* CustomAnimation.swift */,
-				F4B1CFA0221F10B30084790B /* LFTPulseAnimation.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -378,8 +374,9 @@
 			children = (
 				F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */,
 				F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */,
-				F47AAEAC21FA356F0068FAD2 /* HeaderView.swift */,
+				F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */,
 				F4CA23B4221C8A4A00714418 /* LoadingCollectionCell.swift */,
+				F462E304221F3C5100B674A0 /* HeaderView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -759,16 +756,15 @@
 				F4347CBA21FF18F4002B2088 /* PodCastListController.swift in Sources */,
 				F4FA04F121F7AD6000896B5C /* CGFloat.swift in Sources */,
 				F4FA04E821F7A06C00896B5C /* LookingFor.swift in Sources */,
-				F4B1CFA1221F10B30084790B /* LFTPulseAnimation.swift in Sources */,
 				F4CA23B5221C8A4A00714418 /* LoadingCollectionCell.swift in Sources */,
 				F42561AF21D3C31400AA22A1 /* PlayerViewController.swift in Sources */,
 				F4FA04EA21F7A48B00896B5C /* StatusBarExtension.swift in Sources */,
 				F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */,
+				F462E305221F3C5100B674A0 /* HeaderView.swift in Sources */,
 				F4C2C9F221FB8C6100467A06 /* CustomTableViewController.swift in Sources */,
 				F4E2E4382213547E007C984E /* EpisodeSearchList.swift in Sources */,
 				F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */,
 				F4E07C99220E5E2500530ABE /* PreferenceHeaderView.swift in Sources */,
-				F4B1CF9F221F05480084790B /* CustomAnimation.swift in Sources */,
 				F4C2C9EF21FB86A200467A06 /* CustomViewController.swift in Sources */,
 				F4E2E43322134D36007C984E /* R.generated.swift in Sources */,
 				F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */,
@@ -793,7 +789,7 @@
 				F4347CBD21FF1E35002B2088 /* PodCastList.swift in Sources */,
 				F4FA04E221F79E3F00896B5C /* BestPodElement.swift in Sources */,
 				F42BA6A421F601C40075E4B3 /* CustomTabBarController.swift in Sources */,
-				F47AAEAD21FA356F0068FAD2 /* HeaderView.swift in Sources */,
+				F47AAEAD21FA356F0068FAD2 /* HeaderCollectionView.swift in Sources */,
 				F4FA04E621F7A06200896B5C /* Extra.swift in Sources */,
 				F4FA04EF21F7A7B500896B5C /* PreferenceCardGenre.swift in Sources */,
 				F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */,

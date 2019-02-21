@@ -153,7 +153,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 12 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 13 localization keys.
     struct localizable {
       /// Value: Assuntos
       static let assuntos = Rswift.StringResource(key: "assuntos", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -175,6 +175,8 @@ struct R: Rswift.Validatable {
       static let meusPodCast = Rswift.StringResource(key: "meusPodCast", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Perfil
       static let perfil = Rswift.StringResource(key: "perfil", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: PodCast
+      static let appName = Rswift.StringResource(key: "appName", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: PodCast
       static let podcast = Rswift.StringResource(key: "podcast", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Voltar
@@ -228,6 +230,11 @@ struct R: Rswift.Validatable {
       /// Value: Perfil
       static func perfil(_: Void = ()) -> String {
         return NSLocalizedString("perfil", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: PodCast
+      static func appName(_: Void = ()) -> String {
+        return NSLocalizedString("appName", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: PodCast

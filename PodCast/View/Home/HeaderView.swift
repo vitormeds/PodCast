@@ -2,29 +2,29 @@
 //  HeaderView.swift
 //  PodCast
 //
-//  Created by Vitor Mendes on 24/01/19.
+//  Created by Vitor Mendes on 21/02/19.
 //  Copyright © 2019 Vitor Mendes. All rights reserved.
 //
 
 import UIKit
+import Lottie
 
 class HeaderView: UIView {
+    
+    let appLogo: LOTAnimationView = {
+        let appLogo = LOTAnimationView(name: "loadAnimation")
+        appLogo.translatesAutoresizingMaskIntoConstraints = false
+        appLogo.loopAnimation = true
+        appLogo.play()
+        return appLogo
+    }()
     
     var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
         label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    var moreLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.white
-        label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = R.string.localizable.mais()
+        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.text = R.string.localizable.appName()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -41,14 +41,17 @@ class HeaderView: UIView {
     func setupViews()
     {
         backgroundColor = UIColor.black
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(appLogo)
+        appLogo.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        appLogo.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        appLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        appLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         addSubview(titleLabel)
-        titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: appLogo.rightAnchor, constant: 16).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
-        addSubview(moreLabel)
-        moreLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
-        moreLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
 }
