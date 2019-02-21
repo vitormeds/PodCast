@@ -16,7 +16,7 @@ class CustomTabBarController: RAMAnimatedTabBarController {
         UITabBar.appearance().tintColor = UIColor.white
         UITabBar.appearance().barTintColor = UIColor.black
         
-        let animation = RAMBounceAnimation()
+        let animation = CustomAnimation()
         animation.iconSelectedColor = UIColor.white
         animation.textSelectedColor = UIColor.white
         
