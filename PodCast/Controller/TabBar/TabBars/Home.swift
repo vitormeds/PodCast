@@ -25,12 +25,6 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     var searchLayout = false
     var searchType: SearchCategory = SearchCategory.episodes
     
-    var page = 0
-    var total = 0
-    var start = 0
-    
-    var preferences: Preferences!
-    
     var headerView = HeaderView()
     
     lazy var collectionView : UICollectionView = {
@@ -239,7 +233,6 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.black
-        preferences = PreferencesDataController.getPreferences()
         tableView.delegate = self
         tableView.dataSource = self
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.white
@@ -249,33 +242,17 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func loadData() {
-        if self.bestPods.isEmpty {
-            startLoad()
-        }
+        startLoad()
+        let preferences = PreferencesDataController.getPreferences()
         var result = [Genre]()
         if preferences != nil && preferences?.id != nil && !(preferences?.id?.isEmpty)! {
-            if bestPods.isEmpty {
-                start = 0
-                total = preferences!.id!.count > 5 ? 5:preferences!.id!.count
-            }
-            else {
-                start = start + 1
-                total = (total + 5) < preferences!.id!.count ? (total + 5):preferences!.id!.count
-            }
-            for i in start...total {
+            for i in 0...preferences!.id!.count - 1 {
                 result.append(Genre(parent_id: preferences?.parent_id![i],name: preferences?.name![i],id: preferences?.id![i]))
             }
             self.genres = result
             PodCastListService.getBestPodsByGenre(genres: self.genres, completionHandler: { resultBestPods in
                 if resultBestPods != nil {
-                    if self.bestPods.isEmpty {
-                        self.bestPods = resultBestPods!
-                    }
-                    else {
-                        for element in resultBestPods! {
-                            self.bestPods.append(element)
-                        }
-                    }
+                    self.bestPods = resultBestPods!
                 }
                 self.setupDefaultMode()
                 self.stopLoad()
@@ -303,14 +280,6 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == bestPods.count + 1 {
-            if self.bestPods.count != (preferences.id?.count)! {
-                loadData()
-            }
-        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
