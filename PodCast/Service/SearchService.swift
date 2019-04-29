@@ -12,11 +12,11 @@ import SwiftyJSON
 
 class SearchService {
     
-    static let header = ["X-RapidAPI-Key" : "0799d534b1msh31d98431151274ap1a0de9jsnf346b2fbf029"]
+    static let header = ["X-ListenAPI-Key" : "b8fc388d34c24d17ac2196341809e06f"]
     
     static func searchEpisodePodCast(search: String, next: String? = "",completionHandler: @escaping (EpisodeSearchList?) -> ()) {
         let searchText = search.replacingOccurrences(of: " ", with: "-")
-        var url = "https://listennotes.p.rapidapi.com/api/v1/search?type=episode&q=" + searchText
+        var url = "https://listennotes.p.rapidapi.com/api/v2/search?type=episode&q=" + searchText
         if next != nil && next != ""{
             url = url + "&offset=" + next!
         }
@@ -43,7 +43,7 @@ class SearchService {
     
     static func searchPodCast(search: String, next: String? = "",completionHandler: @escaping (PodCastSearchList?) -> ()) {
         let searchText = search.replacingOccurrences(of: " ", with: "-")
-        var url = "https://listennotes.p.rapidapi.com/api/v1/search?type=podcas&q=" + searchText
+        var url = "https://listennotes.p.rapidapi.com/api/v2/search?type=podcas&q=" + searchText
         if next != nil && next != "" {
             url = url + "&offset=" + next!
         }
