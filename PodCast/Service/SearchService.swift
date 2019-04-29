@@ -16,7 +16,7 @@ class SearchService {
     
     static func searchEpisodePodCast(search: String, next: String? = "",completionHandler: @escaping (EpisodeSearchList?) -> ()) {
         let searchText = search.replacingOccurrences(of: " ", with: "-")
-        var url = "https://listennotes.p.rapidapi.com/api/v2/search?type=episode&q=" + searchText
+        var url = "https://listen-api.listennotes.com/api/v2/search?type=episode&q=" + searchText
         if next != nil && next != ""{
             url = url + "&offset=" + next!
         }
@@ -43,7 +43,7 @@ class SearchService {
     
     static func searchPodCast(search: String, next: String? = "",completionHandler: @escaping (PodCastSearchList?) -> ()) {
         let searchText = search.replacingOccurrences(of: " ", with: "-")
-        var url = "https://listennotes.p.rapidapi.com/api/v2/search?type=podcas&q=" + searchText
+        var url = "https://listen-api.listennotes.com/api/v2/search?type=podcas&q=" + searchText
         if next != nil && next != "" {
             url = url + "&offset=" + next!
         }

@@ -19,7 +19,7 @@ class PodCastListService {
     
     static func getGenres(completionHandler: @escaping ([Genre]?) -> ()) {
        
-        let url = "https://listennotes.p.rapidapi.com/api/v2/genres"
+        let url = "https://listen-api.listennotes.com/api/v2/genres"
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             
@@ -43,7 +43,7 @@ class PodCastListService {
     
     static func getBestPodsByGenre(genres: [Genre],completionHandler: @escaping ([[BestPod]]?) -> ()) {
         
-        let url = "https://listennotes.p.rapidapi.com/api/v2/best_podcasts?genre_id=" + "\(genres[genresPods].id!)"
+        let url = "https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=" + "\(genres[genresPods].id!)"
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             
@@ -79,7 +79,7 @@ class PodCastListService {
     
     static func getBestPodById(id: String,completionHandler: @escaping (Podcast?) -> ()) {
         
-        let url = "https://listennotes.p.rapidapi.com/api/v2/episodes/" + id
+        let url = "https://listen-api.listennotes.com/api/v2/episodes/" + id
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             
@@ -111,7 +111,7 @@ class PodCastListService {
     
     static func getPodCastListById(id: String, next: String? = "",completionHandler: @escaping (PodCastList?) -> ()) {
         
-        var url = "https://listennotes.p.rapidapi.com/api/v2/podcasts/" + id
+        var url = "https://listen-api.listennotes.com/api/v2/podcasts/" + id
         if next != "" {
             url = url + "?next_episode_pub_date=" + next!
         }
