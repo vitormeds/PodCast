@@ -559,6 +559,9 @@ extension Home: UICollectionViewDelegate {
 extension Home: HeaderCollectionDelegate {
     
     func showMore(genre: Genre) {
-        
+        let podCastByGenreListViewController = PodCastByGenreListViewController()
+        podCastByGenreListViewController.genre = genre
+        let podCastByGenreList = UINavigationController(rootViewController: podCastByGenreListViewController)
+        present(podCastByGenreList, animated: true)
     }
 }

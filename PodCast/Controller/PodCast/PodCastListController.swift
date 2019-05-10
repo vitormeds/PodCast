@@ -24,7 +24,7 @@ class PodCastListViewController: CustomViewController {
         return cv
     }()
     
-    var  bestPod: BestPod!  {
+    var bestPod: BestPod!  {
         didSet{
             title = bestPod.title
             loadData()

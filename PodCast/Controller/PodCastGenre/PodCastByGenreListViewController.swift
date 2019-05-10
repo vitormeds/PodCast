@@ -24,67 +24,46 @@ class PodCastByGenreListViewController: CustomViewController {
         return cv
     }()
     
-    var  bestPod: BestPod!  {
+    var genre: Genre!  {
         didSet{
-            title = bestPod.title
+            title = genre.name
             loadData()
         }
     }
     
-    var podCastSearch: PodCastSearch!  {
-        didSet{
-            title = podCastSearch.title_original ?? ""
-            loadData()
-        }
-    }
-    
-    var isLoading = false
-    
-    var pods = [Podcast]()
-    var podInfo: PodCastList!
+    var bestPods = [BestPod]()
+    var bestPodElement : BestPodElement!
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.black
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localizable.voltar(), style: .done, target: self, action: #selector(performBack))
+        setupViews()
     }
     
-    func loadData()
-    {
-        if pods.isEmpty {
+    func loadData() {
+        if bestPodElement != nil && !(bestPodElement?.has_next ?? false) {
+            return
+        }
+        if bestPods.count < 0 {
             startLoad()
         }
-        var idToSearch = ""
-        if bestPod != nil {
-            idToSearch = bestPod.id!
-        }
-        else {
-            idToSearch = podCastSearch.id!
-        }
-        if isLoading == false {
-            isLoading = true
-            var next = ""
-            if podInfo != nil && podInfo.next_episode_pub_date != nil {
-                next = (podInfo.next_episode_pub_date?.description)!
-            }
-            if podInfo == nil || podInfo.total_episodes! > pods.count {
-                PodCastListService.getPodCastListById(id: idToSearch,next: next) { podCastsResult in
-                    if podCastsResult != nil {
-                        if self.pods.isEmpty {
-                            self.pods = podCastsResult?.episodes ?? []
-                        }
-                        else {
-                            for element in podCastsResult?.episodes ?? [] {
-                                self.pods.append(element)
-                            }
-                        }
-                        self.podInfo = podCastsResult
-                        self.stopLoad()
-                        self.setupViews()
+        PodCastListService.getBestPodsByGenre(genre: genre,page: bestPodElement?.next_page_number?.description ?? "1", completionHandler: { resultBestPods in
+            if resultBestPods != nil {
+                self.bestPodElement = resultBestPods
+                if self.bestPods.isEmpty {
+                    self.bestPods = resultBestPods?.channels ?? []
+                }
+                else {
+                    for element in resultBestPods?.channels ?? [] {
+                        self.bestPods.append(element)
                     }
-                    self.isLoading = false
                 }
             }
-        }
+            if self.bestPods.count < 0 {
+                self.stopLoad()
+            }
+            self.collectionView.reloadData()
+        })
     }
     
     func setupViews()
@@ -95,7 +74,6 @@ class PodCastByGenreListViewController: CustomViewController {
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCellIdentifier)
-        collectionView.reloadData()
     }
     
     @objc func performBack() {
@@ -111,14 +89,14 @@ extension PodCastByGenreListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pods.count
+        return bestPods.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: pods[indexPath.item].thumbnail ?? pods[indexPath.item].image ?? "")!))
+        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: bestPods[indexPath.item].thumbnail ?? bestPods[indexPath.item].image ?? "")!))
         Nuke.loadImage(with: request2, into: cell.iconImageView)
-        cell.titleLabel.text = pods[indexPath.item].title
+        cell.titleLabel.text = bestPods[indexPath.item].title
         return cell
     }
     
@@ -127,14 +105,14 @@ extension PodCastByGenreListViewController: UICollectionViewDataSource {
 extension PodCastByGenreListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let playerViewController = PlayerViewController()
-        playerViewController.id = pods[indexPath.item].id ?? ""
+        let playerViewController = PodCastListViewController()
+        playerViewController.bestPod = bestPods[indexPath.item]
         let player = UINavigationController(rootViewController: playerViewController)
         present(player, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == pods.count - 1 {
+        if indexPath.row == bestPods.count - 1 {
             loadData()
         }
     }

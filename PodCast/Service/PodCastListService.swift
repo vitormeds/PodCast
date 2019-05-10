@@ -77,6 +77,32 @@ class PodCastListService {
         }
     }
     
+    static func getBestPodsByGenre(genre: Genre,page: String,completionHandler: @escaping (BestPodElement?) -> ()) {
+        
+        let url = "https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=" + "\(genre.id!)&page=\(page)"
+        
+        Alamofire.request(url, method: .get, headers: header).responseJSON { response in
+            
+            if let err = response.error {
+                print("Failed to read", err)
+                completionHandler(nil)
+                return
+            }
+            
+            guard let data = response.data else { return }
+            
+            do {
+                let pod = try JSONDecoder().decode(BestPodElement.self, from: data)
+                completionHandler(pod)
+                return
+            } catch let decodeErr {
+                print("Failed to decode:", decodeErr)
+                completionHandler(nil)
+                return
+            }
+        }
+    }
+    
     static func getBestPodById(id: String,completionHandler: @escaping (Podcast?) -> ()) {
         
         let url = "https://listen-api.listennotes.com/api/v2/episodes/" + id
