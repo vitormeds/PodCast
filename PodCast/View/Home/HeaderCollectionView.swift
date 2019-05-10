@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol HeaderCollectionDelegate {
+    func showMore(id: String)
+}
+
 class HeaderCollectionView: UIView {
+    
+    var delegate: HeaderCollectionDelegate!
+    var id = ""
     
     var titleLabel: UILabel = {
         let label = UILabel()
@@ -49,6 +56,14 @@ class HeaderCollectionView: UIView {
         addSubview(moreLabel)
         moreLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         moreLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showMore(sender:)))
+        moreLabel.isUserInteractionEnabled = true
+        moreLabel.addGestureRecognizer(tap)
+    }
+    
+    @objc func showMore(sender: UITapGestureRecognizer? = nil) {
+        delegate.showMore(id: id)
     }
     
 }
