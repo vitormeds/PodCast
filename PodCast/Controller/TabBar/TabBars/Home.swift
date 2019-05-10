@@ -275,7 +275,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headeView = HeaderCollectionView()
         headeView.delegate = self
-        headeView.id = genres[section].id?.description ?? ""
+        headeView.genre = genres[section]
         headeView.titleLabel.text = genres[section].name
         return headeView
     }
@@ -558,7 +558,7 @@ extension Home: UICollectionViewDelegate {
 
 extension Home: HeaderCollectionDelegate {
     
-    func showMore(id: String) {
+    func showMore(genre: Genre) {
         
     }
 }

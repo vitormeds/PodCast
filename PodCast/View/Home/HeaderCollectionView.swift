@@ -9,13 +9,13 @@
 import UIKit
 
 protocol HeaderCollectionDelegate {
-    func showMore(id: String)
+    func showMore(genre: Genre)
 }
 
 class HeaderCollectionView: UIView {
     
     var delegate: HeaderCollectionDelegate!
-    var id = ""
+    var genre: Genre!
     
     var titleLabel: UILabel = {
         let label = UILabel()
@@ -63,7 +63,7 @@ class HeaderCollectionView: UIView {
     }
     
     @objc func showMore(sender: UITapGestureRecognizer? = nil) {
-        delegate.showMore(id: id)
+        delegate.showMore(genre: genre)
     }
     
 }
