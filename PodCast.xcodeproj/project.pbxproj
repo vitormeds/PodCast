@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04DCB340CE227E2D56271B56 /* Pods_PodCastUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */; };
 		C4B81E373BA01275EE4BE422 /* Pods_PodCastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD02A6212383B4260CA6047 /* Pods_PodCastTests.framework */; };
+		F4052E522285DA1B00B576C4 /* PodCastByGenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4052E512285DA1B00B576C4 /* PodCastByGenreListViewController.swift */; };
 		F42561AD21D3C31400AA22A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561AC21D3C31400AA22A1 /* AppDelegate.swift */; };
 		F42561AF21D3C31400AA22A1 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561AE21D3C31400AA22A1 /* PlayerViewController.swift */; };
 		F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42561B321D3C31400AA22A1 /* PodCast.xcdatamodeld */; };
@@ -89,6 +90,7 @@
 		D35AFD14D6169B57208986D6 /* Pods-PodCastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastTests/Pods-PodCastTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodCastUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4052E512285DA1B00B576C4 /* PodCastByGenreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastByGenreListViewController.swift; sourceTree = "<group>"; };
 		F42561A921D3C31400AA22A1 /* PodCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42561AC21D3C31400AA22A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F42561AE21D3C31400AA22A1 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F4052E502285D9FA00B576C4 /* PodCastGenre */ = {
+			isa = PBXGroup;
+			children = (
+				F4052E512285DA1B00B576C4 /* PodCastByGenreListViewController.swift */,
+			);
+			path = PodCastGenre;
+			sourceTree = "<group>";
+		};
 		F42561A021D3C31400AA22A1 = {
 			isa = PBXGroup;
 			children = (
@@ -258,12 +268,12 @@
 			path = PodCastUITests;
 			sourceTree = "<group>";
 		};
-		F4347CB821FF18BF002B2088 /* PodCastList */ = {
+		F4347CB821FF18BF002B2088 /* PodCast */ = {
 			isa = PBXGroup;
 			children = (
 				F4347CB921FF18F4002B2088 /* PodCastListController.swift */,
 			);
-			path = PodCastList;
+			path = PodCast;
 			sourceTree = "<group>";
 		};
 		F4347CBB21FF1E20002B2088 /* PodCastList */ = {
@@ -402,6 +412,8 @@
 		F4AB34F121D729C900DAD399 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4052E502285D9FA00B576C4 /* PodCastGenre */,
+				F4347CB821FF18BF002B2088 /* PodCast */,
 				F4FA04ED21F7A6D200896B5C /* Preferences */,
 				F43779EE21F6199D007DC73C /* Player */,
 				F4EE9CBD21F607700093162C /* TabBar */,
@@ -441,7 +453,6 @@
 		F4EE9CBD21F607700093162C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				F4347CB821FF18BF002B2088 /* PodCastList */,
 				F43779F321F62C76007DC73C /* TabBars */,
 				F43779F221F62C63007DC73C /* TabBarController */,
 			);
@@ -770,6 +781,7 @@
 				F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */,
 				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,
 				F4E2E435221352AA007C984E /* SearchService.swift in Sources */,
+				F4052E522285DA1B00B576C4 /* PodCastByGenreListViewController.swift in Sources */,
 				F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */,
 				F43779E921F611DF007DC73C /* Colors.swift in Sources */,
 				F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */,
