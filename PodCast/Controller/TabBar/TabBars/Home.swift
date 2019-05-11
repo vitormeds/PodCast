@@ -124,6 +124,10 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             audioPlayerBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             audioPlayerBar.closeButton.addTarget(self, action: #selector(closePlayer), for: .touchDown)
             
+            let tap = UITapGestureRecognizer(target: self, action: #selector(showPlayer(sender:)))
+            audioPlayerBar.isUserInteractionEnabled = true
+            audioPlayerBar.addGestureRecognizer(tap)
+            
             view.addSubview(tableView)
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true

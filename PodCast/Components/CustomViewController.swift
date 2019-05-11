@@ -77,6 +77,14 @@ open class CustomViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: audioPlayerBar.topAnchor).isActive = true
+        
+    }
+    
+    @objc func showPlayer(sender: UITapGestureRecognizer? = nil) {
+        let playerViewController = PlayerViewController()
+        playerViewController.id = PlayerController.podCastData.id ?? ""
+        let player = UINavigationController(rootViewController: playerViewController)
+        present(player, animated: true)
     }
     
     @objc func closePlayerBar() {
