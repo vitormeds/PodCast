@@ -115,21 +115,32 @@ class PodCastListViewController: CustomViewController {
     }
     
     @objc func performStar() {
-        var auxPods = [String]()
+        let idPod = bestPod?.id ?? podCastSearch?.id ?? ""
+        let iconPod = bestPod?.image ?? podCastSearch?.thumbnail ?? ""
+        let titlePod = bestPod?.title ?? bestPod?.image ?? podCastSearch?.title_original ?? ""
+        var id : [String] = myPods?.id ?? []
+        var icon : [String] = myPods?.icon ?? []
+        var title : [String] = myPods?.title ?? []
         var myPodsIcon =  #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
-        if myPods != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(podInfo.id ?? "") {
+        if myPods != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(idPod) {
             myPodsIcon = #imageLiteral(resourceName: "starIconNotFilled").withRenderingMode(.alwaysTemplate)
-            for element in myPods!.id! {
-                if element != podInfo.id {
-                    auxPods.append(element)
+            for i in 0...myPods!.id!.count - 1 {
+                if myPods?.id![i] == idPod {
+                    id.remove(at: i)
+                    icon.remove(at: i)
+                    title.remove(at: i)
                 }
             }
         }
         else {
-           auxPods = myPods?.id ?? []
-           auxPods.append(podInfo.id!)
+           id = myPods?.id ?? []
+           id.append(idPod )
+           icon = myPods?.icon ?? []
+           icon.append(iconPod )
+           title = myPods?.title ?? []
+           title.append(titlePod )
         }
-        MyPodsDataController.saveMyPods(myPods: auxPods)
+        MyPodsDataController.saveMyPods(id: id, icon: icon, title: title)
         myPods = MyPodsDataController.getMyPods()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
     }

@@ -13,6 +13,8 @@ class MyPodCasts: CustomViewController {
     
     let contentCellIdentifier = "ContentCellIdentifier"
     
+    var myPods: MyPods? = nil
+    
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -24,46 +26,18 @@ class MyPodCasts: CustomViewController {
         return cv
     }()
     
-    var genre: Genre!  {
-        didSet{
-            title = genre.name
-            loadData()
-        }
-    }
-    
-    var bestPods = [BestPod]()
-    var bestPodElement : BestPodElement!
-    
     override func viewDidLoad() {
         view.backgroundColor = UIColor.black
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localizable.voltar(), style: .done, target: self, action: #selector(performBack))
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+    }
+    
     func loadData() {
-        if bestPodElement != nil && !(bestPodElement?.has_next ?? false) {
-            return
-        }
-        if bestPods.count < 0 {
-            startLoad()
-        }
-        PodCastListService.getBestPodsByGenre(genre: genre,page: bestPodElement?.next_page_number?.description ?? "1", completionHandler: { resultBestPods in
-            if resultBestPods != nil {
-                self.bestPodElement = resultBestPods
-                if self.bestPods.isEmpty {
-                    self.bestPods = resultBestPods?.channels ?? []
-                }
-                else {
-                    for element in resultBestPods?.channels ?? [] {
-                        self.bestPods.append(element)
-                    }
-                }
-            }
-            if self.bestPods.count < 0 {
-                self.stopLoad()
-            }
-            self.collectionView.reloadData()
-        })
+        myPods = MyPodsDataController.getMyPods()
+        collectionView.reloadData()
     }
     
     func setupViews()
@@ -89,14 +63,14 @@ extension MyPodCasts: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return bestPods.count
+        return myPods?.id?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: bestPods[indexPath.item].thumbnail ?? bestPods[indexPath.item].image ?? "")!))
+        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: (myPods?.icon![indexPath.item])!)!))
         Nuke.loadImage(with: request2, into: cell.iconImageView)
-        cell.titleLabel.text = bestPods[indexPath.item].title
+        cell.titleLabel.text = myPods?.title![indexPath.item]
         return cell
     }
     
@@ -106,15 +80,25 @@ extension MyPodCasts: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let playerViewController = PodCastListViewController()
-        playerViewController.bestPod = bestPods[indexPath.item]
+        playerViewController.podCastSearch = PodCastSearch(lastest_pub_date_ms: nil,
+           description_highlighted: nil,
+           itunes_id: nil,
+           publisher_original: nil,
+           earliest_pub_date_ms: nil,
+           genres: nil,
+           description_original: nil,
+           title_highlighted: nil,
+           email: nil, rss: nil,
+           thumbnail: myPods?.icon?[indexPath.item] ?? "",
+           title_original: myPods?.title?[indexPath.item] ?? "",
+           image: nil,
+           explicit_content: nil,
+           id: myPods?.id?[indexPath.item] ?? "",
+           total_episodes: nil,
+           listennotes_url: nil,
+           publisher_highlighted: nil)
         let player = UINavigationController(rootViewController: playerViewController)
         present(player, animated: true)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == bestPods.count - 1 {
-            loadData()
-        }
     }
 }
 

@@ -10,8 +10,8 @@ import UIKit
 
 class MyPodsDataController {
     
-    static func saveMyPods(myPods: [String]) {
-        let myPodsData = MyPods(id: myPods)
+    static func saveMyPods(id: [String], icon: [String], title: [String]) {
+        let myPodsData = MyPods(id: id, icon: icon, title: title)
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: myPodsData)
         UserDefaults.standard.set(encodedData, forKey: "MyPods")
     }
