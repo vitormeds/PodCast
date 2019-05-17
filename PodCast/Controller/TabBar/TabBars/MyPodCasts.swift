@@ -15,6 +15,8 @@ class MyPodCasts: CustomViewController {
     
     var myPods: MyPods? = nil
     
+    var headerView = HeaderView()
+    
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -42,10 +44,17 @@ class MyPodCasts: CustomViewController {
     
     func setupViews()
     {
+        headerView.titleLabel.text = "Inscrições"
+        view.addSubview(headerView)
+        headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        headerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        headerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
         view.addSubview(collectionView)
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCellIdentifier)
     }
