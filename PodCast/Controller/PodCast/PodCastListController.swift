@@ -13,6 +13,8 @@ class PodCastListViewController: CustomViewController {
     
     let contentCellIdentifier = "ContentCellIdentifier"
     
+    var myPods: MyPods? = nil
+    
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -48,6 +50,15 @@ class PodCastListViewController: CustomViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localizable.voltar(), style: .done, target: self, action: #selector(performBack))
     }
     
+    func starLoad() {
+        myPods = MyPodsDataController.getMyPods()
+        var myPodsIcon =  #imageLiteral(resourceName: "starIconNotFilled").withRenderingMode(.alwaysTemplate)
+        if myPods != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(podInfo.id ?? "") {
+            myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
+        }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
+    }
+    
     func loadData()
     {
         if pods.isEmpty {
@@ -80,6 +91,7 @@ class PodCastListViewController: CustomViewController {
                         self.podInfo = podCastsResult
                         self.stopLoad()
                         self.setupViews()
+                        self.starLoad()
                     }
                     self.isLoading = false
                 }
@@ -100,6 +112,26 @@ class PodCastListViewController: CustomViewController {
     
     @objc func performBack() {
         dismiss(animated: true)
+    }
+    
+    @objc func performStar() {
+        var auxPods = [String]()
+        var myPodsIcon =  #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
+        if myPods != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(podInfo.id ?? "") {
+            myPodsIcon = #imageLiteral(resourceName: "starIconNotFilled").withRenderingMode(.alwaysTemplate)
+            for element in myPods!.id! {
+                if element != podInfo.id {
+                    auxPods.append(element)
+                }
+            }
+        }
+        else {
+           auxPods = myPods?.id ?? []
+           auxPods.append(podInfo.id!)
+        }
+        MyPodsDataController.saveMyPods(myPods: auxPods)
+        myPods = MyPodsDataController.getMyPods()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
     }
     
 }

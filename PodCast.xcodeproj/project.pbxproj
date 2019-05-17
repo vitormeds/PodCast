@@ -26,6 +26,8 @@
 		F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4347CC021FF5940002B2088 /* AudioPlayerBarView.swift */; };
 		F43779E921F611DF007DC73C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779E821F611DF007DC73C /* Colors.swift */; };
 		F43779F721F62CF6007DC73C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43779F621F62CF6007DC73C /* Home.swift */; };
+		F437F4A6228EDE210087A28D /* MyPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437F4A5228EDE210087A28D /* MyPods.swift */; };
+		F437F4A8228EDEBE0087A28D /* MyPodsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437F4A7228EDEBE0087A28D /* MyPodsDataController.swift */; };
 		F462E305221F3C5100B674A0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462E304221F3C5100B674A0 /* HeaderView.swift */; };
 		F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA621F9F9880068FAD2 /* Preferences.swift */; };
 		F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */; };
@@ -113,6 +115,8 @@
 		F4347CC021FF5940002B2088 /* AudioPlayerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerBarView.swift; sourceTree = "<group>"; };
 		F43779E821F611DF007DC73C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F43779F621F62CF6007DC73C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F437F4A5228EDE210087A28D /* MyPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPods.swift; sourceTree = "<group>"; };
+		F437F4A7228EDEBE0087A28D /* MyPodsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodsDataController.swift; sourceTree = "<group>"; };
 		F462E304221F3C5100B674A0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F47AAEA621F9F9880068FAD2 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDataController.swift; sourceTree = "<group>"; };
@@ -333,10 +337,18 @@
 			path = TabBars;
 			sourceTree = "<group>";
 		};
+		F437F4A4228EDC8C0087A28D /* MeusPods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MeusPods;
+			sourceTree = "<group>";
+		};
 		F47AAEB421FA478C0068FAD2 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
 				F47AAEA621F9F9880068FAD2 /* Preferences.swift */,
+				F437F4A5228EDE210087A28D /* MyPods.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -412,6 +424,7 @@
 		F4AB34F121D729C900DAD399 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F437F4A4228EDC8C0087A28D /* MeusPods */,
 				F4052E502285D9FA00B576C4 /* PodCastGenre */,
 				F4347CB821FF18BF002B2088 /* PodCast */,
 				F4FA04ED21F7A6D200896B5C /* Preferences */,
@@ -493,6 +506,7 @@
 			children = (
 				F4FA04EB21F7A6C900896B5C /* PreferencesSelectController.swift */,
 				F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */,
+				F437F4A7228EDEBE0087A28D /* MyPodsDataController.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -772,6 +786,7 @@
 				F4FA04EA21F7A48B00896B5C /* StatusBarExtension.swift in Sources */,
 				F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */,
 				F462E305221F3C5100B674A0 /* HeaderView.swift in Sources */,
+				F437F4A8228EDEBE0087A28D /* MyPodsDataController.swift in Sources */,
 				F4C2C9F221FB8C6100467A06 /* CustomTableViewController.swift in Sources */,
 				F4E2E4382213547E007C984E /* EpisodeSearchList.swift in Sources */,
 				F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */,
@@ -781,6 +796,7 @@
 				F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */,
 				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,
 				F4E2E435221352AA007C984E /* SearchService.swift in Sources */,
+				F437F4A6228EDE210087A28D /* MyPods.swift in Sources */,
 				F4052E522285DA1B00B576C4 /* PodCastByGenreListViewController.swift in Sources */,
 				F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */,
 				F43779E921F611DF007DC73C /* Colors.swift in Sources */,
