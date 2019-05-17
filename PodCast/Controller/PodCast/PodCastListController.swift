@@ -149,7 +149,7 @@ extension PodCastListViewController: UITableViewDataSource {
         let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: pods[indexPath.item].thumbnail ?? pods[indexPath.item].image ?? "")!))
         Nuke.loadImage(with: request2, into: cell.iconImageView)
         cell.titleLabel.text = pods[indexPath.item].title
-        cell.nameLabel.text = pods[indexPath.item].description
+        cell.descriptionLabel.text = pods[indexPath.item].description
         return cell
     }
     

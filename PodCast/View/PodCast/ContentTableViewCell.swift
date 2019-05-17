@@ -20,7 +20,7 @@ class ContentTableViewCell: UITableViewCell {
         return img
     }()
     
-    var nameLabel: UILabel = {
+    var descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
         label.numberOfLines = 0
@@ -59,11 +59,11 @@ class ContentTableViewCell: UITableViewCell {
         titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         
-        addSubview(nameLabel)
-        nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
-        nameLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
-        nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
+        addSubview(descriptionLabel)
+        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
+        descriptionLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
     }
     
     required public init?(coder aDecoder: NSCoder) {
