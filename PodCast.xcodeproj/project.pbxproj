@@ -35,6 +35,7 @@
 		F47AAEAD21FA356F0068FAD2 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */; };
 		F47AAEAF21FA3DB60068FAD2 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */; };
 		F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */; };
+		F4BF6932229077AF00640D33 /* downloadPodCast.json in Resources */ = {isa = PBXBuildFile; fileRef = F4BF6931229077AF00640D33 /* downloadPodCast.json */; };
 		F4C2C9EB21FB7BD400467A06 /* PodCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9EA21FB7BD400467A06 /* PodCast.swift */; };
 		F4C2C9ED21FB7DF200467A06 /* PodCastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9EC21FB7DF200467A06 /* PodCastComponent.swift */; };
 		F4C2C9EF21FB86A200467A06 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9EE21FB86A200467A06 /* CustomViewController.swift */; };
@@ -125,6 +126,7 @@
 		F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionView.swift; sourceTree = "<group>"; };
 		F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4BF6931229077AF00640D33 /* downloadPodCast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = downloadPodCast.json; sourceTree = "<group>"; };
 		F4C2C9EA21FB7BD400467A06 /* PodCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCast.swift; sourceTree = "<group>"; };
 		F4C2C9EC21FB7DF200467A06 /* PodCastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastComponent.swift; sourceTree = "<group>"; };
 		F4C2C9EE21FB86A200467A06 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 		F47AAEBD21FA48EB0068FAD2 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F4BF6931229077AF00640D33 /* downloadPodCast.json */,
 				F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */,
 			);
 			path = Animations;
@@ -636,6 +639,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4BF6932229077AF00640D33 /* downloadPodCast.json in Resources */,
 				F42561BA21D3C31500AA22A1 /* LaunchScreen.storyboard in Resources */,
 				F4EE9CC121F60D180093162C /* Localizable.strings in Resources */,
 				F47AAEAB21FA260D0068FAD2 /* loadAnimation.json in Resources */,

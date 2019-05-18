@@ -21,10 +21,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
+    /// Resource file `downloadPodCast.json`.
+    static let downloadPodCastJson = Rswift.FileResource(bundle: R.hostingBundle, name: "downloadPodCast", pathExtension: "json")
     /// Resource file `loadAnimation.json`.
     static let loadAnimationJson = Rswift.FileResource(bundle: R.hostingBundle, name: "loadAnimation", pathExtension: "json")
+    
+    /// `bundle.url(forResource: "downloadPodCast", withExtension: "json")`
+    static func downloadPodCastJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.downloadPodCastJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
     
     /// `bundle.url(forResource: "loadAnimation", withExtension: "json")`
     static func loadAnimationJson(_: Void = ()) -> Foundation.URL? {
@@ -40,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 13 images.
+  /// This `R.image` struct is generated, and contains static references to 15 images.
   struct image {
     /// Image `Mario`.
     static let mario = Rswift.ImageResource(bundle: R.hostingBundle, name: "Mario")
@@ -52,6 +60,10 @@ struct R: Rswift.Validatable {
     static let check = Rswift.ImageResource(bundle: R.hostingBundle, name: "check")
     /// Image `close`.
     static let close = Rswift.ImageResource(bundle: R.hostingBundle, name: "close")
+    /// Image `cloudIcon`.
+    static let cloudIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "cloudIcon")
+    /// Image `downloadIcon`.
+    static let downloadIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "downloadIcon")
     /// Image `headphone`.
     static let headphone = Rswift.ImageResource(bundle: R.hostingBundle, name: "headphone")
     /// Image `home`.
@@ -92,6 +104,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "close", bundle: ..., traitCollection: ...)`
     static func close(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.close, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "cloudIcon", bundle: ..., traitCollection: ...)`
+    static func cloudIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cloudIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "downloadIcon", bundle: ..., traitCollection: ...)`
+    static func downloadIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.downloadIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "headphone", bundle: ..., traitCollection: ...)`
