@@ -51,6 +51,8 @@ class ContentTableViewCell: UITableViewCell {
         return label
     }()
     
+    var podCast: Podcast!
+    
     var isDownload = false
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -101,6 +103,16 @@ class ContentTableViewCell: UITableViewCell {
         else {
             setupLoadView()
             isDownload = true
+            DownloadService.downloadPodCast(url: podCast.audio!) { result in
+                if result {
+                    DispatchQueue.main.async {
+                        self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.setup()
+                }
+            }
         }
     }
     
