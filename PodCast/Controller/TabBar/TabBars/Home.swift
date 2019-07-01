@@ -526,15 +526,21 @@ extension Home: UICollectionViewDataSource {
         else if searchType == SearchCategory.episodes
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchEpisodesData[indexPath.item].thumbnail ?? searchEpisodesData[indexPath.item].image ?? "")!))
-            Nuke.loadImage(with: request2, into: cell.iconImageView)
+            let urlImg: URL? = URL(string: searchEpisodesData[indexPath.item].thumbnail ?? searchEpisodesData[indexPath.item].image ?? "")
+            if urlImg != nil {
+                let request2 = ImageRequest(urlRequest: URLRequest(url: urlImg!))
+                Nuke.loadImage(with: request2, into: cell.iconImageView)
+            }
             cell.titleLabel.text = searchEpisodesData[indexPath.item].title_original
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCardCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-            let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: searchPodCastsData[indexPath.item].thumbnail ?? searchPodCastsData[indexPath.item].image ?? "")!))
-            Nuke.loadImage(with: request2, into: cell.iconImageView)
+            let urlImg: URL? = URL(string: searchPodCastsData[indexPath.item].thumbnail ?? searchPodCastsData[indexPath.item].image ?? "")
+            if urlImg != nil {
+                let request2 = ImageRequest(urlRequest: URLRequest(url: urlImg!))
+                Nuke.loadImage(with: request2, into: cell.iconImageView)
+            }
             cell.titleLabel.text = searchPodCastsData[indexPath.item].title_original
             return cell
         }

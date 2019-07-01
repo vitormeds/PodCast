@@ -70,8 +70,11 @@ extension CollectionCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: bestPods[indexPath.item].image ?? "")!))
-        Nuke.loadImage(with: request2, into: cell.iconImageView)
+        let urlImg: URL? = URL(string: bestPods[indexPath.item].image ?? "")
+        if urlImg != nil {
+            let request2: ImageRequest? = ImageRequest(urlRequest: URLRequest(url: urlImg!))
+            Nuke.loadImage(with: request2!, into: cell.iconImageView)
+        }
         cell.titleLabel.text = bestPods[indexPath.item].title
         cell.nameLabel.text = bestPods[indexPath.item].publisher
         return cell
