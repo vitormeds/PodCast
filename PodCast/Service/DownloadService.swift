@@ -41,9 +41,9 @@ class DownloadService {
                     try FileManager.default.moveItem(at: location, to: destinationUrl)
                         print("File moved to documents folder")
                         
-                        let playerItem = AVPlayerItem(url: destinationUrl)
-                        let player = AVPlayer(playerItem: playerItem)
-                        player.play()
+//                        let playerItem = AVPlayerItem(url: destinationUrl)
+//                        let player = AVPlayer(playerItem: playerItem)
+//                        player!.play()
                         
                         completionHandler(true)
                         return

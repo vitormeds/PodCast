@@ -22,5 +22,6 @@ struct Podcast: Decodable {
     let thumbnail: String?
     let listennotes_url: String?
     let maybe_audio_invalid: Bool?
+    let isDownload: Bool?
 }
 

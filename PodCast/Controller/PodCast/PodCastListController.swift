@@ -166,10 +166,7 @@ extension PodCastListViewController: UITableViewDataSource {
 extension PodCastListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let playerViewController = PlayerViewController()
-        playerViewController.id = pods[indexPath.item].id ?? ""
-        let player = UINavigationController(rootViewController: playerViewController)
-        present(player, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

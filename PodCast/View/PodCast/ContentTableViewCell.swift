@@ -51,6 +51,12 @@ class ContentTableViewCell: UITableViewCell {
         return label
     }()
     
+    var playView: UIView = {
+        let playView = UIView()
+        playView.translatesAutoresizingMaskIntoConstraints = false
+        return playView
+    }()
+    
     var podCast: Podcast!
     
     var isDownload = false
@@ -90,9 +96,26 @@ class ContentTableViewCell: UITableViewCell {
         titleLabel.rightAnchor.constraint(equalTo: iconDownload.leftAnchor, constant: -16).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
 
+        addSubview(playView)
+        playView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        playView.rightAnchor.constraint(equalTo: iconDownload.leftAnchor).isActive = true
+        playView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        playView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHandler(_:)))
         tapGesture.numberOfTouchesRequired = 1
         iconDownload.addGestureRecognizer(tapGesture)
+        
+        let tapGestureView = UITapGestureRecognizer(target: self, action: #selector(tapHandlerView(_:)))
+        tapGestureView.numberOfTouchesRequired = 1
+        playView.addGestureRecognizer(tapGestureView)
+    }
+    
+    @objc func tapHandlerView(_ gesture: UIGestureRecognizer) {
+        let playerViewController = PlayerViewController()
+        playerViewController.id = podCast.id ?? ""
+        let player = UINavigationController(rootViewController: playerViewController)
+        AplicationUtil.getViewController()!.present(player, animated: true)
     }
     
     @objc func tapHandler(_ gesture: UIGestureRecognizer) {
@@ -133,7 +156,7 @@ class ContentTableViewCell: UITableViewCell {
         addSubview(iconDownloadAnimation)
         iconDownloadAnimation.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         iconDownloadAnimation.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        iconDownloadAnimation.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconDownloadAnimation.widthAnchor.constraint(equalToConstant: 40).isActive = true
         iconDownloadAnimation.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         addSubview(titleLabel)
@@ -141,6 +164,12 @@ class ContentTableViewCell: UITableViewCell {
         titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: iconDownloadAnimation.leftAnchor, constant: -16).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
+        
+        addSubview(playView)
+        playView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        playView.rightAnchor.constraint(equalTo: iconDownloadAnimation.leftAnchor).isActive = true
+        playView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        playView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHandler(_:)))
         tapGesture.numberOfTouchesRequired = 1
