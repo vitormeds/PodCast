@@ -72,9 +72,25 @@ class PlayerController {
     }
     
     static func setupAudio() {
-        let url = URL(string: podCastData.audio ?? "")
-        playerItem = AVPlayerItem(url: url!)
-        player = AVPlayer(playerItem: playerItem)
+        let savedPodCasts = SavedPodDAO.get()
+        if savedPodCasts.contains(where: { ($0.id == podCastData.id) } ) {
+            let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let destinationUrl = documentsDirectoryURL.appendingPathComponent((savedPodCasts.filter({ ($0.id == podCastData.id)}).first?.url)!)
+            if FileManager.default.fileExists(atPath: destinationUrl.path) {
+                do {
+                    playerItem = AVPlayerItem(url: destinationUrl)
+                    player = AVPlayer(playerItem: playerItem)
+                } catch let error {
+                    inicializeAudioDefault()
+                }
+            }
+            else {
+                inicializeAudioDefault()
+            }
+        }
+        else {
+            inicializeAudioDefault()
+        }
         
         //Now Playing
         let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
@@ -86,7 +102,7 @@ class PlayerController {
         let image = audioPlayerView.artImageView.image
         var artwork: MPMediaItemArtwork!
         if image == nil {
-            let artworkImage = MPMediaItemArtwork(boundsSize: UIImage(named: "Mario")!.size, requestHandler: {  (_) -> UIImage in
+            let artworkImage = MPMediaItemArtwork(boundsSize: UIImage(named: "profile")!.size, requestHandler: {  (_) -> UIImage in
                 return image!
             })
             var artwork = artworkImage
@@ -124,6 +140,12 @@ class PlayerController {
         skipForwardCommand.isEnabled = true
         skipForwardCommand.addTarget(handler: skipForward)
         skipForwardCommand.preferredIntervals = [10]
+    }
+    
+    static func inicializeAudioDefault() {
+        let url = URL(string: podCastData.audio ?? "")
+        playerItem = AVPlayerItem(url: url!)
+        player = AVPlayer(playerItem: playerItem)
     }
     
     static func pauseAction(_ event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {

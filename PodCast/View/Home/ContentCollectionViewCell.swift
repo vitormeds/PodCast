@@ -12,7 +12,6 @@ class ContentCollectionViewCell: UICollectionViewCell {
     
     var iconImageView: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "Mario")
         img.layer.zPosition = 2
         img.layer.cornerRadius = 10
         img.layer.masksToBounds = true

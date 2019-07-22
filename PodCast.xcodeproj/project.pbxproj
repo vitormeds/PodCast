@@ -29,12 +29,15 @@
 		F437F4A6228EDE210087A28D /* MyPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437F4A5228EDE210087A28D /* MyPods.swift */; };
 		F437F4A8228EDEBE0087A28D /* MyPodsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437F4A7228EDEBE0087A28D /* MyPodsDataController.swift */; };
 		F462E305221F3C5100B674A0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462E304221F3C5100B674A0 /* HeaderView.swift */; };
+		F46E0FEC22DCDCAA00DBE1CC /* SaavedPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E0FEB22DCDCAA00DBE1CC /* SaavedPods.swift */; };
 		F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA621F9F9880068FAD2 /* Preferences.swift */; };
 		F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */; };
 		F47AAEAB21FA260D0068FAD2 /* loadAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */; };
 		F47AAEAD21FA356F0068FAD2 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */; };
 		F47AAEAF21FA3DB60068FAD2 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */; };
 		F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */; };
+		F4BB771422E62AC7009FA730 /* SavedPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB771222E62AC7009FA730 /* SavedPods.swift */; };
+		F4BB771822E62B68009FA730 /* SavedPodDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB771722E62B68009FA730 /* SavedPodDAO.swift */; };
 		F4BF6932229077AF00640D33 /* downloadPodCast.json in Resources */ = {isa = PBXBuildFile; fileRef = F4BF6931229077AF00640D33 /* downloadPodCast.json */; };
 		F4BF693422907FA300640D33 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF693322907FA300640D33 /* DownloadService.swift */; };
 		F4C2C9EB21FB7BD400467A06 /* PodCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2C9EA21FB7BD400467A06 /* PodCast.swift */; };
@@ -123,12 +126,15 @@
 		F437F4A5228EDE210087A28D /* MyPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPods.swift; sourceTree = "<group>"; };
 		F437F4A7228EDEBE0087A28D /* MyPodsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodsDataController.swift; sourceTree = "<group>"; };
 		F462E304221F3C5100B674A0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F46E0FEB22DCDCAA00DBE1CC /* SaavedPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaavedPods.swift; sourceTree = "<group>"; };
 		F47AAEA621F9F9880068FAD2 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		F47AAEA821FA21040068FAD2 /* PreferencesDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDataController.swift; sourceTree = "<group>"; };
 		F47AAEAA21FA260D0068FAD2 /* loadAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loadAnimation.json; path = PodCast/Animations/loadAnimation.json; sourceTree = SOURCE_ROOT; };
 		F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionView.swift; sourceTree = "<group>"; };
 		F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4BB771222E62AC7009FA730 /* SavedPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPods.swift; sourceTree = "<group>"; };
+		F4BB771722E62B68009FA730 /* SavedPodDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPodDAO.swift; sourceTree = "<group>"; };
 		F4BF6931229077AF00640D33 /* downloadPodCast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = downloadPodCast.json; sourceTree = "<group>"; };
 		F4BF693322907FA300640D33 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		F4C2C9EA21FB7BD400467A06 /* PodCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCast.swift; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 		F42561AB21D3C31400AA22A1 /* PodCast */ = {
 			isa = PBXGroup;
 			children = (
+				F4BB771622E62B5A009FA730 /* DAO */,
 				F4C2C9F021FB8C4500467A06 /* Components */,
 				F47AAEBD21FA48EB0068FAD2 /* Animations */,
 				F47AAEBC21FA48C70068FAD2 /* Aplication */,
@@ -319,6 +326,7 @@
 		F43779EF21F61D8F007DC73C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4BB771122E62A94009FA730 /* SavedPod */,
 				F4E2E43622135452007C984E /* Search */,
 				F4347CBB21FF1E20002B2088 /* PodCastList */,
 				F4C2C9E921FB7BC700467A06 /* PodCast */,
@@ -360,6 +368,7 @@
 			children = (
 				F47AAEA621F9F9880068FAD2 /* Preferences.swift */,
 				F437F4A5228EDE210087A28D /* MyPods.swift */,
+				F46E0FEB22DCDCAA00DBE1CC /* SaavedPods.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -444,6 +453,22 @@
 				F4EE9CBD21F607700093162C /* TabBar */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F4BB771122E62A94009FA730 /* SavedPod */ = {
+			isa = PBXGroup;
+			children = (
+				F4BB771222E62AC7009FA730 /* SavedPods.swift */,
+			);
+			path = SavedPod;
+			sourceTree = "<group>";
+		};
+		F4BB771622E62B5A009FA730 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				F4BB771722E62B68009FA730 /* SavedPodDAO.swift */,
+			);
+			path = DAO;
 			sourceTree = "<group>";
 		};
 		F4C2C9E921FB7BC700467A06 /* PodCast */ = {
@@ -808,9 +833,11 @@
 				F4CA23B5221C8A4A00714418 /* LoadingCollectionCell.swift in Sources */,
 				F42561AF21D3C31400AA22A1 /* PlayerViewController.swift in Sources */,
 				F4FA04EA21F7A48B00896B5C /* StatusBarExtension.swift in Sources */,
+				F4BB771422E62AC7009FA730 /* SavedPods.swift in Sources */,
 				F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */,
 				F462E305221F3C5100B674A0 /* HeaderView.swift in Sources */,
 				F437F4A8228EDEBE0087A28D /* MyPodsDataController.swift in Sources */,
+				F4BB771822E62B68009FA730 /* SavedPodDAO.swift in Sources */,
 				F4C2C9F221FB8C6100467A06 /* CustomTableViewController.swift in Sources */,
 				F4E2E4382213547E007C984E /* EpisodeSearchList.swift in Sources */,
 				F4E07C97220E4C0E00530ABE /* SearchBar.swift in Sources */,
@@ -825,6 +852,7 @@
 				F437F4A6228EDE210087A28D /* MyPods.swift in Sources */,
 				F4052E522285DA1B00B576C4 /* PodCastByGenreListViewController.swift in Sources */,
 				F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */,
+				F46E0FEC22DCDCAA00DBE1CC /* SaavedPods.swift in Sources */,
 				F43779E921F611DF007DC73C /* Colors.swift in Sources */,
 				F47AAEA721F9F9880068FAD2 /* Preferences.swift in Sources */,
 				F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */,
@@ -1028,7 +1056,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vitormendes.PodCast;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.vitormendes.podcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1048,7 +1076,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vitormendes.PodCast;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.vitormendes.podcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

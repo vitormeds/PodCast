@@ -13,7 +13,6 @@ class ContentTableViewCell: UITableViewCell {
     
     var iconImageView: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "Mario")
         img.layer.zPosition = 2
         img.layer.cornerRadius = 10
         img.layer.masksToBounds = true
@@ -60,10 +59,10 @@ class ContentTableViewCell: UITableViewCell {
     var podCast: Podcast!
     
     var isDownload = false
+    var idToSearch = ""
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
     }
     
     func setup() {
@@ -109,6 +108,11 @@ class ContentTableViewCell: UITableViewCell {
         let tapGestureView = UITapGestureRecognizer(target: self, action: #selector(tapHandlerView(_:)))
         tapGestureView.numberOfTouchesRequired = 1
         playView.addGestureRecognizer(tapGestureView)
+        
+        if SavedPodDAO.get().contains(where: { ($0.id == podCast.id) } ) {
+            self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
+            isDownload = true
+        }
     }
     
     @objc func tapHandlerView(_ gesture: UIGestureRecognizer) {
@@ -126,10 +130,16 @@ class ContentTableViewCell: UITableViewCell {
         else {
             setupLoadView()
             isDownload = true
-            DownloadService.downloadPodCast(url: podCast.audio!) { result in
-                if result {
+            DownloadService.downloadPodCast(podCast: podCast) { result in
+                if !result.isEmpty {
                     DispatchQueue.main.async {
                         self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
+                        SavedPodDAO.add(descriptionPod: self.podCast.description!,
+                                        icon: self.podCast.image!,
+                                        id: self.podCast.id!,
+                                        idPod: self.idToSearch,
+                                        title: self.podCast.title!,
+                                        url: result)
                     }
                 }
                 DispatchQueue.main.async {

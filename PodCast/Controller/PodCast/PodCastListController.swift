@@ -15,6 +15,8 @@ class PodCastListViewController: CustomViewController {
     
     var myPods: MyPods? = nil
     
+    var idToSearch = ""
+    
     var bestPod: BestPod!  {
         didSet{
             title = bestPod.title
@@ -42,7 +44,7 @@ class PodCastListViewController: CustomViewController {
     func starLoad() {
         myPods = MyPodsDataController.getMyPods()
         var myPodsIcon =  #imageLiteral(resourceName: "starIconNotFilled").withRenderingMode(.alwaysTemplate)
-        if myPods != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(podInfo.id ?? "") {
+        if myPods != nil && podInfo != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(podInfo.id ?? "") {
             myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
@@ -53,7 +55,6 @@ class PodCastListViewController: CustomViewController {
         if pods.isEmpty {
             startLoad()
         }
-        var idToSearch = ""
         if bestPod != nil {
             idToSearch = bestPod.id!
         }
@@ -81,6 +82,30 @@ class PodCastListViewController: CustomViewController {
                         self.stopLoad()
                         self.setupViews()
                         self.starLoad()
+                    }
+                    else {
+                        if self.pods.isEmpty {
+                            for element in SavedPodDAO.get().filter({ ($0.idPod == self.idToSearch) }) {
+                                self.pods.append(Podcast(audio_length: nil,
+                                                    image: element.icon,
+                                                    title: element.title,
+                                                    listennotes_edit_url: nil,
+                                                    explicit_content: nil,
+                                                    audio: nil,
+                                                    pub_date_ms: nil,
+                                                    podcast: nil,
+                                                    description: element.descriptionPod,
+                                                    id: element.id,
+                                                    thumbnail: element.icon,
+                                                    listennotes_url: nil,
+                                                    maybe_audio_invalid: nil,
+                                                    isDownload: true))
+                            }
+                            self.stopLoad()
+                            self.setupViews()
+                            let myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
+                            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(self.performStar))
+                        }
                     }
                     self.isLoading = false
                 }
@@ -146,10 +171,15 @@ extension PodCastListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: contentCellIdentifier, for: indexPath) as! ContentTableViewCell
-        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: pods[indexPath.item].thumbnail ?? pods[indexPath.item].image ?? "")!))
-        Nuke.loadImage(with: request2, into: cell.iconImageView)
+        let urlImg: URL? = URL(string: pods[indexPath.item].thumbnail ?? pods[indexPath.item].image ?? "")
+        if urlImg != nil {
+            let request2 = ImageRequest(urlRequest: URLRequest(url: urlImg!))
+            Nuke.loadImage(with: request2, into: cell.iconImageView)
+        }
         cell.titleLabel.text = pods[indexPath.item].title
         cell.podCast = pods[indexPath.item]
+        cell.idToSearch = idToSearch
+        cell.setup()
         return cell
     }
     

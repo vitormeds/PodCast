@@ -36,6 +36,24 @@ class PlayerViewController: CustomViewController  {
                 self.podCastData = resultPodCast
                 self.setupViews()
             }
+            else if SavedPodDAO.get().contains(where: { ($0.id == self.id) } ) {
+                let podCastDataSaved = SavedPodDAO.get().filter({ ($0.id == self.id) }).first
+                self.podCastData = Podcast(audio_length: nil,
+                                           image: podCastDataSaved?.icon,
+                                           title: podCastDataSaved?.title,
+                                           listennotes_edit_url: nil,
+                                           explicit_content: nil,
+                                           audio: podCastDataSaved?.url,
+                                           pub_date_ms: nil,
+                                           podcast: nil,
+                                           description: podCastDataSaved?.descriptionPod,
+                                           id: podCastDataSaved?.id,
+                                           thumbnail: podCastDataSaved?.icon,
+                                           listennotes_url: nil,
+                                           maybe_audio_invalid: nil,
+                                           isDownload: true)
+                self.setupViews()
+            }
             self.stopLoad()
         }
     }
