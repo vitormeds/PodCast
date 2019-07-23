@@ -32,13 +32,9 @@ class PlayerViewController: CustomViewController  {
     func loadData() {
         startLoad()
         PodCastListService.getBestPodById(id: id) { resultPodCast in
-            if resultPodCast != nil {
-                self.podCastData = resultPodCast
-                self.setupViews()
-            }
-            else if SavedPodDAO.get().contains(where: { ($0.id == self.id) } ) {
+            if SavedPodDAO.get().contains(where: { ($0.id == self.id) } ) {
                 let podCastDataSaved = SavedPodDAO.get().filter({ ($0.id == self.id) }).first
-                self.podCastData = Podcast(audio_length: nil,
+                self.podCastData = Podcast(audio_length: Int(truncating: NSNumber(value: podCastDataSaved!.audio_length)),
                                            image: podCastDataSaved?.icon,
                                            title: podCastDataSaved?.title,
                                            listennotes_edit_url: nil,
@@ -52,6 +48,10 @@ class PlayerViewController: CustomViewController  {
                                            listennotes_url: nil,
                                            maybe_audio_invalid: nil,
                                            isDownload: true)
+                self.setupViews()
+            }
+            else if resultPodCast != nil {
+                self.podCastData = resultPodCast
                 self.setupViews()
             }
             self.stopLoad()

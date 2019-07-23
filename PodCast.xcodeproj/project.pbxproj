@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04DCB340CE227E2D56271B56 /* Pods_PodCastUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */; };
 		C4B81E373BA01275EE4BE422 /* Pods_PodCastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD02A6212383B4260CA6047 /* Pods_PodCastTests.framework */; };
+		F403B61722E76F8200E184FC /* SavedPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403B61522E76F8200E184FC /* SavedPods.swift */; };
 		F4052E522285DA1B00B576C4 /* PodCastByGenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4052E512285DA1B00B576C4 /* PodCastByGenreListViewController.swift */; };
 		F42561AD21D3C31400AA22A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561AC21D3C31400AA22A1 /* AppDelegate.swift */; };
 		F42561AF21D3C31400AA22A1 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561AE21D3C31400AA22A1 /* PlayerViewController.swift */; };
@@ -36,7 +37,6 @@
 		F47AAEAD21FA356F0068FAD2 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */; };
 		F47AAEAF21FA3DB60068FAD2 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */; };
 		F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */; };
-		F4BB771422E62AC7009FA730 /* SavedPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB771222E62AC7009FA730 /* SavedPods.swift */; };
 		F4BB771822E62B68009FA730 /* SavedPodDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB771722E62B68009FA730 /* SavedPodDAO.swift */; };
 		F4BF6932229077AF00640D33 /* downloadPodCast.json in Resources */ = {isa = PBXBuildFile; fileRef = F4BF6931229077AF00640D33 /* downloadPodCast.json */; };
 		F4BF693422907FA300640D33 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF693322907FA300640D33 /* DownloadService.swift */; };
@@ -100,6 +100,7 @@
 		D35AFD14D6169B57208986D6 /* Pods-PodCastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastTests/Pods-PodCastTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodCastUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F403B61522E76F8200E184FC /* SavedPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPods.swift; sourceTree = "<group>"; };
 		F4052E512285DA1B00B576C4 /* PodCastByGenreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastByGenreListViewController.swift; sourceTree = "<group>"; };
 		F42561A921D3C31400AA22A1 /* PodCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42561AC21D3C31400AA22A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,7 +134,6 @@
 		F47AAEAC21FA356F0068FAD2 /* HeaderCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionView.swift; sourceTree = "<group>"; };
 		F47AAEAE21FA3DB60068FAD2 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		F47AAEB021FA3E700068FAD2 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
-		F4BB771222E62AC7009FA730 /* SavedPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPods.swift; sourceTree = "<group>"; };
 		F4BB771722E62B68009FA730 /* SavedPodDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPodDAO.swift; sourceTree = "<group>"; };
 		F4BF6931229077AF00640D33 /* downloadPodCast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = downloadPodCast.json; sourceTree = "<group>"; };
 		F4BF693322907FA300640D33 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
@@ -458,7 +458,7 @@
 		F4BB771122E62A94009FA730 /* SavedPod */ = {
 			isa = PBXGroup;
 			children = (
-				F4BB771222E62AC7009FA730 /* SavedPods.swift */,
+				F403B61522E76F8200E184FC /* SavedPods.swift */,
 			);
 			path = SavedPod;
 			sourceTree = "<group>";
@@ -833,7 +833,6 @@
 				F4CA23B5221C8A4A00714418 /* LoadingCollectionCell.swift in Sources */,
 				F42561AF21D3C31400AA22A1 /* PlayerViewController.swift in Sources */,
 				F4FA04EA21F7A48B00896B5C /* StatusBarExtension.swift in Sources */,
-				F4BB771422E62AC7009FA730 /* SavedPods.swift in Sources */,
 				F4347CC121FF5940002B2088 /* AudioPlayerBarView.swift in Sources */,
 				F462E305221F3C5100B674A0 /* HeaderView.swift in Sources */,
 				F437F4A8228EDEBE0087A28D /* MyPodsDataController.swift in Sources */,
@@ -876,6 +875,7 @@
 				F47AAEAD21FA356F0068FAD2 /* HeaderCollectionView.swift in Sources */,
 				F4FA04E621F7A06200896B5C /* Extra.swift in Sources */,
 				F4FA04EF21F7A7B500896B5C /* PreferenceCardGenre.swift in Sources */,
+				F403B61722E76F8200E184FC /* SavedPods.swift in Sources */,
 				F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */,
 				F4FA04E421F79E5A00896B5C /* BestPod.swift in Sources */,
 				F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */,

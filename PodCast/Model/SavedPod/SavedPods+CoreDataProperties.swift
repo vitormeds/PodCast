@@ -1,5 +1,5 @@
 //
-//  SavedPods+CoreDataClass.swift
+//  SavedPods+CoreDataProperties.swift
 //  PodCast
 //
 //  Created by Vitor Mendes on 23/07/19.
@@ -10,13 +10,13 @@
 import Foundation
 import CoreData
 
-@objc(SavedPods)
-public class SavedPods: NSManagedObject {
+
+extension SavedPods {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<SavedPods> {
         return NSFetchRequest<SavedPods>(entityName: "SavedPods")
     }
-    
+
     @NSManaged public var descriptionPod: String?
     @NSManaged public var icon: String?
     @NSManaged public var id: String?
@@ -24,14 +24,5 @@ public class SavedPods: NSManagedObject {
     @NSManaged public var title: String?
     @NSManaged public var url: String?
     @NSManaged public var audio_length: Int64
-    
-    func fillWith(descriptionPod: String,icon: String,id: String,idPod: String,title: String,url: String,audio_length: Int) {
-        self.descriptionPod = descriptionPod
-        self.icon = icon
-        self.id = id
-        self.idPod = idPod
-        self.title = title
-        self.url = url
-        self.audio_length = Int64(audio_length)
-    }
+
 }

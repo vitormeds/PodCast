@@ -26,8 +26,12 @@ class PlayerController {
     static func inicialize(podCastData: Podcast) {
         if self.podCastData == nil || self.podCastData.id != podCastData.id {
             self.podCastData = podCastData
-            Nuke.loadImage(with: URL(string: podCastData.image ?? "")!, into: audioPlayerView.artImageView)
-            Nuke.loadImage(with: URL(string: podCastData.image ?? "")!, into: audioPlayerBar.artImageView)
+            let urlImg: URL? = URL(string: podCastData.image ?? "")
+            if urlImg != nil {
+                let request2: ImageRequest? = ImageRequest(urlRequest: URLRequest(url: urlImg!))
+                Nuke.loadImage(with: request2!, into: audioPlayerView.artImageView)
+                Nuke.loadImage(with: request2!, into: audioPlayerBar.artImageView)
+            }
             audioPlayerView.durationLabel.text = formatTime(seconds: ((Double(podCastData.audio_length ?? 0))))
             audioPlayerView.timeLabel.text = "00:00:00"
             audioPlayerBar.timeLabel.text = "00:00:00/" +  formatTime(seconds: ((Double(podCastData.audio_length ?? 0))))
@@ -98,20 +102,19 @@ class PlayerController {
         
         let title = podCastData.title
         let album = podCastData.podcast?.publisher
-        let artworkData = Data()
         let image = audioPlayerView.artImageView.image
         var artwork: MPMediaItemArtwork!
         if image == nil {
             let artworkImage = MPMediaItemArtwork(boundsSize: UIImage(named: "profile")!.size, requestHandler: {  (_) -> UIImage in
                 return image!
             })
-            var artwork = artworkImage
+            artwork = artworkImage
         }
         else {
             let artworkImage = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: {  (_) -> UIImage in
                 return image!
             })
-            var artwork = artworkImage
+            artwork = artworkImage
         }
         
         

@@ -26,9 +26,9 @@ class SavedPodDAO {
         return []
     }
     
-    static func add(descriptionPod: String,icon: String,id: String,idPod: String,title: String,url: String) {
+    static func add(descriptionPod: String,icon: String,id: String,idPod: String,title: String,url: String,audio_length: Int) {
         let savedPods = SavedPods(context: context)
-        savedPods.fillWith(descriptionPod: descriptionPod,icon: icon,id: id,idPod: idPod,title: title,url: url)
+        savedPods.fillWith(descriptionPod: descriptionPod,icon: icon,id: id,idPod: idPod,title: title,url: url, audio_length: audio_length)
         try! context.save()
     }
     

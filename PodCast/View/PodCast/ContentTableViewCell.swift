@@ -139,7 +139,8 @@ class ContentTableViewCell: UITableViewCell {
                                         id: self.podCast.id!,
                                         idPod: self.idToSearch,
                                         title: self.podCast.title!,
-                                        url: result)
+                                        url: result,
+                                        audio_length: self.podCast.audio_length!)
                     }
                 }
                 DispatchQueue.main.async {
