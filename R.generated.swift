@@ -205,9 +205,9 @@ struct R: Rswift.Validatable {
       /// Value: Perfil
       static let perfil = Rswift.StringResource(key: "perfil", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: PodCast
-      static let appName = Rswift.StringResource(key: "appName", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: PodCast
       static let podcast = Rswift.StringResource(key: "podcast", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: PodCat
+      static let appName = Rswift.StringResource(key: "appName", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Voltar
       static let voltar = Rswift.StringResource(key: "voltar", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
@@ -262,13 +262,13 @@ struct R: Rswift.Validatable {
       }
       
       /// Value: PodCast
-      static func appName(_: Void = ()) -> String {
-        return NSLocalizedString("appName", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// Value: PodCast
       static func podcast(_: Void = ()) -> String {
         return NSLocalizedString("podcast", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: PodCat
+      static func appName(_: Void = ()) -> String {
+        return NSLocalizedString("appName", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Voltar
