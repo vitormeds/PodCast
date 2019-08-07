@@ -28,9 +28,7 @@ open class CustomViewController: UIViewController {
         let headerAnimationView = LOTAnimationView(name: "loadAnimation")
         headerAnimationView.translatesAutoresizingMaskIntoConstraints = false
         headerAnimationView.loopAnimation = true
-        headerAnimationView.play() { _ in
-            headerAnimationView.removeFromSuperview()
-        }
+        headerAnimationView.play()
         return headerAnimationView
     }()
     
