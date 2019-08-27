@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 14 images.
+  /// This `R.image` struct is generated, and contains static references to 18 images.
   struct image {
     /// Image `advanceSec`.
     static let advanceSec = Rswift.ImageResource(bundle: R.hostingBundle, name: "advanceSec")
@@ -66,6 +66,14 @@ struct R: Rswift.Validatable {
     static let headphone = Rswift.ImageResource(bundle: R.hostingBundle, name: "headphone")
     /// Image `home`.
     static let home = Rswift.ImageResource(bundle: R.hostingBundle, name: "home")
+    /// Image `iconfacebook`.
+    static let iconfacebook = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconfacebook")
+    /// Image `iconinstagram`.
+    static let iconinstagram = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconinstagram")
+    /// Image `icontwitter`.
+    static let icontwitter = Rswift.ImageResource(bundle: R.hostingBundle, name: "icontwitter")
+    /// Image `iconyoutube`.
+    static let iconyoutube = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconyoutube")
     /// Image `pause`.
     static let pause = Rswift.ImageResource(bundle: R.hostingBundle, name: "pause")
     /// Image `play`.
@@ -117,6 +125,26 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "home", bundle: ..., traitCollection: ...)`
     static func home(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.home, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "iconfacebook", bundle: ..., traitCollection: ...)`
+    static func iconfacebook(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconfacebook, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "iconinstagram", bundle: ..., traitCollection: ...)`
+    static func iconinstagram(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconinstagram, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icontwitter", bundle: ..., traitCollection: ...)`
+    static func icontwitter(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icontwitter, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "iconyoutube", bundle: ..., traitCollection: ...)`
+    static func iconyoutube(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconyoutube, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "pause", bundle: ..., traitCollection: ...)`

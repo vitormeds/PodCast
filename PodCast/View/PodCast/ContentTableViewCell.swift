@@ -9,7 +9,14 @@
 import UIKit
 import Lottie
 
+protocol ContentTableViewCellDelegate {
+    func openPlayer(id: String)
+    func downloadPodCast(completionHandler: @escaping (Bool) -> ())
+}
+
 class ContentTableViewCell: UITableViewCell {
+    
+    var contentTableViewCellDelegate: ContentTableViewCellDelegate!
     
     var iconImageView: UIImageView = {
         let img = UIImageView()
@@ -69,37 +76,35 @@ class ContentTableViewCell: UITableViewCell {
 
         backgroundColor = UIColor.primary
         
-        selectionStyle = UITableViewCell.SelectionStyle.none
-        
         iconImageView.removeFromSuperview()
         titleLabel.removeFromSuperview()
         iconDownload.removeFromSuperview()
         iconDownloadAnimation.removeFromSuperview()
         
-        addSubview(iconImageView)
-        iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
-        iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
-        iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        contentView.addSubview(iconImageView)
+        iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
+        iconImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+        iconImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
         iconImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        addSubview(iconDownload)
-        iconDownload.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
-        iconDownload.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        contentView.addSubview(iconDownload)
+        iconDownload.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
+        iconDownload.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         iconDownload.widthAnchor.constraint(equalToConstant: 30).isActive = true
         iconDownload.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: iconImageView.topAnchor, constant: 8).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: iconDownload.leftAnchor, constant: -16).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
 
-        addSubview(playView)
-        playView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        contentView.addSubview(playView)
+        playView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         playView.rightAnchor.constraint(equalTo: iconDownload.leftAnchor).isActive = true
-        playView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        playView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        playView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        playView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHandler(_:)))
         tapGesture.numberOfTouchesRequired = 1
@@ -116,35 +121,36 @@ class ContentTableViewCell: UITableViewCell {
     }
     
     @objc func tapHandlerView(_ gesture: UIGestureRecognizer) {
-        let playerViewController = PlayerViewController()
-        playerViewController.id = podCast.id ?? ""
-        let player = UINavigationController(rootViewController: playerViewController)
-        AplicationUtil.getViewController()!.present(player, animated: true)
+        contentTableViewCellDelegate.openPlayer(id: podCast.id ?? "")
     }
     
     @objc func tapHandler(_ gesture: UIGestureRecognizer) {
-        if isDownload {
-            setup()
-            isDownload = false
-        }
-        else {
-            setupLoadView()
-            isDownload = true
-            DownloadService.downloadPodCast(podCast: podCast) { result in
-                if !result.isEmpty {
-                    DispatchQueue.main.async {
-                        self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
-                        SavedPodDAO.add(descriptionPod: self.podCast.description!,
-                                        icon: self.podCast.image!,
-                                        id: self.podCast.id!,
-                                        idPod: self.idToSearch,
-                                        title: self.podCast.title!,
-                                        url: result,
-                                        audio_length: self.podCast.audio_length!)
-                    }
-                }
-                DispatchQueue.main.async {
+        contentTableViewCellDelegate.downloadPodCast { result in
+            if !result {
+                if self.isDownload {
                     self.setup()
+                    self.isDownload = false
+                }
+                else {
+                    self.setupLoadView()
+                    self.isDownload = true
+                    DownloadService.downloadPodCast(podCast: self.podCast) { result in
+                        if !result.isEmpty {
+                            DispatchQueue.main.async {
+                                self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
+                                SavedPodDAO.add(descriptionPod: self.podCast.description!,
+                                                icon: self.podCast.image!,
+                                                id: self.podCast.id!,
+                                                idPod: self.idToSearch,
+                                                title: self.podCast.title!,
+                                                url: result,
+                                                audio_length: self.podCast.audio_length!)
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.setup()
+                        }
+                    }
                 }
             }
         }
