@@ -12,6 +12,10 @@ class Config: UIViewController {
     
     let clearDataButton: UIButton = {
         let button = UIButton()
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 18
+        button.clipsToBounds = true
         button.setTitle("Remover Dados", for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -22,15 +26,15 @@ class Config: UIViewController {
         
         view.addSubview(clearDataButton)
         clearDataButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        clearDataButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        clearDataButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
         clearDataButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        clearDataButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        clearDataButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
         clearDataButton.addTarget(self, action: #selector(performClearData), for: UIControl.Event.touchDown)
     }
     
     @objc func performClearData() {
         let fileManager = FileManager.default
-        let documentsUrl =  FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first! as NSURL
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
         let documentsPath = documentsUrl.path
         
         do {
@@ -50,5 +54,6 @@ class Config: UIViewController {
         } catch {
             print("Could not clear temp folder: \(error)")
         }
+        SavedPodDAO.deleteAll()
     }
 }

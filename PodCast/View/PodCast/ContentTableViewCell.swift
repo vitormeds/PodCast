@@ -130,7 +130,7 @@ class ContentTableViewCell: UITableViewCell {
         else {
             setupLoadView()
             isDownload = true
-            SavedPodDAO.add(descriptionPod: self.podCast.description!,
+            let savedPod = SavedPodDAO.add(descriptionPod: self.podCast.description!,
                             icon: self.podCast.image!,
                             id: self.podCast.id!,
                             idPod: self.idToSearch,
@@ -142,14 +142,7 @@ class ContentTableViewCell: UITableViewCell {
                 if !result.isEmpty {
                     DispatchQueue.main.async {
                         self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
-                        SavedPodDAO.update(descriptionPod: self.podCast.description!,
-                                        icon: self.podCast.image!,
-                                        id: self.podCast.id!,
-                                        idPod: self.idToSearch,
-                                        title: self.podCast.title!,
-                                        url: result,
-                                        audio_length: self.podCast.audio_length!,
-                                        download: true)
+                        SavedPodDAO.update(savedPod: savedPod)
                     }
                 }
                 DispatchQueue.main.async {

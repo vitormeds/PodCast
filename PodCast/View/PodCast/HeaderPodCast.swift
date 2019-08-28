@@ -111,7 +111,7 @@ class HeaderPodCast: UIView {
     
     func setupStackMedia()
     {
-        if podInfo.extra?.facebook_handle?.isEmpty ?? false {
+        if !(podInfo.extra?.facebook_handle?.isEmpty ?? false) {
             let iconMediaImageView = UIImageView()
             iconMediaImageView.translatesAutoresizingMaskIntoConstraints = false
             iconMediaImageView.tintColor = UIColor.secondary
@@ -120,7 +120,7 @@ class HeaderPodCast: UIView {
             iconMediaImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
             mediaStackView.addArrangedSubview(iconMediaImageView)
         }
-        if podInfo.extra?.instagram_handle?.isEmpty ?? false {
+        if !(podInfo.extra?.instagram_handle?.isEmpty ?? false) {
             let iconMediaImageView = UIImageView()
             iconMediaImageView.translatesAutoresizingMaskIntoConstraints = false
             iconMediaImageView.tintColor = UIColor.secondary
@@ -129,7 +129,7 @@ class HeaderPodCast: UIView {
             iconMediaImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
             mediaStackView.addArrangedSubview(iconMediaImageView)
         }
-        if podInfo.extra?.twitter_handle?.isEmpty ?? false {
+        if !(podInfo.extra?.twitter_handle?.isEmpty ?? false) {
             let iconMediaImageView = UIImageView()
             iconMediaImageView.translatesAutoresizingMaskIntoConstraints = false
             iconMediaImageView.tintColor = UIColor.secondary
@@ -138,7 +138,7 @@ class HeaderPodCast: UIView {
             iconMediaImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
             mediaStackView.addArrangedSubview(iconMediaImageView)
         }
-        if podInfo.extra?.youtube_url?.isEmpty ?? false {
+        if !(podInfo.extra?.youtube_url?.isEmpty ?? false) {
             let iconMediaImageView = UIImageView()
             iconMediaImageView.translatesAutoresizingMaskIntoConstraints = false
             iconMediaImageView.tintColor = UIColor.secondary
