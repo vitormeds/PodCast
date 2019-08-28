@@ -32,8 +32,8 @@ class PlayerViewController: CustomViewController  {
     func loadData() {
         startLoad()
         PodCastListService.getBestPodById(id: id) { resultPodCast in
-            if SavedPodDAO.get().contains(where: { ($0.id == self.id) } ) {
-                let podCastDataSaved = SavedPodDAO.get().filter({ ($0.id == self.id) }).first
+            if SavedPodDAO.get().contains(where: { ($0.id == self.id && $0.download == true) } ) {
+                let podCastDataSaved = SavedPodDAO.get().filter({ ($0.id == self.id && $0.download == true) }).first
                 self.podCastData = Podcast(audio_length: Int(truncating: NSNumber(value: podCastDataSaved!.audio_length)),
                                            image: podCastDataSaved?.icon,
                                            title: podCastDataSaved?.title,

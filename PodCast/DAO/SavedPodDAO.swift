@@ -32,6 +32,29 @@ class SavedPodDAO {
         try! context.save()
     }
     
+    static func update(descriptionPod: String,icon: String,id: String,idPod: String,title: String,url: String,audio_length: Int,download: Bool) {
+        
+        let fetchRequest = NSFetchRequest<SavedPods>(entityName: "SavedPods")
+        fetchRequest.predicate = NSPredicate(format: "idPod = %@", idPod)
+        
+        do {
+            let obj = try context.fetch(fetchRequest)
+            let objToUpdate = obj.first as! NSManagedObject
+            objToUpdate.setValue(descriptionPod, forKey: "descriptionPod")
+            objToUpdate.setValue(icon, forKey: "icon")
+            objToUpdate.setValue(id, forKey: "id")
+            objToUpdate.setValue(idPod, forKey: "idPod")
+            objToUpdate.setValue(title, forKey: "title")
+            objToUpdate.setValue(url, forKey: "url")
+            objToUpdate.setValue(audio_length, forKey: "audio_length")
+            objToUpdate.setValue(descriptionPod, forKey: "descriptionPod")
+            
+            try! context.save()
+        } catch {
+            print("Error with request: \(error)")
+        }
+    }
+    
     static func delete(savedPod: SavedPods) {
         context.delete(savedPod)
         try! context.save()

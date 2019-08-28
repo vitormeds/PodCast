@@ -109,7 +109,7 @@ class ContentTableViewCell: UITableViewCell {
         tapGestureView.numberOfTouchesRequired = 1
         playView.addGestureRecognizer(tapGestureView)
         
-        if SavedPodDAO.get().contains(where: { ($0.id == podCast.id) } ) {
+        if SavedPodDAO.get().contains(where: { ($0.id == podCast.id && $0.download == true) } ) {
             self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
             isDownload = true
         }
@@ -130,11 +130,19 @@ class ContentTableViewCell: UITableViewCell {
         else {
             setupLoadView()
             isDownload = true
+            SavedPodDAO.add(descriptionPod: self.podCast.description!,
+                            icon: self.podCast.image!,
+                            id: self.podCast.id!,
+                            idPod: self.idToSearch,
+                            title: self.podCast.title!,
+                            url: "",
+                            audio_length: self.podCast.audio_length!,
+                            download: false)
             DownloadService.downloadPodCast(podCast: podCast) { result in
                 if !result.isEmpty {
                     DispatchQueue.main.async {
                         self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
-                        SavedPodDAO.add(descriptionPod: self.podCast.description!,
+                        SavedPodDAO.update(descriptionPod: self.podCast.description!,
                                         icon: self.podCast.image!,
                                         id: self.podCast.id!,
                                         idPod: self.idToSearch,

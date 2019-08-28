@@ -14,7 +14,7 @@ class DownloadService {
     
     static func downloadPodCast(podCast: Podcast,completionHandler: @escaping (String) -> ()) {
         if let audioUrl = URL(string: podCast.audio!) {
-        if SavedPodDAO.get().contains(where: { ($0.id == podCast.id) } ) {
+        if SavedPodDAO.get().contains(where: { ($0.id == podCast.id && $0.download == true) } ) {
             completionHandler("")
             return
         } else {

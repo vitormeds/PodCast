@@ -77,7 +77,7 @@ class PlayerController {
     
     static func setupAudio() {
         let savedPodCasts = SavedPodDAO.get()
-        if savedPodCasts.contains(where: { ($0.id == podCastData.id) } ) {
+        if savedPodCasts.contains(where: { ($0.id == podCastData.id && $0.download == true) } ) {
             let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let destinationUrl = documentsDirectoryURL.appendingPathComponent((savedPodCasts.filter({ ($0.id == podCastData.id)}).first?.url)!)
             if FileManager.default.fileExists(atPath: destinationUrl.path) {
