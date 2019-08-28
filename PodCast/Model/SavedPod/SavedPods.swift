@@ -24,8 +24,9 @@ public class SavedPods: NSManagedObject {
     @NSManaged public var title: String?
     @NSManaged public var url: String?
     @NSManaged public var audio_length: Int64
+    @NSManaged public var download: Bool
     
-    func fillWith(descriptionPod: String,icon: String,id: String,idPod: String,title: String,url: String,audio_length: Int) {
+    func fillWith(descriptionPod: String,icon: String,id: String,idPod: String,title: String,url: String,audio_length: Int,download: Bool) {
         self.descriptionPod = descriptionPod
         self.icon = icon
         self.id = id
@@ -33,5 +34,6 @@ public class SavedPods: NSManagedObject {
         self.title = title
         self.url = url
         self.audio_length = Int64(audio_length)
+        self.download = download
     }
 }

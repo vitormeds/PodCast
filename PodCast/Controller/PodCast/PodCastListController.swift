@@ -43,8 +43,11 @@ class PodCastListViewController: CustomViewController {
     
     func starLoad() {
         myPods = MyPodsDataController.getMyPods()
-        var myPodsIcon =  #imageLiteral(resourceName: "downloadIcon").withRenderingMode(.alwaysTemplate)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performDownload))
+        var myPodsIcon =  #imageLiteral(resourceName: "starIconNotFilled").withRenderingMode(.alwaysTemplate)
+        if myPods != nil && podInfo != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(podInfo.id ?? "") {
+            myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
+        }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
     }
     
     func loadData()
@@ -84,19 +87,19 @@ class PodCastListViewController: CustomViewController {
                         if self.pods.isEmpty {
                             for element in SavedPodDAO.get().filter({ ($0.idPod == self.idToSearch) }) {
                                 self.pods.append(Podcast(audio_length: nil,
-                                                    image: element.icon,
-                                                    title: element.title,
-                                                    listennotes_edit_url: nil,
-                                                    explicit_content: nil,
-                                                    audio: nil,
-                                                    pub_date_ms: nil,
-                                                    podcast: nil,
-                                                    description: element.descriptionPod,
-                                                    id: element.id,
-                                                    thumbnail: element.icon,
-                                                    listennotes_url: nil,
-                                                    maybe_audio_invalid: nil,
-                                                    isDownload: true))
+                                                         image: element.icon,
+                                                         title: element.title,
+                                                         listennotes_edit_url: nil,
+                                                         explicit_content: nil,
+                                                         audio: nil,
+                                                         pub_date_ms: nil,
+                                                         podcast: nil,
+                                                         description: element.descriptionPod,
+                                                         id: element.id,
+                                                         thumbnail: element.icon,
+                                                         listennotes_url: nil,
+                                                         maybe_audio_invalid: nil,
+                                                         isDownload: true))
                             }
                             self.stopLoad()
                             self.setupViews()
@@ -120,17 +123,11 @@ class PodCastListViewController: CustomViewController {
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.register(ContentTableViewCell.self, forCellReuseIdentifier: contentCellIdentifier)
-        tableView.allowsMultipleSelectionDuringEditing = true
         tableView.reloadData()
     }
     
     @objc func performBack() {
         dismiss(animated: true)
-    }
-    
-    @objc func performDownload() {
-        tableView.setEditing(!tableView.isEditing, animated: false)
-        tableView.reloadData()
     }
     
     @objc func performStar() {
@@ -152,35 +149,21 @@ class PodCastListViewController: CustomViewController {
             }
         }
         else {
-           id = myPods?.id ?? []
-           id.append(idPod )
-           icon = myPods?.icon ?? []
-           icon.append(iconPod )
-           title = myPods?.title ?? []
-           title.append(titlePod )
+            id = myPods?.id ?? []
+            id.append(idPod )
+            icon = myPods?.icon ?? []
+            icon.append(iconPod )
+            title = myPods?.title ?? []
+            title.append(titlePod )
         }
         MyPodsDataController.saveMyPods(id: id, icon: icon, title: title)
         myPods = MyPodsDataController.getMyPods()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
-//        var myPodsIcon =  #imageLiteral(resourceName: "starIconNotFilled").withRenderingMode(.alwaysTemplate)
-//        if myPods != nil && podInfo != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(podInfo.id ?? "") {
-//            myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
-//        }
     }
     
 }
 
 extension PodCastListViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = HeaderPodCast()
-        headerView.podInfo = podInfo
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 120
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pods.count
@@ -188,13 +171,6 @@ extension PodCastListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: contentCellIdentifier, for: indexPath) as! ContentTableViewCell
-        cell.contentTableViewCellDelegate = self
-        if tableView.isEditing {
-            cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        }
-        else {
-            cell.selectionStyle = UITableViewCell.SelectionStyle.gray
-        }
         let urlImg: URL? = URL(string: pods[indexPath.item].thumbnail ?? pods[indexPath.item].image ?? "")
         if urlImg != nil {
             let request2 = ImageRequest(urlRequest: URLRequest(url: urlImg!))
@@ -215,6 +191,16 @@ extension PodCastListViewController: UITableViewDataSource {
         return 200
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = HeaderPodCast()
+        headerView.podInfo = podInfo
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 120
+    }
+    
 }
 
 extension PodCastListViewController: UITableViewDelegate {
@@ -227,21 +213,5 @@ extension PodCastListViewController: UITableViewDelegate {
         if indexPath.row == pods.count - 1 {
             loadData()
         }
-    }
-}
-
-extension PodCastListViewController: ContentTableViewCellDelegate {
-    
-    func openPlayer(id: String) {
-        if !tableView.isEditing {
-            let playerViewController = PlayerViewController()
-            playerViewController.id = id
-            let player = UINavigationController(rootViewController: playerViewController)
-            present(player, animated: true)
-        }
-    }
-    
-    func downloadPodCast(completionHandler: @escaping (Bool) -> ()) {
-        completionHandler(tableView.isEditing)
     }
 }
