@@ -33,27 +33,22 @@ class Config: UIViewController {
     }
     
     @objc func performClearData() {
-        let fileManager = FileManager.default
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
-        let documentsPath = documentsUrl.path
+        let pods = SavedPodDAO.get()
         
-        do {
-            if let documentPath = documentsPath
-            {
-                let fileNames = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
-                print("all files in cache: \(fileNames)")
-                for fileName in fileNames {
-                    let filePathName = "\(documentPath)/\(fileName)"
-                    try fileManager.removeItem(atPath: filePathName)
+        for element in pods {
+            let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let destinationUrl = documentsDirectoryURL.appendingPathComponent(element.url ?? "")
+            debugPrint(destinationUrl)
+            if FileManager.default.fileExists(atPath: destinationUrl.path) {
+                do {
+                    try FileManager.default.removeItem(at: destinationUrl)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
                 }
-                
-                let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
-                print("all files in cache after deleting images: \(files)")
             }
-            
-        } catch {
-            print("Could not clear temp folder: \(error)")
         }
+
         SavedPodDAO.deleteAll()
+        QueueDAO.deleteAll()
     }
 }

@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04DCB340CE227E2D56271B56 /* Pods_PodCastUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */; };
-		4E5D9149231837E300F61B1B /* Queue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9147231837E300F61B1B /* Queue+CoreDataClass.swift */; };
-		4E5D914A231837E300F61B1B /* Queue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9148231837E300F61B1B /* Queue+CoreDataProperties.swift */; };
+		4E5D9149231837E300F61B1B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9147231837E300F61B1B /* Queue.swift */; };
 		4E78C3582318087500E464A5 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E78C3572318087500E464A5 /* DownloadManager.swift */; };
 		4EB296662318382F00C8E749 /* QueueDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB296652318382F00C8E749 /* QueueDAO.swift */; };
 		4EDAAE28231593BE005840AE /* HeaderPodCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDAAE27231593BE005840AE /* HeaderPodCast.swift */; };
@@ -99,8 +98,7 @@
 		214AF971DF7ACE56DB753502 /* Pods-PodCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCast.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCast/Pods-PodCast.release.xcconfig"; sourceTree = "<group>"; };
 		2250BCFDAEBDBF5CCA6EEF19 /* Pods-PodCastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastUITests/Pods-PodCastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B8E96A7D40A077B2C2FC276 /* Pods-PodCastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastUITests/Pods-PodCastUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4E5D9147231837E300F61B1B /* Queue+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Queue+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4E5D9148231837E300F61B1B /* Queue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Queue+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4E5D9147231837E300F61B1B /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		4E78C3572318087500E464A5 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		4EB296652318382F00C8E749 /* QueueDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDAO.swift; sourceTree = "<group>"; };
 		4EDAAE27231593BE005840AE /* HeaderPodCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPodCast.swift; sourceTree = "<group>"; };
@@ -210,8 +208,7 @@
 		4E5D9146231837C200F61B1B /* Queue */ = {
 			isa = PBXGroup;
 			children = (
-				4E5D9147231837E300F61B1B /* Queue+CoreDataClass.swift */,
-				4E5D9148231837E300F61B1B /* Queue+CoreDataProperties.swift */,
+				4E5D9147231837E300F61B1B /* Queue.swift */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
@@ -869,7 +866,7 @@
 				F4BF693422907FA300640D33 /* DownloadService.swift in Sources */,
 				F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */,
 				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,
-				4E5D9149231837E300F61B1B /* Queue+CoreDataClass.swift in Sources */,
+				4E5D9149231837E300F61B1B /* Queue.swift in Sources */,
 				F4E2E435221352AA007C984E /* SearchService.swift in Sources */,
 				F4EA7C1022D3A1F7006878F3 /* TestViewController.swift in Sources */,
 				F437F4A6228EDE210087A28D /* MyPods.swift in Sources */,
@@ -881,7 +878,6 @@
 				F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */,
 				F43779F721F62CF6007DC73C /* Home.swift in Sources */,
 				F47AAEAF21FA3DB60068FAD2 /* CollectionCell.swift in Sources */,
-				4E5D914A231837E300F61B1B /* Queue+CoreDataProperties.swift in Sources */,
 				F42BA6AA21F602330075E4B3 /* Config.swift in Sources */,
 				F4FA04E021F79E2700896B5C /* GenreElement.swift in Sources */,
 				F4C2C9ED21FB7DF200467A06 /* PodCastComponent.swift in Sources */,

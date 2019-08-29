@@ -1,5 +1,5 @@
 //
-//  Queue+CoreDataProperties.swift
+//  Queue+CoreDataClass.swift
 //  PodCast
 //
 //  Created by Vitor on 29/08/19.
@@ -10,13 +10,13 @@
 import Foundation
 import CoreData
 
-
-extension Queue {
+@objc(Queue)
+public class Queue: NSManagedObject {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Queue> {
         return NSFetchRequest<Queue>(entityName: "Queue")
     }
-
+    
     @NSManaged public var id: String?
     @NSManaged public var idPod: String?
     
@@ -24,5 +24,4 @@ extension Queue {
         self.id = id
         self.idPod = idPod
     }
-
 }

@@ -26,11 +26,10 @@ class QueueDAO {
         return []
     }
     
-    static func add(id: String,idPod: String) -> Queue {
+    static func add(id: String,idPod: String) {
         let queuePods = Queue(context: context)
         queuePods.fillWith(id: id,idPod: idPod)
         try! context.save()
-        return queuePods
     }
     
     static func delete(queuePod: Queue) {
