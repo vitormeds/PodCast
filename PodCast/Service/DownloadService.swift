@@ -14,6 +14,10 @@ class DownloadService: DownloadManagerDelegate {
     
     var downloadManagerDelegate: DownloadManagerDelegate!
     
+    func verifyQueue() {
+        
+    }
+    
     func downloadPodCast(podCast: Podcast) {
         if let audioUrl = URL(string: podCast.audio!) {
         if SavedPodDAO.get().contains(where: { ($0.id == podCast.id && $0.download == true) } ) {
