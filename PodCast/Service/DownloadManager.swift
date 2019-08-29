@@ -70,6 +70,13 @@ class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate
             // lets create your destination file url
             let destinationUrl = documentsDirectoryURL.appendingPathComponent((downloadTask.response?.url?.lastPathComponent)!)
             // you can use NSURLSession.sharedSession to download the data asynchronously
+            if FileManager.default.fileExists(atPath: destinationUrl.path) {
+                do {
+                    try FileManager.default.removeItem(at: destinationUrl)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
             do {
             // after downloading your file you need to move it to your destination url
             try FileManager.default.moveItem(at: location, to: destinationUrl)
@@ -87,6 +94,5 @@ class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         debugPrint("Task completed: \(task), error: \(error)")
     }
-    
 }
 

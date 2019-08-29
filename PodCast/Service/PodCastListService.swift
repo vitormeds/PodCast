@@ -39,7 +39,7 @@ class PodCastListService {
                 completionHandler(nil)
             }
         }
-    }
+    } 
     
     static func getBestPodsByGenre(genres: [Genre],completionHandler: @escaping ([[BestPod]]?) -> ()) {
         

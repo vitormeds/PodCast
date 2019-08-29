@@ -85,7 +85,7 @@ class PodCastListViewController: CustomViewController {
                     }
                     else {
                         if self.pods.isEmpty {
-                            for element in SavedPodDAO.get().filter({ ($0.idPod == self.idToSearch) }) {
+                            for element in SavedPodDAO.get().filter({ ($0.idPod == self.idToSearch && $0.download == true) }) {
                                 self.pods.append(Podcast(audio_length: nil,
                                                          image: element.icon,
                                                          title: element.title,
@@ -196,7 +196,7 @@ extension PodCastListViewController: UITableViewDataSource {
 //        headerView.podInfo = podInfo
 //        return headerView
 //    }
-//    
+//
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        return 120
 //    }
