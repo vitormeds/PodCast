@@ -191,15 +191,15 @@ extension PodCastListViewController: UITableViewDataSource {
         return 200
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = HeaderPodCast()
-        headerView.podInfo = podInfo
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 120
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = HeaderPodCast()
+//        headerView.podInfo = podInfo
+//        return headerView
+//    }
+//    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 120
+//    }
     
 }
 

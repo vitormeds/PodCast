@@ -11,6 +11,8 @@ import Lottie
 
 class ContentTableViewCell: UITableViewCell {
     
+    var savedPod: SavedPods!
+    
     var iconImageView: UIImageView = {
         let img = UIImageView()
         img.layer.zPosition = 2
@@ -130,7 +132,7 @@ class ContentTableViewCell: UITableViewCell {
         else {
             setupLoadView()
             isDownload = true
-            let savedPod = SavedPodDAO.add(descriptionPod: self.podCast.description!,
+            savedPod = SavedPodDAO.add(descriptionPod: self.podCast.description!,
                             icon: self.podCast.image!,
                             id: self.podCast.id!,
                             idPod: self.idToSearch,
@@ -138,17 +140,9 @@ class ContentTableViewCell: UITableViewCell {
                             url: "",
                             audio_length: self.podCast.audio_length!,
                             download: false)
-            DownloadService.downloadPodCast(podCast: podCast) { result in
-                if !result.isEmpty {
-                    DispatchQueue.main.async {
-                        self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
-                        SavedPodDAO.update(savedPod: savedPod)
-                    }
-                }
-                DispatchQueue.main.async {
-                    self.setup()
-                }
-            }
+            let downloadService = DownloadService()
+            downloadService.downloadManagerDelegate = self
+            downloadService.downloadPodCast(podCast: podCast)
         }
     }
     
@@ -191,5 +185,21 @@ class ContentTableViewCell: UITableViewCell {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ContentTableViewCell: DownloadManagerDelegate {
+    
+    func downloadSucess(url: String) {
+        if !url.isEmpty {
+            DispatchQueue.main.async {
+                self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
+                self.savedPod.url = url
+                SavedPodDAO.update(savedPod: self.savedPod)
+            }
+        }
+        DispatchQueue.main.async {
+            self.setup()
+        }
     }
 }

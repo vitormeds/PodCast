@@ -100,7 +100,7 @@ extension MyPodCasts: UICollectionViewDelegate {
            email: nil, rss: nil,
            thumbnail: myPods?.icon?[indexPath.item] ?? "",
            title_original: myPods?.title?[indexPath.item] ?? "",
-           image: nil,
+           image: myPods?.icon?[indexPath.item] ?? "",
            explicit_content: nil,
            id: myPods?.id?[indexPath.item] ?? "",
            total_episodes: nil,
