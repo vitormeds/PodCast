@@ -137,7 +137,7 @@ class ContentTableViewCell: UITableViewCell {
                             id: self.podCast.id!,
                             idPod: self.idToSearch,
                             title: self.podCast.title!,
-                            url: "",
+                            url: self.podCast.audio!,
                             audio_length: self.podCast.audio_length!,
                             download: false)
             QueueDAO.add(id: self.podCast.id!,
@@ -196,16 +196,13 @@ extension ContentTableViewCell: DownloadManagerDelegate {
         if !url.isEmpty {
             DispatchQueue.main.async {
                 self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
-                self.savedPod.url = url
-                SavedPodDAO.update(savedPod: self.savedPod)
-                let pods = QueueDAO.get().filter({ ($0.id == self.savedPod.id && $0.idPod == self.savedPod.idPod)})
-                for element in pods {
-                    QueueDAO.delete(queuePod: element)
-                }
             }
         }
         DispatchQueue.main.async {
             self.setup()
+            let downloadService = DownloadService()
+            downloadService.downloadManagerDelegate = self
+            downloadService.verifyQueue()
         }
     }
 }

@@ -16,18 +16,37 @@ class DownloadService: DownloadManagerDelegate {
     
     func verifyQueue() {
         
+        let queue = QueueDAO.get()
+        if !queue.isEmpty {
+            let queuePod = SavedPodDAO.get().filter { ($0.id == queue.first?.id && $0.idPod == queue.first?.idPod)}.first
+            let pod = Podcast(audio_length: nil,
+                              image: queuePod!.icon,
+                              title: queuePod!.title,
+                              listennotes_edit_url: nil,
+                              explicit_content: nil,
+                              audio: queuePod!.url,
+                              pub_date_ms: nil,
+                              podcast: nil,
+                              description: queuePod!.descriptionPod,
+                              id: queuePod!.id,
+                              thumbnail: queuePod!.icon,
+                              listennotes_url: nil,
+                              maybe_audio_invalid: nil,
+                              isDownload: true)
+            downloadPodCast(podCast: pod)
+        }
     }
     
     func downloadPodCast(podCast: Podcast) {
         if let audioUrl = URL(string: podCast.audio!) {
-        if SavedPodDAO.get().contains(where: { ($0.id == podCast.id && $0.download == true) } ) {
-            downloadManagerDelegate.downloadSucess(url: "")
-            return
-        } else {
-                let downloadManager = DownloadManager.shared
-                downloadManager.downloadManagerDelegate = self
-                let task = downloadManager.activate().downloadTask(with: audioUrl)
-                task.resume()
+            if SavedPodDAO.get().contains(where: { ($0.id == podCast.id && $0.download == true) } ) {
+                downloadManagerDelegate.downloadSucess(url: "")
+                return
+            } else {
+                    let downloadManager = DownloadManager.shared
+                    downloadManager.downloadManagerDelegate = self
+                    let task = downloadManager.activate().downloadTask(with: audioUrl)
+                    task.resume()
             }
         }
         else {
