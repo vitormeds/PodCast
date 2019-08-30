@@ -196,6 +196,12 @@ extension ContentTableViewCell: DownloadManagerDelegate {
         if !url.isEmpty {
             DispatchQueue.main.async {
                 self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
+                self.savedPod.url = url
+                SavedPodDAO.update(savedPod: self.savedPod)
+                let pods = QueueDAO.get().filter({ ($0.id == self.savedPod.id && $0.idPod == self.savedPod.idPod)})
+                for element in pods {
+                    QueueDAO.delete(queuePod: element)
+                }
             }
         }
         DispatchQueue.main.async {
