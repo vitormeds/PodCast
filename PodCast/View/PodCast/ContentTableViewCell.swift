@@ -144,6 +144,7 @@ class ContentTableViewCell: UITableViewCell {
                          idPod: self.idToSearch)
             let downloadService = DownloadService()
             downloadService.downloadManagerDelegate = self
+            downloadService.savedPod = self.savedPod
             downloadService.downloadPodCast(podCast: podCast)
         }
     }
@@ -193,22 +194,9 @@ class ContentTableViewCell: UITableViewCell {
 extension ContentTableViewCell: DownloadManagerDelegate {
     
     func downloadSucess(url: String) {
-        if !url.isEmpty {
-            DispatchQueue.main.async {
-                self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
-                self.savedPod.url = url
-                SavedPodDAO.update(savedPod: self.savedPod)
-                let pods = QueueDAO.get().filter({ ($0.id == self.savedPod.id && $0.idPod == self.savedPod.idPod)})
-                for element in pods {
-                    QueueDAO.delete(queuePod: element)
-                }
-            }
-        }
         DispatchQueue.main.async {
+            self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
             self.setup()
-            let downloadService = DownloadService()
-            downloadService.downloadManagerDelegate = self
-            downloadService.verifyQueue()
         }
     }
 }

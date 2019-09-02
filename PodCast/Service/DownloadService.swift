@@ -14,6 +14,8 @@ class DownloadService: DownloadManagerDelegate {
     
     var downloadManagerDelegate: DownloadManagerDelegate!
     
+    var savedPod: SavedPods!
+    
     func verifyQueue() {
         
         let queue = QueueDAO.get()
@@ -33,6 +35,7 @@ class DownloadService: DownloadManagerDelegate {
                               listennotes_url: nil,
                               maybe_audio_invalid: nil,
                               isDownload: true)
+            self.savedPod = queuePod
             downloadPodCast(podCast: pod)
         }
     }
@@ -56,6 +59,15 @@ class DownloadService: DownloadManagerDelegate {
     }
     
     func downloadSucess(url: String) {
+        if !url.isEmpty {
+            self.savedPod.url = url
+            SavedPodDAO.update(savedPod: self.savedPod)
+            let pods = QueueDAO.get().filter({ ($0.id == self.savedPod.id && $0.idPod == self.savedPod.idPod)})
+            for element in pods {
+                QueueDAO.delete(queuePod: element)
+            }
+        }
+        verifyQueue()
         downloadManagerDelegate.downloadSucess(url: url)
     }
 }
