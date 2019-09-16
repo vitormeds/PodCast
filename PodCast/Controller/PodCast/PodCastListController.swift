@@ -11,8 +11,6 @@ import Nuke
 
 class PodCastListViewController: CustomViewController {
     
-    let contentCellIdentifier = "ContentCellIdentifier"
-    
     var myPods: MyPods? = nil
     
     var idToSearch = ""
@@ -37,8 +35,9 @@ class PodCastListViewController: CustomViewController {
     var podInfo: PodCastList!
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.primary
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localizable.voltar(), style: .done, target: self, action: #selector(performBack))
+        SharedDownload.downloadService.downloadManagerDelegate = self
     }
     
     func starLoad() {
@@ -122,7 +121,6 @@ class PodCastListViewController: CustomViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.register(ContentTableViewCell.self, forCellReuseIdentifier: contentCellIdentifier)
         tableView.reloadData()
     }
     
@@ -170,8 +168,8 @@ extension PodCastListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: contentCellIdentifier, for: indexPath) as! ContentTableViewCell
-        let urlImg: URL? = URL(string: pods[indexPath.item].thumbnail ?? pods[indexPath.item].image ?? "")
+        let cell = ContentTableViewCell()
+        let urlImg: URL? = URL(string: pods[indexPath.item].thumbnail ?? pods[indexPath.item].image ?? podInfo.thumbnail ?? podInfo.image ?? bestPod.thumbnail ?? bestPod.image ?? podCastSearch.thumbnail ?? podCastSearch.image ?? "")
         if urlImg != nil {
             let request2 = ImageRequest(urlRequest: URLRequest(url: urlImg!))
             Nuke.loadImage(with: request2, into: cell.iconImageView)
@@ -212,6 +210,15 @@ extension PodCastListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == pods.count - 1 {
             loadData()
+        }
+    }
+}
+
+extension PodCastListViewController: DownloadManagerDelegate {
+    
+    func downloadSucess(url: String) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 }

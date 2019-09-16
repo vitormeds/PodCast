@@ -12,7 +12,7 @@ class Config: UIViewController {
     
     let clearDataButton: UIButton = {
         let button = UIButton()
-        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderColor = UIColor.secondary.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 18
         button.clipsToBounds = true

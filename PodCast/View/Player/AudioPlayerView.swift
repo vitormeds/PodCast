@@ -17,29 +17,29 @@ class AudioPlayerView: UIView {
     
     let playButton: UIButton = {
         let button = UIButton()
-        button.tintColor = UIColor.white
+        button.tintColor = UIColor.secondary
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     let advanceSecButton: UIButton = {
         let button = UIButton()
-        button.tintColor = UIColor.white
+        button.tintColor = UIColor.secondary
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     let backSecButton: UIButton = {
         let button = UIButton()
-        button.tintColor = UIColor.white
+        button.tintColor = UIColor.secondary
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     let progressBarSlider: UISlider = {
         let slider = UISlider()
-        slider.tintColor = UIColor.white
-        var thumImage = UIImage.circle(diameter: 10, color: UIColor.white)
+        slider.tintColor = UIColor.secondary
+        var thumImage = UIImage.circle(diameter: 10, color: UIColor.secondary)
         slider.setThumbImage(thumImage, for: .normal)
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
@@ -47,14 +47,14 @@ class AudioPlayerView: UIView {
     
     let timeLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let durationLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -70,7 +70,7 @@ class AudioPlayerView: UIView {
     
     func setupViews()
     {
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.primary
         translatesAutoresizingMaskIntoConstraints = false
         
         let imageSize = UIScreen.main.bounds.width - 120

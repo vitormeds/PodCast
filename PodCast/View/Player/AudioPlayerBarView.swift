@@ -19,14 +19,14 @@ class AudioPlayerBarView: UIView {
     
     let playButton: UIButton = {
         let button = UIButton()
-        button.tintColor = UIColor.white
+        button.tintColor = UIColor.secondary
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     let closeButton: UIButton = {
         let button = UIButton()
-        button.tintColor = UIColor.white
+        button.tintColor = UIColor.secondary
         button.setImage(UIImage(named: "close")?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -35,7 +35,7 @@ class AudioPlayerBarView: UIView {
     let titleLabel: MarqueeLabel = {
         let label = MarqueeLabel()
         label.marqueeType = MarqueeType.MLContinuous
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.textAlignment = NSTextAlignment.center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -43,7 +43,7 @@ class AudioPlayerBarView: UIView {
     
     let timeLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.textAlignment = NSTextAlignment.center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -60,7 +60,7 @@ class AudioPlayerBarView: UIView {
     
     func setupViews()
     {
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.primary
         translatesAutoresizingMaskIntoConstraints = false
         
         heightAnchor.constraint(equalToConstant: 60).isActive = true

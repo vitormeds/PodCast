@@ -29,7 +29,7 @@ class MyPodCasts: CustomViewController {
     }()
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.primary
         setupViews()
     }
     

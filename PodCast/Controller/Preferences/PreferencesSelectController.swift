@@ -40,18 +40,18 @@ class PreferencesSelectController: UIViewController, UICollectionViewDelegateFlo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor.black
-        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.barTintColor = UIColor.primary
+        navigationController?.navigationBar.tintColor = UIColor.secondary
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.secondary]
         title = R.string.localizable.assuntos()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.iniciar(), style: .done, target: self, action: #selector(performNext))
         definesPresentationContext = true
         extendedLayoutIncludesOpaqueBars = true
         
         collectionView.alwaysBounceVertical = true
-        collectionView.backgroundColor = UIColor.black
-        view.backgroundColor = UIColor.black
+        collectionView.backgroundColor = UIColor.primary
+        view.backgroundColor = UIColor.primary
         collectionView.register(PreferenceCardGenre.self, forCellWithReuseIdentifier: cardReuseIdentifier)
         collectionView.register(PreferenceHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCell")
 

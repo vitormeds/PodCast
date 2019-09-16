@@ -13,20 +13,20 @@ class CustomTabBarController: RAMAnimatedTabBarController {
     
     override func viewDidLoad() {
         
-        UITabBar.appearance().tintColor = UIColor.white
-        UITabBar.appearance().barTintColor = UIColor.black
+        UITabBar.appearance().tintColor = UIColor.secondary
+        UITabBar.appearance().barTintColor = UIColor.primary
         
         let animation = RAMBounceAnimation()
-        animation.iconSelectedColor = UIColor.white
-        animation.textSelectedColor = UIColor.white
+        animation.iconSelectedColor = UIColor.secondary
+        animation.textSelectedColor = UIColor.secondary
         
         let homeViewController = Home()
         let homeViewNavigationController = homeViewController
         homeViewNavigationController.title = R.string.localizable.inicio()
         let homeTabBar = RAMAnimatedTabBarItem(title: "Inicio", image: UIImage(named: "home"), tag: 0)
         homeTabBar.animation = animation
-        homeTabBar.textColor = UIColor.white
-        homeTabBar.iconColor = UIColor.white
+        homeTabBar.textColor = UIColor.secondary
+        homeTabBar.iconColor = UIColor.secondary
         homeViewNavigationController.tabBarItem = homeTabBar
         
         let myPodCastsViewController = MyPodCasts()
@@ -34,19 +34,19 @@ class CustomTabBarController: RAMAnimatedTabBarController {
         myPodCastsViewNavigationController.title = R.string.localizable.meusPodCast()
         let headPhoneTabBar = RAMAnimatedTabBarItem(title: "Meus Pod Casts", image: UIImage(named: "headphone"), tag: 1)
         headPhoneTabBar.animation = animation
-        headPhoneTabBar.textColor = UIColor.white
-        headPhoneTabBar.iconColor = UIColor.white
+        headPhoneTabBar.textColor = UIColor.secondary
+        headPhoneTabBar.iconColor = UIColor.secondary
         myPodCastsViewNavigationController.tabBarItem = headPhoneTabBar
         
-//        let configViewController = Config()
-//        let configViewNavigationController = configViewController
-//        configViewNavigationController.title = R.string.localizable.perfil()
-//        let configTabBar = RAMAnimatedTabBarItem(title: "Configuração", image: UIImage(named: "profile"), tag: 2)
-//        configTabBar.animation = animation
-//        configTabBar.textColor = UIColor.white
-//        configTabBar.iconColor = UIColor.white
-//        configViewNavigationController.tabBarItem = configTabBar
+        let configViewController = Config()
+        let configViewNavigationController = configViewController
+        configViewNavigationController.title = R.string.localizable.perfil()
+        let configTabBar = RAMAnimatedTabBarItem(title: "Configuração", image: UIImage(named: "profile"), tag: 2)
+        configTabBar.animation = animation
+        configTabBar.textColor = UIColor.secondary
+        configTabBar.iconColor = UIColor.secondary
+        configViewNavigationController.tabBarItem = configTabBar
         
-        viewControllers = [homeViewNavigationController,myPodCastsViewNavigationController]//,configViewNavigationController]
+        viewControllers = [homeViewNavigationController,myPodCastsViewNavigationController,configViewNavigationController]
     }
 }

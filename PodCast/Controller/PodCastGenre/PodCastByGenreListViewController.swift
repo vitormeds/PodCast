@@ -35,7 +35,7 @@ class PodCastByGenreListViewController: CustomViewController {
     var bestPodElement : BestPodElement!
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.primary
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localizable.voltar(), style: .done, target: self, action: #selector(performBack))
         setupViews()
     }

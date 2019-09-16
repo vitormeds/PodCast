@@ -19,7 +19,7 @@ class HeaderCollectionView: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +28,7 @@ class HeaderCollectionView: UIView {
     
     var moreLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.text = R.string.localizable.mais()
@@ -47,7 +47,7 @@ class HeaderCollectionView: UIView {
     
     func setupViews()
     {
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.primary
         
         addSubview(titleLabel)
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true

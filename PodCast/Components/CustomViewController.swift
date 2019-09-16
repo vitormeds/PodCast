@@ -18,8 +18,8 @@ open class CustomViewController: UIViewController {
         tableView.register(CollectionCell.self, forCellReuseIdentifier: "cell")
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.separatorColor = UIColor.black
-        tableView.backgroundColor = UIColor.black
+        tableView.separatorColor = UIColor.primary
+        tableView.backgroundColor = UIColor.primary
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()

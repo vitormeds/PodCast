@@ -13,7 +13,7 @@ class PreferenceCardGenre: UICollectionViewCell {
     
     let checkImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.tintColor = UIColor.white
+        imageView.tintColor = UIColor.secondary
         imageView.image = UIImage(named: "check")?.withRenderingMode(.alwaysTemplate)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -23,7 +23,7 @@ class PreferenceCardGenre: UICollectionViewCell {
         let label = UILabel()
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.adjustsFontSizeToFitWidth = true

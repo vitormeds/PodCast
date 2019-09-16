@@ -21,7 +21,7 @@ class HeaderView: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.text = R.string.localizable.appName()
@@ -40,7 +40,7 @@ class HeaderView: UIView {
     
     func setupViews()
     {
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.primary
         translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(appLogo)

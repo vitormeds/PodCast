@@ -63,7 +63,7 @@ class PlayerController {
         
         audioPlayerView.progressBarSlider.maximumValue = Float(seconds)
         audioPlayerView.progressBarSlider.isContinuous = true
-        audioPlayerView.progressBarSlider.tintColor = UIColor.white
+        audioPlayerView.progressBarSlider.tintColor = UIColor.secondary
         audioPlayerView.progressBarSlider.minimumValue = 0
         audioPlayerView.progressBarSlider.maximumValue = 1
         

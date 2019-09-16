@@ -68,7 +68,7 @@ class HeaderPodCast: UIView {
     
     func setupViews()
     {
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.primary
         translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(iconImageView)

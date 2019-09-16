@@ -15,6 +15,8 @@ class ContentTableViewCell: UITableViewCell {
     
     var iconImageView: UIImageView = {
         let img = UIImageView()
+        img.tintColor = UIColor.secondary
+        img.image = #imageLiteral(resourceName: "headphone").withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         img.layer.zPosition = 2
         img.layer.cornerRadius = 10
         img.layer.masksToBounds = true
@@ -24,7 +26,7 @@ class ContentTableViewCell: UITableViewCell {
     
     var iconDownload: UIImageView = {
         let img = UIImageView()
-        img.tintColor = UIColor.white
+        img.tintColor = UIColor.secondary
         img.image = #imageLiteral(resourceName: "downloadIcon").withRenderingMode(.alwaysTemplate)
         img.layer.zPosition = 2
         img.layer.cornerRadius = 10
@@ -45,7 +47,7 @@ class ContentTableViewCell: UITableViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -111,9 +113,14 @@ class ContentTableViewCell: UITableViewCell {
         tapGestureView.numberOfTouchesRequired = 1
         playView.addGestureRecognizer(tapGestureView)
         
-        if SavedPodDAO.get().contains(where: { ($0.id == podCast.id && $0.download == true) } ) {
-            self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
-            isDownload = true
+        if let savedPod = SavedPodDAO.get().filter({ ($0.id == podCast.id) }).first {
+            if savedPod.download == true {
+                self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
+                isDownload = true
+            }
+            else {
+                setupLoadView()
+            }
         }
     }
     
@@ -142,10 +149,8 @@ class ContentTableViewCell: UITableViewCell {
                             download: false)
             QueueDAO.add(id: self.podCast.id!,
                          idPod: self.idToSearch)
-            let downloadService = DownloadService()
-            downloadService.downloadManagerDelegate = self
-            downloadService.savedPod = self.savedPod
-            downloadService.downloadPodCast(podCast: podCast)
+            SharedDownload.downloadService.savedPod = self.savedPod
+            SharedDownload.downloadService.downloadPodCast(podCast: podCast)
         }
     }
     
@@ -188,15 +193,5 @@ class ContentTableViewCell: UITableViewCell {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension ContentTableViewCell: DownloadManagerDelegate {
-    
-    func downloadSucess(url: String) {
-        DispatchQueue.main.async {
-            self.iconDownload.image = #imageLiteral(resourceName: "cloudIcon").withRenderingMode(.alwaysTemplate)
-            self.setup()
-        }
     }
 }

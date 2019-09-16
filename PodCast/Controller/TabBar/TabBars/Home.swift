@@ -12,7 +12,6 @@ import Nuke
 
 class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
-    let downloadService = DownloadService()
     let contentCellIdentifier = "ContentCellIdentifier"
     let contentCardCellIdentifier = "contentCardCellIdentifier"
     let cartFooterCollectionReusableView = "CartFooterCollectionReusableView"
@@ -43,8 +42,8 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         let segmentControl = UISegmentedControl(items: [R.string.localizable.episodio(),R.string.localizable.podcast()])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(changeSearchType), for: .valueChanged)
-        segmentControl.backgroundColor = UIColor.black
-        segmentControl.tintColor = UIColor.white
+        segmentControl.backgroundColor = UIColor.primary
+        segmentControl.tintColor = UIColor.secondary
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
         return segmentControl
     }()
@@ -75,13 +74,13 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         searchBar.placeholder = R.string.localizable.buscar()
         searchBar.cancelTitle = R.string.localizable.fechar()
         searchBar.showsCancelButton = false
-        searchBar.barTintColor = UIColor.black
-        searchBar.tintColor = UIColor.black
-        searchBar.backgroundColor = UIColor.black
+        searchBar.barTintColor = UIColor.primary
+        searchBar.tintColor = UIColor.primary
+        searchBar.backgroundColor = UIColor.primary
         searchBar.delegate = self
-        searchBar.layer.borderColor = UIColor.black.cgColor
+        searchBar.layer.borderColor = UIColor.primary.cgColor
         searchBar.layer.borderWidth = 1
-        searchBar.cancelButtonColor = UIColor.white
+        searchBar.cancelButtonColor = UIColor.secondary
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -237,14 +236,14 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.primary
         tableView.delegate = self
         tableView.dataSource = self
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor.white
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.secondary
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCardCellIdentifier)
         collectionView.register(LoadingCollectionCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cartFooterCollectionReusableView)
         loadData()
-        downloadService.verifyQueue()
+        SharedDownload.downloadService.verifyQueue()
     }
     
     func loadData() {

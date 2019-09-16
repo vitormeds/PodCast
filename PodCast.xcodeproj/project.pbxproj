@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04DCB340CE227E2D56271B56 /* Pods_PodCastUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */; };
+		4E485131232FCD8A009E16A0 /* SharedDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E485130232FCD8A009E16A0 /* SharedDownload.swift */; };
 		4E5D9149231837E300F61B1B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9147231837E300F61B1B /* Queue.swift */; };
 		4E78C3582318087500E464A5 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E78C3572318087500E464A5 /* DownloadManager.swift */; };
 		4EB296662318382F00C8E749 /* QueueDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB296652318382F00C8E749 /* QueueDAO.swift */; };
@@ -98,6 +99,7 @@
 		214AF971DF7ACE56DB753502 /* Pods-PodCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCast.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCast/Pods-PodCast.release.xcconfig"; sourceTree = "<group>"; };
 		2250BCFDAEBDBF5CCA6EEF19 /* Pods-PodCastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastUITests/Pods-PodCastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B8E96A7D40A077B2C2FC276 /* Pods-PodCastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastUITests/Pods-PodCastUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4E485130232FCD8A009E16A0 /* SharedDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDownload.swift; sourceTree = "<group>"; };
 		4E5D9147231837E300F61B1B /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		4E78C3572318087500E464A5 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		4EB296652318382F00C8E749 /* QueueDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDAO.swift; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 			children = (
 				F4FA04DB21F78A1100896B5C /* PodCastListService.swift */,
 				F4E2E434221352AA007C984E /* SearchService.swift */,
+				4E485130232FCD8A009E16A0 /* SharedDownload.swift */,
 				F4BF693322907FA300640D33 /* DownloadService.swift */,
 				4E78C3572318087500E464A5 /* DownloadManager.swift */,
 			);
@@ -889,6 +892,7 @@
 				F4CA23B1221C74CC00714418 /* PodCastSearch.swift in Sources */,
 				F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */,
 				F4CAF8E0228F1ACC00540F6C /* ContentTableViewCell.swift in Sources */,
+				4E485131232FCD8A009E16A0 /* SharedDownload.swift in Sources */,
 				F4C2C9EB21FB7BD400467A06 /* PodCast.swift in Sources */,
 				F4347CBD21FF1E35002B2088 /* PodCastList.swift in Sources */,
 				F4FA04E221F79E3F00896B5C /* BestPodElement.swift in Sources */,

@@ -12,7 +12,7 @@ class PreferenceHeaderView: UICollectionReusableView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.secondary
         label.font = UIFont.systemFont(ofSize: 22)
         label.numberOfLines = 0
         label.text = R.string.localizable.escolhaAlgumTema()
@@ -35,7 +35,7 @@ class PreferenceHeaderView: UICollectionReusableView {
     {
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width - 34
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.primary
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

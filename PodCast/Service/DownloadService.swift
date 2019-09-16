@@ -16,6 +16,8 @@ class DownloadService: DownloadManagerDelegate {
     
     var savedPod: SavedPods!
     
+    var isDownload = false
+    
     func verifyQueue() {
         
         let queue = QueueDAO.get()
@@ -48,10 +50,13 @@ class DownloadService: DownloadManagerDelegate {
                 }
                 return
             } else {
+                if !isDownload {
+                    isDownload = true
                     let downloadManager = DownloadManager.shared
                     downloadManager.downloadManagerDelegate = self
                     let task = downloadManager.activate().downloadTask(with: audioUrl)
                     task.resume()
+                }
             }
         }
         else {
@@ -63,6 +68,7 @@ class DownloadService: DownloadManagerDelegate {
     }
     
     func downloadSucess(url: String) {
+        isDownload = false
         if !url.isEmpty {
             self.savedPod.url = url
             SavedPodDAO.update(savedPod: self.savedPod)
