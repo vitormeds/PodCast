@@ -60,7 +60,6 @@
 		F4E2E4382213547E007C984E /* EpisodeSearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E4372213547E007C984E /* EpisodeSearchList.swift */; };
 		F4E2E43A221354E5007C984E /* EpisodeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E439221354E5007C984E /* EpisodeSearch.swift */; };
 		F4EA7C0E22D396D5006878F3 /* AplicationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA7C0D22D396D5006878F3 /* AplicationUtil.swift */; };
-		F4EA7C1022D3A1F7006878F3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA7C0F22D3A1F7006878F3 /* TestViewController.swift */; };
 		F4EE9CC121F60D180093162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4EE9CC021F60D180093162C /* Localizable.strings */; };
 		F4F6DA9221D6E80200A2CCA2 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */; };
 		F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */; };
@@ -162,7 +161,6 @@
 		F4E2E4372213547E007C984E /* EpisodeSearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSearchList.swift; sourceTree = "<group>"; };
 		F4E2E439221354E5007C984E /* EpisodeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSearch.swift; sourceTree = "<group>"; };
 		F4EA7C0D22D396D5006878F3 /* AplicationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AplicationUtil.swift; sourceTree = "<group>"; };
-		F4EA7C0F22D3A1F7006878F3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		F4EE9CC021F60D180093162C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F4F6DA9121D6E80200A2CCA2 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		F4F6DA9521D6FF6900A2CCA2 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -374,14 +372,6 @@
 			path = TabBars;
 			sourceTree = "<group>";
 		};
-		F437F4A4228EDC8C0087A28D /* MeusPods */ = {
-			isa = PBXGroup;
-			children = (
-				F4EA7C0F22D3A1F7006878F3 /* TestViewController.swift */,
-			);
-			path = MeusPods;
-			sourceTree = "<group>";
-		};
 		F47AAEB421FA478C0068FAD2 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,7 +454,6 @@
 		F4AB34F121D729C900DAD399 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F437F4A4228EDC8C0087A28D /* MeusPods */,
 				F4052E502285D9FA00B576C4 /* PodCastGenre */,
 				F4347CB821FF18BF002B2088 /* PodCast */,
 				F4FA04ED21F7A6D200896B5C /* Preferences */,
@@ -871,7 +860,6 @@
 				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,
 				4E5D9149231837E300F61B1B /* Queue.swift in Sources */,
 				F4E2E435221352AA007C984E /* SearchService.swift in Sources */,
-				F4EA7C1022D3A1F7006878F3 /* TestViewController.swift in Sources */,
 				F437F4A6228EDE210087A28D /* MyPods.swift in Sources */,
 				F4052E522285DA1B00B576C4 /* PodCastByGenreListViewController.swift in Sources */,
 				F47AAEA921FA21040068FAD2 /* PreferencesDataController.swift in Sources */,
