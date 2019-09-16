@@ -11,7 +11,7 @@ import Nuke
 
 class PodCastListViewController: CustomViewController {
     
-    var myPods: MyPods? = nil
+    var myPods: [MyPods]? = nil
     
     var idToSearch = ""
     
@@ -41,9 +41,9 @@ class PodCastListViewController: CustomViewController {
     }
     
     func starLoad() {
-        myPods = MyPodsDataController.getMyPods()
+        myPods = MyPodsDAO.get()
         var myPodsIcon =  #imageLiteral(resourceName: "starIconNotFilled").withRenderingMode(.alwaysTemplate)
-        if myPods != nil && podInfo != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(podInfo.id ?? "") {
+        if myPods != nil && podInfo != nil && !(myPods?.isEmpty ?? false) && myPods?.contains(where: { ($0.id == podInfo.id ?? "")}) ?? false {
             myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
@@ -132,30 +132,16 @@ class PodCastListViewController: CustomViewController {
         let idPod = bestPod?.id ?? podCastSearch?.id ?? ""
         let iconPod = bestPod?.image ?? podCastSearch?.thumbnail ?? ""
         let titlePod = bestPod?.title ?? bestPod?.image ?? podCastSearch?.title_original ?? ""
-        var id : [String] = myPods?.id ?? []
-        var icon : [String] = myPods?.icon ?? []
-        var title : [String] = myPods?.title ?? []
+        myPods = MyPodsDAO.get()
         var myPodsIcon =  #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
-        if myPods != nil && !myPods!.id!.isEmpty && myPods!.id!.contains(idPod) {
+        let pod = myPods?.filter({ ($0.id == idPod)})
+        if !(pod?.isEmpty ?? false) {
             myPodsIcon = #imageLiteral(resourceName: "starIconNotFilled").withRenderingMode(.alwaysTemplate)
-            for i in 0...myPods!.id!.count - 1 {
-                if myPods?.id![i] == idPod {
-                    id.remove(at: i)
-                    icon.remove(at: i)
-                    title.remove(at: i)
-                }
-            }
+            MyPodsDAO.delete(myPod: pod!.first!)
         }
         else {
-            id = myPods?.id ?? []
-            id.append(idPod )
-            icon = myPods?.icon ?? []
-            icon.append(iconPod )
-            title = myPods?.title ?? []
-            title.append(titlePod )
+            MyPodsDAO.add(id: idPod, icon: iconPod, title: titlePod)
         }
-        MyPodsDataController.saveMyPods(id: id, icon: icon, title: title)
-        myPods = MyPodsDataController.getMyPods()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
     }
     

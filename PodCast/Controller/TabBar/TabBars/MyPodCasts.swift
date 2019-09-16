@@ -13,7 +13,7 @@ class MyPodCasts: CustomViewController {
     
     let contentCellIdentifier = "ContentCellIdentifier"
     
-    var myPods: MyPods? = nil
+    var myPods: [MyPods]? = nil
     
     var headerView = HeaderView()
     
@@ -38,7 +38,7 @@ class MyPodCasts: CustomViewController {
     }
     
     func loadData() {
-        myPods = MyPodsDataController.getMyPods()
+        myPods = MyPodsDAO.get()
         collectionView.reloadData()
     }
     
@@ -72,14 +72,14 @@ extension MyPodCasts: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return myPods?.id?.count ?? 0
+        return myPods?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellIdentifier, for: indexPath) as! ContentCollectionViewCell
-        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: (myPods?.icon![indexPath.item])!)!))
+        let request2 = ImageRequest(urlRequest: URLRequest(url: URL(string: (myPods![indexPath.item].icon!))!))
         Nuke.loadImage(with: request2, into: cell.iconImageView)
-        cell.titleLabel.text = myPods?.title![indexPath.item]
+        cell.titleLabel.text = myPods![indexPath.item].title
         return cell
     }
     
@@ -98,11 +98,11 @@ extension MyPodCasts: UICollectionViewDelegate {
            description_original: nil,
            title_highlighted: nil,
            email: nil, rss: nil,
-           thumbnail: myPods?.icon?[indexPath.item] ?? "",
-           title_original: myPods?.title?[indexPath.item] ?? "",
-           image: myPods?.icon?[indexPath.item] ?? "",
+           thumbnail: myPods?[indexPath.item].icon ?? "",
+           title_original: myPods?[indexPath.item].title ?? "",
+           image: myPods?[indexPath.item].icon ?? "",
            explicit_content: nil,
-           id: myPods?.id?[indexPath.item] ?? "",
+           id: myPods?[indexPath.item].id ?? "",
            total_episodes: nil,
            listennotes_url: nil,
            publisher_highlighted: nil)

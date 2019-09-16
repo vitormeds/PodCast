@@ -248,11 +248,12 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     func loadData() {
         startLoad()
-        let preferences = PreferencesDataController.getPreferences()
+        let preferences = PreferencesDAO.get()
         var result = [Genre]()
-        if preferences != nil && preferences?.id != nil && !(preferences?.id?.isEmpty)! {
-            for i in 0...preferences!.id!.count - 1 {
-                result.append(Genre(parent_id: preferences?.parent_id![i],name: preferences?.name![i],id: preferences?.id![i]))
+        if preferences != nil {
+            for i in 0...preferences.count - 1 {
+                let a = preferences[i].parent_id
+                result.append(Genre(parent_id: Int(preferences[i].parent_id!),name: preferences[i].name,id: Int(preferences[i].id!)))
             }
             self.genres = result
             PodCastListService.getBestPodsByGenre(genres: self.genres, completionHandler: { resultBestPods in

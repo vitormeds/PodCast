@@ -172,7 +172,7 @@ class PreferencesSelectController: UIViewController, UICollectionViewDelegateFlo
                 selectedGenresOptions.append(genres[selectedGenres[i]])
             }
         }
-        PreferencesDataController.savePreferences(genres: selectedGenresOptions)
+        PreferencesDAO.add(genres: selectedGenresOptions)
         let standard = UserDefaults.standard
         standard.set(true, forKey: "preferencesInicialize")
         present(CustomTabBarController(), animated: true)
