@@ -43,7 +43,9 @@ class DownloadService: DownloadManagerDelegate {
     func downloadPodCast(podCast: Podcast) {
         if let audioUrl = URL(string: podCast.audio!) {
             if SavedPodDAO.get().contains(where: { ($0.id == podCast.id && $0.download == true) } ) {
-                downloadManagerDelegate.downloadSucess(url: "")
+                if downloadManagerDelegate != nil {
+                    downloadManagerDelegate.downloadSucess(url: "")
+                }
                 return
             } else {
                     let downloadManager = DownloadManager.shared
@@ -53,7 +55,9 @@ class DownloadService: DownloadManagerDelegate {
             }
         }
         else {
-            downloadManagerDelegate.downloadSucess(url: "")
+            if downloadManagerDelegate != nil {
+                downloadManagerDelegate.downloadSucess(url: "")
+            }
             return
         }
     }
@@ -68,6 +72,8 @@ class DownloadService: DownloadManagerDelegate {
             }
         }
         verifyQueue()
-        downloadManagerDelegate.downloadSucess(url: url)
+        if downloadManagerDelegate != nil {
+            downloadManagerDelegate.downloadSucess(url: url)
+        }
     }
 }

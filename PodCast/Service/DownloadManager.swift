@@ -95,4 +95,3 @@ class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate
         debugPrint("Task completed: \(task), error: \(error)")
     }
 }
-

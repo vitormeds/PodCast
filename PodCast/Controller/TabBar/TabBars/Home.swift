@@ -12,6 +12,7 @@ import Nuke
 
 class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
+    let downloadService = DownloadService()
     let contentCellIdentifier = "ContentCellIdentifier"
     let contentCardCellIdentifier = "contentCardCellIdentifier"
     let cartFooterCollectionReusableView = "CartFooterCollectionReusableView"
@@ -243,6 +244,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCardCellIdentifier)
         collectionView.register(LoadingCollectionCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cartFooterCollectionReusableView)
         loadData()
+        downloadService.verifyQueue()
     }
     
     func loadData() {
