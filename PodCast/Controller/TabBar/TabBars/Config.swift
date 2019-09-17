@@ -10,29 +10,101 @@ import UIKit
 
 class Config: UIViewController {
     
-    let clearDataButton: UIButton = {
-        let button = UIButton()
-        button.layer.borderColor = UIColor.secondary.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 18
-        button.clipsToBounds = true
-        button.setTitle("Remover Dados", for: UIControl.State.normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(DescriptionConfigTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(SingleButtonTableViewCell.self, forCellReuseIdentifier: "cellSingleButton")
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.separatorColor = UIColor.primary
+        tableView.backgroundColor = UIColor.primary
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.primary
-        
-        view.addSubview(clearDataButton)
-        clearDataButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        clearDataButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
-        clearDataButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        clearDataButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        clearDataButton.addTarget(self, action: #selector(performClearData), for: UIControl.Event.touchDown)
+        setupTableView()
     }
     
-    @objc func performClearData() {
+    func setupTableView() {
+        view.addSubview(tableView)
+        tableView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        
+    }
+}
+
+extension Config: UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+            cell.titleLabel.text = "Localização: Brasil"
+            cell.setup()
+            return cell
+        }
+        else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+            cell.titleLabel.text = "Idioma: PT-BR"
+            cell.setup()
+            return cell
+        }
+        else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+            cell.titleLabel.text = "Compartilhar PodCat"
+            cell.setup()
+            return cell
+        }
+        else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+            cell.titleLabel.text = "Avalie-Nos"
+            cell.setup()
+            return cell
+        }
+        else if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+            cell.titleLabel.text = "Sobre"
+            cell.setup()
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellSingleButton") as! SingleButtonTableViewCell
+        cell.clearDataDelegate = self
+        cell.setup()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+}
+
+extension Config: ClearDataDelegate {
+    
+    func performClearData() {
         let pods = SavedPodDAO.get()
         
         for element in pods {
@@ -47,7 +119,7 @@ class Config: UIViewController {
                 }
             }
         }
-
+        
         SavedPodDAO.deleteAll()
         QueueDAO.deleteAll()
     }

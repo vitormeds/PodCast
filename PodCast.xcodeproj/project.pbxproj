@@ -18,6 +18,8 @@
 		4EB296662318382F00C8E749 /* QueueDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB296652318382F00C8E749 /* QueueDAO.swift */; };
 		4EDAAE28231593BE005840AE /* HeaderPodCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDAAE27231593BE005840AE /* HeaderPodCast.swift */; };
 		4EEB47382330FD2A00B4C3CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB47372330FD2A00B4C3CB /* GoogleService-Info.plist */; };
+		4EEB473C2331111000B4C3CB /* DescriptionConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB473B2331111000B4C3CB /* DescriptionConfigTableViewCell.swift */; };
+		4EEB473E2331167800B4C3CB /* SingleButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB473D2331167800B4C3CB /* SingleButtonTableViewCell.swift */; };
 		C4B81E373BA01275EE4BE422 /* Pods_PodCastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD02A6212383B4260CA6047 /* Pods_PodCastTests.framework */; };
 		F403B61722E76F8200E184FC /* SavedPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403B61522E76F8200E184FC /* SavedPods.swift */; };
 		F4052E522285DA1B00B576C4 /* PodCastByGenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4052E512285DA1B00B576C4 /* PodCastByGenreListViewController.swift */; };
@@ -109,6 +111,8 @@
 		4EDAAE27231593BE005840AE /* HeaderPodCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPodCast.swift; sourceTree = "<group>"; };
 		4EEB47372330FD2A00B4C3CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4EEB47392331031800B4C3CB /* PodCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PodCast.entitlements; sourceTree = "<group>"; };
+		4EEB473B2331111000B4C3CB /* DescriptionConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionConfigTableViewCell.swift; sourceTree = "<group>"; };
+		4EEB473D2331167800B4C3CB /* SingleButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButtonTableViewCell.swift; sourceTree = "<group>"; };
 		6FD02A6212383B4260CA6047 /* Pods_PodCastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodCastTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F6A9953D6D965EEA181D32 /* Pods-PodCastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastTests/Pods-PodCastTests.release.xcconfig"; sourceTree = "<group>"; };
 		D2DDFC0B6D1981D7C963BECC /* Pods-PodCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodCast/Pods-PodCast.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +216,15 @@
 				4E5D9147231837E300F61B1B /* Queue.swift */,
 			);
 			path = Queue;
+			sourceTree = "<group>";
+		};
+		4EEB473A233110FD00B4C3CB /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB473B2331111000B4C3CB /* DescriptionConfigTableViewCell.swift */,
+				4EEB473D2331167800B4C3CB /* SingleButtonTableViewCell.swift */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		B2ADB1D05A02E4B9C7AB6FAC /* Frameworks */ = {
@@ -456,6 +469,7 @@
 		F4AB34F121D729C900DAD399 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4EEB473A233110FD00B4C3CB /* Configurations */,
 				F4052E502285D9FA00B576C4 /* PodCastGenre */,
 				F4347CB821FF18BF002B2088 /* PodCast */,
 				F4FA04ED21F7A6D200896B5C /* Preferences */,
@@ -875,7 +889,9 @@
 				F47AAEAD21FA356F0068FAD2 /* HeaderCollectionView.swift in Sources */,
 				F4FA04E621F7A06200896B5C /* Extra.swift in Sources */,
 				F4FA04EF21F7A7B500896B5C /* PreferenceCardGenre.swift in Sources */,
+				4EEB473C2331111000B4C3CB /* DescriptionConfigTableViewCell.swift in Sources */,
 				F403B61722E76F8200E184FC /* SavedPods.swift in Sources */,
+				4EEB473E2331167800B4C3CB /* SingleButtonTableViewCell.swift in Sources */,
 				4E78C3582318087500E464A5 /* DownloadManager.swift in Sources */,
 				F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */,
 				F4FA04E421F79E5A00896B5C /* BestPod.swift in Sources */,
@@ -1049,6 +1065,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2DDFC0B6D1981D7C963BECC /* Pods-PodCast.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PodCast/PodCast.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1070,6 +1087,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 214AF971DF7ACE56DB753502 /* Pods-PodCast.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PodCast/PodCast.entitlements;
 				CODE_SIGN_STYLE = Automatic;
