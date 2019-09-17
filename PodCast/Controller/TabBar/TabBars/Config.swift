@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import StoreKit
 
 class Config: UIViewController {
+    
+    var headerView = HeaderView()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -26,17 +29,24 @@ class Config: UIViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.primary
-        setupTableView()
+        setupViews()
     }
     
-    func setupTableView() {
+    func setupViews() {
+        
+        headerView.titleLabel.text = "Configurações"
+        
+        view.addSubview(headerView)
+        headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        headerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        headerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
         view.addSubview(tableView)
-        tableView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        tableView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
-        
+        tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
 
@@ -86,6 +96,22 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 2 {
+            let shareText = "Baixe Agora o player de podcasts PodCat na App Store: https://apps.apple.com/br/app/id/1474413697"
+            let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+            activityViewController.excludedActivityTypes = [.airDrop]
+            
+            if let popoverController = activityViewController.popoverPresentationController {
+                popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+                popoverController.sourceView = self.view
+                popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+            }
+            
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+        if indexPath.row == 3 {
+            SKStoreReviewController.requestReview()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
