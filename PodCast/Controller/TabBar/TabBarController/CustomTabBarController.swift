@@ -38,15 +38,15 @@ class CustomTabBarController: RAMAnimatedTabBarController {
         headPhoneTabBar.iconColor = UIColor.secondary
         myPodCastsViewNavigationController.tabBarItem = headPhoneTabBar
         
-        let configViewController = Config()
-        let configViewNavigationController = configViewController
-        configViewNavigationController.title = R.string.localizable.perfil()
-        let configTabBar = RAMAnimatedTabBarItem(title: "Configuração", image: UIImage(named: "profile"), tag: 2)
-        configTabBar.animation = animation
-        configTabBar.textColor = UIColor.secondary
-        configTabBar.iconColor = UIColor.secondary
-        configViewNavigationController.tabBarItem = configTabBar
+//        let configViewController = Config()
+//        let configViewNavigationController = configViewController
+//        configViewNavigationController.title = R.string.localizable.perfil()
+//        let configTabBar = RAMAnimatedTabBarItem(title: "Configuração", image: UIImage(named: "profile"), tag: 2)
+//        configTabBar.animation = animation
+//        configTabBar.textColor = UIColor.secondary
+//        configTabBar.iconColor = UIColor.secondary
+//        configViewNavigationController.tabBarItem = configTabBar
         
-        viewControllers = [homeViewNavigationController,myPodCastsViewNavigationController,configViewNavigationController]
+        viewControllers = [homeViewNavigationController,myPodCastsViewNavigationController]//,configViewNavigationController]
     }
 }

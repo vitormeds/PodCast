@@ -11,6 +11,9 @@ target 'PodCast' do
   pod 'MarqueeLabel'
   pod 'R.swift'
   pod 'RAMAnimatedTabBarController'
+  pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
   use_frameworks!
 
   # Pods for PodCast
