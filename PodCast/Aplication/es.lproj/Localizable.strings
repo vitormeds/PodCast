@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  PodCast
+
+  Created by Vitor Mendes on 21/01/19.
+  Copyright © 2019 Vitor Mendes. All rights reserved.
+*/
+"escolhaAlgumTema" = "Escolha alguns temas de seu interesse";
+"mais" = "Mais";
+"assuntos" = "Assuntos";
+"iniciar" = "INICIAR";
+"voltar" = "Voltar";
+"buscar" = "Buscar";
+"fechar" = "Fechar";
+"inicio" = "Inicio";
+"meusPodCast" = "Meus Podcasts";
+"perfil" = "Perfil";
+"episodio" = "Episodio";
+"podcast" = "PodCast";
+"appName" = "PodCat";
+"removeData" = "Remover Dados";
+"portugues" = "portugués";
+"ingles" = "english";
+"espanhol" = "español";
+"aboutString" = "PodCat es un reproductor de podcasts donde puede transmitir o descargar sus podcasts favoritos en cualquier momento y en cualquier lugar. \ NYou puede descargar un podcast para escuchar sin conexión, marcar un podcast para encontrarlo más rápido, busque más de 741,919 podcasts y 49,639,147 episodios \ nLa aplicación es completamente gratuita y sin anuncios";
+"inscricoes" = "Suscripciones";
+"configuracoes" = "Configuraciones";
+"localizacaoIndication" = "Ubicación:";
+"idiomaIndication" = "Idioma:";
+"sharePodCat" = "Comparte PodCat";
+"avalieNos" = "Califícanos";
+"sobre" = "Acerca de";
+"downloadText" = "Descargue PodCat Podcast Player ahora en la App Store:";
+"inicio" = "Inicio";
+"meuspodcasts" = "My PodCasts";
+
+
+
+
+
+
+
+

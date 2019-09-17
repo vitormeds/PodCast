@@ -58,8 +58,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         UINavigationBar.appearance().clipsToBounds = false
         UINavigationBar.appearance().backgroundColor = UIColor.primary
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.secondary]
-        
+        checkLanguage()
         return true
+    }
+    
+    func checkLanguage() {
+        let userInfo = UserInfoDAO.get().first
+        if userInfo?.language == R.string.localizable.portugues() {
+            UserDefaults.standard.set("pt-BR", forKey: "AppleLanguage")
+            UserDefaults.standard.synchronize()
+        }
+        else if userInfo?.language == R.string.localizable.espanhol() {
+            UserDefaults.standard.set("es", forKey: "AppleLanguage")
+            UserDefaults.standard.synchronize()
+        }
+        else {
+            UserDefaults.standard.set("en-AU", forKey: "AppleLanguage")
+            UserDefaults.standard.synchronize()
+        }
     }
     
     func registerForPushNotifications() {

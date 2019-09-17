@@ -44,7 +44,7 @@ class MyPodCasts: CustomViewController {
     
     func setupViews()
     {
-        headerView.titleLabel.text = "Inscrições"
+        headerView.titleLabel.text = R.string.localizable.inscricoes()
         view.addSubview(headerView)
         headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         headerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true

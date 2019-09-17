@@ -36,7 +36,7 @@ class Config: UIViewController,ListUpdateDelegate {
     
     func setupViews() {
         
-        headerView.titleLabel.text = "Configurações"
+        headerView.titleLabel.text = R.string.localizable.configuracoes()
         
         view.addSubview(headerView)
         headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -64,35 +64,35 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = "Localização: " + (userInfo.location ?? "")
+            cell.titleLabel.text = R.string.localizable.localizacaoIndication() + " " + (userInfo.location ?? "")
             cell.setup()
             return cell
         }
         else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = "Idioma: " + (userInfo.language ?? "")
+            cell.titleLabel.text = R.string.localizable.idiomaIndication() + " " + (userInfo.language ?? "")
             cell.setup()
             return cell
         }
         else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = "Compartilhar PodCat"
+            cell.titleLabel.text = R.string.localizable.sharePodCat()
             cell.setup()
             return cell
         }
         else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = "Avalie-Nos"
+            cell.titleLabel.text = R.string.localizable.avalieNos()
             cell.setup()
             return cell
         }
         else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = "Sobre"
+            cell.titleLabel.text = R.string.localizable.sobre()
             cell.setup()
             return cell
         }
@@ -118,7 +118,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             present(languageListViewController, animated: true)
         }
         else if indexPath.row == 2 {
-            let shareText = "Baixe Agora o player de podcasts PodCat na App Store: https://apps.apple.com/br/app/id/1474413697"
+            let shareText = R.string.localizable.downloadText() + " https://apps.apple.com/br/app/id/1474413697"
             let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
             activityViewController.excludedActivityTypes = [.airDrop]
             

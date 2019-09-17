@@ -25,7 +25,7 @@ class AboutViewController: UIViewController {
         let textLabel = UILabel()
         textLabel.numberOfLines = 0
         textLabel.textColor = UIColor.white
-        textLabel.text = "PodCat é um player de podcasts, onde você pode fazer streaming ou download de seus podcasts favoritos a qualquer momento, e em qualquer lugar.\nVocê pode fazer download de um podcast para ouvir offline, marque um podcast como favorito para encontrá-lo de maneira mais rápida, pesquise mais de  741,919 podcasts e 49,639,147 episódios\nO app e completamente Gratuito e sem anúncios "
+        textLabel.text = R.string.localizable.aboutString()
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         return textLabel
     }()

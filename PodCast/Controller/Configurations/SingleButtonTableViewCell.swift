@@ -22,7 +22,7 @@ class SingleButtonTableViewCell: UITableViewCell {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 18
         button.clipsToBounds = true
-        button.setTitle("Remover Dados", for: UIControl.State.normal)
+        button.setTitle(R.string.localizable.removeData(), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

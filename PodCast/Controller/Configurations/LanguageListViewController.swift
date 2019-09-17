@@ -53,7 +53,7 @@ class LanguageListViewController: UIViewController {
     }
     
     func loadData() {
-        self.languages = ["Portugues","Ingles","Espanhol"]
+        self.languages = [R.string.localizable.portugues(),R.string.localizable.ingles(),R.string.localizable.espanhol()]
         self.filteredLanguages = self.languages
         self.tableView.reloadData()
     }
@@ -95,6 +95,15 @@ extension LanguageListViewController: UITableViewDelegate,UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0 {
+            UserDefaults.standard.set("pt-BR", forKey: "AppleLanguage")
+        }
+        else if indexPath.row == 1 {
+            UserDefaults.standard.set("en-AU", forKey: "AppleLanguage")
+        }
+        else {
+            UserDefaults.standard.set("es", forKey: "AppleLanguage")
+        }
         UserInfoDAO.add(language: filteredLanguages[indexPath.row])
         performBack()
     }
@@ -117,7 +126,7 @@ extension LanguageListViewController: UISearchBarDelegate,UISearchResultsUpdatin
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let searchText = ((searchBar.text ?? "") as NSString).replacingCharacters(in: range, with: text)
         if !searchText.isEmpty {
-            filteredLanguages = languages.filter({ ($0.contains(searchText)) })
+            filteredLanguages = languages.filter({ ($0.lowercased().contains(searchText.lowercased())) })
         }
         else {
             filteredLanguages = languages

@@ -12,25 +12,12 @@ protocol ListUpdateDelegate {
     func loadData()
 }
 
-class CountryListViewController: UIViewController {
+class CountryListViewController: CustomViewController {
     
     var delegate: ListUpdateDelegate!
     
     var countries = [Country]()
     var filteredcountries = [Country]()
-    
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.showsVerticalScrollIndicator = false
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.separatorColor = UIColor.primary
-        tableView.backgroundColor = UIColor.primary
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        return tableView
-    }()
     
     lazy var searchBar: SearchBar = {
         let searchBar = SearchBar()
@@ -57,14 +44,19 @@ class CountryListViewController: UIViewController {
     }
     
     func loadData() {
+        startLoad()
         CountryService.getCountries { result in
             self.countries = result ?? []
             self.filteredcountries = self.countries
             self.tableView.reloadData()
+            self.stopLoad()
         }
     }
     
     func setupViews() {
+        
+        tableView.delegate = self
+        tableView.dataSource = self
 
         view.addSubview(searchBar)
         searchBar.safeAreaLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -123,7 +115,7 @@ extension CountryListViewController: UISearchBarDelegate,UISearchResultsUpdating
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let searchText = ((searchBar.text ?? "") as NSString).replacingCharacters(in: range, with: text)
         if !searchText.isEmpty {
-            filteredcountries = countries.filter({ ($0.name?.contains(searchText) ?? false) })
+            filteredcountries = countries.filter({ ($0.name?.lowercased().contains(searchText.lowercased()) ?? false) })
         }
         else {
             filteredcountries = countries

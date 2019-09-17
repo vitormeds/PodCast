@@ -56,7 +56,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 18 images.
+  /// This `R.image` struct is generated, and contains static references to 19 images.
   struct image {
     /// Image `advanceSec`.
     static let advanceSec = Rswift.ImageResource(bundle: R.hostingBundle, name: "advanceSec")
@@ -86,6 +86,8 @@ struct R: Rswift.Validatable {
     static let pause = Rswift.ImageResource(bundle: R.hostingBundle, name: "pause")
     /// Image `play`.
     static let play = Rswift.ImageResource(bundle: R.hostingBundle, name: "play")
+    /// Image `podCat`.
+    static let podCat = Rswift.ImageResource(bundle: R.hostingBundle, name: "podCat")
     /// Image `profile`.
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
     /// Image `starIconFilled`.
@@ -165,6 +167,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.play, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "podCat", bundle: ..., traitCollection: ...)`
+    static func podCat(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.podCat, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "profile", bundle: ..., traitCollection: ...)`
     static func profile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.profile, compatibleWith: traitCollection)
@@ -216,100 +223,311 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 13 localization keys.
+    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
+    struct launchScreen {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
     struct localizable {
-      /// Value: Assuntos
-      static let assuntos = Rswift.StringResource(key: "assuntos", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Buscar
-      static let buscar = Rswift.StringResource(key: "buscar", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Episodio
-      static let episodio = Rswift.StringResource(key: "episodio", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Escolha alguns temas de seu interesse
-      static let escolhaAlgumTema = Rswift.StringResource(key: "escolhaAlgumTema", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Fechar
-      static let fechar = Rswift.StringResource(key: "fechar", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: INICIAR
-      static let iniciar = Rswift.StringResource(key: "iniciar", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Inicio
-      static let inicio = Rswift.StringResource(key: "inicio", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Mais
-      static let mais = Rswift.StringResource(key: "mais", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Meus Podcasts
-      static let meusPodCast = Rswift.StringResource(key: "meusPodCast", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Perfil
-      static let perfil = Rswift.StringResource(key: "perfil", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: PodCast
-      static let podcast = Rswift.StringResource(key: "podcast", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: PodCat
-      static let appName = Rswift.StringResource(key: "appName", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Voltar
-      static let voltar = Rswift.StringResource(key: "voltar", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// en translation: About
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let sobre = Rswift.StringResource(key: "sobre", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Back
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let voltar = Rswift.StringResource(key: "voltar", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Choose some themes of interest
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let escolhaAlgumTema = Rswift.StringResource(key: "escolhaAlgumTema", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Close
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let fechar = Rswift.StringResource(key: "fechar", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Download PodCat Podcast Player Now on the App Store:
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let downloadText = Rswift.StringResource(key: "downloadText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Episode
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let episodio = Rswift.StringResource(key: "episodio", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Language:
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let idiomaIndication = Rswift.StringResource(key: "idiomaIndication", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Location:
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let localizacaoIndication = Rswift.StringResource(key: "localizacaoIndication", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: More
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let mais = Rswift.StringResource(key: "mais", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: My PodCasts
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let meuspodcasts = Rswift.StringResource(key: "meuspodcasts", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: My Podcasts
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let meusPodCast = Rswift.StringResource(key: "meusPodCast", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: PodCast
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let podcast = Rswift.StringResource(key: "podcast", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: PodCat
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let appName = Rswift.StringResource(key: "appName", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: PodCat is a podcast player where you can stream or download your favorite podcasts anytime, anywhere.  NYou can download a podcast to listen offline, bookmark a podcast to find it faster, search over 741,919 podcasts and 49,639,147 episodes  nThe app is completely Free and No Ads
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let aboutString = Rswift.StringResource(key: "aboutString", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Profile
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let perfil = Rswift.StringResource(key: "perfil", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Rate us
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let avalieNos = Rswift.StringResource(key: "avalieNos", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Remove Data
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let removeData = Rswift.StringResource(key: "removeData", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: START
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let iniciar = Rswift.StringResource(key: "iniciar", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Search
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let buscar = Rswift.StringResource(key: "buscar", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Settings
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let configuracoes = Rswift.StringResource(key: "configuracoes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Share PodCat
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let sharePodCat = Rswift.StringResource(key: "sharePodCat", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Start
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let inicio = Rswift.StringResource(key: "inicio", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Subjects
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let assuntos = Rswift.StringResource(key: "assuntos", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: Subscriptions
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let inscricoes = Rswift.StringResource(key: "inscricoes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: english
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let ingles = Rswift.StringResource(key: "ingles", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: portuguese
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let portugues = Rswift.StringResource(key: "portugues", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
+      /// en translation: spanish
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static let espanhol = Rswift.StringResource(key: "espanhol", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU"], comment: nil)
       
-      /// Value: Assuntos
-      static func assuntos(_: Void = ()) -> String {
-        return NSLocalizedString("assuntos", bundle: R.hostingBundle, comment: "")
+      /// en translation: About
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func sobre(_: Void = ()) -> String {
+        return NSLocalizedString("sobre", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Buscar
-      static func buscar(_: Void = ()) -> String {
-        return NSLocalizedString("buscar", bundle: R.hostingBundle, comment: "")
+      /// en translation: Back
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func voltar(_: Void = ()) -> String {
+        return NSLocalizedString("voltar", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Episodio
-      static func episodio(_: Void = ()) -> String {
-        return NSLocalizedString("episodio", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// Value: Escolha alguns temas de seu interesse
+      /// en translation: Choose some themes of interest
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
       static func escolhaAlgumTema(_: Void = ()) -> String {
         return NSLocalizedString("escolhaAlgumTema", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Fechar
+      /// en translation: Close
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
       static func fechar(_: Void = ()) -> String {
         return NSLocalizedString("fechar", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: INICIAR
-      static func iniciar(_: Void = ()) -> String {
-        return NSLocalizedString("iniciar", bundle: R.hostingBundle, comment: "")
+      /// en translation: Download PodCat Podcast Player Now on the App Store:
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func downloadText(_: Void = ()) -> String {
+        return NSLocalizedString("downloadText", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Inicio
-      static func inicio(_: Void = ()) -> String {
-        return NSLocalizedString("inicio", bundle: R.hostingBundle, comment: "")
+      /// en translation: Episode
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func episodio(_: Void = ()) -> String {
+        return NSLocalizedString("episodio", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Mais
+      /// en translation: Language:
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func idiomaIndication(_: Void = ()) -> String {
+        return NSLocalizedString("idiomaIndication", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Location:
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func localizacaoIndication(_: Void = ()) -> String {
+        return NSLocalizedString("localizacaoIndication", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: More
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
       static func mais(_: Void = ()) -> String {
         return NSLocalizedString("mais", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Meus Podcasts
+      /// en translation: My PodCasts
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func meuspodcasts(_: Void = ()) -> String {
+        return NSLocalizedString("meuspodcasts", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: My Podcasts
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
       static func meusPodCast(_: Void = ()) -> String {
         return NSLocalizedString("meusPodCast", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Perfil
-      static func perfil(_: Void = ()) -> String {
-        return NSLocalizedString("perfil", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// Value: PodCast
+      /// en translation: PodCast
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
       static func podcast(_: Void = ()) -> String {
         return NSLocalizedString("podcast", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: PodCat
+      /// en translation: PodCat
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
       static func appName(_: Void = ()) -> String {
         return NSLocalizedString("appName", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Voltar
-      static func voltar(_: Void = ()) -> String {
-        return NSLocalizedString("voltar", bundle: R.hostingBundle, comment: "")
+      /// en translation: PodCat is a podcast player where you can stream or download your favorite podcasts anytime, anywhere.  NYou can download a podcast to listen offline, bookmark a podcast to find it faster, search over 741,919 podcasts and 49,639,147 episodes  nThe app is completely Free and No Ads
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func aboutString(_: Void = ()) -> String {
+        return NSLocalizedString("aboutString", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Profile
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func perfil(_: Void = ()) -> String {
+        return NSLocalizedString("perfil", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Rate us
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func avalieNos(_: Void = ()) -> String {
+        return NSLocalizedString("avalieNos", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Remove Data
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func removeData(_: Void = ()) -> String {
+        return NSLocalizedString("removeData", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: START
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func iniciar(_: Void = ()) -> String {
+        return NSLocalizedString("iniciar", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Search
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func buscar(_: Void = ()) -> String {
+        return NSLocalizedString("buscar", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Settings
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func configuracoes(_: Void = ()) -> String {
+        return NSLocalizedString("configuracoes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Share PodCat
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func sharePodCat(_: Void = ()) -> String {
+        return NSLocalizedString("sharePodCat", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Start
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func inicio(_: Void = ()) -> String {
+        return NSLocalizedString("inicio", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Subjects
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func assuntos(_: Void = ()) -> String {
+        return NSLocalizedString("assuntos", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Subscriptions
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func inscricoes(_: Void = ()) -> String {
+        return NSLocalizedString("inscricoes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: english
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func ingles(_: Void = ()) -> String {
+        return NSLocalizedString("ingles", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: portuguese
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func portugues(_: Void = ()) -> String {
+        return NSLocalizedString("portugues", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: spanish
+      /// 
+      /// Locales: en, pt-BR, es, en-AU
+      static func espanhol(_: Void = ()) -> String {
+        return NSLocalizedString("espanhol", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
