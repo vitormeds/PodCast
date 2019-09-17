@@ -9,9 +9,10 @@
 import UIKit
 import StoreKit
 
-class Config: UIViewController {
+class Config: UIViewController,ListUpdateDelegate {
     
     var headerView = HeaderView()
+    var userInfo: UserInfo!
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -30,6 +31,7 @@ class Config: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = UIColor.primary
         setupViews()
+        loadData()
     }
     
     func setupViews() {
@@ -48,6 +50,12 @@ class Config: UIViewController {
         tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+    
+    func loadData() {
+        userInfo = UserInfoDAO.get().first
+        tableView.reloadData()
+    }
+    
 }
 
 extension Config: UITableViewDelegate,UITableViewDataSource {
@@ -56,14 +64,14 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = "Localização: Brasil"
+            cell.titleLabel.text = "Localização: " + (userInfo.location ?? "")
             cell.setup()
             return cell
         }
         else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = "Idioma: PT-BR"
+            cell.titleLabel.text = "Idioma: " + (userInfo.language ?? "")
             cell.setup()
             return cell
         }
@@ -96,7 +104,20 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 2 {
+        
+        if indexPath.row == 0 {
+           let country = CountryListViewController()
+           country.delegate = self
+           let countryViewController = UINavigationController(rootViewController: country)
+           present(countryViewController, animated: true)
+        }
+        else if indexPath.row == 1 {
+            let language = LanguageListViewController()
+            language.delegate = self
+            let languageListViewController = UINavigationController(rootViewController: language)
+            present(languageListViewController, animated: true)
+        }
+        else if indexPath.row == 2 {
             let shareText = "Baixe Agora o player de podcasts PodCat na App Store: https://apps.apple.com/br/app/id/1474413697"
             let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
             activityViewController.excludedActivityTypes = [.airDrop]
@@ -109,8 +130,14 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             
             self.present(activityViewController, animated: true, completion: nil)
         }
-        if indexPath.row == 3 {
+        else if indexPath.row == 3 {
             SKStoreReviewController.requestReview()
+        }
+        else if indexPath.row == 4 {
+            let about = AboutViewController()
+            about.delegate = self
+            let aboutViewController = UINavigationController(rootViewController: about)
+            present(aboutViewController, animated: true)
         }
     }
     

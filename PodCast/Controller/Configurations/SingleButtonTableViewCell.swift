@@ -37,6 +37,8 @@ class SingleButtonTableViewCell: UITableViewCell {
         
         selectionStyle = UITableViewCell.SelectionStyle.none
         
+        heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
         addSubview(clearDataButton)
         clearDataButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         clearDataButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
