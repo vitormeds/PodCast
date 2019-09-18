@@ -43,7 +43,8 @@ class PodCastListService {
     
     static func getBestPodsByGenre(genres: [Genre],completionHandler: @escaping ([[BestPod]]?) -> ()) {
         
-        let url = "https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=" + "\(genres[genresPods].id!)"
+        let region = UserInfoDAO.get().first?.location ?? "us"
+        let url = "https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=\(genres[genresPods].id!)&region=" + region
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             
@@ -79,7 +80,9 @@ class PodCastListService {
     
     static func getBestPodsByGenre(genre: Genre,page: String,completionHandler: @escaping (BestPodElement?) -> ()) {
         
-        let url = "https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=" + "\(genre.id!)&page=\(page)"
+        let region = UserInfoDAO.get().first?.location ?? "us"
+        
+        let url = "https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=\(genre.id!)&page=\(page)&region=" + region
         
         Alamofire.request(url, method: .get, headers: header).responseJSON { response in
             

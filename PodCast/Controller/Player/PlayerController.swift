@@ -102,11 +102,11 @@ class PlayerController {
         
         let title = podCastData.title
         let album = podCastData.podcast?.publisher
-        let image = audioPlayerView.artImageView.image
+        let image: UIImage? = audioPlayerView.artImageView.image
         var artwork: MPMediaItemArtwork!
         if image == nil {
-            let artworkImage = MPMediaItemArtwork(boundsSize: UIImage(named: "profile")!.size, requestHandler: {  (_) -> UIImage in
-                return image!
+            let artworkImage = MPMediaItemArtwork(boundsSize: UIImage(named: "podCat")!.size, requestHandler: {  (_) -> UIImage in
+                return image ?? UIImage(named: "podCat")!
             })
             artwork = artworkImage
         }
