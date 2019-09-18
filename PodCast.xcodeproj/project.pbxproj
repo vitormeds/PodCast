@@ -111,6 +111,14 @@
 		4E2D146C232FF4140060242D /* MyPodsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodsDAO.swift; sourceTree = "<group>"; };
 		4E2D146E232FF4B60060242D /* MyPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPods.swift; sourceTree = "<group>"; };
 		4E2D1472232FF4CC0060242D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		4E433C48233278A1007A37F2 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4E433C49233278A9007A37F2 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4E433C4A233278BE007A37F2 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4E433C4B233278C5007A37F2 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4E433C4C233278E5007A37F2 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4E433C4D233278E6007A37F2 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4E433C4E233278E8007A37F2 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4E433C4F233278E9007A37F2 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4E485130232FCD8A009E16A0 /* SharedDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDownload.swift; sourceTree = "<group>"; };
 		4E5D9147231837E300F61B1B /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		4E78C3572318087500E464A5 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
@@ -717,6 +725,10 @@
 				"pt-BR",
 				es,
 				"en-AU",
+				"en-GB",
+				"en-IN",
+				"es-419",
+				"pt-PT",
 			);
 			mainGroup = F42561A021D3C31400AA22A1;
 			productRefGroup = F42561AA21D3C31400AA22A1 /* Products */;
@@ -979,6 +991,10 @@
 				4EA6B2422331579D006F8AF9 /* pt-BR */,
 				4EA6B245233157AD006F8AF9 /* es */,
 				4EA6B247233161D1006F8AF9 /* en-AU */,
+				4E433C4C233278E5007A37F2 /* en-GB */,
+				4E433C4D233278E6007A37F2 /* en-IN */,
+				4E433C4E233278E8007A37F2 /* es-419 */,
+				4E433C4F233278E9007A37F2 /* pt-PT */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -991,6 +1007,10 @@
 				4EA6B243233157A2006F8AF9 /* pt-BR */,
 				4EA6B244233157AD006F8AF9 /* es */,
 				4EA6B246233161D1006F8AF9 /* en-AU */,
+				4E433C48233278A1007A37F2 /* en-GB */,
+				4E433C49233278A9007A37F2 /* en-IN */,
+				4E433C4A233278BE007A37F2 /* es-419 */,
+				4E433C4B233278C5007A37F2 /* pt-PT */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
