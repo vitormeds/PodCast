@@ -166,7 +166,7 @@ class PreferencesSelectController: UIViewController, UICollectionViewDelegateFlo
     }
     
     @objc func performNext() {
-        UserInfoDAO.add(name: "", location: "United States of America", language: "Ingles")
+        UserInfoDAO.add(name: "", location: "us", language: "Ingles", locationdescription: "United States")
         var selectedGenresOptions = [Genre]()
         if selectedGenres.count != 0 {
             for i in 0...selectedGenres.count - 1 {

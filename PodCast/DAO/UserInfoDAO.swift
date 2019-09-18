@@ -26,16 +26,17 @@ class UserInfoDAO {
         return []
     }
     
-    static func add(name: String? = nil,location: String? = nil,language: String? = nil) {
+    static func add(name: String? = nil,location: String? = nil,language: String? = nil,locationdescription: String? = nil) {
         let user = get()
         if user.isEmpty {
             let userInfo = UserInfo(context: context)
-            userInfo.fillWith(name: name ?? "", location: location ?? "", language: language ?? "")
+            userInfo.fillWith(name: name ?? "", location: location ?? "", language: language ?? "", locationdescription: locationdescription ?? "")
         }
         else {
             user.first?.name = name ?? user.first?.name
             user.first?.language = language ?? user.first?.language
             user.first?.location = location ?? user.first?.location
+            user.first?.locationdescription = locationdescription ?? user.first?.locationdescription
         }
         try! context.save()
     }

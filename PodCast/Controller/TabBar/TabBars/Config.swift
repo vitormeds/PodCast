@@ -64,7 +64,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = R.string.localizable.localizacaoIndication() + " " + (userInfo.location ?? "")
+            cell.titleLabel.text = R.string.localizable.localizacaoIndication() + " " + (userInfo.locationdescription ?? "")
             cell.setup()
             return cell
         }

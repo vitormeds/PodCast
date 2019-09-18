@@ -9,5 +9,6 @@
 import Foundation
 
 struct Country: Decodable {
-    let name: String?
+    let key: String?
+    let value: String?
 }

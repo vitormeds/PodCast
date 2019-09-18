@@ -65,14 +65,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func checkLanguage() {
         let userInfo = UserInfoDAO.get().first
         if userInfo?.language == R.string.localizable.portugues() {
+            Bundle.main.path(forResource: "pt-BR", ofType: "lproj")
             UserDefaults.standard.set("pt-BR", forKey: "AppleLanguage")
             UserDefaults.standard.synchronize()
         }
         else if userInfo?.language == R.string.localizable.espanhol() {
+            Bundle.main.path(forResource: "es", ofType: "lproj")
             UserDefaults.standard.set("es", forKey: "AppleLanguage")
             UserDefaults.standard.synchronize()
         }
         else {
+            Bundle.main.path(forResource: "en-AU", ofType: "lproj")
             UserDefaults.standard.set("en-AU", forKey: "AppleLanguage")
             UserDefaults.standard.synchronize()
         }

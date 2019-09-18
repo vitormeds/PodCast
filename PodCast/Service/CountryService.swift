@@ -14,9 +14,10 @@ class CountryService {
     
     static func getCountries(completionHandler: @escaping ([Country]?) -> ()) {
         
-        let url = "https://restcountries.eu/rest/v2/all?fields=name"
+        let url = "https://listen-api.listennotes.com/api/v2/regions"
+        let header = ["X-ListenAPI-Key" : "b8fc388d34c24d17ac2196341809e06f"]
         
-        Alamofire.request(url, method: .get).responseJSON { response in
+        Alamofire.request(url, method: .get,headers: header).responseJSON { response in
             
             if let err = response.error {
                 print("Failed to read", err)
@@ -26,13 +27,20 @@ class CountryService {
             
             guard let data = response.data else { return }
             
-            do {
-                let countries = try JSONDecoder().decode([Country].self, from: data)
-                completionHandler(countries)
-            } catch let decodeErr {
-                print("Failed to decode:", decodeErr)
-                completionHandler(nil)
+            if let responseObj = try? JSONSerialization.jsonObject(with: data) {
+                if let responseData = responseObj as? [String: Any] {
+                    if let closeDtoList = responseData["regions"] as? [String: Any] {
+                        var countries = [Country]()
+                        for elementKey in closeDtoList.keys {
+                            countries.append(Country(key: elementKey, value: closeDtoList[elementKey] as? String))
+                        }
+                        completionHandler(countries)
+                        return
+                    }
+                }
             }
+            completionHandler([])
+            return
         }
     }
     

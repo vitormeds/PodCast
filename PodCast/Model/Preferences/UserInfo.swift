@@ -20,10 +20,12 @@ public class UserInfo: NSManagedObject {
     @NSManaged public var name: String?
     @NSManaged public var location: String?
     @NSManaged public var language: String?
+    @NSManaged public var locationdescription: String?
     
-    func fillWith(name: String,location: String,language: String) {
+    func fillWith(name: String,location: String,language: String,locationdescription: String) {
         self.name = name
         self.location = location
         self.language = language
+        self.locationdescription = locationdescription
     }
 }

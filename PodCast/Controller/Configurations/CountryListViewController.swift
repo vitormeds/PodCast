@@ -87,13 +87,13 @@ extension CountryListViewController: UITableViewDelegate,UITableViewDataSource {
         cell.tintColor = UIColor.secondary
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.textColor = UIColor.secondary
-        cell.textLabel?.text = filteredcountries[indexPath.row].name
+        cell.textLabel?.text = filteredcountries[indexPath.row].value
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        UserInfoDAO.add(location: filteredcountries[indexPath.row].name)
+        UserInfoDAO.add(location: filteredcountries[indexPath.row].key,locationdescription: filteredcountries[indexPath.row].value)
         performBack()
     }
     
@@ -115,7 +115,7 @@ extension CountryListViewController: UISearchBarDelegate,UISearchResultsUpdating
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let searchText = ((searchBar.text ?? "") as NSString).replacingCharacters(in: range, with: text)
         if !searchText.isEmpty {
-            filteredcountries = countries.filter({ ($0.name?.lowercased().contains(searchText.lowercased()) ?? false) })
+            filteredcountries = countries.filter({ ($0.value?.lowercased().contains(searchText.lowercased()) ?? false) })
         }
         else {
             filteredcountries = countries
