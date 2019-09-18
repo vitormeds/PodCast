@@ -68,28 +68,28 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             cell.setup()
             return cell
         }
+//        else if indexPath.row == 1 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
+//            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+//            cell.titleLabel.text = R.string.localizable.idiomaIndication() + " " + (userInfo.language ?? "")
+//            cell.setup()
+//            return cell
+//        }
         else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
-            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-            cell.titleLabel.text = R.string.localizable.idiomaIndication() + " " + (userInfo.language ?? "")
-            cell.setup()
-            return cell
-        }
-        else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
             cell.titleLabel.text = R.string.localizable.sharePodCat()
             cell.setup()
             return cell
         }
-        else if indexPath.row == 3 {
+        else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
             cell.titleLabel.text = R.string.localizable.avalieNos()
             cell.setup()
             return cell
         }
-        else if indexPath.row == 4 {
+        else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
             cell.titleLabel.text = R.string.localizable.sobre()
@@ -111,13 +111,13 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
            let countryViewController = UINavigationController(rootViewController: country)
            present(countryViewController, animated: true)
         }
+//        else if indexPath.row == 1 {
+//            let language = LanguageListViewController()
+//            language.delegate = self
+//            let languageListViewController = UINavigationController(rootViewController: language)
+//            present(languageListViewController, animated: true)
+//        }
         else if indexPath.row == 1 {
-            let language = LanguageListViewController()
-            language.delegate = self
-            let languageListViewController = UINavigationController(rootViewController: language)
-            present(languageListViewController, animated: true)
-        }
-        else if indexPath.row == 2 {
             let shareText = R.string.localizable.downloadText() + " https://apps.apple.com/br/app/id/1474413697"
             let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
             activityViewController.excludedActivityTypes = [.airDrop]
@@ -130,10 +130,10 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             
             self.present(activityViewController, animated: true, completion: nil)
         }
-        else if indexPath.row == 3 {
+        else if indexPath.row == 2 {
             SKStoreReviewController.requestReview()
         }
-        else if indexPath.row == 4 {
+        else if indexPath.row == 3 {
             let about = AboutViewController()
             about.delegate = self
             let aboutViewController = UINavigationController(rootViewController: about)
@@ -150,7 +150,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
 }
