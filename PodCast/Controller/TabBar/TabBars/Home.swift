@@ -256,15 +256,37 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
                 result.append(Genre(parent_id: Int(preferences[i].parent_id!),name: preferences[i].name,id: Int(preferences[i].id!)))
             }
             self.genres = result
-            PodCastListService.getBestPodsByGenre(genres: self.genres, completionHandler: { resultBestPods in
-                if resultBestPods != nil {
-                    self.bestPods = resultBestPods!
+            let region = NSLocale.current.regionCode?.lowercased()
+            let standard = UserDefaults.standard
+            if !standard.bool(forKey: "locationPreference") {
+                CountryService.getCountries { countries in
+                    let countriesAux = countries?.filter({ ($0.key?.lowercased() == region)}) ?? []
+                    if !countriesAux.isEmpty {
+                        UserInfoDAO.add(location: countriesAux.first?.key, locationdescription: countriesAux.first?.value)
+                        standard.set(true, forKey: "locationPreference")
+                    }
+                    self.loadPods()
                 }
-                self.setupDefaultMode()
-                self.stopLoad()
-                self.tableView.reloadData()
-            })
+            }
+            else {
+                loadPods()
+            }
         }
+    }
+    
+    func loadPods() {
+        PodCastListService.getBestPodsByGenre(genres: self.genres, completionHandler: { resultBestPods in
+            if resultBestPods != nil {
+                for element in resultBestPods ?? [] {
+                    if !element.isEmpty {
+                        self.bestPods.append(element)
+                    }
+                }
+            }
+            self.setupDefaultMode()
+            self.stopLoad()
+            self.tableView.reloadData()
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -1021,6 +1021,7 @@
 		F42561D221D3C31500AA22A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1083,6 +1084,7 @@
 		F42561D321D3C31500AA22A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1140,7 +1142,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2DDFC0B6D1981D7C963BECC /* Pods-PodCast.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PodCast/PodCast.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1162,7 +1164,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 214AF971DF7ACE56DB753502 /* Pods-PodCast.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PodCast/PodCast.entitlements;
 				CODE_SIGN_STYLE = Automatic;

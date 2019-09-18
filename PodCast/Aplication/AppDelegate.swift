@@ -12,6 +12,7 @@ import AVFoundation
 import Firebase
 import UserNotifications
 import FirebaseMessaging
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate, MessagingDelegate {
