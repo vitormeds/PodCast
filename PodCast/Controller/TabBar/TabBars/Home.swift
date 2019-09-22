@@ -239,7 +239,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         view.backgroundColor = UIColor.primary
         tableView.delegate = self
         tableView.dataSource = self
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor.secondary
+        //UIApplication.shared.statusBarView?.backgroundColor = UIColor.secondary
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCardCellIdentifier)
         collectionView.register(LoadingCollectionCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cartFooterCollectionReusableView)
         loadData()
