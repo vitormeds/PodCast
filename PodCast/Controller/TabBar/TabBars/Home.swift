@@ -327,6 +327,7 @@ extension Home: SelectBestPodDelegate {
         let playerViewController = PodCastListViewController()
         playerViewController.bestPod = bestPod
         let player = UINavigationController(rootViewController: playerViewController)
+        player.modalPresentationStyle = .overFullScreen
         present(player, animated: true)
     }
 }
@@ -579,12 +580,14 @@ extension Home: UICollectionViewDelegate {
             let playerViewController = PlayerViewController()
             playerViewController.id = searchEpisodesData[indexPath.item].id ?? ""
             let player = UINavigationController(rootViewController: playerViewController)
+            player.modalPresentationStyle = .overFullScreen
             present(player, animated: true)
         }
         else {
             let playerViewController = PodCastListViewController()
             playerViewController.podCastSearch = searchPodCastsData[indexPath.item]
             let player = UINavigationController(rootViewController: playerViewController)
+            player.modalPresentationStyle = .overFullScreen
             present(player, animated: true)
         }
     }
@@ -596,6 +599,7 @@ extension Home: HeaderCollectionDelegate {
         let podCastByGenreListViewController = PodCastByGenreListViewController()
         podCastByGenreListViewController.genre = genre
         let podCastByGenreList = UINavigationController(rootViewController: podCastByGenreListViewController)
+        podCastByGenreList.modalPresentationStyle = .overFullScreen
         present(podCastByGenreList, animated: true)
     }
 }

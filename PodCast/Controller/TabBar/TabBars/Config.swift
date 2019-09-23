@@ -109,6 +109,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
            let country = CountryListViewController()
            country.delegate = self
            let countryViewController = UINavigationController(rootViewController: country)
+           countryViewController.modalPresentationStyle = .overFullScreen
            present(countryViewController, animated: true)
         }
 //        else if indexPath.row == 1 {
@@ -127,7 +128,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
                 popoverController.sourceView = self.view
                 popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
             }
-            
+            activityViewController.modalPresentationStyle = .overFullScreen
             self.present(activityViewController, animated: true, completion: nil)
         }
         else if indexPath.row == 2 {
@@ -137,6 +138,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             let about = AboutViewController()
             about.delegate = self
             let aboutViewController = UINavigationController(rootViewController: about)
+            aboutViewController.modalPresentationStyle = .overFullScreen
             present(aboutViewController, animated: true)
         }
     }

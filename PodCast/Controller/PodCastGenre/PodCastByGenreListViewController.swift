@@ -111,6 +111,7 @@ extension PodCastByGenreListViewController: UICollectionViewDelegate {
         let playerViewController = PodCastListViewController()
         playerViewController.bestPod = bestPods[indexPath.item]
         let player = UINavigationController(rootViewController: playerViewController)
+        player.modalPresentationStyle = .overFullScreen
         present(player, animated: true)
     }
     

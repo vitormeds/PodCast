@@ -128,6 +128,7 @@ class ContentTableViewCell: UITableViewCell {
         let playerViewController = PlayerViewController()
         playerViewController.id = podCast.id ?? ""
         let player = UINavigationController(rootViewController: playerViewController)
+        player.modalPresentationStyle = .overFullScreen
         AplicationUtil.getViewController()!.present(player, animated: true)
     }
     

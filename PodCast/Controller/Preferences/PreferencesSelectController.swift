@@ -176,6 +176,8 @@ class PreferencesSelectController: UIViewController, UICollectionViewDelegateFlo
         PreferencesDAO.add(genres: selectedGenresOptions)
         let standard = UserDefaults.standard
         standard.set(true, forKey: "preferencesInicialize")
-        present(CustomTabBarController(), animated: true)
+        let vc = CustomTabBarController()
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
     }
 }

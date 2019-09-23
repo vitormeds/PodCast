@@ -82,6 +82,7 @@ open class CustomViewController: UIViewController {
         let playerViewController = PlayerViewController()
         playerViewController.id = PlayerController.podCastData.id ?? ""
         let player = UINavigationController(rootViewController: playerViewController)
+        player.modalPresentationStyle = .overFullScreen
         present(player, animated: true)
     }
     

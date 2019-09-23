@@ -107,6 +107,7 @@ extension MyPodCasts: UICollectionViewDelegate {
            listennotes_url: nil,
            publisher_highlighted: nil)
         let player = UINavigationController(rootViewController: playerViewController)
+        player.modalPresentationStyle = .overFullScreen
         present(player, animated: true)
     }
 }
