@@ -17,6 +17,12 @@ class HeaderPodCast: UIView {
         }
     }
     
+    var podCastSearch: PodCastSearch!  {
+        didSet{
+            setupViews()
+        }
+    }
+    
     let iconImageView: UIImageView = {
        let iconImageView = UIImageView()
        iconImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -77,13 +83,13 @@ class HeaderPodCast: UIView {
         iconImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        let urlImg: URL? = URL(string: podInfo.image ?? "")
+        let urlImg: URL? = URL(string: podInfo?.image ?? podCastSearch?.image ?? "")
         if urlImg != nil {
             let request2: ImageRequest? = ImageRequest(urlRequest: URLRequest(url: urlImg!))
             Nuke.loadImage(with: request2!, into: iconImageView)
         }
         
-        titlePodCast.text = podInfo.title ?? ""
+        titlePodCast.text = podInfo?.title ?? podCastSearch?.title_original ?? ""
         
         addSubview(titlePodCast)
         titlePodCast.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
@@ -111,7 +117,7 @@ class HeaderPodCast: UIView {
     
     func setupStackMedia()
     {
-        if !(podInfo.extra?.facebook_handle?.isEmpty ?? false) {
+        if !(podInfo?.extra?.facebook_handle?.isEmpty ?? true) {
             let iconMediaImageView = UIImageView()
             iconMediaImageView.translatesAutoresizingMaskIntoConstraints = false
             iconMediaImageView.tintColor = UIColor.secondary
@@ -120,7 +126,7 @@ class HeaderPodCast: UIView {
             iconMediaImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
             mediaStackView.addArrangedSubview(iconMediaImageView)
         }
-        if !(podInfo.extra?.instagram_handle?.isEmpty ?? false) {
+        if !(podInfo?.extra?.instagram_handle?.isEmpty ?? true) {
             let iconMediaImageView = UIImageView()
             iconMediaImageView.translatesAutoresizingMaskIntoConstraints = false
             iconMediaImageView.tintColor = UIColor.secondary
@@ -129,7 +135,7 @@ class HeaderPodCast: UIView {
             iconMediaImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
             mediaStackView.addArrangedSubview(iconMediaImageView)
         }
-        if !(podInfo.extra?.twitter_handle?.isEmpty ?? false) {
+        if !(podInfo?.extra?.twitter_handle?.isEmpty ?? true) {
             let iconMediaImageView = UIImageView()
             iconMediaImageView.translatesAutoresizingMaskIntoConstraints = false
             iconMediaImageView.tintColor = UIColor.secondary
@@ -138,7 +144,7 @@ class HeaderPodCast: UIView {
             iconMediaImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
             mediaStackView.addArrangedSubview(iconMediaImageView)
         }
-        if !(podInfo.extra?.youtube_url?.isEmpty ?? false) {
+        if !(podInfo?.extra?.youtube_url?.isEmpty ?? true) {
             let iconMediaImageView = UIImageView()
             iconMediaImageView.translatesAutoresizingMaskIntoConstraints = false
             iconMediaImageView.tintColor = UIColor.secondary
