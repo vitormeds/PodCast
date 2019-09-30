@@ -11,6 +11,8 @@ class AudioPlayerView: UIView {
     
     let artImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.tintColor = UIColor.secondary
+        imageView.image = #imageLiteral(resourceName: "headphone").withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

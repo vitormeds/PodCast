@@ -19,6 +19,8 @@ class HeaderPodCast: UIView {
     
     let iconImageView: UIImageView = {
        let iconImageView = UIImageView()
+       iconImageView.tintColor = UIColor.secondary
+       iconImageView.image = #imageLiteral(resourceName: "headphone").withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
        iconImageView.translatesAutoresizingMaskIntoConstraints = false
        return iconImageView
     }()

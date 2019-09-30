@@ -15,6 +15,8 @@ class ContentCollectionViewCell: UICollectionViewCell {
         img.layer.zPosition = 2
         img.layer.cornerRadius = 10
         img.layer.masksToBounds = true
+        img.tintColor = UIColor.secondary
+        img.image = #imageLiteral(resourceName: "headphone").withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
