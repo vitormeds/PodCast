@@ -29,6 +29,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     var headerView = HeaderView()
     
     var bannerView: GADBannerView!
+    var failAd = false
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -95,6 +96,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         bannerView.adUnitID = Ad.adBannerHome
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+        bannerView.delegate = self
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         if searchMode == false && PlayerController.player != nil && PlayerController.player?.rate != 0 {
             setupDefaultMode()
@@ -127,15 +129,22 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
             tableView.tableHeaderView = searchBarView
             
-            view.addSubview(bannerView)
-            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-            bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+            if !failAd {
+                view.addSubview(bannerView)
+                bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+                bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+                bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+            }
             
             audioPlayerBar = PlayerController.audioPlayerBar
             view.addSubview(audioPlayerBar)
-            audioPlayerBar.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+            if !failAd {
+                audioPlayerBar.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+            }
+            else {
+                audioPlayerBar.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            }
             audioPlayerBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             audioPlayerBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             audioPlayerBar.closeButton.addTarget(self, action: #selector(closePlayer), for: .touchDown)
@@ -164,17 +173,24 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
             tableView.tableHeaderView = searchBarView
             
-            view.addSubview(bannerView)
-            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-            bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+            if !failAd {
+                view.addSubview(bannerView)
+                bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+                bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+                bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+            }
             
             view.addSubview(tableView)
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
-            tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+            if !failAd {
+                tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+            }
+            else {
+                tableView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            }
         }
         searchLayout = false
     }
@@ -623,5 +639,13 @@ extension Home: HeaderCollectionDelegate {
         let podCastByGenreList = UINavigationController(rootViewController: podCastByGenreListViewController)
         podCastByGenreList.modalPresentationStyle = .overFullScreen
         present(podCastByGenreList, animated: true)
+    }
+}
+
+extension Home: GADBannerViewDelegate{
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        bannerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        failAd = true
     }
 }

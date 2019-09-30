@@ -135,6 +135,7 @@ class PodCastListViewController: CustomViewController {
         bannerView.adUnitID = Ad.adBannerListPods
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+        bannerView.delegate = self
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(bannerView)
@@ -226,5 +227,12 @@ extension PodCastListViewController: DownloadManagerDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+}
+
+extension PodCastListViewController: GADBannerViewDelegate{
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        bannerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
     }
 }

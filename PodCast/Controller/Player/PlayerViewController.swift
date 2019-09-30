@@ -12,7 +12,7 @@ import MediaPlayer
 import Nuke
 import GoogleMobileAds
 
-class PlayerViewController: CustomViewController  {
+class PlayerViewController: CustomViewController,GADBannerViewDelegate  {
     
     var id = ""
     var podCastData: Podcast!
@@ -79,6 +79,7 @@ class PlayerViewController: CustomViewController  {
         bannerView.adUnitID = Ad.adBannerPlayer
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+        bannerView.delegate = self
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(bannerView)
@@ -88,6 +89,8 @@ class PlayerViewController: CustomViewController  {
         bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        bannerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+    }
+    
 }
-
-

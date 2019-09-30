@@ -61,6 +61,7 @@ class Config: UIViewController,ListUpdateDelegate {
         bannerView.adUnitID = Ad.adBannerConfig
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+        bannerView.delegate = self
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(bannerView)
@@ -196,5 +197,12 @@ extension Config: ClearDataDelegate {
         
         SavedPodDAO.deleteAll()
         QueueDAO.deleteAll()
+    }
+}
+
+extension Config: GADBannerViewDelegate{
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        bannerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
     }
 }
