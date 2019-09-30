@@ -8,6 +8,7 @@
 
 import UIKit
 import Nuke
+import GoogleMobileAds
 
 class PodCastListViewController: CustomViewController {
     
@@ -33,6 +34,8 @@ class PodCastListViewController: CustomViewController {
     
     var pods = [Podcast]()
     var podInfo: PodCastList!
+    
+    var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.primary
@@ -79,6 +82,7 @@ class PodCastListViewController: CustomViewController {
                         }
                         self.podInfo = podCastsResult
                         self.stopLoad()
+                        self.setupAd()
                         self.setupViews()
                         self.starLoad()
                     }
@@ -101,6 +105,7 @@ class PodCastListViewController: CustomViewController {
                                                          isDownload: true))
                             }
                             self.stopLoad()
+                            self.setupAd()
                             self.setupViews()
                             let myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
                             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(self.performStar))
@@ -120,8 +125,23 @@ class PodCastListViewController: CustomViewController {
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
         tableView.reloadData()
+    }
+    
+    func setupAd() {
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = Ad.adBannerListPods
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(bannerView)
+        bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     @objc func performBack() {

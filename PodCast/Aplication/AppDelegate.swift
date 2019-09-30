@@ -13,6 +13,7 @@ import Firebase
 import UserNotifications
 import FirebaseMessaging
 import CoreLocation
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -26,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         window?.makeKeyAndVisible()
         
         FirebaseApp.configure()
+        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        Ad.isDebug = true
         
         registerForPushNotifications()
         UNUserNotificationCenter.current().delegate = self

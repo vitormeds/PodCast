@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.7.3)
+  - Firebase/AdMob (6.8.1):
+    - Firebase/CoreOnly
+    - Google-Mobile-Ads-SDK (~> 7.49)
   - Firebase/Analytics (6.8.1):
     - Firebase/Core
   - Firebase/Core (6.8.1):
@@ -45,6 +48,8 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 6.2)
     - Protobuf (~> 3.1)
   - FRadioPlayer (0.1.11)
+  - Google-Mobile-Ads-SDK (7.50.0):
+    - GoogleAppMeasurement (~> 6.0)
   - GoogleAppMeasurement (6.1.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -92,10 +97,12 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Firebase/AdMob
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/Messaging
   - FRadioPlayer
+  - Google-Mobile-Ads-SDK
   - lottie-ios
   - MarqueeLabel
   - Nuke
@@ -115,6 +122,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseMessaging
     - FRadioPlayer
+    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
@@ -140,6 +148,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
   FirebaseMessaging: 9483ac438b7b223c09dad8712310e9ee7d562c99
   FRadioPlayer: 27b1b7dd33d12ff01b67dc57c89999baf0bbb3e6
+  Google-Mobile-Ads-SDK: d48dbaf5bae1ab7a94a9786f493c26c454bc6f16
   GoogleAppMeasurement: 86a82f0e1f20b8eedf8e20326530138fd71409de
   GoogleDataTransport: 8f9897b8e073687f24ca8d3c3a8013dec7d2d1cc
   GoogleDataTransportCCTSupport: 7455d07b98851aa63e4c05a34dad356ca588479e
@@ -154,6 +163,6 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 78a0b1358a88b861acdd654ec74e5d6fadb45f1d
+PODFILE CHECKSUM: 6d4297ed2cb1f3fc772729130bec4d96e3f574a8
 
 COCOAPODS: 1.7.5

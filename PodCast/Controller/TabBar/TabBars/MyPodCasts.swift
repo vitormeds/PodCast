@@ -8,6 +8,7 @@
 
 import UIKit
 import Nuke
+import GoogleMobileAds
 
 class MyPodCasts: CustomViewController {
     
@@ -16,6 +17,8 @@ class MyPodCasts: CustomViewController {
     var myPods: [MyPods]? = nil
     
     var headerView = HeaderView()
+    
+    var bannerView: GADBannerView!
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,6 +33,7 @@ class MyPodCasts: CustomViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.primary
+        setupAd()
         setupViews()
     }
     
@@ -55,8 +59,23 @@ class MyPodCasts: CustomViewController {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCellIdentifier)
+    }
+    
+    func setupAd() {
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = Ad.adBannerMyPods
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(bannerView)
+        bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     @objc func performBack() {

@@ -8,11 +8,14 @@
 
 import UIKit
 import StoreKit
+import GoogleMobileAds
 
 class Config: UIViewController,ListUpdateDelegate {
     
     var headerView = HeaderView()
     var userInfo: UserInfo!
+    
+    var bannerView: GADBannerView!
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -30,6 +33,7 @@ class Config: UIViewController,ListUpdateDelegate {
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.primary
+        setupAd()
         setupViews()
         loadData()
     }
@@ -48,7 +52,22 @@ class Config: UIViewController,ListUpdateDelegate {
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+    }
+    
+    func setupAd() {
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = Ad.adBannerConfig
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(bannerView)
+        bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     func loadData() {

@@ -19,9 +19,10 @@
 		4EA6B23B23314B46006F8AF9 /* LanguageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6B23A23314B46006F8AF9 /* LanguageListViewController.swift */; };
 		4EA6B23D23314D03006F8AF9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6B23C23314D03006F8AF9 /* AboutViewController.swift */; };
 		4EA6B23E23315773006F8AF9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6B24023315773006F8AF9 /* Localizable.strings */; };
+		4EAA2F37234272D500ECC561 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EAA2F36234272D400ECC561 /* GoogleService-Info.plist */; };
+		4EAA2F3A2342770100ECC561 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA2F392342770100ECC561 /* Ad.swift */; };
 		4EB296662318382F00C8E749 /* QueueDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB296652318382F00C8E749 /* QueueDAO.swift */; };
 		4EDAAE28231593BE005840AE /* HeaderPodCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDAAE27231593BE005840AE /* HeaderPodCast.swift */; };
-		4EEB47382330FD2A00B4C3CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB47372330FD2A00B4C3CB /* GoogleService-Info.plist */; };
 		4EEB473C2331111000B4C3CB /* DescriptionConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB473B2331111000B4C3CB /* DescriptionConfigTableViewCell.swift */; };
 		4EEB473E2331167800B4C3CB /* SingleButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB473D2331167800B4C3CB /* SingleButtonTableViewCell.swift */; };
 		4EEB47412331201000B4C3CB /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB473F2331201000B4C3CB /* UserInfo.swift */; };
@@ -134,9 +135,10 @@
 		4EA6B245233157AD006F8AF9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EA6B246233161D1006F8AF9 /* en-AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-AU"; path = "en-AU.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4EA6B247233161D1006F8AF9 /* en-AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-AU"; path = "en-AU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4EAA2F36234272D400ECC561 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4EAA2F392342770100ECC561 /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		4EB296652318382F00C8E749 /* QueueDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDAO.swift; sourceTree = "<group>"; };
 		4EDAAE27231593BE005840AE /* HeaderPodCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPodCast.swift; sourceTree = "<group>"; };
-		4EEB47372330FD2A00B4C3CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4EEB47392331031800B4C3CB /* PodCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PodCast.entitlements; sourceTree = "<group>"; };
 		4EEB473B2331111000B4C3CB /* DescriptionConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionConfigTableViewCell.swift; sourceTree = "<group>"; };
 		4EEB473D2331167800B4C3CB /* SingleButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -249,6 +251,14 @@
 			path = Queue;
 			sourceTree = "<group>";
 		};
+		4EAA2F38234276EF00ECC561 /* Ad */ = {
+			isa = PBXGroup;
+			children = (
+				4EAA2F392342770100ECC561 /* Ad.swift */,
+			);
+			path = Ad;
+			sourceTree = "<group>";
+		};
 		4EEB473A233110FD00B4C3CB /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,7 +338,7 @@
 				F4AB34F121D729C900DAD399 /* Controller */,
 				F42561B621D3C31500AA22A1 /* Assets.xcassets */,
 				F42561BB21D3C31500AA22A1 /* Info.plist */,
-				4EEB47372330FD2A00B4C3CB /* GoogleService-Info.plist */,
+				4EAA2F36234272D400ECC561 /* GoogleService-Info.plist */,
 				F42561B821D3C31500AA22A1 /* LaunchScreen.storyboard */,
 				4EEB47392331031800B4C3CB /* PodCast.entitlements */,
 				F42561B321D3C31400AA22A1 /* PodCast.xcdatamodeld */,
@@ -391,6 +401,7 @@
 		F43779EF21F61D8F007DC73C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4EAA2F38234276EF00ECC561 /* Ad */,
 				4E5D9146231837C200F61B1B /* Queue */,
 				F4BB771122E62A94009FA730 /* SavedPod */,
 				F4E2E43622135452007C984E /* Search */,
@@ -755,7 +766,7 @@
 				4EA6B23E23315773006F8AF9 /* Localizable.strings in Resources */,
 				F47AAEAB21FA260D0068FAD2 /* loadAnimation.json in Resources */,
 				F42561B721D3C31500AA22A1 /* Assets.xcassets in Resources */,
-				4EEB47382330FD2A00B4C3CB /* GoogleService-Info.plist in Resources */,
+				4EAA2F37234272D500ECC561 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,6 +941,7 @@
 				F4CA23B1221C74CC00714418 /* PodCastSearch.swift in Sources */,
 				F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */,
 				F4CAF8E0228F1ACC00540F6C /* ContentTableViewCell.swift in Sources */,
+				4EAA2F3A2342770100ECC561 /* Ad.swift in Sources */,
 				4E485131232FCD8A009E16A0 /* SharedDownload.swift in Sources */,
 				F4C2C9EB21FB7BD400467A06 /* PodCast.swift in Sources */,
 				F4347CBD21FF1E35002B2088 /* PodCastList.swift in Sources */,

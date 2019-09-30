@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 import Nuke
+import GoogleMobileAds
 
 class PlayerViewController: CustomViewController  {
     
@@ -17,6 +18,8 @@ class PlayerViewController: CustomViewController  {
     var podCastData: Podcast!
     
     var audioPlayerView = AudioPlayerView()
+    
+    var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +51,12 @@ class PlayerViewController: CustomViewController  {
                                            listennotes_url: nil,
                                            maybe_audio_invalid: nil,
                                            isDownload: true)
+                self.setupAd()
                 self.setupViews()
             }
             else if resultPodCast != nil {
                 self.podCastData = resultPodCast
+                self.setupAd()
                 self.setupViews()
             }
             self.stopLoad()
@@ -63,9 +68,24 @@ class PlayerViewController: CustomViewController  {
         audioPlayerView = PlayerController.audioPlayerView
         view.addSubview(audioPlayerView)
         audioPlayerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        audioPlayerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        audioPlayerView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
         audioPlayerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         audioPlayerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
+    
+    func setupAd() {
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = Ad.adBannerPlayer
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(bannerView)
+        bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        bannerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
 }
