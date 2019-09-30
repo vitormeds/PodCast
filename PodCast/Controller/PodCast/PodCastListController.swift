@@ -34,6 +34,8 @@ class PodCastListViewController: CustomViewController {
     var pods = [Podcast]()
     var podInfo: PodCastList!
     
+    let headerView = HeaderPodCast()
+    
     override func viewDidLoad() {
         view.backgroundColor = UIColor.primary
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localizable.voltar(), style: .done, target: self, action: #selector(performBack))
@@ -46,7 +48,10 @@ class PodCastListViewController: CustomViewController {
         if myPods != nil && podInfo != nil && !(myPods?.isEmpty ?? false) && myPods?.contains(where: { ($0.id == podInfo.id ?? "")}) ?? false {
             myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
         }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
+        headerView.starImageView.image = myPodsIcon
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(performStar))
+        headerView.starImageView.addGestureRecognizer(tapGesture)
+        headerView.starLabel.addGestureRecognizer(tapGesture)
     }
     
     func loadData()
@@ -103,7 +108,7 @@ class PodCastListViewController: CustomViewController {
                             self.stopLoad()
                             self.setupViews()
                             let myPodsIcon = #imageLiteral(resourceName: "starIconFilled").withRenderingMode(.alwaysTemplate)
-                            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(self.performStar))
+                            self.headerView.iconImageView.image = myPodsIcon
                         }
                     }
                     self.isLoading = false
@@ -142,7 +147,7 @@ class PodCastListViewController: CustomViewController {
         else {
             MyPodsDAO.add(id: idPod, icon: iconPod, title: titlePod)
         }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: myPodsIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(performStar))
+        headerView.iconImageView.image = myPodsIcon
     }
     
 }
@@ -176,7 +181,6 @@ extension PodCastListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = HeaderPodCast()
         headerView.podInfo = podInfo
         headerView.podCastSearch = podCastSearch
         return headerView
