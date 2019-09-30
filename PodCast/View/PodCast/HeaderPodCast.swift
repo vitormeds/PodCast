@@ -9,7 +9,7 @@
 import UIKit
 import Nuke
 
-class HeaderPodCast: UITableViewCell {
+class HeaderPodCast: UIView {
     
     var podInfo: PodCastList!  {
         didSet{
@@ -64,11 +64,12 @@ class HeaderPodCast: UITableViewCell {
         return mediaStackView
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Identifier has not been implemeted")
     }
     
     func setupViews()
