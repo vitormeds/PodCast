@@ -21,6 +21,7 @@ class Config: UIViewController,ListUpdateDelegate {
         let tableView = UITableView()
         tableView.register(DescriptionConfigTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(SingleButtonTableViewCell.self, forCellReuseIdentifier: "cellSingleButton")
+        tableView.register(RemoveAdTableViewCell.self, forCellReuseIdentifier: "cellRemoveAdButton")
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.separatorColor = UIColor.primary
@@ -116,8 +117,14 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             cell.setup()
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellSingleButton") as! SingleButtonTableViewCell
-        cell.clearDataDelegate = self
+        else if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cellSingleButton") as! SingleButtonTableViewCell
+            cell.clearDataDelegate = self
+            cell.setup()
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellRemoveAdButton") as! RemoveAdTableViewCell
+        cell.removeAdDelegate = self
         cell.setup()
         return cell
     }
@@ -172,7 +179,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
 }
@@ -205,4 +212,44 @@ extension Config: GADBannerViewDelegate{
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         bannerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
     }
+}
+
+extension Config: RemoveAdDelegate,SKProductsRequestDelegate {
+    
+    func performRemoveAd() {
+        var productIdentifier = "premium"
+        var productID = ""
+        var productsRequest = SKProductsRequest()
+        var iapProducts = [SKProduct]()
+        
+        // Put here your IAP Products ID's
+        let productIdentifiers = NSSet(objects:productIdentifier)
+        guard let identifier = productIdentifiers as? Set<String> else { return }
+        productsRequest = SKProductsRequest(productIdentifiers: identifier)
+        productsRequest.delegate = self
+        productsRequest.start()
+    }
+    
+    func canMakePurchases() -> Bool {
+        return SKPaymentQueue.canMakePayments()
+    }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if response.products.count > 0 {
+            var iapProducts = [SKProduct]()
+            iapProducts = response.products
+            if iapProducts.count > 0 {
+                let purchasingProduct = response.products[0] as SKProduct
+                purchaseProduct(product: purchasingProduct)
+            }
+        }
+    }
+    
+    func purchaseProduct(product: SKProduct) {
+        if self.canMakePurchases() {
+            let payment = SKPayment(product: product)
+            SKPaymentQueue.default().add(payment)
+        }
+    }
+
 }

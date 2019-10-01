@@ -230,7 +230,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 28 localization keys.
     struct localizable {
       /// en translation: About
       /// 
@@ -296,6 +296,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
       static let avalieNos = Rswift.StringResource(key: "avalieNos", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU", "en-GB", "en-IN", "es-419", "pt-PT"], comment: nil)
+      /// en translation: Remove Advertisements
+      /// 
+      /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
+      static let removead = Rswift.StringResource(key: "removead", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU", "en-GB", "en-IN", "es-419", "pt-PT"], comment: nil)
       /// en translation: Remove Data
       /// 
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
@@ -451,6 +455,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
       static func avalieNos(_: Void = ()) -> String {
         return NSLocalizedString("avalieNos", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Remove Advertisements
+      /// 
+      /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
+      static func removead(_: Void = ()) -> String {
+        return NSLocalizedString("removead", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Remove Data
