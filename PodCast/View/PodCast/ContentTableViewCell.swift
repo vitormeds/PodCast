@@ -150,7 +150,6 @@ class ContentTableViewCell: UITableViewCell {
                             download: false)
             QueueDAO.add(id: self.podCast.id!,
                          idPod: self.idToSearch)
-            SharedDownload.downloadService.savedPod = self.savedPod
             SharedDownload.downloadService.downloadPodCast(podCast: podCast)
         }
     }

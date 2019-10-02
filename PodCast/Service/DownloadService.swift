@@ -18,11 +18,23 @@ class DownloadService: DownloadManagerDelegate {
     
     var isDownload = false
     
-    func verifyQueue() {
-        
+    func updateSavedPod(sucess: @escaping (SavedPods?) -> (),fail: @escaping () -> ()) {
         let queue = QueueDAO.get()
         if !queue.isEmpty {
             let queuePod = SavedPodDAO.get().filter { ($0.id == queue.first?.id && $0.idPod == queue.first?.idPod)}.first
+            self.savedPod = queuePod
+            sucess(queuePod)
+            return
+        }
+        else {
+            fail()
+            return
+        }
+        
+    }
+    
+    func verifyQueue() {
+        updateSavedPod(sucess: { queuePod in
             let pod = Podcast(audio_length: nil,
                               image: queuePod!.icon,
                               title: queuePod!.title,
@@ -37,9 +49,8 @@ class DownloadService: DownloadManagerDelegate {
                               listennotes_url: nil,
                               maybe_audio_invalid: nil,
                               isDownload: true)
-            self.savedPod = queuePod
-            downloadPodCast(podCast: pod)
-        }
+            self.downloadPodCast(podCast: pod)
+        }) {}
     }
     
     func downloadPodCast(podCast: Podcast) {
@@ -68,18 +79,20 @@ class DownloadService: DownloadManagerDelegate {
     }
     
     func downloadSucess(url: String) {
-        isDownload = false
-        if !url.isEmpty {
-            self.savedPod.url = url
-            SavedPodDAO.update(savedPod: self.savedPod)
-            let pods = QueueDAO.get().filter({ ($0.id == self.savedPod.id && $0.idPod == self.savedPod.idPod)})
-            for element in pods {
-                QueueDAO.delete(queuePod: element)
+        updateSavedPod(sucess: { result in
+            self.isDownload = false
+            if !url.isEmpty {
+                self.savedPod.url = url
+                SavedPodDAO.update(savedPod: self.savedPod)
+                let pods = QueueDAO.get().filter({ ($0.id == self.savedPod.id && $0.idPod == self.savedPod.idPod)})
+                for element in pods {
+                    QueueDAO.delete(queuePod: element)
+                }
             }
-        }
-        verifyQueue()
-        if downloadManagerDelegate != nil {
-            downloadManagerDelegate.downloadSucess(url: url)
-        }
+            self.verifyQueue()
+            if self.downloadManagerDelegate != nil {
+                self.downloadManagerDelegate.downloadSucess(url: url)
+            }
+        }) {}
     }
 }
