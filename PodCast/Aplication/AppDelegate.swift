@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         FirebaseApp.configure()
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        Ad.isDebug = false
+        Ad.isPremium = false
         
         registerForPushNotifications()
         UNUserNotificationCenter.current().delegate = self
@@ -63,6 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         UINavigationBar.appearance().clipsToBounds = false
         UINavigationBar.appearance().backgroundColor = UIColor.primary
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.secondary]
+        
+        PKIAPHandler.shared.delegate = self
+        PKIAPHandler.shared.restorePurchase()
+        
         return true
     }
     
@@ -180,3 +184,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
 }
 
+extension AppDelegate: PKIAPHandlerDelegate {
+
+    func fetchProductComplition(products: [SKProduct]) {
+       
+    }
+    
+    func purchaseProductComplition(alertType: PKIAPHandlerAlertType, product: SKProduct?, transaction: SKPaymentTransaction?) {
+        if product?.productIdentifier == "premium" && alertType == PKIAPHandlerAlertType.restored && alertType == PKIAPHandlerAlertType.restored {
+            Ad.isPremium = true
+        }
+    }
+}

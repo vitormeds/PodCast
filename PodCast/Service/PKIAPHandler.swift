@@ -25,6 +25,10 @@ enum PKIAPHandlerAlertType {
     }
 }
 
+protocol PKIAPHandlerDelegate {
+    func fetchProductComplition(products: [SKProduct])
+    func purchaseProductComplition(alertType: PKIAPHandlerAlertType, product: SKProduct?, transaction: SKPaymentTransaction?)
+}
 
 class PKIAPHandler: NSObject {
     
@@ -38,13 +42,12 @@ class PKIAPHandler: NSObject {
     fileprivate var productIds = [String]()
     fileprivate var productID = ""
     fileprivate var productsRequest = SKProductsRequest()
-    fileprivate var fetchProductComplition: (([SKProduct])->Void)?
     
     fileprivate var productToPurchase: SKProduct?
-    fileprivate var purchaseProductComplition: ((PKIAPHandlerAlertType, SKProduct?, SKPaymentTransaction?)->Void)?
     
     //MARK:- Public
     var isLogEnabled: Bool = true
+    var delegate: PKIAPHandlerDelegate!
     
     //MARK:- Methods
     //MARK:- Public
@@ -54,12 +57,15 @@ class PKIAPHandler: NSObject {
         self.productIds = ids
     }
 
+    func setDelegate(delegate: PKIAPHandlerDelegate){
+        self.delegate = delegate
+    }
+    
     //MAKE PURCHASE OF A PRODUCT
     func canMakePurchases() -> Bool {  return SKPaymentQueue.canMakePayments()  }
     
-    func purchase(product: SKProduct, complition: @escaping ((PKIAPHandlerAlertType, SKProduct?, SKPaymentTransaction?)->Void)) {
+    func purchase(product: SKProduct) {
         
-        self.purchaseProductComplition = complition
         self.productToPurchase = product
 
         if self.canMakePurchases() {
@@ -71,7 +77,7 @@ class PKIAPHandler: NSObject {
             productID = product.productIdentifier
         }
         else {
-            complition(PKIAPHandlerAlertType.disabled, nil, nil)
+            delegate.purchaseProductComplition(alertType: PKIAPHandlerAlertType.disabled, product: nil, transaction: nil)
         }
     }
     
@@ -83,9 +89,8 @@ class PKIAPHandler: NSObject {
     
     
     // FETCH AVAILABLE IAP PRODUCTS
-    func fetchAvailableProducts(complition: @escaping (([SKProduct])->Void)){
+    func fetchAvailableProducts(){
         
-        self.fetchProductComplition = complition
         // Put here your IAP Products ID's
         if self.productIds.isEmpty {
             log(PKIAPHandlerAlertType.setProductIds.message)
@@ -114,16 +119,12 @@ extension PKIAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
     func productsRequest (_ request:SKProductsRequest, didReceive response:SKProductsResponse) {
         
         if (response.products.count > 0) {
-            if let complition = self.fetchProductComplition {
-                complition(response.products)
-            }
+            delegate.fetchProductComplition(products: response.products)
         }
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        if let complition = self.purchaseProductComplition {
-            complition(PKIAPHandlerAlertType.restored, nil, nil)
-        }
+        delegate.purchaseProductComplition(alertType: PKIAPHandlerAlertType.restored, product: nil, transaction: nil)
     }
     
     // IAP PAYMENT QUEUE
@@ -134,9 +135,7 @@ extension PKIAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                 case .purchased:
                     log("Product purchase done")
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
-                    if let complition = self.purchaseProductComplition {
-                        complition(PKIAPHandlerAlertType.purchased, self.productToPurchase, trans)
-                    }
+                    delegate.purchaseProductComplition(alertType: PKIAPHandlerAlertType.purchased, product: self.productToPurchase, transaction: trans)
                     break
                     
                 case .failed:

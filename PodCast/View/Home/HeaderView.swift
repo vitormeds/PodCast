@@ -24,7 +24,7 @@ class HeaderView: UIView {
         label.textColor = UIColor.secondary
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 22)
-        label.text = R.string.localizable.appName()
+        label.text = R.string.localizable.appName() + (Ad.isPremium ? " Premium":"")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
