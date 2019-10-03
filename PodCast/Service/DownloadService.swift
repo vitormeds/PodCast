@@ -30,7 +30,6 @@ class DownloadService: DownloadManagerDelegate {
             fail()
             return
         }
-        
     }
     
     func verifyQueue() {

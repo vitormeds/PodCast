@@ -214,42 +214,16 @@ extension Config: GADBannerViewDelegate{
     }
 }
 
-extension Config: RemoveAdDelegate,SKProductsRequestDelegate {
-    
+extension Config: RemoveAdDelegate {
+
     func performRemoveAd() {
-        var productIdentifier = "premium"
-        var productID = ""
-        var productsRequest = SKProductsRequest()
-        var iapProducts = [SKProduct]()
-        
-        // Put here your IAP Products ID's
-        let productIdentifiers = NSSet(objects:productIdentifier)
-        guard let identifier = productIdentifiers as? Set<String> else { return }
-        productsRequest = SKProductsRequest(productIdentifiers: identifier)
-        productsRequest.delegate = self
-        productsRequest.start()
-    }
-    
-    func canMakePurchases() -> Bool {
-        return SKPaymentQueue.canMakePayments()
-    }
-    
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        if response.products.count > 0 {
-            var iapProducts = [SKProduct]()
-            iapProducts = response.products
-            if iapProducts.count > 0 {
-                let purchasingProduct = response.products[0] as SKProduct
-                purchaseProduct(product: purchasingProduct)
+        PKIAPHandler.shared.setProductIds(ids: ["premium"])
+        PKIAPHandler.shared.fetchAvailableProducts { [weak self](products)   in
+            if PKIAPHandler.shared.canMakePurchases() {
+                PKIAPHandler.shared.purchase(product: products.first!) { (type, product, transaction) in
+                    
+                }
             }
         }
     }
-    
-    func purchaseProduct(product: SKProduct) {
-        if self.canMakePurchases() {
-            let payment = SKPayment(product: product)
-            SKPaymentQueue.default().add(payment)
-        }
-    }
-
 }

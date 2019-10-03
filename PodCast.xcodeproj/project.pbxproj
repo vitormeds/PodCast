@@ -12,6 +12,8 @@
 		4E2D146D232FF4140060242D /* MyPodsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146C232FF4140060242D /* MyPodsDAO.swift */; };
 		4E2D1470232FF4B60060242D /* MyPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146E232FF4B60060242D /* MyPods.swift */; };
 		4E2D1474232FF4CC0060242D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D1472232FF4CC0060242D /* Preferences.swift */; };
+		4E3F16C62346386E007F6CBE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3F16C52346386E007F6CBE /* StoreKit.framework */; };
+		4E3F16C823463A61007F6CBE /* PKIAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F16C723463A61007F6CBE /* PKIAPHandler.swift */; };
 		4E485131232FCD8A009E16A0 /* SharedDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E485130232FCD8A009E16A0 /* SharedDownload.swift */; };
 		4E571E562332A7440000132E /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E571E552332A7440000132E /* SingInViewController.swift */; };
 		4E5D9149231837E300F61B1B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9147231837E300F61B1B /* Queue.swift */; };
@@ -114,6 +116,8 @@
 		4E2D146C232FF4140060242D /* MyPodsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodsDAO.swift; sourceTree = "<group>"; };
 		4E2D146E232FF4B60060242D /* MyPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPods.swift; sourceTree = "<group>"; };
 		4E2D1472232FF4CC0060242D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		4E3F16C52346386E007F6CBE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4E3F16C723463A61007F6CBE /* PKIAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKIAPHandler.swift; sourceTree = "<group>"; };
 		4E433C48233278A1007A37F2 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4E433C49233278A9007A37F2 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4E433C4A233278BE007A37F2 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5AFDB762332693308E7D5B9 /* Pods_PodCast.framework in Frameworks */,
+				4E3F16C62346386E007F6CBE /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +288,7 @@
 		B2ADB1D05A02E4B9C7AB6FAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E3F16C52346386E007F6CBE /* StoreKit.framework */,
 				DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */,
 				6FD02A6212383B4260CA6047 /* Pods_PodCastTests.framework */,
 				F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */,
@@ -634,6 +640,7 @@
 				F4BF693322907FA300640D33 /* DownloadService.swift */,
 				4E78C3572318087500E464A5 /* DownloadManager.swift */,
 				4EEB474723312D0A00B4C3CB /* CountryService.swift */,
+				4E3F16C723463A61007F6CBE /* PKIAPHandler.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -928,6 +935,7 @@
 				F4C2C9EF21FB86A200467A06 /* CustomViewController.swift in Sources */,
 				F4E2E43322134D36007C984E /* R.generated.swift in Sources */,
 				F4BF693422907FA300640D33 /* DownloadService.swift in Sources */,
+				4E3F16C823463A61007F6CBE /* PKIAPHandler.swift in Sources */,
 				F47AAEB121FA3E700068FAD2 /* ContentCollectionViewCell.swift in Sources */,
 				F4FA04DC21F78A1100896B5C /* PodCastListService.swift in Sources */,
 				4EEB47462331227200B4C3CB /* CountryListViewController.swift in Sources */,
