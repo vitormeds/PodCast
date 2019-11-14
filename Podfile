@@ -15,8 +15,9 @@ target 'PodCast' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
   pod 'Google-Mobile-Ads-SDK'
-  pod 'Firebase/Analytics'
   pod 'Firebase/AdMob'
+  pod 'Fabric'
+  pod 'Crashlytics'
   use_frameworks!
 
   # Pods for PodCast
