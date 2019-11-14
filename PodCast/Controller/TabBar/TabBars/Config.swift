@@ -117,16 +117,16 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             cell.setup()
             return cell
         }
-        else if indexPath.row == 4 {
+        else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellSingleButton") as! SingleButtonTableViewCell
             cell.clearDataDelegate = self
             cell.setup()
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellRemoveAdButton") as! RemoveAdTableViewCell
-        cell.removeAdDelegate = self
-        cell.setup()
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cellRemoveAdButton") as! RemoveAdTableViewCell
+//        cell.removeAdDelegate = self
+//        cell.setup()
+//        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -179,7 +179,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
 }
