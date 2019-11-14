@@ -230,7 +230,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 28 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 30 localization keys.
     struct localizable {
       /// en translation: About
       /// 
@@ -248,6 +248,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
       static let fechar = Rswift.StringResource(key: "fechar", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU", "en-GB", "en-IN", "es-419", "pt-PT"], comment: nil)
+      /// en translation: Dados apagados com sucesso.
+      /// 
+      /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
+      static let removeDataSucessMessage = Rswift.StringResource(key: "removeDataSucessMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU", "en-GB", "en-IN", "es-419", "pt-PT"], comment: nil)
       /// en translation: Download PodCat Podcast Player Now on the App Store:
       /// 
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
@@ -332,6 +336,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
       static let inscricoes = Rswift.StringResource(key: "inscricoes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU", "en-GB", "en-IN", "es-419", "pt-PT"], comment: nil)
+      /// en translation: Success
+      /// 
+      /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
+      static let sucess = Rswift.StringResource(key: "sucess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR", "es", "en-AU", "en-GB", "en-IN", "es-419", "pt-PT"], comment: nil)
       /// en translation: english
       /// 
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
@@ -371,6 +379,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
       static func fechar(_: Void = ()) -> String {
         return NSLocalizedString("fechar", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Dados apagados com sucesso.
+      /// 
+      /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
+      static func removeDataSucessMessage(_: Void = ()) -> String {
+        return NSLocalizedString("removeDataSucessMessage", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Download PodCat Podcast Player Now on the App Store:
@@ -518,6 +533,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
       static func inscricoes(_: Void = ()) -> String {
         return NSLocalizedString("inscricoes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Success
+      /// 
+      /// Locales: en, pt-BR, es, en-AU, en-GB, en-IN, es-419, pt-PT
+      static func sucess(_: Void = ()) -> String {
+        return NSLocalizedString("sucess", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: english

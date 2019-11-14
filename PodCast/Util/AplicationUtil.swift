@@ -21,4 +21,10 @@ class AplicationUtil {
             return nil
         }
     }
+    
+    static func performAlert(title: String,description: String) {
+        let alert = UIAlertController(title: title, message: description, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        getViewController()?.present(alert, animated: true, completion: nil)
+    }
 }

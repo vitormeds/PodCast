@@ -12,7 +12,6 @@
 		4E2D146D232FF4140060242D /* MyPodsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146C232FF4140060242D /* MyPodsDAO.swift */; };
 		4E2D1470232FF4B60060242D /* MyPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146E232FF4B60060242D /* MyPods.swift */; };
 		4E2D1474232FF4CC0060242D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D1472232FF4CC0060242D /* Preferences.swift */; };
-		4E3F16C62346386E007F6CBE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3F16C52346386E007F6CBE /* StoreKit.framework */; };
 		4E3F16C823463A61007F6CBE /* PKIAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F16C723463A61007F6CBE /* PKIAPHandler.swift */; };
 		4E485131232FCD8A009E16A0 /* SharedDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E485130232FCD8A009E16A0 /* SharedDownload.swift */; };
 		4E571E562332A7440000132E /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E571E552332A7440000132E /* SingInViewController.swift */; };
@@ -116,7 +115,6 @@
 		4E2D146C232FF4140060242D /* MyPodsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodsDAO.swift; sourceTree = "<group>"; };
 		4E2D146E232FF4B60060242D /* MyPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPods.swift; sourceTree = "<group>"; };
 		4E2D1472232FF4CC0060242D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		4E3F16C52346386E007F6CBE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4E3F16C723463A61007F6CBE /* PKIAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKIAPHandler.swift; sourceTree = "<group>"; };
 		4E433C48233278A1007A37F2 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4E433C49233278A9007A37F2 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5AFDB762332693308E7D5B9 /* Pods_PodCast.framework in Frameworks */,
-				4E3F16C62346386E007F6CBE /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +285,6 @@
 		B2ADB1D05A02E4B9C7AB6FAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E3F16C52346386E007F6CBE /* StoreKit.framework */,
 				DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */,
 				6FD02A6212383B4260CA6047 /* Pods_PodCastTests.framework */,
 				F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */,
@@ -1184,7 +1180,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PodCast/PodCast.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF9NF5L47X;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = PodCast/Info.plist;
@@ -1193,7 +1189,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.vitormendes.podcat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1209,7 +1205,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PodCast/PodCast.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF9NF5L47X;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = PodCast/Info.plist;
@@ -1218,7 +1214,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.vitormendes.podcat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

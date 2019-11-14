@@ -34,6 +34,8 @@
 "inicio" = "Inicio";
 "meuspodcasts" = "My PodCasts";
 "removead" = "Eliminar anuncios";
+"sucess" = "El éxito";
+"removeDataSucessMessage" = "Datos eliminados con éxito.";
 
 
 

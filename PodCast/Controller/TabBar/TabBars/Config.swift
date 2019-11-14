@@ -201,9 +201,9 @@ extension Config: ClearDataDelegate {
                 }
             }
         }
-        
         SavedPodDAO.deleteAll()
         QueueDAO.deleteAll()
+        AplicationUtil.performAlert(title: R.string.localizable.sucess(), description: R.string.localizable.removeDataSucessMessage())
     }
 }
 

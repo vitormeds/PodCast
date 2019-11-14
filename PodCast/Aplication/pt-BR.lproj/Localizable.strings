@@ -34,3 +34,5 @@
 "inicio" = "Inicio";
 "meuspodcasts" = "Meus Pod Casts";
 "removead" = "Remover Propagandas";
+"sucess" = "Sucesso";
+"removeDataSucessMessage" = "Dados apagados com sucesso.";
