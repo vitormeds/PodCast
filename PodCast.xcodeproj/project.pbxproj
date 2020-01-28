@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04DCB340CE227E2D56271B56 /* Pods_PodCastUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */; };
 		4E2D146B232FF4070060242D /* PreferencesDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146A232FF4070060242D /* PreferencesDAO.swift */; };
 		4E2D146D232FF4140060242D /* MyPodsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146C232FF4140060242D /* MyPodsDAO.swift */; };
 		4E2D1470232FF4B60060242D /* MyPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146E232FF4B60060242D /* MyPods.swift */; };
@@ -31,7 +30,6 @@
 		4EEB47462331227200B4C3CB /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB47452331227200B4C3CB /* CountryListViewController.swift */; };
 		4EEB474823312D0A00B4C3CB /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB474723312D0A00B4C3CB /* CountryService.swift */; };
 		4EEB474A23312D2100B4C3CB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB474923312D2100B4C3CB /* Country.swift */; };
-		C4B81E373BA01275EE4BE422 /* Pods_PodCastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD02A6212383B4260CA6047 /* Pods_PodCastTests.framework */; };
 		F403B61722E76F8200E184FC /* SavedPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403B61522E76F8200E184FC /* SavedPods.swift */; };
 		F4052E522285DA1B00B576C4 /* PodCastByGenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4052E512285DA1B00B576C4 /* PodCastByGenreListViewController.swift */; };
 		F42561AD21D3C31400AA22A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561AC21D3C31400AA22A1 /* AppDelegate.swift */; };
@@ -39,8 +37,6 @@
 		F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42561B321D3C31400AA22A1 /* PodCast.xcdatamodeld */; };
 		F42561B721D3C31500AA22A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42561B621D3C31500AA22A1 /* Assets.xcassets */; };
 		F42561BA21D3C31500AA22A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42561B821D3C31500AA22A1 /* LaunchScreen.storyboard */; };
-		F42561C521D3C31500AA22A1 /* PodCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561C421D3C31500AA22A1 /* PodCastTests.swift */; };
-		F42561D021D3C31500AA22A1 /* PodCastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42561CF21D3C31500AA22A1 /* PodCastUITests.swift */; };
 		F42BA6A421F601C40075E4B3 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A321F601C40075E4B3 /* CustomTabBarController.swift */; };
 		F42BA6A821F602220075E4B3 /* MyPodCasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A721F602220075E4B3 /* MyPodCasts.swift */; };
 		F42BA6AA21F602330075E4B3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BA6A921F602330075E4B3 /* Config.swift */; };
@@ -88,23 +84,6 @@
 		F4FA04F121F7AD6000896B5C /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA04F021F7AD6000896B5C /* CGFloat.swift */; };
 		F5AFDB762332693308E7D5B9 /* Pods_PodCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F42561C121D3C31500AA22A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F42561A121D3C31400AA22A1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F42561A821D3C31400AA22A1;
-			remoteInfo = PodCast;
-		};
-		F42561CC21D3C31500AA22A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F42561A121D3C31400AA22A1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F42561A821D3C31400AA22A1;
-			remoteInfo = PodCast;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		214AF971DF7ACE56DB753502 /* Pods-PodCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCast.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCast/Pods-PodCast.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,12 +143,6 @@
 		F42561B621D3C31500AA22A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F42561B921D3C31500AA22A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F42561BB21D3C31500AA22A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F42561C021D3C31500AA22A1 /* PodCastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodCastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F42561C421D3C31500AA22A1 /* PodCastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastTests.swift; sourceTree = "<group>"; };
-		F42561C621D3C31500AA22A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F42561CB21D3C31500AA22A1 /* PodCastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodCastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F42561CF21D3C31500AA22A1 /* PodCastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastUITests.swift; sourceTree = "<group>"; };
-		F42561D121D3C31500AA22A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F42BA6A321F601C40075E4B3 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		F42BA6A721F602220075E4B3 /* MyPodCasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodCasts.swift; sourceTree = "<group>"; };
 		F42BA6A921F602330075E4B3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -223,22 +196,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5AFDB762332693308E7D5B9 /* Pods_PodCast.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F42561BD21D3C31500AA22A1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4B81E373BA01275EE4BE422 /* Pods_PodCastTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F42561C821D3C31500AA22A1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04DCB340CE227E2D56271B56 /* Pods_PodCastUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,8 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				F42561AB21D3C31400AA22A1 /* PodCast */,
-				F42561C321D3C31500AA22A1 /* PodCastTests */,
-				F42561CE21D3C31500AA22A1 /* PodCastUITests */,
 				F42561AA21D3C31400AA22A1 /* Products */,
 				B315151E1CEB3DDB2E737706 /* Pods */,
 				B2ADB1D05A02E4B9C7AB6FAC /* Frameworks */,
@@ -327,8 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				F42561A921D3C31400AA22A1 /* PodCast.app */,
-				F42561C021D3C31500AA22A1 /* PodCastTests.xctest */,
-				F42561CB21D3C31500AA22A1 /* PodCastUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,24 +307,6 @@
 				F42561B321D3C31400AA22A1 /* PodCast.xcdatamodeld */,
 			);
 			path = PodCast;
-			sourceTree = "<group>";
-		};
-		F42561C321D3C31500AA22A1 /* PodCastTests */ = {
-			isa = PBXGroup;
-			children = (
-				F42561C421D3C31500AA22A1 /* PodCastTests.swift */,
-				F42561C621D3C31500AA22A1 /* Info.plist */,
-			);
-			path = PodCastTests;
-			sourceTree = "<group>";
-		};
-		F42561CE21D3C31500AA22A1 /* PodCastUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F42561CF21D3C31500AA22A1 /* PodCastUITests.swift */,
-				F42561D121D3C31500AA22A1 /* Info.plist */,
-			);
-			path = PodCastUITests;
 			sourceTree = "<group>";
 		};
 		F4347CB821FF18BF002B2088 /* PodCast */ = {
@@ -672,44 +607,6 @@
 			productReference = F42561A921D3C31400AA22A1 /* PodCast.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F42561BF21D3C31500AA22A1 /* PodCastTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F42561D721D3C31500AA22A1 /* Build configuration list for PBXNativeTarget "PodCastTests" */;
-			buildPhases = (
-				418AE6B6F181D2ECB29A1F5C /* [CP] Check Pods Manifest.lock */,
-				F42561BC21D3C31500AA22A1 /* Sources */,
-				F42561BD21D3C31500AA22A1 /* Frameworks */,
-				F42561BE21D3C31500AA22A1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F42561C221D3C31500AA22A1 /* PBXTargetDependency */,
-			);
-			name = PodCastTests;
-			productName = PodCastTests;
-			productReference = F42561C021D3C31500AA22A1 /* PodCastTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		F42561CA21D3C31500AA22A1 /* PodCastUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F42561DA21D3C31500AA22A1 /* Build configuration list for PBXNativeTarget "PodCastUITests" */;
-			buildPhases = (
-				E5390B6F1FCCA3B0EC42E0D7 /* [CP] Check Pods Manifest.lock */,
-				F42561C721D3C31500AA22A1 /* Sources */,
-				F42561C821D3C31500AA22A1 /* Frameworks */,
-				F42561C921D3C31500AA22A1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F42561CD21D3C31500AA22A1 /* PBXTargetDependency */,
-			);
-			name = PodCastUITests;
-			productName = PodCastUITests;
-			productReference = F42561CB21D3C31500AA22A1 /* PodCastUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -730,14 +627,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					F42561BF21D3C31500AA22A1 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = F42561A821D3C31400AA22A1;
-					};
-					F42561CA21D3C31500AA22A1 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = F42561A821D3C31400AA22A1;
 					};
 				};
 			};
@@ -762,8 +651,6 @@
 			projectRoot = "";
 			targets = (
 				F42561A821D3C31400AA22A1 /* PodCast */,
-				F42561BF21D3C31500AA22A1 /* PodCastTests */,
-				F42561CA21D3C31500AA22A1 /* PodCastUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -782,45 +669,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F42561BE21D3C31500AA22A1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F42561C921D3C31500AA22A1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		418AE6B6F181D2ECB29A1F5C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PodCastTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4E64CDC3237DEA8E00034C94 /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -876,28 +727,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PodCast/Pods-PodCast-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E5390B6F1FCCA3B0EC42E0D7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PodCastUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4E2E42F22134BAA007C984E /* RSwift */ = {
@@ -999,36 +828,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F42561BC21D3C31500AA22A1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F42561C521D3C31500AA22A1 /* PodCastTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F42561C721D3C31500AA22A1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F42561D021D3C31500AA22A1 /* PodCastUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F42561C221D3C31500AA22A1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F42561A821D3C31400AA22A1 /* PodCast */;
-			targetProxy = F42561C121D3C31500AA22A1 /* PBXContainerItemProxy */;
-		};
-		F42561CD21D3C31500AA22A1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F42561A821D3C31400AA22A1 /* PodCast */;
-			targetProxy = F42561CC21D3C31500AA22A1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4EA6B24023315773006F8AF9 /* Localizable.strings */ = {
@@ -1237,96 +1037,6 @@
 			};
 			name = Release;
 		};
-		F42561D821D3C31500AA22A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D35AFD14D6169B57208986D6 /* Pods-PodCastTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CF9NF5L47X;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
-				INFOPLIST_FILE = PodCastTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = vitormendes.PodCastTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PodCast.app/PodCast";
-			};
-			name = Debug;
-		};
-		F42561D921D3C31500AA22A1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87F6A9953D6D965EEA181D32 /* Pods-PodCastTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CF9NF5L47X;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
-				INFOPLIST_FILE = PodCastTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = vitormendes.PodCastTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PodCast.app/PodCast";
-			};
-			name = Release;
-		};
-		F42561DB21D3C31500AA22A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2250BCFDAEBDBF5CCA6EEF19 /* Pods-PodCastUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CF9NF5L47X;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
-				INFOPLIST_FILE = PodCastUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = vitormendes.PodCastUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PodCast;
-			};
-			name = Debug;
-		};
-		F42561DC21D3C31500AA22A1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B8E96A7D40A077B2C2FC276 /* Pods-PodCastUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CF9NF5L47X;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
-				INFOPLIST_FILE = PodCastUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = vitormendes.PodCastUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PodCast;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1344,24 +1054,6 @@
 			buildConfigurations = (
 				F42561D521D3C31500AA22A1 /* Debug */,
 				F42561D621D3C31500AA22A1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F42561D721D3C31500AA22A1 /* Build configuration list for PBXNativeTarget "PodCastTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F42561D821D3C31500AA22A1 /* Debug */,
-				F42561D921D3C31500AA22A1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F42561DA21D3C31500AA22A1 /* Build configuration list for PBXNativeTarget "PodCastUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F42561DB21D3C31500AA22A1 /* Debug */,
-				F42561DC21D3C31500AA22A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
