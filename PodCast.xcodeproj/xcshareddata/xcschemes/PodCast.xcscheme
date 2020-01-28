@@ -74,6 +74,20 @@
             BlueprintName = "PodCast"
             ReferencedContainer = "container:PodCast.xcodeproj">
          </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4E35FE9923E06B5200A11E3B"
+            BuildableName = "PodCastTests.xctest"
+            BlueprintName = "PodCastTests"
+            ReferencedContainer = "container:PodCast.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4E35FEA723E06B6700A11E3B"
+            BuildableName = "PodCastUITests.xctest"
+            BlueprintName = "PodCastUITests"
+            ReferencedContainer = "container:PodCast.xcodeproj">
+         </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
