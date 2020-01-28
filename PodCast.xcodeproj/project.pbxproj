@@ -11,6 +11,8 @@
 		4E2D146D232FF4140060242D /* MyPodsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146C232FF4140060242D /* MyPodsDAO.swift */; };
 		4E2D1470232FF4B60060242D /* MyPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146E232FF4B60060242D /* MyPods.swift */; };
 		4E2D1474232FF4CC0060242D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D1472232FF4CC0060242D /* Preferences.swift */; };
+		4E35FE9D23E06B5200A11E3B /* PodCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E35FE9C23E06B5200A11E3B /* PodCastTests.swift */; };
+		4E35FEAB23E06B6700A11E3B /* PodCastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E35FEAA23E06B6700A11E3B /* PodCastUITests.swift */; };
 		4E485131232FCD8A009E16A0 /* SharedDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E485130232FCD8A009E16A0 /* SharedDownload.swift */; };
 		4E571E562332A7440000132E /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E571E552332A7440000132E /* SingInViewController.swift */; };
 		4E5D9149231837E300F61B1B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9147231837E300F61B1B /* Queue.swift */; };
@@ -85,6 +87,23 @@
 		F5AFDB762332693308E7D5B9 /* Pods_PodCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4E35FE9F23E06B5200A11E3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F42561A121D3C31400AA22A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F42561A821D3C31400AA22A1;
+			remoteInfo = PodCast;
+		};
+		4E35FEAD23E06B6700A11E3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F42561A121D3C31400AA22A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F42561A821D3C31400AA22A1;
+			remoteInfo = PodCast;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		214AF971DF7ACE56DB753502 /* Pods-PodCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCast.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCast/Pods-PodCast.release.xcconfig"; sourceTree = "<group>"; };
 		2250BCFDAEBDBF5CCA6EEF19 /* Pods-PodCastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastUITests/Pods-PodCastUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +112,12 @@
 		4E2D146C232FF4140060242D /* MyPodsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodsDAO.swift; sourceTree = "<group>"; };
 		4E2D146E232FF4B60060242D /* MyPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPods.swift; sourceTree = "<group>"; };
 		4E2D1472232FF4CC0060242D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		4E35FE9A23E06B5200A11E3B /* PodCastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodCastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E35FE9C23E06B5200A11E3B /* PodCastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastTests.swift; sourceTree = "<group>"; };
+		4E35FE9E23E06B5200A11E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E35FEA823E06B6700A11E3B /* PodCastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodCastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E35FEAA23E06B6700A11E3B /* PodCastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodCastUITests.swift; sourceTree = "<group>"; };
+		4E35FEAC23E06B6700A11E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E433C48233278A1007A37F2 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4E433C49233278A9007A37F2 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4E433C4A233278BE007A37F2 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -191,6 +216,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4E35FE9723E06B5200A11E3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E35FEA523E06B6700A11E3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F42561A621D3C31400AA22A1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +241,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E35FE9B23E06B5200A11E3B /* PodCastTests */ = {
+			isa = PBXGroup;
+			children = (
+				4E35FE9C23E06B5200A11E3B /* PodCastTests.swift */,
+				4E35FE9E23E06B5200A11E3B /* Info.plist */,
+			);
+			path = PodCastTests;
+			sourceTree = "<group>";
+		};
+		4E35FEA923E06B6700A11E3B /* PodCastUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4E35FEAA23E06B6700A11E3B /* PodCastUITests.swift */,
+				4E35FEAC23E06B6700A11E3B /* Info.plist */,
+			);
+			path = PodCastUITests;
+			sourceTree = "<group>";
+		};
 		4E5D9146231837C200F61B1B /* Queue */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				F42561AB21D3C31400AA22A1 /* PodCast */,
+				4E35FE9B23E06B5200A11E3B /* PodCastTests */,
+				4E35FEA923E06B6700A11E3B /* PodCastUITests */,
 				F42561AA21D3C31400AA22A1 /* Products */,
 				B315151E1CEB3DDB2E737706 /* Pods */,
 				B2ADB1D05A02E4B9C7AB6FAC /* Frameworks */,
@@ -282,6 +341,8 @@
 			isa = PBXGroup;
 			children = (
 				F42561A921D3C31400AA22A1 /* PodCast.app */,
+				4E35FE9A23E06B5200A11E3B /* PodCastTests.xctest */,
+				4E35FEA823E06B6700A11E3B /* PodCastUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -586,6 +647,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4E35FE9923E06B5200A11E3B /* PodCastTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E35FEA123E06B5200A11E3B /* Build configuration list for PBXNativeTarget "PodCastTests" */;
+			buildPhases = (
+				4E35FE9623E06B5200A11E3B /* Sources */,
+				4E35FE9723E06B5200A11E3B /* Frameworks */,
+				4E35FE9823E06B5200A11E3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E35FEA023E06B5200A11E3B /* PBXTargetDependency */,
+			);
+			name = PodCastTests;
+			productName = PodCastTests;
+			productReference = 4E35FE9A23E06B5200A11E3B /* PodCastTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4E35FEA723E06B6700A11E3B /* PodCastUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E35FEAF23E06B6700A11E3B /* Build configuration list for PBXNativeTarget "PodCastUITests" */;
+			buildPhases = (
+				4E35FEA423E06B6700A11E3B /* Sources */,
+				4E35FEA523E06B6700A11E3B /* Frameworks */,
+				4E35FEA623E06B6700A11E3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E35FEAE23E06B6700A11E3B /* PBXTargetDependency */,
+			);
+			name = PodCastUITests;
+			productName = PodCastUITests;
+			productReference = 4E35FEA823E06B6700A11E3B /* PodCastUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F42561A821D3C31400AA22A1 /* PodCast */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F42561D421D3C31500AA22A1 /* Build configuration list for PBXNativeTarget "PodCast" */;
@@ -613,10 +710,18 @@
 		F42561A121D3C31400AA22A1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Vitor Mendes";
 				TargetAttributes = {
+					4E35FE9923E06B5200A11E3B = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = F42561A821D3C31400AA22A1;
+					};
+					4E35FEA723E06B6700A11E3B = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = F42561A821D3C31400AA22A1;
+					};
 					F42561A821D3C31400AA22A1 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
@@ -651,11 +756,27 @@
 			projectRoot = "";
 			targets = (
 				F42561A821D3C31400AA22A1 /* PodCast */,
+				4E35FE9923E06B5200A11E3B /* PodCastTests */,
+				4E35FEA723E06B6700A11E3B /* PodCastUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4E35FE9823E06B5200A11E3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E35FEA623E06B6700A11E3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F42561A721D3C31400AA22A1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -752,6 +873,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4E35FE9623E06B5200A11E3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E35FE9D23E06B5200A11E3B /* PodCastTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E35FEA423E06B6700A11E3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E35FEAB23E06B6700A11E3B /* PodCastUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F42561A521D3C31400AA22A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -830,6 +967,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4E35FEA023E06B5200A11E3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F42561A821D3C31400AA22A1 /* PodCast */;
+			targetProxy = 4E35FE9F23E06B5200A11E3B /* PBXContainerItemProxy */;
+		};
+		4E35FEAE23E06B6700A11E3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F42561A821D3C31400AA22A1 /* PodCast */;
+			targetProxy = 4E35FEAD23E06B6700A11E3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		4EA6B24023315773006F8AF9 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -865,6 +1015,88 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4E35FEA223E06B5200A11E3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CF9NF5L47X;
+				INFOPLIST_FILE = PodCastTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vitor.mendes.PodCastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PodCast.app/PodCast";
+			};
+			name = Debug;
+		};
+		4E35FEA323E06B5200A11E3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CF9NF5L47X;
+				INFOPLIST_FILE = PodCastTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vitor.mendes.PodCastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PodCast.app/PodCast";
+			};
+			name = Release;
+		};
+		4E35FEB023E06B6700A11E3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CF9NF5L47X;
+				INFOPLIST_FILE = PodCastUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vitor.mendes.PodCastUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PodCast;
+			};
+			name = Debug;
+		};
+		4E35FEB123E06B6700A11E3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CF9NF5L47X;
+				INFOPLIST_FILE = PodCastUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vitor.mendes.PodCastUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PodCast;
+			};
+			name = Release;
+		};
 		F42561D221D3C31500AA22A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1040,6 +1272,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4E35FEA123E06B5200A11E3B /* Build configuration list for PBXNativeTarget "PodCastTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E35FEA223E06B5200A11E3B /* Debug */,
+				4E35FEA323E06B5200A11E3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E35FEAF23E06B6700A11E3B /* Build configuration list for PBXNativeTarget "PodCastUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E35FEB023E06B6700A11E3B /* Debug */,
+				4E35FEB123E06B6700A11E3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F42561A421D3C31400AA22A1 /* Build configuration list for PBXProject "PodCast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

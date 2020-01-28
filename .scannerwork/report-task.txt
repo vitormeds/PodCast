@@ -1,0 +1,7 @@
+organization=vitormeds
+projectKey=PodCast
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.4183
+dashboardUrl=https://sonarcloud.io/dashboard?id=PodCast
+ceTaskId=AW_sWn3rV2K9XUFqCm8H
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AW_sWn3rV2K9XUFqCm8H
