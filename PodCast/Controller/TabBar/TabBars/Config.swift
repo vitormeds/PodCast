@@ -213,24 +213,3 @@ extension Config: GADBannerViewDelegate{
         bannerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
     }
 }
-
-extension Config: RemoveAdDelegate,PKIAPHandlerDelegate {
-
-    func performRemoveAd() {
-        PKIAPHandler.shared.setDelegate(delegate: self)
-        PKIAPHandler.shared.setProductIds(ids: ["premium"])
-        PKIAPHandler.shared.fetchAvailableProducts()
-    }
-    
-    func fetchProductComplition(products: [SKProduct]) {
-        if PKIAPHandler.shared.canMakePurchases() {
-            PKIAPHandler.shared.purchase(product: products.first!)
-        }
-    }
-    
-    func purchaseProductComplition(alertType: PKIAPHandlerAlertType, product: SKProduct?, transaction: SKPaymentTransaction?) {
-        if product?.productIdentifier == "premium" && alertType == PKIAPHandlerAlertType.restored && alertType == PKIAPHandlerAlertType.restored {
-            Ad.isPremium = true
-        }
-    }
-}
