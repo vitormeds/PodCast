@@ -1,4 +1,4 @@
-framework module Pods_PodCastUITests {
+module Pods_PodCastUITests {
   umbrella header "Pods-PodCastUITests-umbrella.h"
 
   export *
