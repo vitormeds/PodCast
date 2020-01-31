@@ -59,11 +59,19 @@ class MyPodCasts: CustomViewController {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+        if Ad.isPremium {
+             collectionView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+        }
         collectionView.register(ContentCollectionViewCell.self,forCellWithReuseIdentifier: contentCellIdentifier)
     }
     
     func setupAd() {
+        
+        if Ad.isPremium {
+            return
+        }
         
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         bannerView.adUnitID = Ad.adBannerMyPods

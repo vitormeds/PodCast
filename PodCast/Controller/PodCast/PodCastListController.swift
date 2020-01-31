@@ -125,11 +125,19 @@ class PodCastListViewController: CustomViewController {
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+        if Ad.isPremium {
+            tableView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+        }
         tableView.reloadData()
     }
     
     func setupAd() {
+        
+        if Ad.isPremium {
+            return
+        }
         
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         bannerView.adUnitID = Ad.adBannerListPods

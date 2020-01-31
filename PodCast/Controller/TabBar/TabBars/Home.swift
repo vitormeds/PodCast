@@ -92,7 +92,6 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         bannerView.adUnitID = Ad.adBannerHome
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
@@ -129,7 +128,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
             tableView.tableHeaderView = searchBarView
             
-            if !failAd {
+            if (!failAd && !Ad.isPremium) {
                 view.addSubview(bannerView)
                 bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
                 bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -139,7 +138,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             
             audioPlayerBar = PlayerController.audioPlayerBar
             view.addSubview(audioPlayerBar)
-            if !failAd {
+            if (!failAd && !Ad.isPremium) {
                 audioPlayerBar.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
             }
             else {
@@ -173,7 +172,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             searchBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
             tableView.tableHeaderView = searchBarView
             
-            if !failAd {
+            if (!failAd && !Ad.isPremium) {
                 view.addSubview(bannerView)
                 bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
                 bannerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -185,7 +184,7 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
-            if !failAd {
+            if (!failAd && !Ad.isPremium) {
                 tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
             }
             else {

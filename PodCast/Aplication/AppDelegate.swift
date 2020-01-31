@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         FirebaseApp.configure()
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        Ad.isPremium = false
+        Ad.isPremium = true
         
         registerForPushNotifications()
         UNUserNotificationCenter.current().delegate = self

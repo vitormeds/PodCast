@@ -68,12 +68,20 @@ class PlayerViewController: CustomViewController,GADBannerViewDelegate  {
         audioPlayerView = PlayerController.audioPlayerView
         view.addSubview(audioPlayerView)
         audioPlayerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        audioPlayerView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+        if Ad.isPremium {
+            audioPlayerView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            audioPlayerView.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+        }
         audioPlayerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         audioPlayerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     func setupAd() {
+        
+        if Ad.isPremium {
+            return
+        }
         
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         bannerView.adUnitID = Ad.adBannerPlayer
