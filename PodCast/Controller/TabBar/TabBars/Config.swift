@@ -89,7 +89,6 @@ class Config: UIViewController,ListUpdateDelegate {
     func reloadAd() {
         if IAProducts.store.isProductPurchased(IAProducts.premium) {
             Ad.isPremium = true
-            
         }
     }
 }
