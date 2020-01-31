@@ -361,9 +361,11 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
         if IAProducts.store.isProductPurchased(IAProducts.premium) {
             Ad.isPremium = true
             headerView.titleLabel.text = R.string.localizable.appName() + (Ad.isPremium ? " Premium":"")
-            for element in bannerView.constraints {
-                if element.constant == 50 {
-                    element.constant = 0
+            if bannerView != nil {
+                for element in bannerView.constraints {
+                    if element.constant == 50 {
+                        element.constant = 0
+                    }
                 }
             }
         }

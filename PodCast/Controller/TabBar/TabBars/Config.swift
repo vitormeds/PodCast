@@ -89,9 +89,11 @@ class Config: UIViewController,ListUpdateDelegate {
     func reloadAd() {
         if IAProducts.store.isProductPurchased(IAProducts.premium) {
             Ad.isPremium = true
-            for element in bannerView.constraints {
-                if element.constant == 50 {
-                    element.constant = 0
+            if bannerView != nil {
+                for element in bannerView.constraints {
+                    if element.constant == 50 {
+                        element.constant = 0
+                    }
                 }
             }
         }
