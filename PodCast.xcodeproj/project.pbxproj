@@ -1092,6 +1092,7 @@
 			baseConfigurationReference = D35AFD14D6169B57208986D6 /* Pods-PodCastTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CF9NF5L47X;
 				INFOPLIST_FILE = PodCastTests/Info.plist;
@@ -1114,6 +1115,7 @@
 			baseConfigurationReference = 87F6A9953D6D965EEA181D32 /* Pods-PodCastTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CF9NF5L47X;
 				INFOPLIST_FILE = PodCastTests/Info.plist;
@@ -1135,6 +1137,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2250BCFDAEBDBF5CCA6EEF19 /* Pods-PodCastUITests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CF9NF5L47X;
 				INFOPLIST_FILE = PodCastUITests/Info.plist;
@@ -1156,6 +1159,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B8E96A7D40A077B2C2FC276 /* Pods-PodCastUITests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CF9NF5L47X;
 				INFOPLIST_FILE = PodCastUITests/Info.plist;
