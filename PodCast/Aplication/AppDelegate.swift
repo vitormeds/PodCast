@@ -30,12 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
-        if IAProducts.store.isProductPurchased(IAProducts.premium) {
-            Ad.isPremium = true
-        } else  {
-            Ad.isPremium = false
-        }
-        
         registerForPushNotifications()
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self

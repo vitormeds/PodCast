@@ -86,6 +86,12 @@ class Config: UIViewController,ListUpdateDelegate {
         tableView.reloadData()
     }
     
+    func reloadAd() {
+        if IAProducts.store.isProductPurchased(IAProducts.premium) {
+            Ad.isPremium = true
+            
+        }
+    }
 }
 
 extension Config: UITableViewDelegate,UITableViewDataSource {

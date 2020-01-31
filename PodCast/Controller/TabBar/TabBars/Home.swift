@@ -356,6 +356,13 @@ class Home: CustomViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    func reloadAd() {
+        if IAProducts.store.isProductPurchased(IAProducts.premium) {
+            Ad.isPremium = true
+            headerView.titleLabel.text = R.string.localizable.appName() + (Ad.isPremium ? " Premium":"")
+        }
+    }
 }
 
 extension Home: SelectBestPodDelegate {

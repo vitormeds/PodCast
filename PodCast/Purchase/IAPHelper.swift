@@ -19,6 +19,10 @@ open class IAPHelper : NSObject  {
     fileprivate var productsRequest: SKProductsRequest?
     fileprivate var productsRequestCompletionHandler: ProductsRequestCompletionHandler?
     
+    var homeViewNavigationController: UIViewController!
+    var myPodCastsViewNavigationController: UIViewController!
+    var configViewNavigationController: UIViewController!
+    
     public init(productIds: Set<ProductIdentifier>) {
         productIdentifiers = productIds
         for productIdentifier in productIds {
@@ -60,8 +64,10 @@ extension IAPHelper {
         return SKPaymentQueue.canMakePayments()
     }
     
-    public func restorePurchases() {
-        print("restoring purchases")
+    public func restorePurchases(homeViewNavigationController: UIViewController,myPodCastsViewNavigationController: UIViewController,configViewNavigationController: UIViewController) {
+        self.homeViewNavigationController = homeViewNavigationController
+        self.myPodCastsViewNavigationController = myPodCastsViewNavigationController
+        self.configViewNavigationController = configViewNavigationController
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
 }
@@ -126,6 +132,9 @@ extension IAPHelper: SKPaymentTransactionObserver {
         print("restore... \(productIdentifier)")
         deliverPurchaseNotificationFor(identifier: productIdentifier)
         SKPaymentQueue.default().finishTransaction(transaction)
+        (homeViewNavigationController as! Home).reloadAd()
+        (myPodCastsViewNavigationController as! MyPodCasts).reloadAd()
+        (configViewNavigationController as! Config).reloadAd()
     }
     
     private func fail(transaction: SKPaymentTransaction) {
