@@ -25,6 +25,9 @@
 		4EAA2F37234272D500ECC561 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EAA2F36234272D400ECC561 /* GoogleService-Info.plist */; };
 		4EAA2F3A2342770100ECC561 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA2F392342770100ECC561 /* Ad.swift */; };
 		4EB296662318382F00C8E749 /* QueueDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB296652318382F00C8E749 /* QueueDAO.swift */; };
+		4EB9118823E457C000B1ED70 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9118723E457C000B1ED70 /* IAPHelper.swift */; };
+		4EB9118A23E4589C00B1ED70 /* IAProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9118923E4589C00B1ED70 /* IAProducts.swift */; };
+		4EB9118C23E4596300B1ED70 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB9118B23E4596300B1ED70 /* StoreKit.framework */; };
 		4EDAAE28231593BE005840AE /* HeaderPodCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDAAE27231593BE005840AE /* HeaderPodCast.swift */; };
 		4EEB473C2331111000B4C3CB /* DescriptionConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB473B2331111000B4C3CB /* DescriptionConfigTableViewCell.swift */; };
 		4EEB473E2331167800B4C3CB /* SingleButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB473D2331167800B4C3CB /* SingleButtonTableViewCell.swift */; };
@@ -146,6 +149,9 @@
 		4EAA2F36234272D400ECC561 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4EAA2F392342770100ECC561 /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		4EB296652318382F00C8E749 /* QueueDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDAO.swift; sourceTree = "<group>"; };
+		4EB9118723E457C000B1ED70 /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		4EB9118923E4589C00B1ED70 /* IAProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProducts.swift; sourceTree = "<group>"; };
+		4EB9118B23E4596300B1ED70 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4EDAAE27231593BE005840AE /* HeaderPodCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPodCast.swift; sourceTree = "<group>"; };
 		4EEB47392331031800B4C3CB /* PodCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PodCast.entitlements; sourceTree = "<group>"; };
 		4EEB473B2331111000B4C3CB /* DescriptionConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionConfigTableViewCell.swift; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5AFDB762332693308E7D5B9 /* Pods_PodCast.framework in Frameworks */,
+				4EB9118C23E4596300B1ED70 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +297,15 @@
 			path = Ad;
 			sourceTree = "<group>";
 		};
+		4EB9118623E457B000B1ED70 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				4EB9118723E457C000B1ED70 /* IAPHelper.swift */,
+				4EB9118923E4589C00B1ED70 /* IAProducts.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
 		4EEB473A233110FD00B4C3CB /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +318,7 @@
 		B2ADB1D05A02E4B9C7AB6FAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EB9118B23E4596300B1ED70 /* StoreKit.framework */,
 				DB9EFA0888AC86F36A02E245 /* Pods_PodCast.framework */,
 				6FD02A6212383B4260CA6047 /* Pods_PodCastTests.framework */,
 				F2ED2536C73296DA16A29FFC /* Pods_PodCastUITests.framework */,
@@ -356,6 +373,7 @@
 		F42561AB21D3C31400AA22A1 /* PodCast */ = {
 			isa = PBXGroup;
 			children = (
+				4EB9118623E457B000B1ED70 /* Purchase */,
 				F4BB771622E62B5A009FA730 /* DAO */,
 				F4C2C9F021FB8C4500467A06 /* Components */,
 				F47AAEBD21FA48EB0068FAD2 /* Animations */,
@@ -916,7 +934,7 @@
 			);
 			outputPaths = (
 				"$TEMP_DIR/rswift-lastrun",
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -987,6 +1005,7 @@
 				4EDAAE28231593BE005840AE /* HeaderPodCast.swift in Sources */,
 				F4E2E43A221354E5007C984E /* EpisodeSearch.swift in Sources */,
 				F4347CBF21FF459A002B2088 /* PlayerController.swift in Sources */,
+				4EB9118A23E4589C00B1ED70 /* IAProducts.swift in Sources */,
 				F4CA23B1221C74CC00714418 /* PodCastSearch.swift in Sources */,
 				F4FA04DE21F78C7900896B5C /* Genre.swift in Sources */,
 				F4CAF8E0228F1ACC00540F6C /* ContentTableViewCell.swift in Sources */,
@@ -1010,6 +1029,7 @@
 				4E78C3582318087500E464A5 /* DownloadManager.swift in Sources */,
 				F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */,
 				F4FA04E421F79E5A00896B5C /* BestPod.swift in Sources */,
+				4EB9118823E457C000B1ED70 /* IAPHelper.swift in Sources */,
 				4E2D1474232FF4CC0060242D /* Preferences.swift in Sources */,
 				F4F6DA9621D6FF6900A2CCA2 /* UIImageExtension.swift in Sources */,
 				F4CA23B3221C75B600714418 /* PodCastSearchList.swift in Sources */,

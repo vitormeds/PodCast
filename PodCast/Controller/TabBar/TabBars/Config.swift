@@ -98,13 +98,6 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             cell.setup()
             return cell
         }
-//        else if indexPath.row == 1 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
-//            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-//            cell.titleLabel.text = R.string.localizable.idiomaIndication() + " " + (userInfo.language ?? "")
-//            cell.setup()
-//            return cell
-//        }
         else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DescriptionConfigTableViewCell
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
@@ -126,16 +119,16 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
             cell.setup()
             return cell
         }
-        else {
+        else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellSingleButton") as! SingleButtonTableViewCell
             cell.clearDataDelegate = self
             cell.setup()
             return cell
         }
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cellRemoveAdButton") as! RemoveAdTableViewCell
-//        cell.removeAdDelegate = self
-//        cell.setup()
-//        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellRemoveAdButton") as! RemoveAdTableViewCell
+        cell.removeAdDelegate = self
+        cell.setup()
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -148,12 +141,6 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
            countryViewController.modalPresentationStyle = .overFullScreen
            present(countryViewController, animated: true)
         }
-//        else if indexPath.row == 1 {
-//            let language = LanguageListViewController()
-//            language.delegate = self
-//            let languageListViewController = UINavigationController(rootViewController: language)
-//            present(languageListViewController, animated: true)
-//        }
         else if indexPath.row == 1 {
             let shareText = R.string.localizable.downloadText() + " https://apps.apple.com/br/app/id/1474413697"
             let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
@@ -188,7 +175,7 @@ extension Config: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
 }
@@ -220,5 +207,17 @@ extension Config: GADBannerViewDelegate{
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         bannerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+    }
+}
+
+extension Config: RemoveAdDelegate {
+
+    func performRemoveAd() {
+        IAProducts.store.requestProducts(completionHandler: {
+            (status, productsOptional) in
+            if status && !(productsOptional?.isEmpty ?? true) {
+                IAProducts.store.buyProduct((productsOptional?.first)!)
+            }
+        })
     }
 }
