@@ -35,7 +35,8 @@
 "meuspodcasts" = "My PodCasts";
 "removead" = "Remove Advertisements";
 "sucess" = "Success";
-"removeDataSucessMessage" = "Dados apagados com sucesso.";
+"removeDataSucessMessage" = "Data deleted successfully..";
+"adInfoDescription" = "Ao obter a assinatura do PodCat Premium voce fica livre de anuncios.";
 
 
 

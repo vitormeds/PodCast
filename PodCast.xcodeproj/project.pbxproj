@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2666DABB952EAF0331A1366C /* libPods-PodCastUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B137E4440E2819CBBDBB0A /* libPods-PodCastUITests.a */; };
+		4E26AE5123E9F89700A09FE4 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26AE5023E9F89700A09FE4 /* PurchaseViewController.swift */; };
 		4E2D146B232FF4070060242D /* PreferencesDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146A232FF4070060242D /* PreferencesDAO.swift */; };
 		4E2D146D232FF4140060242D /* MyPodsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146C232FF4140060242D /* MyPodsDAO.swift */; };
 		4E2D1470232FF4B60060242D /* MyPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D146E232FF4B60060242D /* MyPods.swift */; };
@@ -113,6 +114,7 @@
 		214AF971DF7ACE56DB753502 /* Pods-PodCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCast.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCast/Pods-PodCast.release.xcconfig"; sourceTree = "<group>"; };
 		2250BCFDAEBDBF5CCA6EEF19 /* Pods-PodCastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastUITests/Pods-PodCastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B8E96A7D40A077B2C2FC276 /* Pods-PodCastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodCastUITests/Pods-PodCastUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4E26AE5023E9F89700A09FE4 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
 		4E2D146A232FF4070060242D /* PreferencesDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDAO.swift; sourceTree = "<group>"; };
 		4E2D146C232FF4140060242D /* MyPodsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPodsDAO.swift; sourceTree = "<group>"; };
 		4E2D146E232FF4B60060242D /* MyPods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPods.swift; sourceTree = "<group>"; };
@@ -253,6 +255,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E26AE4F23E9F88000A09FE4 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				4E26AE5023E9F89700A09FE4 /* PurchaseViewController.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
 		4E35FE9B23E06B5200A11E3B /* PodCastTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,6 +555,7 @@
 		F4AB34F121D729C900DAD399 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4E26AE4F23E9F88000A09FE4 /* Purchase */,
 				4EEB473A233110FD00B4C3CB /* Configurations */,
 				F4052E502285D9FA00B576C4 /* PodCastGenre */,
 				F4347CB821FF18BF002B2088 /* PodCast */,
@@ -1028,6 +1039,7 @@
 				4EEB473E2331167800B4C3CB /* SingleButtonTableViewCell.swift in Sources */,
 				4E78C3582318087500E464A5 /* DownloadManager.swift in Sources */,
 				F42561B521D3C31400AA22A1 /* PodCast.xcdatamodeld in Sources */,
+				4E26AE5123E9F89700A09FE4 /* PurchaseViewController.swift in Sources */,
 				F4FA04E421F79E5A00896B5C /* BestPod.swift in Sources */,
 				4EB9118823E457C000B1ED70 /* IAPHelper.swift in Sources */,
 				4E2D1474232FF4CC0060242D /* Preferences.swift in Sources */,

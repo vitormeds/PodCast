@@ -36,6 +36,7 @@
 "removead" = "Remove Advertisements";
 "sucess" = "Success";
 "removeDataSucessMessage" = "Data deleted successfully.";
+"adInfoDescription" = "";
 
 
 

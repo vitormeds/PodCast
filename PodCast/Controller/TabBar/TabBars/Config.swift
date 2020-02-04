@@ -225,11 +225,9 @@ extension Config: GADBannerViewDelegate{
 extension Config: RemoveAdDelegate {
 
     func performRemoveAd() {
-        IAProducts.store.requestProducts(completionHandler: {
-            (status, productsOptional) in
-            if status && !(productsOptional?.isEmpty ?? true) {
-                IAProducts.store.buyProduct((productsOptional?.first)!)
-            }
-        })
+        let purchaseViewController = PurchaseViewController()
+        let navPurchaseViewController = UINavigationController(rootViewController: purchaseViewController)
+        navPurchaseViewController.modalPresentationStyle = .overFullScreen
+        present(navPurchaseViewController, animated: true)
     }
 }
